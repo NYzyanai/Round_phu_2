@@ -1,6 +1,6 @@
 
 round_phu.dom=(function(){
-    var $ Sizzle;
+    var $Users$nyzyanai$Documents$GitHub$Sizzle;
 
     function hasClass(el,clsName){
         var regex = new RegExp("(^|\\s)" + clsName + "(\\s|$)");
