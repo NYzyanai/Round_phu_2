@@ -14,6 +14,9 @@ round_phu.game=(function(){
     }
 
     //公開メソッド
+    //なんで「０」じゃないとだめなの？
+    //Sizzleセレクタエンジンは、要素が一個とか０でも必ず配列で喋ってくるから必ず「０」
+    //で1番目の配列を選ばないと行けない
     return{
         showScreen :showScreen
     };

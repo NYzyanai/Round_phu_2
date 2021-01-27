@@ -19,7 +19,9 @@ window.addEventListener("load",function(){
             //sizzleはサイト名
             //全部のファイルがload、実効を終えたあとに呼び出される
             complete:function(){
-                //console.log("全部呼ばれたよ〜")
+                //最初の画面表示するよ！
+                round_phu.game.showScreen("splash-screen");
+                console.log("全部呼ばれたよ〜")
             }
         }
     ]);
