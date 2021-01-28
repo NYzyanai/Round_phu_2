@@ -9,8 +9,11 @@ body{
     top:0;
     width:969px;
     height:540px;
-    background-color:black
+    background-image:url(../src_phu/fullscreen/round_phu.png)
 }
+
+/*この・・/は上のディレクトリをさす*/
+
 
 #game .screen{
     position:absolute;
