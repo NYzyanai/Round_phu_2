@@ -8,7 +8,7 @@ window.addEventListener("load",function(){
 
     //そのなかでダイナミックロードを開始する
 
-    Modernizer.load([
+    Modernizr.load([
         {
             //以下ファイルは必ずロードされる
             load:[
