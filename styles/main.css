@@ -9,7 +9,8 @@ body{
     top:0;
     widows: 100%;
     height:100%;
-    background-image:url(../src_phu/fullscreen/round_phu.png)
+    background-image:url(../src_phu/fullscreen/round_phu.png);
+    background-size:cover;
 }
 
 /*この・・/は上のディレクトリをさす*/
