@@ -33,7 +33,7 @@ body{
 表示したいときだけだせる、screenのクラスがactiveになるとdisplayプロパティは
 blockになる。blockのつかいかたは？*/
 
-.pixelated {
+/*.pixelated {
     -ms-interpolation-mode: nearest-neighbor;
     image-rendering: pixelated;
-  }
+  }*/
