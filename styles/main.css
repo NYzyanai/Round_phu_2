@@ -26,7 +26,7 @@ body{
 }
 
 #game .screen.active{
-    display:block
+    display:block;
 }
 
 /*screenクラスのdivはdisplayプロパティにnoneをセット、画面をデフォで消して
