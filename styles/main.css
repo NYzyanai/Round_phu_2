@@ -7,8 +7,8 @@ body{
     position:absolute;
     left:0;
     top:0;
-    width:969px;
-    height:540px;
+    widows: 100%;
+    height:100%;
     background-image:url(../src_phu/fullscreen/round_phu.png)
 }
 
