@@ -37,7 +37,7 @@ function sizing(){
     console.log (rate_screen);
 
 
-    if (rate_screen>static_rate){
+    if (rate_screen>=static_rate){
         //もしも縦長だった場合には、widthをscreenにあわせる
         canvas.width=screen_width;
         canvas.height=screen_width*9/16;
