@@ -1,11 +1,3 @@
-var height;
-var width;
-var screen_height;
-var screen_width;
-
-height=180;
-width=320;
-
 function imageDraw(){
     var canvas = document.getElementById('canvas');    
         console.log("imagedraw now ");
@@ -20,40 +12,37 @@ function imageDraw(){
         ctx.imageSmoothingEnabled=false;
         ctx.drawImage(splash_img,0,0,canvas.width,canvas.height);
     }
-}
 
-function sizing(){
-    screen_width=document.getElementById("wrapper").clientWidth;
-    screen_height=document.getElementById("wrapper").clientHeight;
+    startup();
+    
+    function startup(){
+        var canvas= document.getElementById("canvas");
+    
+        canvas.addEventListener('click',function(){
+            console.log('clicked');
 
-    var rate_screen;
-    rate_screen =screen_height/screen_width;
-
-    var static_rate;
-    static_rate=16/9;
-    /*console.log(static_rate)*/
-
-    var canvas =document.getElementById("canvas");
-    console.log (rate_screen);
-
-
-    if (rate_screen>=static_rate){
-        //もしも縦長だった場合には、widthをscreenにあわせる
-        canvas.width=screen_width;
-        canvas.height=screen_width*9/16;
-        console.log("sita");
+            var yue =new Image();
+            yue.src= "src/yue/stand_yue.png";
         
-        canvas.style.left = (screen_width-canvas.width)/2+"px";
-        canvas.style.top = (screen_height-canvas.height)/2+"px";
-    }else{
-        //もしも横ながだった場合には、heightをscreenに合わせる必要がある
-        canvas.height=screen_height;
-        canvas.width=screen_height*static_rate;
-        console.log("ue");
-        canvas.style.top = (screen_height-canvas.height)/2+"px";
-        canvas.style.left = (screen_width-canvas.width)/2+"px";
+            yue.onload = function(){
+                sizing();
+                ctx.imageSmoothingEnabled=false;
+                ctx.drawImage(yue,0,0,yue.width,yue.height);
+                /*ctx.drawImage(splash_img,0,0,canvas.width,canvas.height);*/
+           
+            }
+        
+        },false);
+        console.log("no click");
+        
     }
-
     
 
+
+
+
+
+
+
 }
+ 
