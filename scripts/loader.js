@@ -1,8 +1,12 @@
-
+/*
+yepnope('scripts/Modernizr.js', Modernizr, function() {
+    //MyApp.init();
+    console.log("init");
+  });
+*/
 var round_phu = {};
 
 //round_phuは「全部のゲームモジュールが含まれる空間」
-
 
 //メインドキュメントがロードされるのを待つ
 window.addEventListener("load",function(){
