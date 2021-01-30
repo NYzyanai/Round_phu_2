@@ -1,4 +1,4 @@
-javascript
+
 yepnope('build.js', Modernizr, function() {
   MyApp.init();
 });
