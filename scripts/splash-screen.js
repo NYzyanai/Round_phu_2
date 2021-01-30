@@ -8,7 +8,7 @@ width=320;
 
 function imageDraw(){
     var canvas = document.getElementById('canvas');    
-
+        console.log("imagedraw now ");
     var ctx=canvas.getContext('2d');
     /*ctx contextって何？呪文？お決まりの呪文*/
 
