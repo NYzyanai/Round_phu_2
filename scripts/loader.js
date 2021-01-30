@@ -1,3 +1,8 @@
+javascript
+yepnope('build.js', Modernizr, function() {
+  MyApp.init();
+});
+
 var round_phu = {};
 
 //round_phuは「全部のゲームモジュールが含まれる空間」
