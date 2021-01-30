@@ -13,7 +13,7 @@ window.addEventListener("load",function(){
             //以下ファイルは必ずロードされる
             load:[
                 "scripts/sizzle.js",
-                "scripts/js",
+                "scripts/dom.js",
                 "scripts/game.js"
             ],
             //sizzleはサイト名
