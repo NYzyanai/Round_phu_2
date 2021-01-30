@@ -1,5 +1,5 @@
-function imageDraw{
-    var cvs = document.getElementById('round_phu');
+function imageDraw(){
+    var cvs = document.getElementById('Round_phu');
     var ctx=cvs.getContext('2d');
     /*ctx contextって何？呪文？お決まりの呪文*/
 
