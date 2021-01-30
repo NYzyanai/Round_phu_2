@@ -3,6 +3,16 @@ body{
     touch-action: manipulation;
 }
 
+#wrapper{
+    width:100vw;
+    height:100vh;
+}
+
+#canvas{
+    position:absolute;
+}
+
+
 #game{
     position:absolute;
     left:0;
