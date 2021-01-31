@@ -1,9 +1,13 @@
-function imageDraw(){
-    var canvas = document.getElementById('canvas');    
-    var ctx=canvas.getContext('2d');
+var canvas = document.getElementById('canvas');    
+var ctx
+var splash_img
+
+function splashscreen_imageDraw(){
+    canvas = document.getElementById('canvas');  
+    ctx=canvas.getContext('2d');
     /*ctx contextって何？呪文？お決まりの呪文*/
 
-    var splash_img =new Image();
+    splash_img =new Image();
     splash_img.src= "src/fullscreen/round_phu.png";
 
         //splashimageが詠み込まれたら描画する
@@ -14,7 +18,5 @@ function imageDraw(){
     }
 
 
-
-
-
 }
+

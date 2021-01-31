@@ -40,8 +40,8 @@ function sizing(){
 
 
 
-    rate_screen_h=screen_height/canvas.height;
-    rate_screen_w=screen_width/canvas.width;
+    rate_screen_h=180/canvas.height;
+    rate_screen_w=320/canvas.width;
 
     console.log(rate_screen_h);
     console.log(rate_screen_w);

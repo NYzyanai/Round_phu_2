@@ -1,6 +1,7 @@
 body{
     margin:0;
     touch-action: manipulation;
+    background-color:black;
 }
 
 #wrapper{
