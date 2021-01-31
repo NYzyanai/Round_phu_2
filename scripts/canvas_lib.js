@@ -3,6 +3,9 @@ var width;
 var screen_height;
 var screen_width;
 
+var rate_screen_h;
+var rate_screen_w;
+
 height=180;
 width=320;
 
@@ -34,6 +37,14 @@ function sizing(){
         canvas.style.left = (screen_width-canvas.width)/2+"px";
         canvas.style.top = (screen_height-canvas.height)/2+"px";
     }  
+
+
+
+    rate_screen_h=screen_height/canvas.height;
+    rate_screen_w=screen_width/canvas.width;
+
+    console.log(rate_screen_h);
+    console.log(rate_screen_w);
 
     
 

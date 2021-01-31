@@ -1,15 +1,15 @@
 var touchX=0;
 var touchY=0;
 
-window.onload =function(){
+function setup_touchevent(){
     var canvas= document.getElementById("canvas");    
     
     canvas.addEventListener('click',function(e){
 
         
         console.log(e.type);
-        console.log(e.offsetX);
-        console.log(e.offsetY);
+        console.log("クリックした座標："+e.offsetX/rate_screen_h);
+        console.log("クリックした座標："+e.offsetY/rate_screen_w);
         
 
         /*var yue =new Image();
