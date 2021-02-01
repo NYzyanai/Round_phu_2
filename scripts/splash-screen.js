@@ -2,6 +2,8 @@ var canvas = document.getElementById('canvas');
 var ctx
 var splash_img
 
+
+////////////画像描画////////
 function splashscreen_imageDraw(){
     canvas = document.getElementById('canvas');  
     ctx=canvas.getContext('2d');
@@ -17,6 +19,17 @@ function splashscreen_imageDraw(){
         ctx.drawImage(splash_img,0,0,canvas.width,canvas.height);
     }
 
+
+}
+
+///////////スタート押された時の処理
+
+function start_btn(){
+    fade_out();
+    if(after_fade_out()==true){
+        start_btn_flag=0;
+        movie_stage_flag=1;
+    }
 
 }
 

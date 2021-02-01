@@ -9,8 +9,7 @@ var rate_screen_w;
 height=180;
 width=320;
 
-console.log("canvas lib out of imagedrow");
-
+/////////クライアントにあわせたキャンバスの表示設定//////////
 function sizing(){
     screen_width=document.getElementById("wrapper").clientWidth;
     screen_height=document.getElementById("wrapper").clientHeight;
@@ -50,3 +49,35 @@ function sizing(){
 
 }
 
+
+
+//////////描画関連の関数///////
+function fade_in(){
+    let opacity= 0;
+    do {
+    opacity += 0.0001;
+    console.log(opacity);
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="rgba(0,0,0,opacity)";
+    } while (opacity < 1.1);
+}
+
+function fade_out(){
+    opacity =opacity +0.03;
+    console.log(opacity);
+    ctx.globalAlpha=opacity;
+    ctx.fillStyle="black";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+}
+
+function after_fade_out(){
+    if (opacity>1){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        opacity=1;
+        return true;
+    }
+    
+    return false;
+}
+
+////////
