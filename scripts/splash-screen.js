@@ -12,12 +12,18 @@ function splashscreen_imageDraw(){
     splash_img =new Image();
     splash_img.src= "src/fullscreen/round_phu.png";
 
+
+
         //splashimageが詠み込まれたら描画する
+    
     splash_img.onload = function(){
         sizing();
         ctx.imageSmoothingEnabled=false;
         ctx.drawImage(splash_img,0,0,canvas.width,canvas.height);
+        
     }
+
+
 
 
 }
@@ -33,3 +39,24 @@ function start_btn(){
 
 }
 
+
+
+////////
+
+function readme_imageDraw(){
+    canvas = document.getElementById('canvas');  
+    ctx=canvas.getContext('2d');
+    /*ctx contextって何？呪文？お決まりの呪文*/
+
+    readme_img=new Image();
+    readme_img.src="src/fullscreen/readme20210202.png";
+
+        //splashimageが詠み込まれたら描画する
+    readme_img.onload = function(){
+        sizing();
+        ctx.imageSmoothingEnabled=false;
+        ctx.drawImage(readme_img,0,0,canvas.width,canvas.height);
+    }
+
+
+}

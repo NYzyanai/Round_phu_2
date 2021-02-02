@@ -34,6 +34,10 @@ function loop(){
             if (start_btn_flag==1){
                 start_btn();
             }
+
+            if((310>=touchX && touchX<=340)&&(touchY<=177&&touchY>=159)){
+                readme_imageDraw();
+            }
         }
 
         if(movie_stage_flag==1){
