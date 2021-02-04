@@ -9,11 +9,13 @@ var rate_screen_w;
 height=180;
 width=320;
 
+var canvas
+
 /////////クライアントにあわせたキャンバスの表示設定//////////
 function sizing(){
     screen_width=document.getElementById("wrapper").clientWidth;
     screen_height=document.getElementById("wrapper").clientHeight;
-    var canvas =document.getElementById("canvas");
+     canvas=document.getElementById("canvas");
 
 
     if (screen_width*9/16<screen_height){
@@ -36,8 +38,6 @@ function sizing(){
         canvas.style.left = (screen_width-canvas.width)/2+"px";
         canvas.style.top = (screen_height-canvas.height)/2+"px";
     }  
-
-
 
     rate_screen_h=180/canvas.height;
     rate_screen_w=320/canvas.width;
@@ -76,7 +76,7 @@ function after_fade_out(){
         opacity=1;
         return true;
     }
-    
+
     return false;
 }
 

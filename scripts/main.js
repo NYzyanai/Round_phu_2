@@ -4,7 +4,10 @@
 window.onload =function(){
     setup_touchevent();
     setInterval(loop,30);
+    sizing();
     splash_stage_flag=1;
+    if(!canvas || !canvas.getContext) return false;
+    ctx = canvas.getContext('2d');
     splashscreen_imageDraw();
 
 }
@@ -19,6 +22,12 @@ start_btn_flag=0;
 ////movie////
 var movie_stage_flag
 ///stage1_phu////
+
+
+
+//newimageをするのは一階でOK
+//draw擦るのは毎秒
+
     
 
 //////////メイン処理////////
@@ -35,7 +44,7 @@ function loop(){
                 start_btn();
             }
 
-            if((310>=touchX && touchX<=340)&&(touchY<=177&&touchY>=159)){
+            if((270<=touchX && touchX<=340)&&(touchY<=177&&touchY>=159)){
                 readme_imageDraw();
             }
         }
