@@ -27,6 +27,7 @@ splash_screen_called=0;
 ////movie////
 var movie_stage_flag
 var readme_btn
+var readme_stage_flag
 ///stage1_phu////
 
 
@@ -59,7 +60,19 @@ function loop(){
             if(readme_flag==1){                
                 readme_btn();
             }
+        }
 
+        if(readme_stage_flag==1){
+            console.log("readme_stage_flagたってるよ")
+            if(0<touchX && 0<touchY){
+                splash_stage_flag=1;
+                splash_screen_called=0;
+                readme_stage_flag=0;
+                readme_flag=0;
+                console.log("判定はtrueだったよ")
+            }else{
+                console.log("判定がfalseだったよ")
+            }
         }
 
         if(movie_stage_flag==1){
