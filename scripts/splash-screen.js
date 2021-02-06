@@ -17,7 +17,7 @@ var imgCount=0;
 function splashscreen_imageDraw(){
     canvas = document.getElementById('canvas');  
     ctx=canvas.getContext('2d');
-    ctx.imageSmoothingEnabled=false;
+    
     for (var i =0;i<splash_imgs_path.length;i++){
         draw_image(i);
     }
@@ -85,8 +85,9 @@ function start_btn(){
 function readme_btn(){
     fade_out();
     if(after_fade_out()==true){
-        readme_flag=0;
-
+        readme_imageDraw();
+        readme_stage_flag=1;
+        splash_stage_flag=0;
     }
 }
 

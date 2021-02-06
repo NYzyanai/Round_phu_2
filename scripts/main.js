@@ -48,20 +48,16 @@ function loop(){
             if (touchX<=160 && touchY>=40 ){ 
                 start_btn_flag=1;
             }
-
-
             if((270<=touchX && touchX<=340)&&(touchY<=177&&touchY>=159)){
                 readme_flag=1;
             }
-
-
                         //フラグに応じた処理
-                        if (start_btn_flag==1){
-                            start_btn();
-                        }
-            if(readme_flag==1){
-                
-                readme_imageDraw();
+            if (start_btn_flag==1){
+                start_btn();
+            }
+
+            if(readme_flag==1){                
+                readme_btn();
             }
 
         }
