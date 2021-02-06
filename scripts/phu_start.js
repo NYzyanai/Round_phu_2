@@ -98,9 +98,12 @@ var round_movie_loop_count
 
 function movie_loop(){
     ctx.drawImage
-    movie_loop_count=movie_loop_count+0.3;
+    movie_loop_count=movie_loop_count+0.3+(between_mil/1000);
+
+    //いま＋０.３にしてる奴を秒基準にして、端末ごとの歳を無くす
     if(movie_loop_count>=12){
-        movie_loop_count=0.1;
+        movie_loop_count=0.3;
+        //描画に遅れる時間分足す
     }
     if(round_movie_loop_count==Math.floor(movie_loop_count)){
         console.log("なし")
@@ -110,3 +113,4 @@ function movie_loop(){
         ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);    
     }
 }
+

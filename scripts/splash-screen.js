@@ -18,7 +18,18 @@ splash_load_flag=0;
 
 
 
+
+
+
+
+
 function splashscreen_imageDraw(){
+
+    var end_sec
+var start_mil
+
+
+
     canvas = document.getElementById('canvas');  
     ctx=canvas.getContext('2d');
     ctx.imageSmoothingEnabled=false;

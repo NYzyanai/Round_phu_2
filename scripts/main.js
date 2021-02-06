@@ -9,7 +9,6 @@ window.onload =function(){
     /*if(!canvas || !canvas.getContext) return false;
     ctx = canvas.getContext('2d');
     splashscreen_imageDraw();*/
-
 }
 
 var opacity;
@@ -29,6 +28,7 @@ var movie_stage_flag
 var readme_btn
 var readme_stage_flag
 ///stage1_phu////
+var between_mil
 
 
 
@@ -37,9 +37,21 @@ var readme_stage_flag
 
     
 
+var start_sec
+var start_mil
+var startdate
+var enddate
+
 //////////メイン処理////////
 function loop(){
     //1秒間に30回よばれる
+
+    startdate =new Date();
+    start_sec=startdate.getSeconds();
+    start_mil=startdate.getMilliseconds();
+
+    //console.log("スタート" + start_sec + ":" + start_mil);
+    
 
         ////////入力に応じたフラグを建てる//
         if (splash_stage_flag==1){
@@ -85,4 +97,13 @@ function loop(){
     /////touchデータの初期化/////
     touchX=0;
     touchY=0;
+
+    enddate=new Date();
+    end_sec=enddate.getSeconds();
+    end_mil=enddate.getMilliseconds();
+
+    //console.log("終わり秒数" + end_sec　+ ":"　+ end_mil);
+    
+    between_mil=(1000*((end_sec-start_sec))+(end_mil-start_mil));
+    console.log("差の秒数"+between_mil);
 }
