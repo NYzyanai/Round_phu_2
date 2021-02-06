@@ -17,9 +17,11 @@ var imgCount=0;
 function splashscreen_imageDraw(){
     canvas = document.getElementById('canvas');  
     ctx=canvas.getContext('2d');
+    ctx.imageSmoothingEnabled=false;
     for (var i =0;i<splash_imgs_path.length;i++){
         draw_image(i);
     }
+    splash_screen_called=1;
 }
 
 function draw_image(num){
@@ -71,6 +73,7 @@ function start_btn(){
     if(after_fade_out()==true){
         start_btn_flag=0;
         movie_stage_flag=1;
+        splashscreen_f
     }
 
 }
@@ -78,6 +81,14 @@ function start_btn(){
 
 
 ////////
+
+function readme_btn(){
+    fade_out();
+    if(after_fade_out()==true){
+        readme_flag=0;
+
+    }
+}
 
 function readme_imageDraw(){
     canvas = document.getElementById('canvas');  
@@ -93,6 +104,4 @@ function readme_imageDraw(){
         ctx.imageSmoothingEnabled=false;
         ctx.drawImage(readme_img,0,0,canvas.width,canvas.height);
     }
-
-
 }

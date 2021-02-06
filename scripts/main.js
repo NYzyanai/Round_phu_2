@@ -6,9 +6,9 @@ window.onload =function(){
     setInterval(loop,30);
     sizing();
     splash_stage_flag=1;
-    if(!canvas || !canvas.getContext) return false;
+    /*if(!canvas || !canvas.getContext) return false;
     ctx = canvas.getContext('2d');
-    splashscreen_imageDraw();
+    splashscreen_imageDraw();*/
 
 }
 
@@ -19,8 +19,14 @@ opacity=0;
 var splash_stage_flag
 var start_btn_flag
 start_btn_flag=0;
+var readme_flag
+readme_flag=0;
+
+var splash_screen_called
+splash_screen_called=0;
 ////movie////
 var movie_stage_flag
+var readme_btn
 ///stage1_phu////
 
 
@@ -36,17 +42,28 @@ function loop(){
 
         ////////入力に応じたフラグを建てる//
         if (splash_stage_flag==1){
+            if(splash_screen_called==0){
+                splashscreen_imageDraw();
+            }
             if (touchX<=160 && touchY>=40 ){ 
                 start_btn_flag=1;
             }
-            //フラグに応じた処理
-            if (start_btn_flag==1){
-                start_btn();
-            }
+
 
             if((270<=touchX && touchX<=340)&&(touchY<=177&&touchY>=159)){
+                readme_flag=1;
+            }
+
+
+                        //フラグに応じた処理
+                        if (start_btn_flag==1){
+                            start_btn();
+                        }
+            if(readme_flag==1){
+                
                 readme_imageDraw();
             }
+
         }
 
         if(movie_stage_flag==1){
