@@ -14,8 +14,7 @@ function movie_imageDraw(){
         movie_img.onload = function(){
         start_movie_flag=1;
 
-        after_fade_out_flag=0;
-        sizing();
+        after_fade_out_flag=0;ß
         ctx.imageSmoothingEnabled=false;
         ctx.drawImage(movie_img,0,0,canvas.width,canvas.height);
     }
