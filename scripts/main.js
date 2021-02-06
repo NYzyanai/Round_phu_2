@@ -66,9 +66,9 @@ function loop(){
             console.log("readme_stage_flagたってるよ")
             if(0<touchX && 0<touchY){
                 splash_stage_flag=1;
-                splash_screen_called=0;
                 readme_stage_flag=0;
                 readme_flag=0;
+                splash_screen_called=0;
                 console.log("判定はtrueだったよ")
             }else{
                 console.log("判定がfalseだったよ")
@@ -78,6 +78,7 @@ function loop(){
         if(movie_stage_flag==1){
             //描画の函数をよび出す！！！
             movie_imageDraw();
+            splash_stage_flag=0;
         }
 
     /////touchデータの初期化/////

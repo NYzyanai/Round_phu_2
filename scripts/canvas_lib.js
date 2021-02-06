@@ -69,12 +69,16 @@ function fade_out(){
     ctx.fillStyle="black";
     ctx.fillRect(0,0,canvas.width,canvas.height);
 }
-
+var after_fade_out_flag;
+after_fade_out_flag=0;
 function after_fade_out(){
+    if(after_fade_out_flag==0){
     if (opacity>1){
         ctx.clearRect(0,0,canvas.width,canvas.height);
         opacity=1;
         return true;
+        after_fade_out_flag=1;
+    }
     }
 
     return false;

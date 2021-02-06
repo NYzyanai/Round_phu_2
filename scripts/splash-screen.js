@@ -26,6 +26,7 @@ function splashscreen_imageDraw(){
             draw_image(i);
     }
     splash_screen_called=1;
+    "描かれたよ！"
 }
 
 function load_image(num){
@@ -82,10 +83,12 @@ function asplashscreen_imageDraw(){
 
 function start_btn(){
     fade_out();
+    console.log("スタートするわよ！！！！！")
     if(after_fade_out()==true){
+        after_fade_out_flag=0;
         start_btn_flag=0;
         movie_stage_flag=1;
-        splashscreen_f
+        splashscreen_flag=0;
     }
 
 }
@@ -96,7 +99,9 @@ function start_btn(){
 
 function readme_btn(){
     fade_out();
+
     if(after_fade_out()==true){
+        after_fade_out_flag=0;
         readme_imageDraw();
         readme_stage_flag=1;
         splash_stage_flag=0;
