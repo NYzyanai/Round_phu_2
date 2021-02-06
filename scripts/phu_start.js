@@ -58,17 +58,19 @@ function movie_imageDraw(){
     ctx.imageSmoothingEnabled=false;
 
 
-    for (var i =0;i<movie_imgs_path.length;i++){
-            movie_load_image(i);
-            movie_draw_image(i);
-    }
+
     movie_image_called=1;
     //console.log("描かれたよ！");
 
-    if(movie_imgCount>=movie_imgs.length){
+    if(movie_imgCount>=12){
         console.log("アニメ開始");
         movie_loop();
-    }      
+    }else{
+        for (var i =0;i<movie_imgs_path.length;i++){
+            movie_load_image(i);
+            movie_draw_image(i);
+        }
+    }
 
 }
 
@@ -78,7 +80,6 @@ function movie_load_image(num){
     movie_imgs[num].src=movie_imgs_path[num];
     //console.log("loadしたよー");
     movie_load_flag=1;
-
 }
 
 
@@ -101,6 +102,11 @@ function movie_loop(){
     if(movie_loop_count>=12){
         movie_loop_count=0.1;
     }
-    round_movie_loop_count=Math.floor(movie_loop_count);
-    ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);
+    if(round_movie_loop_count==Math.floor(movie_loop_count)){
+        console.log("なし")
+    }else{
+        console.log("だす")
+        round_movie_loop_count=Math.floor(movie_loop_count);
+        ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);    
+    }
 }
