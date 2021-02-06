@@ -51,6 +51,7 @@ function loop(){
             }
             if((270<=touchX && touchX<=340)&&(touchY<=177&&touchY>=159)){
                 readme_flag=1;
+                readme_finished_flag=0;
             }
                         //フラグに応じた処理
             if (start_btn_flag==1){

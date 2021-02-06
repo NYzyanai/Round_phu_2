@@ -98,15 +98,21 @@ function start_btn(){
 ////////
 
 function readme_btn(){
-    fade_out();
-
+    console.log("うんち")
     if(after_fade_out()==true){
         after_fade_out_flag=0;
         readme_imageDraw();
         readme_stage_flag=1;
         splash_stage_flag=0;
+    }else{
+        if(readme_finished_flag==0){
+            fade_out();
+        }
     }
 }
+
+var readme_finished_flag
+readme_finished_flag=0;
 
 function readme_imageDraw(){
     canvas = document.getElementById('canvas');  
@@ -121,5 +127,6 @@ function readme_imageDraw(){
         sizing();
         ctx.imageSmoothingEnabled=false;
         ctx.drawImage(readme_img,0,0,canvas.width,canvas.height);
+        readme_finished_flag=1
     }
 }
