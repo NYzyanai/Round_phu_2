@@ -12,9 +12,9 @@ var splash_imgs_path=[
 
 var splash_imgs=[];
 var imgArr=[];
-var imgCount=0;
-var load_flag
-load_flag=0;
+var splash_imgCount=0;
+var splash_load_flag
+splash_load_flag=0;
 
 
 
@@ -23,31 +23,31 @@ function splashscreen_imageDraw(){
     ctx=canvas.getContext('2d');
     ctx.imageSmoothingEnabled=false;
     for (var i =0;i<splash_imgs_path.length;i++){
-            draw_image(i);
+            splash_draw_image(i);
     }
     splash_screen_called=1;
     "描かれたよ！"
 }
 
-function load_image(num){
+function splash_load_image(num){
     splash_imgs[num]=new Image();
     splash_imgs[num].src=splash_imgs_path[num];
     console.log("loadしたよー");
-    load_flag=1;
+    splash_load_flag=1;
 }
 
-function draw_image(num){
+function splash_draw_image(num){
     splash_imgs[num]=new Image();
     splash_imgs[num].src=splash_imgs_path[num];
     console.log("ここまでは来てる");
 
     ///画像読込後にカウントアップ
     splash_imgs[num].onload=function(){
-        imgCount++
-        console.log(imgCount);
+        splash_imgCount++
+        console.log(splash_imgCount);
 
 
-    if(imgCount>=splash_imgs.length){
+    if(splash_imgCount>=splash_imgs.length){
             console.log("imgカウントは２");
 
         for (var i=0;i<splash_imgs.length;i++){                
