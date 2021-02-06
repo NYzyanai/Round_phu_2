@@ -98,7 +98,7 @@ function start_btn(){
 ////////
 
 function readme_btn(){
-    console.log("うんち")
+    //console.log("うんち")
     if(after_fade_out()==true){
         after_fade_out_flag=0;
         readme_imageDraw();

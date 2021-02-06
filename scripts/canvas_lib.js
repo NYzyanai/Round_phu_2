@@ -75,7 +75,7 @@ function after_fade_out(){
     if(after_fade_out_flag==0){
     if (opacity>1){
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        opacity=1;
+        opacity=0;
         return true;
         after_fade_out_flag=1;
     }
