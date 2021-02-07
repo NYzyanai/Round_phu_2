@@ -201,16 +201,16 @@ var movie_escape_loop_flag=0;
 function movie_loop(){
     ctx.drawImage
 
+    if(between_mil>=0 && movie_loop_count<100){
+        movie_loop_count=movie_loop_count+0.25+(between_mil/1000　);
+    }
 
     console.log(sum_movie_loop_count);
     //いま＋０.３にしてる奴を秒基準にして、端末ごとの歳を無くす
     if(movie_loop_count>=12){
         if(movie_escape_loop_flag==0){
             movie_loop_count=0.25;
-            
-            if(between_mil>=0){
-                movie_loop_count=movie_loop_count+0.25+(between_mil/1000　);
-            }
+
         }
             //描画に遅れる時間分足す
         sum_movie_loop_count=sum_movie_loop_count+1;
@@ -224,21 +224,31 @@ function movie_loop(){
         
         if(sum_movie_loop_count<=2){
             ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);    
-        }else{
-            ctx.drawImage(movie_imgs[round_movie_loop_count+11],0,0,canvas.width,canvas.height);  
-            movie_escape_loop_flag=1;
-            if(round_movie_loop_count>movie_imgs_path.length){
-                round_movie_loop_count=movie_imgs_path.length-11;
-                movie_loop_count=movie_imgs_path.length-11;
-                end_movie_count=end_movie_count+1;
-                if(end_movie_count==10){
-                    console.log("オワオワリ")
-                }
+            movie_maisuu_count=movie_maisuu_count+1;
+            if (movie_maisuu_count>134){
+                console.log("unchi");
+                /////よく分からんがここにきたら次
+                movie_stage_flag=0;
             }
+        }else{
+            movie_escape_loop_flag=1;
+            movie_maisuu_count=movie_maisuu_count+1;
+            if (movie_maisuu_count>134){
+                console.log("unchi");
+                                /////よく分からんがここにきたら次
+                movie_stage_flag=0;
+            }
+            ctx.drawImage(movie_imgs[round_movie_loop_count+11],0,0,canvas.width,canvas.height);  
+
+            
+            /*if((round_movie_loop_count+11)>=(movie_imgs_path.length)){
+                round_movie_loop_count=movie_imgs_path.length-22;
+                movie_loop_count=movie_imgs_path.length-22;
+            }
+            */
         }   
         }
 }
 
-var end_movie_count
-end_movie_count=0;
-
+var movie_maisuu_count
+movie_maisuu_count=0;
