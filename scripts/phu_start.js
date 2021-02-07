@@ -95,23 +95,30 @@ function movie_draw_image(num){
     }  
 }
 var round_movie_loop_count
+var sum_movie_loop_count
+sum_movie_loop_count=0;
 
 function movie_loop(){
     ctx.drawImage
     movie_loop_count=movie_loop_count+0.3+(between_mil/1000　);
 
+    console.log(sum_movie_loop_count);
     //いま＋０.３にしてる奴を秒基準にして、端末ごとの歳を無くす
     if(movie_loop_count>=12){
         movie_loop_count=0.3;
         //描画に遅れる時間分足す
+        sum_movie_loop_count=sum_movie_loop_count+1;
     }
     if(round_movie_loop_count==Math.floor(movie_loop_count)){
-        console.log("なし")
+        //console.log("なし")
     }else{
-        console.log("だす")
+        //console.log("だす")
         round_movie_loop_count=Math.floor(movie_loop_count);
         ctx.imageSmoothingEnabled=false;
-        ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);    
-    }
+        
+        if(sum_movie_loop_count<=4){
+            ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);    
+        }
+        }
 }
 
