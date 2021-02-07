@@ -26,7 +26,7 @@ splash_load_flag=0;
 function splashscreen_imageDraw(){
 
     var end_sec
-var start_mil
+    var start_mil
 
 
 
@@ -36,8 +36,8 @@ var start_mil
     for (var i =0;i<splash_imgs_path.length;i++){
             splash_draw_image(i);
     }
-    splash_screen_called=1;
-    "描かれたよ！"
+    splash_screen_called=splash_screen_called+1;
+
 }
 
 function splash_load_image(num){
@@ -110,14 +110,13 @@ function start_btn(){
 
 function readme_btn(){
     //console.log("うんち")
-    if(after_fade_out()==true){
-        after_fade_out_flag=0;
+    if(after_fade_out_middle_flag==1){
         readme_imageDraw();
         readme_stage_flag=1;
         splash_stage_flag=0;
     }else{
         if(readme_finished_flag==0){
-            fade_out();
+            fade_out_middle();
         }
     }
 }
@@ -125,19 +124,28 @@ function readme_btn(){
 var readme_finished_flag
 readme_finished_flag=0;
 
+
+readme_img=new Image();
+readme_img.src="src/fullscreen/readme20210207.png";
+
+readme_img.onload = function(){
+    readme_draw_can_flag=1;
+}
+
 function readme_imageDraw(){
     canvas = document.getElementById('canvas');  
     ctx=canvas.getContext('2d');
     /*ctx contextって何？呪文？お決まりの呪文*/
 
-    readme_img=new Image();
-    readme_img.src="src/fullscreen/readme20210207.png";
 
         //splashimageが詠み込まれたら描画する
-    readme_img.onload = function(){
-        sizing();
+
+    if(readme_draw_can_flag=1){
         ctx.imageSmoothingEnabled=false;
         ctx.drawImage(readme_img,0,0,canvas.width,canvas.height);
-        readme_finished_flag=1
+        console.log("農奴何で描画してる？"　+ opacity);
+        readme_finished_flag=1;
     }
+
+
 }

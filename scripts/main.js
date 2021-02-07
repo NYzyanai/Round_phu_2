@@ -55,7 +55,7 @@ function loop(){
 
         ////////入力に応じたフラグを建てる//
         if (splash_stage_flag==1){
-            if(splash_screen_called==0){
+            if(splash_screen_called<4){
                 splashscreen_imageDraw();
             }
             if (touchX<=160 && touchY>=40 ){ 
@@ -76,6 +76,7 @@ function loop(){
         }
 
         if(readme_stage_flag==1){
+            readme_imageDraw();
             //console.log("readme_stage_flagたってるよ")
             if(0<touchX && 0<touchY){
                 splash_stage_flag=1;

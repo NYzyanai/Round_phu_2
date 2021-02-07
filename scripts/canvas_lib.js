@@ -84,4 +84,25 @@ function after_fade_out(){
     return false;
 }
 
-////////
+////////半フェードアウト函数を作ろうと！！！！
+
+var fade_out_middle_count
+fade_out_middle_count=0;
+var after_fade_out_middle_flag
+after_fade_out_middle_flag=0;
+
+function fade_out_middle(){
+    if(fade_out_middle_count<10){
+    opacity =opacity +0.03;
+    console.log(opacity);
+    ctx.globalAlpha=opacity;
+    ctx.fillStyle="black";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    fade_out_middle_count=fade_out_middle_count+1;
+    }else{
+        console.log("もうきえない");
+        after_fade_out_middle_flag=1;
+        opacity=0;
+        after_fade_out_flag=1;
+    }
+}
