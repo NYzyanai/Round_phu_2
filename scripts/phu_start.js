@@ -38,7 +38,20 @@ var movie_imgs_path=[
     'src/movie/b_phu9.png',
     'src/movie/b_phu10.png',
     'src/movie/b_phu11.png',
-    'src/movie/b_phu12.png'
+    'src/movie/b_phu12.png',
+    'src/movie/r_phu13.png',
+    'src/movie/r_phu14.png',
+    'src/movie/r_phu15.png',
+    'src/movie/r_phu16.png',
+    'src/movie/r_phu17.png',
+    'src/movie/r_phu18.png',
+    'src/movie/r_phu19.png',
+    'src/movie/r_phu20.png',
+    'src/movie/r_phu21.png',
+    'src/movie/r_phu22.png',
+    'src/movie/r_phu23.png',
+    'src/movie/r_phu24.png',
+    'src/movie/r_phu25.png'
 ]
 
 
@@ -57,12 +70,10 @@ function movie_imageDraw(){
     ctx=canvas.getContext('2d');
     ctx.imageSmoothingEnabled=false;
 
-
-
     movie_image_called=1;
     //console.log("描かれたよ！");
 
-    if(movie_imgCount>=12){
+    if(movie_imgCount>=24){
         console.log("アニメ開始");
         movie_loop();
     }else{
@@ -87,7 +98,7 @@ function movie_load_image(num){
 function movie_draw_image(num){
     ///画像読込後にカウントアップ
 
-    if(movie_imgCount<=12){
+    if(movie_imgCount<=24){
     movie_imgs[num].onload=function(){
         movie_imgCount++
         console.log("今movie_countは" + movie_imgCount);
@@ -118,6 +129,8 @@ function movie_loop(){
         
         if(sum_movie_loop_count<=4){
             ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);    
+        }else{
+            ctx.drawImage(movie_imgs[round_movie_loop_count+11],0,0,canvas.width,canvas.height);  
         }
         }
 }
