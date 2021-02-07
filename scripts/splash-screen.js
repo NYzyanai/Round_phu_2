@@ -131,7 +131,7 @@ function readme_imageDraw(){
     /*ctx contextって何？呪文？お決まりの呪文*/
 
     readme_img=new Image();
-    readme_img.src="src/fullscreen/readme20210202.png";
+    readme_img.src="src/fullscreen/readme20210207.png";
 
         //splashimageが詠み込まれたら描画する
     readme_img.onload = function(){

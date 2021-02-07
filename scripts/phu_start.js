@@ -111,12 +111,12 @@ sum_movie_loop_count=0;
 
 function movie_loop(){
     ctx.drawImage
-    movie_loop_count=movie_loop_count+0.3+(between_mil/1000　);
+    movie_loop_count=movie_loop_count+0.25+(between_mil/1000　);
 
     console.log(sum_movie_loop_count);
     //いま＋０.３にしてる奴を秒基準にして、端末ごとの歳を無くす
     if(movie_loop_count>=12){
-        movie_loop_count=0.3;
+        movie_loop_count=0.25;
         //描画に遅れる時間分足す
         sum_movie_loop_count=sum_movie_loop_count+1;
     }
@@ -127,11 +127,11 @@ function movie_loop(){
         round_movie_loop_count=Math.floor(movie_loop_count);
         ctx.imageSmoothingEnabled=false;
         
-        if(sum_movie_loop_count<=4){
+        if(sum_movie_loop_count<=2){
             ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);    
         }else{
             ctx.drawImage(movie_imgs[round_movie_loop_count+11],0,0,canvas.width,canvas.height);  
-        }
+        }   
         }
 }
 
