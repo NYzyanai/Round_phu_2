@@ -71,6 +71,7 @@ function fade_out(){
 }
 var after_fade_out_flag;
 after_fade_out_flag=0;
+
 function after_fade_out(){
     if(after_fade_out_flag==0){
     if (opacity>1){

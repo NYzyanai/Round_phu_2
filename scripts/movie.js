@@ -161,7 +161,7 @@ function movie_imageDraw(){
     //console.log("描かれたよ！");
 
     if(movie_imgCount>=24){
-        console.log("アニメ開始");
+        //console.log("アニメ開始");
         movie_loop();
     }else{
         for (var i =0;i<movie_imgs_path.length;i++){
@@ -173,7 +173,7 @@ function movie_imageDraw(){
 }
 
 function movie_load_image(num){
-    console.log("load_imageがよばれた")
+    //console.log("load_imageがよばれた")
     movie_imgs[num]=new Image();
     movie_imgs[num].src=movie_imgs_path[num];
     //console.log("loadしたよー");
@@ -188,7 +188,7 @@ function movie_draw_image(num){
     if(movie_imgCount<=24){
     movie_imgs[num].onload=function(){
         movie_imgCount++
-        console.log("今movie_countは" + movie_imgCount);
+        //console.log("今movie_countは" + movie_imgCount);
     }
     }  
 }
@@ -226,7 +226,7 @@ function movie_loop(){
             ctx.drawImage(movie_imgs[round_movie_loop_count],0,0,canvas.width,canvas.height);    
             movie_maisuu_count=movie_maisuu_count+1;
             if (movie_maisuu_count>134){
-                console.log("unchi");
+                //console.log("unchi");
                 /////よく分からんがここにきたら次
                 movie_stage_flag=0;
                 phu_stage_flag_before=1;
@@ -235,7 +235,7 @@ function movie_loop(){
             movie_escape_loop_flag=1;
             movie_maisuu_count=movie_maisuu_count+1;
             if (movie_maisuu_count>134){
-                console.log("unchi");
+                //console.log("unchi");
                                 /////よく分からんがここにきたら次
                 movie_stage_flag=0;
                 phu_stage_flag_before=1;

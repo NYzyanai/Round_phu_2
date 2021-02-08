@@ -97,7 +97,7 @@ function loop(){
         }
 
         if(phu_stage_flag_before==1){
-            fade_out();
+            phu_stage_1();
         }
 
     /////touchデータの初期化/////
@@ -111,5 +111,5 @@ function loop(){
     //console.log("終わり秒数" + end_sec　+ ":"　+ end_mil);
     
     between_mil=(1000*((end_sec-start_sec))+(end_mil-start_mil));
-    console.log("差の秒数"+between_mil);
+    //console.log("差の秒数"+between_mil);
 }
