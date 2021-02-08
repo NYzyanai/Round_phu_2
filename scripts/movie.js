@@ -229,6 +229,7 @@ function movie_loop(){
                 console.log("unchi");
                 /////よく分からんがここにきたら次
                 movie_stage_flag=0;
+                phu_stage_flag_before=1;
             }
         }else{
             movie_escape_loop_flag=1;
@@ -237,6 +238,7 @@ function movie_loop(){
                 console.log("unchi");
                                 /////よく分からんがここにきたら次
                 movie_stage_flag=0;
+                phu_stage_flag_before=1;
             }
             ctx.drawImage(movie_imgs[round_movie_loop_count+11],0,0,canvas.width,canvas.height);  
 

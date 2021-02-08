@@ -20,6 +20,8 @@ var start_btn_flag
 start_btn_flag=0;
 var readme_flag
 readme_flag=0;
+var phu_stage_flag_before=0;
+
 
 var splash_screen_called
 splash_screen_called=0;
@@ -92,6 +94,10 @@ function loop(){
             //描画の函数をよび出す！！！
             movie_imageDraw();
             splash_stage_flag=0;
+        }
+
+        if(phu_stage_flag_before==1){
+            fade_out();
         }
 
     /////touchデータの初期化/////
