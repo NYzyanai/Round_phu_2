@@ -6,11 +6,13 @@ phu_stage_flag_before=0;
 
 var phu_imgs=[];
 var phu_imgs_path=[];
-var phu_imgCount
+var phu_imgCount=0;
 
 phu_imgs_path=[
     'src/animal_marmot_white_brown.png',
-    'src/stage1_obj/mount_1.png'
+    'src/stage1_obj/mount_1.png',
+    'src/stage1_obj/tree_1.png',
+    'src/stage1_obj/tree_2.png'
 ]
 
 
@@ -22,39 +24,49 @@ function phu_imageDraw(){
     ctx=canvas.getContext('2d');
     ctx.imageSmoothingEnabled=false;
 
-    for (var i =0;i<phu_imgs_path.length;i++){
-        phu_load_image(i);
-        phu_draw_image(i);
+    if(phu_loaded_flag==1){
+        phu_draw_image();
+    }else if(phu_loaded_flag==0){
+            phu_load_image();
     }
 
-}
-var phu_load_flag=0;
+} 
 
-function phu_load_image(num){
-    console.log("load_imageがよばれた")
+
+var phu_loaded_flag=0;
+
+function phu_load_image(){
+    ///画像読込後にカウントアップ
+    for(var num=0;num<phu_imgs_path.length;num++){
     phu_imgs[num]=new Image();
     phu_imgs[num].src=phu_imgs_path[num];
-    //console.log("loadしたよー");
-    phu_load_flag=1;
-}
 
+    phu_imgs[num].onload=function(){
+        phu_imgCount=phu_imgCount+1;
 
-function phu_draw_image(num){
-    ///画像読込後にカウントアップ
-
-    if(phu_imgCount<phu_imgs.length){
-        phu_imgs[num].onload=function(){
-            phu_imgCount++
-            console.log("今phu_countは" + phu_imgCount);
-        }
-    }else{
-        ctx.phu_draw_image(phu_imgs[phu_imgCount],0,0,canvas.Width,canvas.Height);
+    }
     }
 
+    if(phu_imgCount>=phu_imgs_path.length){
+        phu_loaded_flag=1;
+    }
+
+
+
+}
+
+function phu_draw_image(){
+if(phu_imgCount>=phu_imgs_path.length){
+    for (var j=0;j<phu_imgs.length;j++){
+
+    ctx.drawImage(phu_imgs[j],0,0,canvas.width,canvas.height);
+    }
+}
 }
 
 var phu_stage_1_started_flag 
 phu_stage_1_started_flag=0;
+
 
 function phu_stage_1(){
     if(after_fade_out()==true){
@@ -71,4 +83,5 @@ function phu_stage_1(){
     if(phu_stage_1_started_flag==1){
         phu_imageDraw();
     }
+
 }

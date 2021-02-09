@@ -38,3 +38,45 @@ function load_image(num){
     console.log("loadしたよー");
     load_flag=1;
 }
+
+
+var imgs = [
+	'dog.jpg',
+	'cat.jpg',
+	'dolphin.jpg',
+	'bird.jpg',
+	'turtle.jpg'
+];
+var imgArr = [];
+var imgCount = 0;
+var canvas = document.getElementById('canvas');
+var ctx;
+window.onload = function() {
+	if(!canvas || !canvas.getContext) return false;
+	ctx = canvas.getContext('2d');
+	draw();
+}
+
+// canvasに画像を描画
+function draw() {
+	for (var i = 0; i < imgs.length; i++) {
+		draw_image(i);
+	}
+}
+
+// 各画像をcanvasに描画する処理
+function draw_image(num) {
+	imgArr[num] = new Image();
+	imgArr[num].src = imgs[num];
+	// 画像読み込み後にカウントアップ
+	imgArr[num].onload = function() {
+		imgCount++;
+		// すべての画像読み込みが完了した時
+		if(imgCount >= imgs.length) {
+			// 各画像を順番に描画
+			for (var i = 0; i < imgs.length; i++) {
+				ctx.drawImage(imgArr[i], (i * 80), (i * 40));
+			}
+		}
+	}
+}
