@@ -93,6 +93,10 @@ function loop(){
         if(movie_stage_flag==1){
             //描画の函数をよび出す！！！
             movie_imageDraw();
+            if(touchX>0 && touchY>0){
+                movie_stage_flag=0;
+                phu_stage_flag_before=1;
+            }
             splash_stage_flag=0;
         }
 

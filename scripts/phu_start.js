@@ -9,10 +9,14 @@ var phu_imgs_path=[];
 var phu_imgCount=0;
 
 phu_imgs_path=[
-    'src/animal_marmot_white_brown.png',
     'src/stage1_obj/mount_1.png',
     'src/stage1_obj/tree_1.png',
-    'src/stage1_obj/tree_2.png'
+    'src/stage1_obj/tree_2.png',
+    'src/stage1_obj/tree_3.png',
+    'src/stage1_obj/tree_4.png',
+    'src/stage1_obj/tree_5.png',
+    'src/stage1_obj/tree_6.png',
+    'src/stage1_obj/tree_7.png',
 ]
 
 
