@@ -17,6 +17,8 @@ phu_imgs_path=[
     'src/stage1_obj/tree_5.png',
     'src/stage1_obj/tree_6.png',
     'src/stage1_obj/tree_7.png',
+    'src/character/stand_phu.png',
+    'src/character/walk_yue_1.png'
 ]
 
 
