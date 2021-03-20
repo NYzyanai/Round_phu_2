@@ -14,6 +14,7 @@ var phu_imgs_background_count=0;
 var phu_imgs_character_count=0;
 
 phu_imgs_background_namepath=[
+    'src/fullscreen/sky1.png',
     'src/stage1_obj/mount_1.png',
     'src/stage1_obj/tree_1.png',
     'src/stage1_obj/tree_2.png',
@@ -24,7 +25,12 @@ phu_imgs_background_namepath=[
     'src/stage1_obj/tree_7.png',
 ]
 phu_imgs_character_namepath=[
-    'src/character/stand_phu.png'
+    'src/character/stand_phu.png',
+    'src/character/walk_phu_1.png',
+    'src/character/walk_phu_2.png',
+    'src/character/walk_phu_3.png',
+    'src/character/walk_phu_4.png',
+    'src/character/walk_phu_5.png'
     //,
     //'src/character/walk_yue_1.png'
 ]
@@ -97,14 +103,34 @@ function phu_imgs_background_load(){
 }
 
 
+var walk_phu_count 
+walk_phu_count=0
 
 
 
 function phu_imgs_character_draw(){
         console.log("phu_drawまで呼ばれている")
-        for (var k=0;k<phu_imgs_character_namepath.length;k++){
-            ctx.drawImage(phu_imgs_character_array[k],canvas.width*250/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
-            console.log("kの変数の中身" + k)
+        if(walk_phu_count<7){
+            ctx.drawImage(phu_imgs_character_array[0],canvas.width*250/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+            walk_phu_count=walk_phu_count+1
+        }else if(walk_phu_count<14){
+            ctx.drawImage(phu_imgs_character_array[1],canvas.width*245/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+            walk_phu_count=walk_phu_count+1
+        }else if(walk_phu_count<21){
+            ctx.drawImage(phu_imgs_character_array[2],canvas.width*240/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+            walk_phu_count=walk_phu_count+1 
+        }else if(walk_phu_count<28){
+            ctx.drawImage(phu_imgs_character_array[3],canvas.width*235/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+            walk_phu_count=walk_phu_count+1 
+        
+        }else if(walk_phu_count<35){
+            ctx.drawImage(phu_imgs_character_array[4],canvas.width*230/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+            walk_phu_count=walk_phu_count+1 
+        }else if(walk_phu_count<42){
+                ctx.drawImage(phu_imgs_character_array[5],canvas.width*225/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                walk_phu_count=walk_phu_count+1 
+        }else{
+            walk_phu_count=0;
         }
 }
 
