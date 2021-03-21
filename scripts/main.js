@@ -102,6 +102,14 @@ function loop(){
 
         if(phu_stage_flag_before==1){
             phu_stage_1();
+
+            if(touchX>0 && touchY>0){
+                console.log("動かすべき");
+                phu_walk_flag=1;
+            }else{
+                //phu_walk_flag=0;
+            }
+
         }
 
     /////touchデータの初期化/////

@@ -107,30 +107,69 @@ var walk_phu_count
 walk_phu_count=0
 
 
+var phu_walk_flag
+phu_walk_flag=0;
+
+var phu_walk_num 
+phu_walk_num =0;
 
 function phu_imgs_character_draw(){
-        console.log("phu_drawまで呼ばれている")
-        if(walk_phu_count<7){
-            ctx.drawImage(phu_imgs_character_array[0],canvas.width*250/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
-            walk_phu_count=walk_phu_count+1
-        }else if(walk_phu_count<14){
-            ctx.drawImage(phu_imgs_character_array[1],canvas.width*245/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
-            walk_phu_count=walk_phu_count+1
-        }else if(walk_phu_count<21){
-            ctx.drawImage(phu_imgs_character_array[2],canvas.width*240/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
-            walk_phu_count=walk_phu_count+1 
-        }else if(walk_phu_count<28){
-            ctx.drawImage(phu_imgs_character_array[3],canvas.width*235/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
-            walk_phu_count=walk_phu_count+1 
-        
-        }else if(walk_phu_count<35){
-            ctx.drawImage(phu_imgs_character_array[4],canvas.width*230/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
-            walk_phu_count=walk_phu_count+1 
-        }else if(walk_phu_count<42){
-                ctx.drawImage(phu_imgs_character_array[5],canvas.width*225/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+        //console.log("phu_drawまで呼ばれている")
+
+/*
+
+phu_walk_num
+で描画の番号を指定する
+１...stand(250/320,100/180)
+2
+
+座標：英語でcoord,coordinates
+
+*/
+
+var phu_stand_coord_height
+var phu_stand_coord_width 
+var phu_stand_imgs_height
+var phu_stand_imgs_width
+
+
+phu_stand_coord_height=canvas.height*100/180;
+phu_stand_coord_width=canvas.width*250/320;
+phu_stand_imgs_height=canvas.height*80/180;
+phu_stand_imgs_width=canvas.width*50/320;
+
+        if(phu_walk_flag==0){
+            ctx.drawImage(phu_imgs_character_array[phu_walk_num],phu_stand_coord_width,phu_stand_coord_height,phu_stand_imgs_width,phu_stand_imgs_height);  
+        }else if(phu_walk_flag==1){
+            if(walk_phu_count<7){
+                phu_walk_num=0;
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*250/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                walk_phu_count=walk_phu_count+1
+            }else if(walk_phu_count<14){
+                phu_walk_num=1;
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*245/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                walk_phu_count=walk_phu_count+1
+            }else if(walk_phu_count<21){
+                phu_walk_num=2;
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*240/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
                 walk_phu_count=walk_phu_count+1 
-        }else{
-            walk_phu_count=0;
+            }else if(walk_phu_count<28){
+                phu_walk_num=3;
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*235/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                walk_phu_count=walk_phu_count+1 
+            
+            }else if(walk_phu_count<35){
+                phu_walk_num=4;
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*230/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                walk_phu_count=walk_phu_count+1 
+            }else if(walk_phu_count<42){
+                phu_walk_num=5;
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*225/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                walk_phu_count=walk_phu_count+1 
+            }else{
+                walk_phu_count=0;
+                phu_walk_flag=0;
+            }
         }
 }
 
