@@ -117,8 +117,12 @@ function loop(){
         }
 
     /////touchデータの初期化/////
+    if(touchend=1){
     touchX=0;
     touchY=0;
+    touchend=0;1
+    console.log("タッチおわり！！！！！");
+    }
 
     enddate=new Date();
     end_sec=enddate.getSeconds();
