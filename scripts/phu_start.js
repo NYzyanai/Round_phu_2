@@ -209,7 +209,7 @@ function phu_imgs_background_draw(){
             }
             
             if(phu_walk_flag==1){
-                phu_background_coord_width=phu_background_coord_width+phu_walk_num/3;
+                
                 for (var j=0;j<phu_imgs_background_namepath.length;j++){
                     ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-canvas.width,0,canvas.width,canvas.height);
                 }
@@ -244,7 +244,7 @@ function phu_imgs_background_draw(){
         }
 
         if(phu_walk_flag==1){
-            phu_background_coord_width=phu_background_coord_width+phu_walk_num/3;
+            
             for (var j=0;j<phu_imgs_background_namepath.length;j++){
                 ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-(2*canvas.width),0,canvas.width,canvas.height);
             }
