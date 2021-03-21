@@ -64,7 +64,7 @@ function fade_in(){
 
 function fade_out(){
     opacity =opacity +0.03;
-    console.log(opacity);
+    //console.log(opacity);
     ctx.globalAlpha=opacity;
     ctx.fillStyle="black";
     ctx.fillRect(0,0,canvas.width,canvas.height);

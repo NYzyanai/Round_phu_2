@@ -188,30 +188,76 @@ var phu_background_coord_height
 phu_background_coord_width=0;
 phu_background_coord_height=0;
 
+var phu_all_background_coord
+phu_all_background_coord=0;
+
 
 function phu_imgs_background_draw(){
-    if(phu_imgs_background_count>=phu_imgs_background_namepath.length){
+
+    if(phu_background_coord_width<700){
+        if(phu_imgs_background_count>=phu_imgs_background_namepath.length){
+            if(phu_walk_flag==1){
+                phu_background_coord_width=phu_background_coord_width+phu_walk_num/3;
+                for (var j=0;j<phu_imgs_background_namepath.length;j++){
+                    ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width,0,canvas.width,canvas.height);
+                }
+                console.log(phu_background_coord_width + "現在の座標軸")
+            }else{
+                for (var j=0;j<phu_imgs_background_namepath.length;j++){
+                    ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width,0,canvas.width,canvas.height);
+                } 
+            }
+            
+            if(phu_walk_flag==1){
+                phu_background_coord_width=phu_background_coord_width+phu_walk_num/3;
+                for (var j=0;j<phu_imgs_background_namepath.length;j++){
+                    ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-canvas.width,0,canvas.width,canvas.height);
+                }
+                console.log(phu_background_coord_width + "現在の座標軸")
+            }else{
+                for (var j=0;j<phu_imgs_background_namepath.length;j++){
+                    ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-canvas.width,0,canvas.width,canvas.height);
+                } 
+            }
+
+            //phuの動きにあわせて背景を動かす
+
+            /*
+                phu_walk_flag=1;
+                for()
+
+            */
+
+        }
+
+    }else if(phu_background_coord_width<1400){
         if(phu_walk_flag==1){
             phu_background_coord_width=phu_background_coord_width+phu_walk_num/3;
             for (var j=0;j<phu_imgs_background_namepath.length;j++){
-                ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width,0,canvas.width,canvas.height);
+                ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-canvas.width,0,canvas.width,canvas.height);
             }
+            console.log(phu_background_coord_width + "現在の座標軸")
         }else{
             for (var j=0;j<phu_imgs_background_namepath.length;j++){
-                ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width,0,canvas.width,canvas.height);
+                ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-canvas.width,0,canvas.width,canvas.height);
             } 
         }
 
-        //phuの動きにあわせて背景を動かす
+        if(phu_walk_flag==1){
+            phu_background_coord_width=phu_background_coord_width+phu_walk_num/3;
+            for (var j=0;j<phu_imgs_background_namepath.length;j++){
+                ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-(2*canvas.width),0,canvas.width,canvas.height);
+            }
+            console.log(phu_background_coord_width + "現在の座標軸")
+        }else{
+            for (var j=0;j<phu_imgs_background_namepath.length;j++){
+                ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-(2*canvas.width),0,canvas.width,canvas.height);
+            } 
+        }
 
-        /*
-            phu_walk_flag=1;
-            for()
 
-        */
 
     }
-
 
     if(phu_imgs_character_loaded_flag==1){
         //phu_imgs_character_draw();

@@ -121,7 +121,7 @@ function loop(){
     touchX=0;
     touchY=0;
     touchend=0;1
-    console.log("タッチおわり！！！！！");
+    //console.log("タッチおわり！！！！！");
     }
 
     enddate=new Date();
