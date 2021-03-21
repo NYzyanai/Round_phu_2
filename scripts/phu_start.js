@@ -60,7 +60,7 @@ function phu_imgs_character_start(){
     if(phu_imgs_character_loaded_flag==1){
         phu_imgs_character_draw();
     }else if(phu_imgs_character_loaded_flag==0){
-        phu_imgs_character_load();
+        //phu_imgs_character_load();
     }
 
 
@@ -141,6 +141,16 @@ function phu_imgs_background_draw(){
         }
 
     }
+
+
+    if(phu_imgs_character_loaded_flag==1){
+        //phu_imgs_character_draw();
+    }else if(phu_imgs_character_loaded_flag==0){
+        phu_imgs_character_load();
+    }
+
+
+
 }
 
 var phu_stage_1_started_flag 
