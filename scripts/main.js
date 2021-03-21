@@ -105,7 +105,7 @@ function loop(){
 
             if(phu_stage_1_started_flag==1){
                 if(touchX>0 && touchY>0){
-                console.log("動かすべき");
+                //console.log("動かすべき");
                 phu_walk_flag=1;
                 
             }else{

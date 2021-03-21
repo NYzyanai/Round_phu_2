@@ -144,7 +144,7 @@ phu_stand_imgs_height=canvas.height*80/180;
 phu_stand_imgs_width=canvas.width*50/320;
 
 
-console.log(phu_walk_flag +"歩くフラグ");
+//console.log(phu_walk_flag +"歩くフラグ");
 
         if(phu_walk_flag==0){
             ctx.drawImage(phu_imgs_character_array[0],phu_stand_coord_width,phu_stand_coord_height,phu_stand_imgs_width,phu_stand_imgs_height);  
