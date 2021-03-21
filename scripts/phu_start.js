@@ -3,6 +3,9 @@ console.log("1a")
 var phu_stage_flag_before
 phu_stage_flag_before=0;
 
+var phu_walk_flag
+phu_walk_flag=0;
+
 
 var phu_imgs_background_array=[];
 var phu_imgs_background_namepath=[];
@@ -107,8 +110,7 @@ var walk_phu_count
 walk_phu_count=0
 
 
-var phu_walk_flag
-phu_walk_flag=0;
+
 
 var phu_walk_num 
 phu_walk_num =0;
@@ -138,46 +140,63 @@ phu_stand_coord_width=canvas.width*250/320;
 phu_stand_imgs_height=canvas.height*80/180;
 phu_stand_imgs_width=canvas.width*50/320;
 
+console.log(phu_walk_flag +"歩くフラグ");
+
         if(phu_walk_flag==0){
-            ctx.drawImage(phu_imgs_character_array[phu_walk_num],phu_stand_coord_width,phu_stand_coord_height,phu_stand_imgs_width,phu_stand_imgs_height);  
+            ctx.drawImage(phu_imgs_character_array[0],phu_stand_coord_width,phu_stand_coord_height,phu_stand_imgs_width,phu_stand_imgs_height);  
         }else if(phu_walk_flag==1){
             if(walk_phu_count<7){
                 phu_walk_num=0;
-                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*250/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],phu_stand_coord_width,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
                 walk_phu_count=walk_phu_count+1
             }else if(walk_phu_count<14){
                 phu_walk_num=1;
-                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*245/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],phu_stand_coord_width,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
                 walk_phu_count=walk_phu_count+1
             }else if(walk_phu_count<21){
                 phu_walk_num=2;
-                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*240/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],phu_stand_coord_width,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
                 walk_phu_count=walk_phu_count+1 
             }else if(walk_phu_count<28){
                 phu_walk_num=3;
-                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*235/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],phu_stand_coord_width,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
                 walk_phu_count=walk_phu_count+1 
             
             }else if(walk_phu_count<35){
                 phu_walk_num=4;
-                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*230/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],phu_stand_coord_width,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
                 walk_phu_count=walk_phu_count+1 
             }else if(walk_phu_count<42){
                 phu_walk_num=5;
-                ctx.drawImage(phu_imgs_character_array[phu_walk_num],canvas.width*225/320,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
+                ctx.drawImage(phu_imgs_character_array[phu_walk_num],phu_stand_coord_width,canvas.height*100/180,canvas.width*50/320,canvas.height*80/180);
                 walk_phu_count=walk_phu_count+1 
             }else{
                 walk_phu_count=0;
                 phu_walk_flag=0;
+                phu_walk_num=0;
             }
         }
 }
 
 function phu_imgs_background_draw(){
     if(phu_imgs_background_count>=phu_imgs_background_namepath.length){
-        for (var j=0;j<phu_imgs_background_namepath.length;j++){
-            ctx.drawImage(phu_imgs_background_array[j],0,0,canvas.width,canvas.height);
+        if(phu_walk_flag==1){
+            for (var j=0;j<phu_imgs_background_namepath.length;j++){
+                ctx.drawImage(phu_imgs_background_array[j],0+phu_walk_num*5,0,canvas.width,canvas.height);
+            }
+        }else{
+            for (var j=0;j<phu_imgs_background_namepath.length;j++){
+                ctx.drawImage(phu_imgs_background_array[j],0,0,canvas.width,canvas.height);
+            } 
         }
+
+        //phuの動きにあわせて背景を動かす
+
+        /*
+            phu_walk_flag=1;
+            for()
+
+        */
 
     }
 
