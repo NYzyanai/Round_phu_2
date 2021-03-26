@@ -114,6 +114,15 @@ function loop(){
             //console.log(touchX + "X座標");
             //console.log(touchY + "Y座標");
             }
+
+            if(phu_imgs_loaded_flag=0){
+                phu_imgs_load();
+                console.log("まだ");
+            }else{
+                console.log("済");
+                console.log(phu_imgs_load_count);
+                phu_imgs_draw();
+            }
         }
 
     /////touchデータの初期化/////

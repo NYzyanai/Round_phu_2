@@ -48,7 +48,7 @@ function phu_imgs_background_start(){
     ctx.imageSmoothingEnabled=false;
 
     if(phu_imgs_background_loaded_flag==1){
-        phu_imgs_background_draw();
+        //phu_imgs_background_draw();
     }else if(phu_imgs_background_loaded_flag==0){
         phu_imgs_background_load();
     }
@@ -61,12 +61,10 @@ function phu_imgs_character_start(){
     ctx.imageSmoothingEnabled=false;
 
     if(phu_imgs_character_loaded_flag==1){
-        phu_imgs_character_draw();
+        //phu_imgs_character_draw();
     }else if(phu_imgs_character_loaded_flag==0){
         //phu_imgs_character_load();
     }
-
-
 }
 
 
@@ -84,6 +82,7 @@ function phu_imgs_character_load(){
         phu_imgs_character_array[numc].onload=function(){
             phu_imgs_character_count=phu_imgs_character_count+1;
         }
+
     }
     if(phu_imgs_character_count>=phu_imgs_character_namepath.length){
         phu_imgs_character_loaded_flag=1;
@@ -201,7 +200,7 @@ function phu_imgs_background_draw(){
                 for (var j=0;j<phu_imgs_background_namepath.length;j++){
                     ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width,0,canvas.width,canvas.height);
                 }
-                console.log(phu_background_coord_width + "現在の座標軸")
+                //console.log(phu_background_coord_width + "現在の座標軸")
             }else{
                 for (var j=0;j<phu_imgs_background_namepath.length;j++){
                     ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width,0,canvas.width,canvas.height);
@@ -213,7 +212,7 @@ function phu_imgs_background_draw(){
                 for (var j=0;j<phu_imgs_background_namepath.length;j++){
                     ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-canvas.width,0,canvas.width,canvas.height);
                 }
-                console.log(phu_background_coord_width + "現在の座標軸")
+                //console.log(phu_background_coord_width + "現在の座標軸")
             }else{
                 for (var j=0;j<phu_imgs_background_namepath.length;j++){
                     ctx.drawImage(phu_imgs_background_array[j],phu_background_coord_width-canvas.width,0,canvas.width,canvas.height);
@@ -290,4 +289,160 @@ function phu_stage_1(){
         phu_imgs_character_start()
     }
 
+}
+
+
+/*レイヤーをわけて描画してみる1
+
+一番前
+
+キャラクター
+
+オブジェクト1　一番近くにあるもの
+
+オブジェクト2　建物　手前
+
+オブジェクト3　建物　奥
+
+オブジェクト4 木々
+
+オブジェクト5　山々等の背景
+
+オブジェクト6 空
+
+
+まず全部ロード
+*/
+
+var phu_imgs_namepath=[];
+
+phu_imgs_objects_namepath=[
+    'src/fullscreen/sky1.png',
+    'src/stage1_obj/mount_1.png',
+    'src/stage1_obj/tree_1.png',
+    'src/stage1_obj/tree_2.png',
+    'src/stage1_obj/tree_3.png',
+    'src/stage1_obj/tree_4.png',
+    'src/stage1_obj/tree_5.png',
+    'src/stage1_obj/tree_6.png',
+    'src/stage1_obj/tree_7.png',
+]
+
+var phu_imgs_objects_array=[];
+var phu_imgs_phu_array=[];
+var phu_imgs_yue_array=[];
+
+
+var phu_imgs_phu_namepath=[];
+
+phu_imgs_phu_namepath=[
+    'src/character/stand_phu.png',
+    'src/character/walk_phu_1.png',
+    'src/character/walk_phu_2.png',
+    'src/character/walk_phu_3.png',
+    'src/character/walk_phu_4.png',
+    'src/character/walk_phu_5.png',
+    'src/character/lay_phu_1.png',
+    'src/character/lay_phu_2.png',
+    'src/character/lay_phu_3.png',
+    'src/character/lay_phu_4.png',
+    'src/character/lay_phu_5.png'
+]
+
+var phu_imgs_yue_namepath=[];
+
+phu_imgs_yue_namepath=[
+    'src/character/stand_yue.png',
+    'src/character/walk_yue_1.png',
+    'src/character/walk_yue_2.png',
+    'src/character/walk_yue_3.png',
+    'src/character/walk_yue_4.png',
+    'src/character/walk_yue_5.png'
+]
+
+var phu_imgs_load_count
+phu_imgs_load_count=0;
+
+var phu_imgs_loaded_flag
+phu_imgs_loaded_flag=0;
+
+
+phu_imgs_load();
+
+function phu_imgs_load(){
+    for(var num_o=0;num_o<phu_imgs_objects_namepath.length;num_o++){
+        phu_imgs_objects_array[num_o]=new Image();
+        phu_imgs_objects_array[num_o].src=phu_imgs_objects_namepath[num_o];
+        
+        phu_imgs_objects_array[num_o].onload=function(){
+            phu_imgs_load_count++
+        }
+    }
+
+    for(var num_p=0;num_p<phu_imgs_phu_namepath.length;num_p++){
+        phu_imgs_phu_array[num_p]=new Image();
+        phu_imgs_phu_array[num_p].src=phu_imgs_phu_namepath[num_p];
+        
+        phu_imgs_phu_array[num_p].onload=function(){
+            phu_imgs_load_count++
+        }
+    }
+
+    for(var num_y=0;num_y<phu_imgs_yue_namepath.length;num_y++){
+        phu_imgs_yue_array[num_y]=new Image();
+        phu_imgs_yue_array[num_y].src=phu_imgs_yue_namepath[num_y];
+        
+        phu_imgs_yue_array[num_y].onload=function(){
+            phu_imgs_load_count++
+        }
+    }
+
+    if(phu_imgs_load_count>=phu_imgs_objects_namepath.length+phu_imgs_phu_namepath.length+phu_imgs_yue_namepath.length){
+        phu_imgs_loaded_flag=1;
+    }
+
+    console.log(phu_imgs_loaded_flag);
+}
+
+var layer
+var add
+add=0
+
+function phu_imgs_draw(){
+    canvas=document.getElementById('canvas');
+    ctx=canvas.getContext('2d');
+    ctx.imageSmoothingEnabled=false;
+
+    for(layer=0;layer<=6;layer++){
+        switch(layer){
+            case 1:
+                //いちばん奥　空など
+                ctx.drawImage(phu_imgs_objects_array[3],10+add,10+add,300+add,300+add);
+                add=add+0.05;
+                break;
+            case 2:
+                //山などの背景
+                ctx.drawImage(phu_imgs_objects_array[1],5+add,20+add,300,300+add);
+                add=add+0.07;
+                break;
+            case 3:
+                //木々
+                break;
+            case 4:
+                //奥の建物
+                break;
+            case 5:
+                //手前の建物
+                break;
+            case 6:
+                //キャラクター
+                break;
+            default:
+                //一番前
+                ctx.drawImage(phu_imgs_phu_array[1],20+add,20+add,100,100+add);
+                add=add+0.08;
+        }
+        
+    }
+    
 }
