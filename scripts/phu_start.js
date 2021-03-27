@@ -22,10 +22,17 @@ phu_imgs_background_namepath=[
     'src/stage1_obj/tree_1.png',
     'src/stage1_obj/tree_2.png',
     'src/stage1_obj/tree_3.png',
+
     'src/stage1_obj/tree_4.png',
     'src/stage1_obj/tree_5.png',
     'src/stage1_obj/tree_6.png',
     'src/stage1_obj/tree_7.png',
+    'src/stage1_obj/low_grass_1.png',
+
+    'src/stage1_obj/low_grass_2.png',
+    'src/stage1_obj/low_grass_3.png',
+    'src/stage1_obj/middle_grass_1.png',
+    'src/stage1_obj/first_house.png'
 ]
 phu_imgs_character_namepath=[
     'src/character/stand_phu.png',
@@ -322,10 +329,18 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/tree_1.png',
     'src/stage1_obj/tree_2.png',
     'src/stage1_obj/tree_3.png',
+
     'src/stage1_obj/tree_4.png',
     'src/stage1_obj/tree_5.png',
     'src/stage1_obj/tree_6.png',
     'src/stage1_obj/tree_7.png',
+    'src/stage1_obj/low_grass_1.png',
+
+    'src/stage1_obj/low_grass_2.png',
+    'src/stage1_obj/low_grass_3.png',
+    'src/stage1_obj/middle_grass_1.png',
+    'src/stage1_obj/house_of_phu.png',
+    'src/stage1_obj/forest_1.png'
 ]
 
 var phu_imgs_objects_array=[];
@@ -461,9 +476,9 @@ walk_start_flag=0;
 var walk_time_count
 walk_time_count=0;
 
-canvas=document.getElementById('canvas');
-ctx=canvas.getContext('2d');
-ctx.imageSmoothingEnabled=false;
+//canvas=document.getElementById('canvas');
+//ctx=canvas.getContext('2d');
+//ctx.imageSmoothingEnabled=false;
 var walk_time_img_count
 walk_time_img_count=0;
 
@@ -479,7 +494,8 @@ function judge_draw(){
         // ４分の１とかは綺麗に２進数にできるけど他は無理　うんち
 
         walk_time_img_count=Math.floor(walk_time_count/100);
-        console.log(walk_time_img_count + "今ここ")
+        //console.log(walk_time_img_count + "今ここ")
+        console.log("タイムは" + walk_time_count);
         if(walk_time_count>600){
             walk_start_flag=0;
             walk_time_count=0;
@@ -487,7 +503,7 @@ function judge_draw(){
         }
     }
 
-    if(all_step_count<400){
+    if(true){
         object1=phu_imgs_objects_array[0];
         object1_c_h=0;
         object1_c_w=(0+all_step_count/6);
@@ -500,7 +516,7 @@ function judge_draw(){
         object2_h=180;
         object2_w=320;
 
-        object3=phu_imgs_objects_array[3];
+        object3=phu_imgs_objects_array[14];
         object3_c_h=0;
         object3_c_w=(0+all_step_count/4);
         object3_h=180;
@@ -512,25 +528,36 @@ function judge_draw(){
         object3_2_h=180;
         object3_2_w=320;  
 
-        object4=phu_imgs_objects_array[5];
+        object4=phu_imgs_objects_array[13];
         object4_c_h=0;
-        object4_c_w=(-120+all_step_count/3);
+        object4_c_w=(0+all_step_count/3);
         object4_h=180;
         object4_w=320;     
 
+        object4_1=phu_imgs_objects_array[11];
+        object4_1_c_h=0;
+        object4_1_c_w=(100+all_step_count/3);
+        object4_1_h=180;
+        object4_1_w=320;   
+
         if(walk_time_count>0){
-        object6=phu_imgs_phu_array[walk_time_img_count];
+        object5=phu_imgs_phu_array[walk_time_img_count];
         }else{
-            object6=phu_imgs_phu_array[0];
+            object5=phu_imgs_phu_array[0];
            
         }
-        object6_c_w=255;
-        object6_c_h=105;
-        object6_h=80;
-        object6_w=50;
+        object5_c_w=255;
+        object5_c_h=105;
+        object5_h=80;
+        object5_w=50;
+
+        object6=phu_imgs_objects_array[12];
+        object6_c_h=0;
+        object6_c_w=(0+all_step_count/2);
+        object6_h=180;
+        object6_w=320;     
     
-    }else if(all_step_count<500){
-        
+ 
     }else{
 
     }
@@ -561,13 +588,15 @@ function phu_imgs_draw(){
             case 4:
                 //奥の建物
                 ctx.drawImage(object4,object4_c_w*cell_w,object4_c_h*cell_h,object4_w*cell_w,object4_h*cell_h);
-                //ctx.drawImage(object4,(object4_c_w-200)*cell_w,object4_c_h*cell_h,object4_w*cell_w,object4_h*cell_h);
+                ctx.drawImage(object4_1,(object4_1_c_w-320)*cell_w,object4_1_c_h*cell_h,object4_1_w*cell_w,object4_1_h*cell_h);
                 break;
             case 5:
-                //手前の建物
+                //キャラクター
+                ctx.drawImage(object5,object5_c_w*cell_w,object5_c_h*cell_h,object5_w*cell_w,object5_h*cell_h);
                 break;
             case 6:
-                ctx.drawImage(object6,object6_c_w*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
+                //手前のもの
+                ctx.drawImage(object6,(object6_c_w-250)*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
                 break;
             default:
                 //一番前
