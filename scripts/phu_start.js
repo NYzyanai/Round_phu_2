@@ -341,7 +341,7 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/house_of_phu2.png',
     'src/stage1_obj/forest_1.png',
 
-    'src/stage1_obj/long_sky_morning.png'
+    'src/stage1_obj/long_sky_morning2.png'
 ]
 
 var phu_imgs_objects_array=[];
