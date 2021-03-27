@@ -563,7 +563,7 @@ function judge_draw(){
         object3_1_h=180;
         object3_1_w=320;  
 
-        object4=phu_imgs_objects_array[10];
+        object4=phu_imgs_objects_array[13];
         object4_c_h=0;
         object4_c_w=(0+all_step_count/3);
         object4_h=180;
@@ -622,7 +622,7 @@ function phu_imgs_draw(){
                 break;
             case 4:
                 //奥の建物
-                ctx.drawImage(object4,object4_c_w*cell_w,object4_c_h*cell_h,object4_w*cell_w,object4_h*cell_h);
+                ctx.drawImage(object3,object3_c_w*cell_w,object3_c_h*cell_h,object3_w*cell_w,object3_h*cell_h);
                 ctx.drawImage(object4_1,(object4_1_c_w-320)*cell_w,object4_1_c_h*cell_h,object4_1_w*cell_w,object4_1_h*cell_h);
                 break;
             case 5:
