@@ -32,7 +32,6 @@ phu_imgs_background_namepath=[
     'src/stage1_obj/low_grass_2.png',
     'src/stage1_obj/low_grass_3.png',
     'src/stage1_obj/middle_grass_1.png',
-    'src/stage1_obj/first_house.png'
 ]
 phu_imgs_character_namepath=[
     'src/character/stand_phu.png',
