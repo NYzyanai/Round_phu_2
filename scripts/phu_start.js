@@ -426,7 +426,7 @@ var object1
 var object2
 var object3
 var object4
-var object5
+var character5
 var object6
 
 
@@ -434,7 +434,7 @@ var object1_1
 var object2_1
 var object3_1
 var object4_1
-var object5_1
+var character5_1
 var object6_1
 
 var object1_c_w
@@ -478,10 +478,16 @@ var object4_1_c_h
 var object4_1_h
 var object4_1_w
 
-var object5_h
-var object5_w
-var object5_c_h
-var objetc5_c_w
+var character5_h
+var character5_w
+var character5_c_h
+var character5_c_w
+
+var character5_1_h
+var character5_1_w
+var character5_1_c_h
+var character5_1_c_w
+
 
 var object6_h
 var object6_w
@@ -575,15 +581,21 @@ function judge_draw(){
         object4_1_w=320;   
 
         if(walk_time_count>0){
-        object5=phu_imgs_phu_array[walk_time_img_count];
+            character5=phu_imgs_phu_array[walk_time_img_count];
+            character5_1=phu_imgs_yue_array[walk_time_img_count];
         }else{
-            object5=phu_imgs_phu_array[0];
-           
+            character5=phu_imgs_phu_array[0];
+            character5_1=phu_imgs_yue_array[0];
         }
-        object5_c_w=255;
-        object5_c_h=105;
-        object5_h=80;
-        object5_w=50;
+        character5_c_w=225;
+        character5_c_h=105;
+        character5_h=80;
+        character5_w=50;
+
+        character5_1_c_w=290;
+        character5_1_c_h=110;
+        character5_1_h=75;
+        character5_1_w=25;
 
         object6=phu_imgs_objects_array[12];
         object6_c_h=0;
@@ -626,8 +638,8 @@ function phu_imgs_draw(){
                 break;
             case 5:
                 //キャラクター
-                ctx.drawImage(object5,object5_c_w*cell_w,object5_c_h*cell_h,object5_w*cell_w,object5_h*cell_h);
-                //ctx.drawImage(object5_1,object5_1_c_w*cell_w,object5_1_c_h*cell_h,object5_1_w*cell_w,object5_1_h*cell_h);
+                ctx.drawImage(character5,character5_c_w*cell_w,character5_c_h*cell_h,character5_w*cell_w,character5_h*cell_h);
+                ctx.drawImage(character5_1,character5_1_c_w*cell_w,character5_1_c_h*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
                 break;
             case 6:
                 //手前のもの
