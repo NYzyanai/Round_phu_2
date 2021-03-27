@@ -338,7 +338,7 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/low_grass_2.png',
     'src/stage1_obj/low_grass_3.png',
     'src/stage1_obj/middle_grass_1.png',
-    'src/stage1_obj/house_of_phu1.png',
+    'src/stage1_obj/house_of_phu2.png',
     'src/stage1_obj/forest_1.png'
 ]
 
