@@ -339,7 +339,9 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/low_grass_3.png',
     'src/stage1_obj/middle_grass_1.png',
     'src/stage1_obj/house_of_phu2.png',
-    'src/stage1_obj/forest_1.png'
+    'src/stage1_obj/forest_1.png',
+
+    'src/stage1_obj/long_sky_morning.png'
 ]
 
 var phu_imgs_objects_array=[];
@@ -532,11 +534,11 @@ function judge_draw(){
     }
 
     if(true){
-        object1=phu_imgs_objects_array[0];
+        object1=phu_imgs_objects_array[15];
         object1_c_h=0;
-        object1_c_w=(0+all_step_count/6);
+        object1_c_w=(-1280+all_step_count/6);
         object1_h=180;
-        object1_w=320;
+        object1_w=1600;
 
         object1_1=phu_imgs_objects_array[0];
         object1_1_c_h=0;
@@ -618,7 +620,7 @@ function phu_imgs_draw(){
             case 1:
                 //いちばん奥　空など
                 ctx.drawImage(object1,object1_c_w*cell_w,object1_c_h*cell_h,object1_w*cell_w,object1_h*cell_h);
-                ctx.drawImage(object1_1,(object1_c_w-320)*cell_w,object1_c_h,object1_w*cell_w,object1_h*cell_h);
+                //ctx.drawImage(object1_1,(object1_c_w-320)*cell_w,object1_c_h,object1_w*cell_w,object1_h*cell_h);
                 add=add+0.05;
                 break;
             case 2:
