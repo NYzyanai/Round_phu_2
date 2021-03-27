@@ -474,6 +474,11 @@ var object4_c_h
 var object4_h
 var object4_w
 
+var object4_1_c_w
+var object4_1_c_h
+var object4_1_h
+var object4_1_w
+
 var object5_h
 var object5_w
 var object5_c_h
