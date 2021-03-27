@@ -421,6 +421,28 @@ var object1_c_h
 var object1_w
 var object1_h
 
+var object2_c_w
+var objett2_c_h
+var object2_w
+var object2_h
+
+var objetc3_c_w
+var object3_c_h
+var object3_w
+var object3_h
+
+var object4_c_w
+var object4_c_h
+var object4_h
+var object4_w
+
+var object5_h
+var object5_w
+var object5_c_h
+var objetc5_c_w
+
+
+
 var all_step_count
 all_step_count=0;
 
@@ -429,7 +451,9 @@ walk_start_flag=0;
 var walk_time_count
 walk_time_count=0;
 
-
+canvas=document.getElementById('canvas');
+ctx=canvas.getContext('2d');
+ctx.imageSmoothingEnabled=false;
 
 
 function judge_draw(){
@@ -447,16 +471,20 @@ function judge_draw(){
         }
     }
 
-    if(all_step_count*cell_w<50){
+    if(all_step_count<400){
         object1=phu_imgs_objects_array[0];
         object1_c_h=0;
-        object1_c_w=0;
-        object1_h=180*cell_h;
-        object1_w=320*cell_w;
+        object1_c_w=(0+all_step_count);
+        object1_h=180;
+        object1_w=320;
 
         object2=phu_imgs_phu_array[0];
+        object2_c_w=255;
+        object2_c_h=105;
+        object2_h=80;
+        object2_w=50;
     
-    }else if(all_step_count*cell_w<30){
+    }else if(all_step_count<500){
         object1=phu_imgs_objects_array[2];
     }else{
         object1=phu_imgs_objects_array[4];        
@@ -471,12 +499,13 @@ function phu_imgs_draw(){
         switch(layer){
             case 1:
                 //いちばん奥　空など
-                ctx.drawImage(object1,object1_c_h,object1_c_w,object1_w,object1_h);
+                ctx.drawImage(object1,object1_c_w*cell_w,object1_c_h*cell_h,object1_w*cell_w,object1_h*cell_h);
+                ctx.drawImage(object1,(object1_c_w-320)*cell_w,object1_c_h,object1_w*cell_w,object1_h*cell_h);
                 add=add+0.05;
                 break;
             case 2:
                 //山などの背景
-                ctx.drawImage(object2,5+add,20+add,300,300+add);
+                ctx.drawImage(object2,object2_c_w*cell_w,object2_c_h*cell_h,object2_w*cell_w,object2_h*cell_h);
                 add=add+0.07;
                 break;
             case 3:
