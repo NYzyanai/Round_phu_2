@@ -357,11 +357,13 @@ phu_imgs_phu_namepath=[
     'src/character/walk_phu_2.png',
     'src/character/walk_phu_3.png',
     'src/character/walk_phu_4.png',
+
     'src/character/walk_phu_5.png',
     'src/character/lay_phu_1.png',
     'src/character/lay_phu_2.png',
     'src/character/lay_phu_3.png',
     'src/character/lay_phu_4.png',
+
     'src/character/lay_phu_5.png'
 ]
 
@@ -525,7 +527,7 @@ function judge_draw(){
 
         walk_time_img_count=Math.floor(walk_time_count/100);
         //console.log(walk_time_img_count + "今ここ")
-        console.log("タイムは" + walk_time_count);
+        //console.log("タイムは" + walk_time_count);
         if(walk_time_count>600){
             walk_start_flag=0;
             walk_time_count=0;
@@ -533,7 +535,7 @@ function judge_draw(){
         }
     }
 
-    if(true){
+    if(all_step_count<100){
         object1=phu_imgs_objects_array[15];
         object1_c_h=0;
         object1_c_w=(-1280+all_step_count/6);
@@ -607,11 +609,38 @@ function judge_draw(){
     
  
     }else{
+        
+   
+        character5_1=null;
+        
+        if((Math.floor(lay/100))<11){
+            console.log(Math.floor(lay/100));
+            character5=phu_imgs_phu_array[Math.floor(lay/100)];
+            //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
+        }else{
+            character5=phu_imgs_phu_array[10];
+        }
 
+        if(Math.floor(lay/100)<=7){
+            lay=lay+19;
+            character5_c_w=225;
+            character5_c_h=105;
+            character5_h=80;
+            character5_w=50;
+        }else{
+            lay=lay+21;
+        character5_c_w=195;
+        character5_c_h=140;    
+        character5_h=45;
+        character5_w=80;
+        }
     }
 
-    console.log("今"　+ all_step_count);
+    //console.log("今"　+ all_step_count);
 }
+
+var lay
+lay=600;
 
 function phu_imgs_draw(){
 
@@ -641,8 +670,12 @@ function phu_imgs_draw(){
             case 5:
                 //キャラクター
                 ctx.drawImage(character5,character5_c_w*cell_w,character5_c_h*cell_h,character5_w*cell_w,character5_h*cell_h);
-                ctx.drawImage(character5_1,character5_1_c_w*cell_w,character5_1_c_h*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
-                break;
+                if(character5_1==null){
+                
+                }else{
+                    ctx.drawImage(character5_1,character5_1_c_w*cell_w,character5_1_c_h*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
+                }
+                    break;
             case 6:
                 //手前のもの
                 ctx.drawImage(object6,object6_c_w*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
