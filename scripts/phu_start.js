@@ -616,7 +616,7 @@ function phu_imgs_draw(){
                 break;
             case 3:
                 //木々
-                //ctx.drawImage(object3,object3_c_w*cell_w,object3_c_h*cell_h,object3_w*cell_w,object3_h*cell_h);
+                ctx.drawImage(object3,object3_c_w*cell_w,object3_c_h*cell_h,object3_w*cell_w,object3_h*cell_h);
                 ctx.drawImage(object3_1,(object3_1_c_w-200)*cell_w,object3_1_c_h*cell_h,object3_1_w*cell_w,object3_1_h*cell_h);
                 break;
             case 4:
