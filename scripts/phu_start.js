@@ -430,26 +430,44 @@ var object4
 var object5
 var object6
 
+
+var object1_1
+var object2_1
+var object3_1
+var object4_1
+var object5_1
+var object6_1
+
 var object1_c_w
 //座標のwidth
 var object1_c_h
 var object1_w
 var object1_h
 
+var object1_1_c_w
+var object1_1_c_h
+var object1_1_w
+var object1_1_h
+
 var object2_c_w
 var objett2_c_h
 var object2_w
 var object2_h
+
+var object2_1_c_w
+var objett2_1_c_h
+var object2_1_w
+var object2_1_h
 
 var objetc3_c_w
 var object3_c_h
 var object3_w
 var object3_h
 
-var objetc3_2_c_w
-var object3_2_c_h
-var object3_2_w
-var object3_2_h
+var objetc3_1_c_w
+var object3_1_c_h
+var object3_1_w
+var object3_1_h
 
 var object4_c_w
 var object4_c_h
@@ -510,11 +528,23 @@ function judge_draw(){
         object1_h=180;
         object1_w=320;
 
+        object1_1=phu_imgs_objects_array[0];
+        object1_1_c_h=0;
+        object1_1_c_w=(0+all_step_count/6);
+        object1_1_h=180;
+        object1_1_w=320;
+
         object2=phu_imgs_objects_array[1];
         object2_c_h=0;
         object2_c_w=(0+all_step_count/5);
         object2_h=180;
         object2_w=320;
+
+        object2_1=phu_imgs_objects_array[1];
+        object2_1_c_h=0;
+        object2_1_c_w=(0+all_step_count/5);
+        object2_1_h=180;
+        object2_1_w=320;  
 
         object3=phu_imgs_objects_array[14];
         object3_c_h=0;
@@ -522,11 +552,11 @@ function judge_draw(){
         object3_h=180;
         object3_w=320;     
         
-        object3_2=phu_imgs_objects_array[4];
-        object3_2_c_h=0;
-        object3_2_c_w=(20+all_step_count/4);
-        object3_2_h=180;
-        object3_2_w=320;  
+        object3_1=phu_imgs_objects_array[4];
+        object3_1_c_h=0;
+        object3_1_c_w=(20+all_step_count/4);
+        object3_1_h=180;
+        object3_1_w=320;  
 
         object4=phu_imgs_objects_array[13];
         object4_c_h=0;
@@ -572,18 +602,18 @@ function phu_imgs_draw(){
             case 1:
                 //いちばん奥　空など
                 ctx.drawImage(object1,object1_c_w*cell_w,object1_c_h*cell_h,object1_w*cell_w,object1_h*cell_h);
-                ctx.drawImage(object1,(object1_c_w-320)*cell_w,object1_c_h,object1_w*cell_w,object1_h*cell_h);
+                ctx.drawImage(object1_1,(object1_c_w-320)*cell_w,object1_c_h,object1_w*cell_w,object1_h*cell_h);
                 add=add+0.05;
                 break;
             case 2:
                 //山などの背景
                 ctx.drawImage(object2,object2_c_w*cell_w,object2_c_h*cell_h,object2_w*cell_w,object2_h*cell_h);
-                ctx.drawImage(object2,(object2_c_w-320)*cell_w,object2_c_h*cell_h,object2_w*cell_w,object2_h*cell_h);
+                ctx.drawImage(object2_1,(object2_1_c_w-320)*cell_w,object2_1_c_h*cell_h,object2_1_w*cell_w,object2_1_h*cell_h);
                 break;
             case 3:
                 //木々
                 ctx.drawImage(object3,object3_c_w*cell_w,object3_c_h*cell_h,object3_w*cell_w,object3_h*cell_h);
-                ctx.drawImage(object3_2,(object3_2_c_w-200)*cell_w,object3_2_c_h*cell_h,object3_2_w*cell_w,object3_2_h*cell_h);
+                ctx.drawImage(object3_1,(object3_1_c_w-200)*cell_w,object3_1_c_h*cell_h,object3_1_w*cell_w,object3_1_h*cell_h);
                 break;
             case 4:
                 //奥の建物
@@ -593,10 +623,11 @@ function phu_imgs_draw(){
             case 5:
                 //キャラクター
                 ctx.drawImage(object5,object5_c_w*cell_w,object5_c_h*cell_h,object5_w*cell_w,object5_h*cell_h);
+                //ctx.drawImage(object5_1,object5_1_c_w*cell_w,object5_1_c_h*cell_h,object5_1_w*cell_w,object5_1_h*cell_h);
                 break;
             case 6:
                 //手前のもの
-                ctx.drawImage(object6,(object6_c_w-250)*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
+                ctx.drawImage(object6,object6_c_w*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
                 break;
             default:
                 //一番前
