@@ -119,8 +119,10 @@ function loop(){
                 phu_imgs_load();
                 console.log("まだ");
             }else{
-                console.log("済");
-                console.log(phu_imgs_load_count);
+                if(touchX>0 && touchY>0){
+                    walk_start_flag=1;
+                }
+                judge_draw();
                 phu_imgs_draw();
             }
         }

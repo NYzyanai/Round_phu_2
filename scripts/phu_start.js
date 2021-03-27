@@ -408,21 +408,75 @@ var layer
 var add
 add=0
 
-function phu_imgs_draw(){
+var object1
+var object2
+var object3
+var object4
+var object5
+var object6
+
+var object1_c_w
+//座標のwidth
+var object1_c_h
+var object1_w
+var object1_h
+
+var all_step_count
+all_step_count=0;
+
+var walk_start_flag
+walk_start_flag=0;
+var walk_time_count
+walk_time_count=0;
+
+
+
+
+function judge_draw(){
+    
     canvas=document.getElementById('canvas');
     ctx=canvas.getContext('2d');
     ctx.imageSmoothingEnabled=false;
+        
+    if(walk_start_flag==1){
+        all_step_count=all_step_count+1;
+        walk_time_count=walk_time_count+1;
+        console.log(walk_time_count + "今ここ")
+        if(walk_time_count%10==0){
+            walk_start_flag=0;
+        }
+    }
+
+    if(all_step_count*cell_w<50){
+        object1=phu_imgs_objects_array[0];
+        object1_c_h=0;
+        object1_c_w=0;
+        object1_h=180*cell_h;
+        object1_w=320*cell_w;
+
+        object2=phu_imgs_phu_array[0];
+    
+    }else if(all_step_count*cell_w<30){
+        object1=phu_imgs_objects_array[2];
+    }else{
+        object1=phu_imgs_objects_array[4];        
+    }
+
+    console.log("今"　+ all_step_count);
+}
+
+function phu_imgs_draw(){
 
     for(layer=0;layer<=6;layer++){
         switch(layer){
             case 1:
                 //いちばん奥　空など
-                ctx.drawImage(phu_imgs_objects_array[3],10+add,10+add,300+add,300+add);
+                ctx.drawImage(object1,object1_c_h,object1_c_w,object1_w,object1_h);
                 add=add+0.05;
                 break;
             case 2:
                 //山などの背景
-                ctx.drawImage(phu_imgs_objects_array[1],5+add,20+add,300,300+add);
+                ctx.drawImage(object2,5+add,20+add,300,300+add);
                 add=add+0.07;
                 break;
             case 3:
@@ -439,10 +493,10 @@ function phu_imgs_draw(){
                 break;
             default:
                 //一番前
-                ctx.drawImage(phu_imgs_phu_array[1],20+add,20+add,100,100+add);
-                add=add+0.08;
+                //ctx.drawImage(phu_imgs_phu_array[1],20+add,20+add,100,100+add);
+                //add=add+0.08;
         }
         
     }
-    
+
 }

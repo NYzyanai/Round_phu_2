@@ -45,10 +45,15 @@ function sizing(){
     console.log(rate_screen_h);
     console.log(rate_screen_w);
 
+    cell_h=canvas.height/180;
+    cell_w=canvas.width/320;
+
     
 
 }
 
+var cell_h
+var cell_w
 
 
 //////////描画関連の関数///////
