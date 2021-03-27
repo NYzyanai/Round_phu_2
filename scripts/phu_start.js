@@ -558,7 +558,7 @@ function judge_draw(){
         object3_1_h=180;
         object3_1_w=320;  
 
-        object4=phu_imgs_objects_array[13];
+        object4=phu_imgs_objects_array[12];
         object4_c_h=0;
         object4_c_w=(0+all_step_count/3);
         object4_h=180;
