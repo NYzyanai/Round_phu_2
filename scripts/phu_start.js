@@ -431,6 +431,11 @@ var object3_c_h
 var object3_w
 var object3_h
 
+var objetc3_2_c_w
+var object3_2_c_h
+var object3_2_w
+var object3_2_h
+
 var object4_c_w
 var object4_c_h
 var object4_h
@@ -440,6 +445,11 @@ var object5_h
 var object5_w
 var object5_c_h
 var objetc5_c_w
+
+var object6_h
+var object6_w
+var object6_c_h
+var objetc6_c_w
 
 
 
@@ -454,7 +464,8 @@ walk_time_count=0;
 canvas=document.getElementById('canvas');
 ctx=canvas.getContext('2d');
 ctx.imageSmoothingEnabled=false;
-
+var walk_time_img_count
+walk_time_img_count=0;
 
 function judge_draw(){
     
@@ -464,30 +475,64 @@ function judge_draw(){
         
     if(walk_start_flag==1){
         all_step_count=all_step_count+1;
-        walk_time_count=walk_time_count+1;
-        console.log(walk_time_count + "今ここ")
-        if(walk_time_count%10==0){
+        walk_time_count=walk_time_count+21;
+        // ４分の１とかは綺麗に２進数にできるけど他は無理　うんち
+
+        walk_time_img_count=Math.floor(walk_time_count/100);
+        console.log(walk_time_img_count + "今ここ")
+        if(walk_time_count>600){
             walk_start_flag=0;
+            walk_time_count=0;
+            walk_time_img_count=0;
         }
     }
 
     if(all_step_count<400){
         object1=phu_imgs_objects_array[0];
         object1_c_h=0;
-        object1_c_w=(0+all_step_count);
+        object1_c_w=(0+all_step_count/6);
         object1_h=180;
         object1_w=320;
 
-        object2=phu_imgs_phu_array[0];
-        object2_c_w=255;
-        object2_c_h=105;
-        object2_h=80;
-        object2_w=50;
+        object2=phu_imgs_objects_array[1];
+        object2_c_h=0;
+        object2_c_w=(0+all_step_count/5);
+        object2_h=180;
+        object2_w=320;
+
+        object3=phu_imgs_objects_array[3];
+        object3_c_h=0;
+        object3_c_w=(0+all_step_count/4);
+        object3_h=180;
+        object3_w=320;     
+        
+        object3_2=phu_imgs_objects_array[4];
+        object3_2_c_h=0;
+        object3_2_c_w=(20+all_step_count/4);
+        object3_2_h=180;
+        object3_2_w=320;  
+
+        object4=phu_imgs_objects_array[5];
+        object4_c_h=0;
+        object4_c_w=(-120+all_step_count/3);
+        object4_h=180;
+        object4_w=320;     
+
+        if(walk_time_count>0){
+        object6=phu_imgs_phu_array[walk_time_img_count];
+        }else{
+            object6=phu_imgs_phu_array[0];
+           
+        }
+        object6_c_w=255;
+        object6_c_h=105;
+        object6_h=80;
+        object6_w=50;
     
     }else if(all_step_count<500){
-        object1=phu_imgs_objects_array[2];
+        
     }else{
-        object1=phu_imgs_objects_array[4];        
+
     }
 
     console.log("今"　+ all_step_count);
@@ -506,19 +551,23 @@ function phu_imgs_draw(){
             case 2:
                 //山などの背景
                 ctx.drawImage(object2,object2_c_w*cell_w,object2_c_h*cell_h,object2_w*cell_w,object2_h*cell_h);
-                add=add+0.07;
+                ctx.drawImage(object2,(object2_c_w-320)*cell_w,object2_c_h*cell_h,object2_w*cell_w,object2_h*cell_h);
                 break;
             case 3:
                 //木々
+                ctx.drawImage(object3,object3_c_w*cell_w,object3_c_h*cell_h,object3_w*cell_w,object3_h*cell_h);
+                ctx.drawImage(object3_2,(object3_2_c_w-200)*cell_w,object3_2_c_h*cell_h,object3_2_w*cell_w,object3_2_h*cell_h);
                 break;
             case 4:
                 //奥の建物
+                ctx.drawImage(object4,object4_c_w*cell_w,object4_c_h*cell_h,object4_w*cell_w,object4_h*cell_h);
+                //ctx.drawImage(object4,(object4_c_w-200)*cell_w,object4_c_h*cell_h,object4_w*cell_w,object4_h*cell_h);
                 break;
             case 5:
                 //手前の建物
                 break;
             case 6:
-                //キャラクター
+                ctx.drawImage(object6,object6_c_w*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
                 break;
             default:
                 //一番前
