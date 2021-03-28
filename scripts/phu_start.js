@@ -93,12 +93,12 @@ phu_imgs_phu_namepath=[
     'src/character/w_p_4.png',
 
     'src/character/w_p_5.png',
-    'src/character/lay_phu_1.png',
-    'src/character/lay_phu_2.png',
-    'src/character/lay_phu_3.png',
-    'src/character/lay_phu_4.png',
+    'src/character/l_p_1.png',
+    'src/character/l_p_2.png',
+    'src/character/l_p_3.png',
+    'src/character/l_p_4.png',
 
-    'src/character/lay_phu_5.png'
+    'src/character/l_p_5.png'
 ]
 
 var phu_imgs_yue_namepath=[];
@@ -351,27 +351,18 @@ function judge_draw(){
         
    
         character5_1=null;
-        
-        if((Math.floor(lay/100))<11){
-            console.log(Math.floor(lay/100));
-            character5=phu_imgs_phu_array[Math.floor(lay/100)];
-            //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
-        }else{
-            character5=phu_imgs_phu_array[10];
-        }
+        //console.log("現在描画しているのは"　+ phu_imgs_phu_array[Math.floor(lay/100)].src);
 
-        if(Math.floor(lay/100)<=7){
-            lay=lay+19;
-            character5_c_w=225;
-            character5_c_h=105;
-            character5_h=80;
-            character5_w=50;
-        }else{
-            lay=lay+21;
-        character5_c_w=225;
-        character5_c_h=105;    
-        character5_h=77;
-        character5_w=85;
+        character5=phu_imgs_phu_array[10];
+
+        lay=lay+23;
+        //定数
+        if((Math.floor(lay/100))<=10){
+            console.log(Math.floor(lay/100));
+  
+            character5=phu_imgs_phu_array[Math.floor(lay/100)];
+            //配列11番目は存在しない
+            //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
         }
     }
 
