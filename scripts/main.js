@@ -1,9 +1,14 @@
 
 /////最初に読みこむべき処理
 
+var debug_count
+debug_count=10;
+
+var normal_time
+normal_time=30;
 window.onload =function(){
     setup_touchevent();
-    setInterval(loop,30);
+    setInterval(loop,normal_time);
     sizing();
     splash_stage_flag=1;
     /*if(!canvas || !canvas.getContext) return false;
@@ -43,10 +48,19 @@ var start_sec
 var start_mil
 var startdate
 var enddate
+var debug_mode_flag
+debug_mode_flag=0;
 
 //////////メイン処理////////
 function loop(){
     //1秒間に30回よばれる
+
+    if(touchX>300&&touchY<30){
+        setup_touchevent();
+        setInterval(loop,2);
+        debug_mode_flag=1;
+        
+    }
 
     startdate =new Date();
     start_sec=startdate.getSeconds();

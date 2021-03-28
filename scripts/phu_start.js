@@ -174,14 +174,26 @@ var object6
 
 
 var object1_1
+var object1_2
+var object1_3
+
 var object2_1
 var object2_2
 var object2_3
+
 var object3_1
 var object3_2
+var object3_3
+
 var object4_1
+var object4_2
+var object4_3
+
 var character5_1
+
 var object6_1
+var object6_2
+var object6_3
 
 var object1_c_w
 //座標のwidth
@@ -193,6 +205,16 @@ var object1_1_c_w
 var object1_1_c_h
 var object1_1_w
 var object1_1_h
+
+var object1_2_c_w
+var object1_2_c_h
+var object1_2_w
+var object1_2_h
+
+var object1_3_c_w
+var object1_3_c_h
+var object1_3_w
+var object1_3_h
 
 var object2_c_w
 var objett2_c_h
@@ -230,6 +252,12 @@ var object3_2_c_h
 var object3_2_w
 var object3_2_h
 
+var objetc3_3_c_w
+var object3_3_c_h
+var object3_3_w
+var object3_3_h
+
+
 var object4_c_w
 var object4_c_h
 var object4_h
@@ -239,6 +267,16 @@ var object4_1_c_w
 var object4_1_c_h
 var object4_1_h
 var object4_1_w
+
+var object4_2_c_w
+var object4_2_c_h
+var object4_2_h
+var object4_2_w
+
+var object4_3_c_w
+var object4_3_c_h
+var object4_3_h
+var object4_3_w
 
 var character5_h
 var character5_w
@@ -256,12 +294,25 @@ var object6_w
 var object6_c_h
 var objetc6_c_w
 
-var kirikae
-kirikae=2500
+var object6_1_h
+var object6_1_w
+var object6_1_c_h
+var objetc6_1_c_w
 
+var object6_2_h
+var object6_2_w
+var object6_2_c_h
+var objetc6_2_c_w
+
+var object6_3_h
+var object6_3_w
+var object6_3_c_h
+var objetc6_3_c_w
 
 
 var all_step_count
+
+
 all_step_count=0;
 
 var walk_start_flag
@@ -297,6 +348,8 @@ function judge_draw(){
     ctx=canvas.getContext('2d');
     ctx.imageSmoothingEnabled=false;
         
+
+    //歩行用演算
     if(walk_start_flag==1){
         
         walk_time_count=walk_time_count+21;
@@ -306,7 +359,11 @@ function judge_draw(){
         //console.log(walk_time_img_count + "今ここ")
         //console.log("タイムは" + walk_time_count);
         if(walk_time_img_count>1 && walk_time_img_count<6){
+            if(debug_mode_flag==0){
             all_step_count=all_step_count+2;
+            }else{
+                all_step_count=all_step_count+30;
+            }
         }
         if(walk_time_count>600){
             walk_start_flag=0;
@@ -317,6 +374,7 @@ function judge_draw(){
 
 
 
+    //1~3枚目
 
     if(all_step_count<2500){
 
@@ -380,6 +438,13 @@ function judge_draw(){
         object3_2_h=180;
         object3_2_w=320;  
 
+        object3_3=phu_imgs_objects_array[11];
+        object3_3_c_h=0;
+        object3_3_c_w=(-400+all_step_count/4);
+        //奥に登場させたいときはマイナス座標
+        object3_3_h=normal_obj_h;
+        object3_3_w=normal_obj_w;
+
         object4=phu_imgs_objects_array[13];
         object4_c_h=0;
         object4_c_w=(0+all_step_count/3);
@@ -387,28 +452,30 @@ function judge_draw(){
         object4_w=320;    
 
         //木　なんぼあってもこまらん
-        object4_1=phu_imgs_objects_array[3];
+        object4_1=phu_imgs_objects_array[7];
         object4_1_c_h=0;
-        object4_1_c_w=(-160+all_step_count/4);
+        object4_1_c_w=(-250+all_step_count/4);
         object4_1_h=180;
         object4_1_w=320;  
     
 
-        object4_1=phu_imgs_objects_array[11];
-        object4_1_c_h=0;
-        object4_1_c_w=(-600+all_step_count/3);
-        object4_1_h=180;
-        object4_1_w=320;   
+ 
+
+        object4_2=phu_imgs_objects_array[10];
+        object4_2_c_h=0;
+        object4_2_c_w=-15+all_step_count/3
+        object4_2_h=normal_obj_h
+        object4_2_w=normal_obj_w
 
         if(walk_time_count>0){
             character5=phu_imgs_phu_array[walk_time_img_count];
             character5_1=phu_imgs_yue_array[walk_time_img_count];
         
-            character5_c_w=225+((walk_time_img_count)*14/5);
+            character5_c_w=200+((walk_time_img_count)*14/5);
             //14マスを5枚で移動する
             character5_c_h=105;
         }else{
-            character5_c_w=225;
+            character5_c_w=200;
             character5_c_h=105;
             character5=phu_imgs_phu_array[0];
             character5_1=phu_imgs_yue_array[0];
@@ -427,6 +494,18 @@ function judge_draw(){
         object6_c_w=(0+all_step_count/2);
         object6_h=180;
         object6_w=320;     
+    
+        object6_1=phu_imgs_objects_array[9];
+        object6_1_c_h=0;
+        object6_1_c_w=(-20+all_step_count/2);
+        object6_1_h=normal_obj_h
+        object6_1_w=normal_obj_w
+
+        object6_2=phu_imgs_objects_array[3];
+        object6_2_c_h=0;
+        object6_2_c_w=(-800+all_step_count/3);
+        object6_2_h=180;
+        object6_2_w=320;   
     
  
     }else　if(all_step_count<5000){
@@ -463,6 +542,13 @@ function judge_draw(){
         object2_2_c_w=(-next*4+(all_step_count)/6);
         object2_2_h=180;
         object2_2_w=320;  
+
+        object4_1=phu_imgs_objects_array[11];
+        object4_1_c_h=0;
+        object4_1_c_w=(-600+all_step_count/3);
+        object4_1_h=180;
+        object4_1_w=320;   
+
 
 
         if(walk_time_count>0){
@@ -514,57 +600,122 @@ function judge_draw(){
 var lay
 lay=600;
 
+
+
+//実際のレイヤー 
+
 function phu_imgs_draw(){
 
     for(layer=0;layer<=6;layer++){
         switch(layer){
             case 1:
                 //いちばん奥　空など
-                ctx.drawImage(object1,object1_c_w*cell_w,object1_c_h*cell_h,object1_w*cell_w,object1_h*cell_h);
-                if(object1_1!=null){
-                    ctx.drawImage(object1_1,object1_c_w*cell_w,object1_c_h,object1_w*cell_w,object1_h*cell_h);
+                if(object1!=null){
+                    ctx.drawImage(object1,object1_c_w*cell_w,object1_c_h*cell_h,object1_w*cell_w,object1_h*cell_h);
                 }
+                
+                if(object1_1!=null){
+                    ctx.drawImage(object1_1,object1_1_c_w*cell_w,object1_1_c_h,object1_1_w*cell_w,object1_1_h*cell_h);
+                }
+
+                if(object1_2!=null){
+                    ctx.drawImage(object1_2,object1_2_c_w*cell_w,object1_2_c_h,object1_2_w*cell_w,object1_2_h*cell_h);
+                }
+
+                if(object1_3!=null){
+                    ctx.drawImage(object1_3,object1_3_c_w*cell_w,object1_3_c_h,object1_3_w*cell_w,object1_3_h*cell_h);
+                }
+
+
                 break;
             case 2:
                 //山などの背景
-                ctx.drawImage(object2,object2_c_w*cell_w,object2_c_h*cell_h,object2_w*cell_w,object2_h*cell_h);
 
-                ctx.drawImage(object2_1,object2_1_c_w*cell_w,object2_1_c_h*cell_h,object2_1_w*cell_w,object2_1_h*cell_h);
+                if(object2!=null){
+                    ctx.drawImage(object2,object2_c_w*cell_w,object2_c_h*cell_h,object2_w*cell_w,object2_h*cell_h);
+                }
 
-                ctx.drawImage(object2_2,object2_2_c_w*cell_w,object2_2_c_h*cell_h,object2_2_w*cell_w,object2_2_h*cell_h);
-
+                if(object2_1!=null){
+                    ctx.drawImage(object2_1,object2_1_c_w*cell_w,object2_1_c_h*cell_h,object2_1_w*cell_w,object2_1_h*cell_h);
+                }
+                
+                if(object2_2!=null){
+                    ctx.drawImage(object2_2,object2_2_c_w*cell_w,object2_2_c_h*cell_h,object2_2_w*cell_w,object2_2_h*cell_h);
+                }
+                
                 if(object2_3!=null){
                     ctx.drawImage(object2_3,object2_3_c_w*cell_w,object2_3_c_h*cell_h,object2_3_w*cell_w,object2_3_h*cell_h);
                 }
                 break;
             case 3:
                 //木々
-                ctx.drawImage(object3,object3_c_w*cell_w,object3_c_h*cell_h,object3_w*cell_w,object3_h*cell_h);
-                ctx.drawImage(object3_1,object3_1_c_w*cell_w,object3_1_c_h*cell_h,object3_1_w*cell_w,object3_1_h*cell_h);
+
+                if(object3!=null){
+                    ctx.drawImage(object3,object3_c_w*cell_w,object3_c_h*cell_h,object3_w*cell_w,object3_h*cell_h);
+                }
+
+                if(object3_1!=null){
+                    ctx.drawImage(object3_1,object3_1_c_w*cell_w,object3_1_c_h*cell_h,object3_1_w*cell_w,object3_1_h*cell_h);
+                }
+
                 if(object3_2!=null){
-                    ctx.drawImage(object3_2,object3_2_c_w*cell_w,object3_2_c_h,normal_obj_w*cell_w,normal_obj_h*cell_h);
+                    ctx.drawImage(object3_2,object3_2_c_w*cell_w,object3_2_c_h,object3_2_w*cell_w,object3_3_h*cell_h);
+                }
+
+                if(object3_3!=null){
+                    ctx.drawImage(object3_3,object3_3_c_w*cell_w,object3_3_c_h,object3_3_w*cell_w,object3_3_h*cell_h);
                 }
                 
                 break;
             case 4:
                 //奥の建物
-                ctx.drawImage(object4,object4_c_w*cell_w,object4_c_h*cell_h,object4_w*cell_w,object4_h*cell_h);
-                if(object4_1!=null){
-                ctx.drawImage(object4_1,object4_1_c_w*cell_w,object4_1_c_h*cell_h,object4_1_w*cell_w,object4_1_h*cell_h);
+                if(object4!=null){
+                    ctx.drawImage(object4,object4_c_w*cell_w,object4_c_h*cell_h,object4_w*cell_w,object4_h*cell_h);
                 }
+
+                if(object4_1!=null){
+                    ctx.drawImage(object4_1,object4_1_c_w*cell_w,object4_1_c_h*cell_h,object4_1_w*cell_w,object4_1_h*cell_h);
+                }
+
+                if(object4_2!=null){
+                    ctx.drawImage(object4_2,object4_2_c_w*cell_w,object4_2_c_h*cell_h,object4_2_w*cell_w,object4_2_h*cell_h);
+                }
+
+                if(object4_3!=null){
+                    ctx.drawImage(object4_3,object4_3_c_w*cell_w,object4_3_c_h*cell_h,object4_3_w*cell_w,object4_3_h*cell_h);
+                }
+
+
                 break;
             case 5:
                 //キャラクター
+                if(character5!=null){
                 ctx.drawImage(character5,character5_c_w*cell_w,character5_c_h*cell_h,character5_w*cell_w,character5_h*cell_h);
-                /*if(character5_1==null){
-                
-                }else{
+                }
+
+                if(character5_1!=null){
                     ctx.drawImage(character5_1,character5_1_c_w*cell_w,character5_1_c_h*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
-                }*/
-                    break;
+                }
+                break;
             case 6:
                 //手前のもの
-                ctx.drawImage(object6,object6_c_w*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
+                if(object6!=null){
+                    ctx.drawImage(object6,object6_c_w*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
+                }
+
+                if(object6_1!=null){
+                    ctx.drawImage(object6_1,object6_1_c_w*cell_w,object6_1_c_h*cell_h,object6_1_w*cell_w,object6_1_h*cell_h);
+                }
+
+                if(object6_2!=null){
+                    ctx.drawImage(object6_2,object6_2_c_w*cell_w,object6_2_c_h*cell_h,object6_2_w*cell_w,object6_2_h*cell_h);
+                }
+
+                if(object6_3!=null){
+                    ctx.drawImage(object6_3,object6_3_c_w*cell_w,object6_3_c_h*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
+                }
+
+
                 break;
             default:
                 //一番前
