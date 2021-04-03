@@ -347,7 +347,7 @@ function judge_draw(){
     canvas=document.getElementById('canvas');
     ctx=canvas.getContext('2d');
     ctx.imageSmoothingEnabled=false;
-        
+    ctx.textSmoothingEnabled=false;
 
     //歩行用演算
     if(walk_start_flag==1){
