@@ -726,7 +726,7 @@ function phu_imgs_draw(){
                 ctx.font = "20px 'DotGothic16'";
                 ctx.fillStyle='white';
                 ctx.fillText("Are you going to scarborough fair?", 15*cell_w, 165*cell_h);
-                ctx.fillText("とっとこ走るよハム太郎",15*cell_w,177*cell_h)
+                ctx.fillText("CloseYourEyes(何回目？）",15*cell_w,177*cell_h)
                 console.log("文字文字もじもじ");
 
             default:
