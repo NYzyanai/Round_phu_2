@@ -606,7 +606,7 @@ lay=600;
 
 function phu_imgs_draw(){
 
-    for(layer=0;layer<=6;layer++){
+    for(layer=0;layer<=7;layer++){
         switch(layer){
             case 1:
                 //いちばん奥　空など
@@ -714,10 +714,19 @@ function phu_imgs_draw(){
                 if(object6_3!=null){
                     ctx.drawImage(object6_3,object6_3_c_w*cell_w,object6_3_c_h*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
                 }
+                
 
 
                 break;
+            case 7:
+                ctx.font = "20px 'DotGothic16'";
+                ctx.fillStyle='white';
+                ctx.fillText("Are you going to scarborough fair?", 20*cell_w, 160*cell_h);
+                console.log("文字文字もじもじ");
+
             default:
+
+
                 //一番前
                 //ctx.drawImage(phu_imgs_phu_array[1],20+add,20+add,100,100+add);
                 //add=add+0.08;
