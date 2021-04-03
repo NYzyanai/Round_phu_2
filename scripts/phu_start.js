@@ -727,11 +727,18 @@ function phu_imgs_draw(){
                 ctx.fillStyle='white';
 
 
-                text_time=text_time+0.01
+                text_time=text_time+0.2
 
-                ctx.fillText(text1[Math.floor(text_time)], 15*cell_w, 165*cell_h);
+                //ctx.fillText(text1[Math.floor(text_time)], 15*cell_w, 165*cell_h);
+                ctx.fillText(text_array[Math.floor(text_time)], 15*cell_w, 165*cell_h);
+                /*
+                2行目っす
                 ctx.fillText("CloseYourEyes(何回目？）",15*cell_w,177*cell_h)
-                console.log("文字文字もじもじ");
+                
+                */
+                //console.log("文字文字もじもじ");
+                //console.log("おれを診RO")
+                console.log(text_array[Math.floor(text_time)])
 
             default:
 
