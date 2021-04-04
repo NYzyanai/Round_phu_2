@@ -739,7 +739,7 @@ function phu_imgs_draw(){
                 //console.log("文字文字もじもじ");
                 //console.log("おれを診RO")
                 console.log(text_array[Math.floor(text_time)])
-
+                console.log(text_2nd_array[0][0]);
             default:
 
 
