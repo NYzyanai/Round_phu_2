@@ -756,7 +756,7 @@ function phu_imgs_draw(){
                     ctx.fillStyle='black';
                     ctx.fillRect(0, 150*cell_h,320*cell_w,30*cell_h);
                     
-                    ctx.font = "20px 'DotGothic16'";
+                    ctx.font = "3rem 'DotGothic16'";
                     ctx.fillStyle='white';
                     if(text_time==0){
                         retu_count=0;

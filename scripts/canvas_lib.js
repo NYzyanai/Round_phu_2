@@ -11,6 +11,8 @@ width=320;
 
 var canvas
 
+
+
 function openWindow(url,windowName){
     info = 'toolbar=no,location=no,directories=no,status=no,menubar=no,' +
      'scrollbars=yes,left=0,top=0,resizable=yes,width=1014,height=740,title=no';
