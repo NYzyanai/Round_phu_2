@@ -144,6 +144,6 @@ function loop(){
 
     //console.log("終わり秒数" + end_sec　+ ":"　+ end_mil);
     
-    between_mil=(1000*((end_sec-start_sec))+(end_mil-start_mil));
+    between_mil=(1000*((start_sec-end_sec))+(start_mil-end_mil));
     //console.log("差の秒数"+between_mil);
 }
