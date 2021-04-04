@@ -11,6 +11,11 @@ width=320;
 
 var canvas
 
+var fontsize
+
+
+
+
 
 
 function openWindow(url,windowName){
@@ -36,10 +41,15 @@ function sizing(){
         
         canvas.style.left = (screen_width-canvas.width)/2+"px";
         canvas.style.top = (screen_height-canvas.height)/2+"px";
+
+        fontsize="4vw'DotGothic16'";
+
     }else if(screen_width*9/16==screen_height){
         //もしも横ながだった場合には、heightをscreenに合わせる必要がある
         canvas.height=screen_height;
         canvas.width=screen_width;
+
+        fontsize="4vw 'DotGothic16'";
         
     }else if(screen_width*9/16>screen_height){
         //高さにあわせる
@@ -48,6 +58,8 @@ function sizing(){
 
         canvas.style.left = (screen_width-canvas.width)/2+"px";
         canvas.style.top = (screen_height-canvas.height)/2+"px";
+
+        fontsize="5.2vh 'DotGothic16'";
     }  
 
     rate_screen_h=180/canvas.height;
