@@ -594,7 +594,7 @@ function judge_draw(){
         }
     }
 
-    console.log("今"　+ all_step_count);
+    //console.log("今"　+ all_step_count);
 }
 
 var lay
@@ -602,6 +602,8 @@ lay=600;
 
 var gyou_count=0;
 var text_time=0;
+
+var retu_count=0;
 
 
 //実際のレイヤー 
@@ -742,14 +744,24 @@ function phu_imgs_draw(){
                 //console.log("おれを診RO")
                 //console.log(text_array[Math.floor(text_time)])
                 //console.log(text_2nd_array[0][0]);
+                
+                if(text_time==0){
+                    retu_count=0;
+                }else{
+                    retu_count=Math.floor(text_time);
+                }
 
+                if(gyou_count+1>=text_array.length){ //TEXT_ARRAYの長さ以上の配列は存在しない
 
-                    if(text_detail_array[gyou_count][Math.floor(text_time)]==null){
+                        //console.log("うんち")
+                }else{
+                    if(text_detail_array[gyou_count][retu_count]==null){
                         gyou_count=gyou_count+1;
                         text_time=0;
                     }
+                        ctx.fillText(text_detail_array[gyou_count][retu_count], 15*cell_w, 165*cell_h);
+                }
 
-                    ctx.fillText(text_detail_array[gyou_count][Math.floor(text_time)], 15*cell_w, 165*cell_h);
 
             default:
 
