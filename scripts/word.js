@@ -69,6 +69,23 @@ var text_time
 text_time=0;
 
 */
+
+/*
+
+使い方メモ
+text_array に台詞を入れて行きます
+text_detail_array に分割された台詞が格納されます
+text_array分の長さの「text_datail_array」の一次元配列をつくります
+
+
+    その配列のなかに「text_array[0]とかのテキストを1文字づつ分割して入力していきます…１
+コレをtext_array.lengthぶん繰り返します…２
+
+word_bufには「text_array」などの文字をいったんぶち込んで、
+その文字数文１を繰り返します
+
+
+*/
 var text_array=[];
 
 text_array=[
@@ -92,6 +109,8 @@ var word_buf =0
 
 for(array_count=0;array_count<text_array.length;array_count++){
     word_buf=text_array[array_count]
+
+
     for (var text_c=0;text_c<word_buf.length;text_c++){
         text_detail_array[array_count][text_c]=text_array[array_count].substr(0,text_c+1);
         //console.log(text_array[text_c]);
