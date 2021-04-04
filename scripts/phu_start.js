@@ -372,7 +372,12 @@ function judge_draw(){
         }
     }
 
-
+        
+    if(text_flag==1){
+        upper_gamen=30;
+    }else if(text_flag==0){
+        upper_gamen=0;
+    }
 
     //1~3枚目
 
@@ -644,49 +649,49 @@ function phu_imgs_draw(){
                 }
                 
                 if(object2_2!=null){
-                    ctx.drawImage(object2_2,object2_2_c_w*cell_w,object2_2_c_h*cell_h,object2_2_w*cell_w,object2_2_h*cell_h);
+                    ctx.drawImage(object2_2,object2_2_c_w*cell_w,(object2_2_c_h-upper_gamen)*cell_h,object2_2_w*cell_w,object2_2_h*cell_h);
                 }
                 
                 if(object2_3!=null){
-                    ctx.drawImage(object2_3,object2_3_c_w*cell_w,object2_3_c_h*cell_h,object2_3_w*cell_w,object2_3_h*cell_h);
+                    ctx.drawImage(object2_3,object2_3_c_w*cell_w,(object2_3_c_h-upper_gamen)*cell_h,object2_3_w*cell_w,object2_3_h*cell_h);
                 }
                 break;
             case 3:
                 //木々
 
                 if(object3!=null){
-                    ctx.drawImage(object3,object3_c_w*cell_w,object3_c_h*cell_h,object3_w*cell_w,object3_h*cell_h);
+                    ctx.drawImage(object3,object3_c_w*cell_w,(object3_c_h-upper_gamen)*cell_h,object3_w*cell_w,object3_h*cell_h);
                 }
 
                 if(object3_1!=null){
-                    ctx.drawImage(object3_1,object3_1_c_w*cell_w,object3_1_c_h*cell_h,object3_1_w*cell_w,object3_1_h*cell_h);
+                    ctx.drawImage(object3_1,object3_1_c_w*cell_w,(object3_1_c_h-upper_gamen)*cell_h,object3_1_w*cell_w,object3_1_h*cell_h);
                 }
 
                 if(object3_2!=null){
-                    ctx.drawImage(object3_2,object3_2_c_w*cell_w,object3_2_c_h,object3_2_w*cell_w,object3_3_h*cell_h);
+                    ctx.drawImage(object3_2,object3_2_c_w*cell_w,(object3_2_c_h-upper_gamen),object3_2_w*cell_w,object3_3_h*cell_h);
                 }
 
                 if(object3_3!=null){
-                    ctx.drawImage(object3_3,object3_3_c_w*cell_w,object3_3_c_h,object3_3_w*cell_w,object3_3_h*cell_h);
+                    ctx.drawImage(object3_3,object3_3_c_w*cell_w,(object3_3_c_h-upper_gamen),object3_3_w*cell_w,object3_3_h*cell_h);
                 }
                 
                 break;
             case 4:
                 //奥の建物
                 if(object4!=null){
-                    ctx.drawImage(object4,object4_c_w*cell_w,object4_c_h*cell_h,object4_w*cell_w,object4_h*cell_h);
+                    ctx.drawImage(object4,object4_c_w*cell_w,(object4_c_h-upper_gamen)*cell_h,object4_w*cell_w,object4_h*cell_h);
                 }
 
                 if(object4_1!=null){
-                    ctx.drawImage(object4_1,object4_1_c_w*cell_w,object4_1_c_h*cell_h,object4_1_w*cell_w,object4_1_h*cell_h);
+                    ctx.drawImage(object4_1,object4_1_c_w*cell_w,(object4_1_c_h-upper_gamen)*cell_h,object4_1_w*cell_w,object4_1_h*cell_h);
                 }
 
                 if(object4_2!=null){
-                    ctx.drawImage(object4_2,object4_2_c_w*cell_w,object4_2_c_h*cell_h,object4_2_w*cell_w,object4_2_h*cell_h);
+                    ctx.drawImage(object4_2,object4_2_c_w*cell_w,(object4_2_c_h-upper_gamen)*cell_h,object4_2_w*cell_w,object4_2_h*cell_h);
                 }
 
                 if(object4_3!=null){
-                    ctx.drawImage(object4_3,object4_3_c_w*cell_w,object4_3_c_h*cell_h,object4_3_w*cell_w,object4_3_h*cell_h);
+                    ctx.drawImage(object4_3,object4_3_c_w*cell_w,(object4_3_c_h-upper_gamen)*cell_h,object4_3_w*cell_w,object4_3_h*cell_h);
                 }
 
 
@@ -694,29 +699,29 @@ function phu_imgs_draw(){
             case 5:
                 //キャラクター
                 if(character5!=null){
-                ctx.drawImage(character5,character5_c_w*cell_w,character5_c_h*cell_h,character5_w*cell_w,character5_h*cell_h);
+                ctx.drawImage(character5,character5_c_w*cell_w,(character5_c_h-upper_gamen)*cell_h,character5_w*cell_w,character5_h*cell_h);
                 }
 
                 if(character5_1!=null){
-                    ctx.drawImage(character5_1,character5_1_c_w*cell_w,character5_1_c_h*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
+                    ctx.drawImage(character5_1,character5_1_c_w*cell_w,(character5_1_c_h-upper_gamen)*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
                 }
                 break;
             case 6:
                 //手前のもの
                 if(object6!=null){
-                    ctx.drawImage(object6,object6_c_w*cell_w,object6_c_h*cell_h,object6_w*cell_w,object6_h*cell_h);
+                    ctx.drawImage(object6,object6_c_w*cell_w,(object6_c_h-upper_gamen)*cell_h,object6_w*cell_w,object6_h*cell_h);
                 }
 
                 if(object6_1!=null){
-                    ctx.drawImage(object6_1,object6_1_c_w*cell_w,object6_1_c_h*cell_h,object6_1_w*cell_w,object6_1_h*cell_h);
+                    ctx.drawImage(object6_1,object6_1_c_w*cell_w,(object6_1_c_h-upper_gamen)*cell_h,object6_1_w*cell_w,object6_1_h*cell_h);
                 }
 
                 if(object6_2!=null){
-                    ctx.drawImage(object6_2,object6_2_c_w*cell_w,object6_2_c_h*cell_h,object6_2_w*cell_w,object6_2_h*cell_h);
+                    ctx.drawImage(object6_2,object6_2_c_w*cell_w,(object6_2_c_h-upper_gamen)*cell_h,object6_2_w*cell_w,object6_2_h*cell_h);
                 }
 
                 if(object6_3!=null){
-                    ctx.drawImage(object6_3,object6_3_c_w*cell_w,object6_3_c_h*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
+                    ctx.drawImage(object6_3,object6_3_c_w*cell_w,(object6_3_c_h-upper_gamen)*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
                 }
                 
 
@@ -724,14 +729,10 @@ function phu_imgs_draw(){
                 break;
             case 7:
                 
-                ctx.fillStyle='black';
-                ctx.fillRect(0, 150*cell_h,320*cell_w,30*cell_h);
-                
-                ctx.font = "20px 'DotGothic16'";
-                ctx.fillStyle='white';
 
 
-                text_time=text_time+0.2
+
+
 
                 //ctx.fillText(text1[Math.floor(text_time)], 15*cell_w, 165*cell_h);
                 //ctx.fillText(text_array[Math.floor(text_time)], 15*cell_w, 165*cell_h);
@@ -744,24 +745,38 @@ function phu_imgs_draw(){
                 //console.log("おれを診RO")
                 //console.log(text_array[Math.floor(text_time)])
                 //console.log(text_2nd_array[0][0]);
-                
-                if(text_time==0){
-                    retu_count=0;
-                }else{
-                    retu_count=Math.floor(text_time);
-                }
+               
+                if(all_step_count>300){
+                    text_flag=0;
 
-                if(gyou_count+1>=text_array.length){ //TEXT_ARRAYの長さ以上の配列は存在しない
+                }else if(all_step_count>100){
+                    text_flag=1;
+                    text_time=text_time+0.2
 
-                        //console.log("うんち")
-                }else{
-                    if(text_detail_array[gyou_count][retu_count]==null){
-                        gyou_count=gyou_count+1;
-                        text_time=0;
+                    ctx.fillStyle='black';
+                    ctx.fillRect(0, 150*cell_h,320*cell_w,30*cell_h);
+                    
+                    ctx.font = "20px 'DotGothic16'";
+                    ctx.fillStyle='white';
+                    if(text_time==0){
+                        retu_count=0;
+                    }else{
+                        retu_count=Math.floor(text_time);
                     }
-                        ctx.fillText(text_detail_array[gyou_count][retu_count], 15*cell_w, 165*cell_h);
-                }
 
+                    if(gyou_count+1>=text_array.length){ //TEXT_ARRAYの長さ以上の配列は存在しない
+
+                            //console.log("うんち")
+                    }else{
+                        if(text_detail_array[gyou_count][retu_count]==null){
+                            gyou_count=gyou_count+1;
+                            text_time=0;
+                        }
+                            ctx.fillText(text_detail_array[gyou_count][retu_count], 15*cell_w, 165*cell_h);
+                    }
+
+        
+                }
 
             default:
 
