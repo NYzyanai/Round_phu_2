@@ -82,7 +82,21 @@ text_array=[
     "Guet:...待ってるからね。"
 ]
 
+var text_detail_array=new Array(text_array.length);
 
+for(var i=0;i<text_detail_array.length;i++){
+    text_detail_array[i]=new Array
+}
+var array_count=0
+var word_buf =0
+
+for(array_count=0;array_count<text_array.length;array_count++){
+    word_buf=text_array[array_count]
+    for (var text_c=0;text_c<word_buf.length;text_c++){
+        text_detail_array[array_count][text_c]=text_array[array_count].substr(0,text_c+1);
+        //console.log(text_array[text_c]);
+    }
+}
 
 /*　文字草案
 
