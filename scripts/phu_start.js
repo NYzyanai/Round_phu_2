@@ -600,6 +600,8 @@ function judge_draw(){
 var lay
 lay=600;
 
+var gyou_count=0;
+var text_time=0;
 
 
 //実際のレイヤー 
@@ -730,7 +732,7 @@ function phu_imgs_draw(){
                 text_time=text_time+0.2
 
                 //ctx.fillText(text1[Math.floor(text_time)], 15*cell_w, 165*cell_h);
-                ctx.fillText(text_array[Math.floor(text_time)], 15*cell_w, 165*cell_h);
+                //ctx.fillText(text_array[Math.floor(text_time)], 15*cell_w, 165*cell_h);
                 /*
                 2行目っす
                 ctx.fillText("CloseYourEyes(何回目？）",15*cell_w,177*cell_h)
@@ -738,8 +740,17 @@ function phu_imgs_draw(){
                 */
                 //console.log("文字文字もじもじ");
                 //console.log("おれを診RO")
-                console.log(text_array[Math.floor(text_time)])
-                console.log(text_2nd_array[0][0]);
+                //console.log(text_array[Math.floor(text_time)])
+                //console.log(text_2nd_array[0][0]);
+
+
+                    if(text_detail_array[gyou_count][Math.floor(text_time)]==null){
+                        gyou_count=gyou_count+1;
+                        text_time=0;
+                    }
+
+                    ctx.fillText(text_detail_array[gyou_count][Math.floor(text_time)], 15*cell_w, 165*cell_h);
+
             default:
 
 
