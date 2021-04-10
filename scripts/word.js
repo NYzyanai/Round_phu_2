@@ -17,11 +17,11 @@ word_bufには「text_array」などの文字をいったんぶち込んで、
 var text_array=[];
 
 text_array=[
-    "Guet:行き先もきまってないのに",
-    "Guet:... 行かないで。",
-    "Guet:私が頑張るから。",
-    "Guet:Phuは、まだやれるって。",
-    "Guet:まだ頑張れるって証明するから。",
+    "Yue:ここがPhuのお家？",
+    "Yue:大きいね！",
+    "Yue:.......",
+    "Yue:...Phu?",
+    "Yue:どうしたの？",
     "Guet:だから... 行かないで。",
     "Guet:わかった？",
     "Guet:...待ってるからね。"
@@ -52,12 +52,17 @@ for(array_count=0;array_count<text_array.length;array_count++){
 
 var upper_gamen=0
 var text_flag=0
+var text_move_flag
+text_move_flag=0
+var gyou_count
 
-function drawtext(){
+
+function drawtext(gyou_count){
     text_move_flag=1;
     if(text_flag=1){
         text_time=text_time+0.2
 
+        //背景Draw
         ctx.fillStyle='black';
         ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);
         
@@ -82,15 +87,8 @@ function drawtext(){
         }
     }
 
-
-
-    var text_move_flag
-    text_move_flag=0
-
     //1の時・・・上がらせる
     //2の時・・・下がらせる
-
-
 
     if(text_move_flag=1){
         if(upper_gamen<30){

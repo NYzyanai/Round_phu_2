@@ -727,7 +727,9 @@ function phu_imgs_draw(){
             //文字レイヤー
                 console.log(all_step_count);
                 if(all_step_count>=200&&all_step_count<400){
-                    drawtext();
+                    gyou_count=1
+                    drawtext(gyou_count);
+    
                 }else if(all_step_count>=400){
                     endtext();
                 }
