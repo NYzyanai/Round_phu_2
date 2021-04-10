@@ -59,7 +59,7 @@ function drawtext(){
         text_time=text_time+0.2
 
         ctx.fillStyle='black';
-        ctx.fillRect(0, 150*cell_h,320*cell_w,30*cell_h);
+        ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);
         
         
         ctx.font = fontsize;
@@ -111,4 +111,16 @@ function drawtext(){
 
 
 
+}
+
+function endtext(){
+    text_move_flag=2;
+    text_flag=0;
+    if(upper_gamen>0){
+        upper_gamen=upper_gamen-1
+        ctx.fillStyle='black';
+        ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,upper_gamen*cell_h);
+    }else{
+        text_move_flag=0;
+    }
 }

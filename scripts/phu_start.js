@@ -725,13 +725,13 @@ function phu_imgs_draw(){
             case 7:
                 
             //文字レイヤー
-
-                
-                if(all_step_count>400){
+                console.log(all_step_count);
+                if(all_step_count>=200&&all_step_count<400){
                     drawtext();
-                }else if(all_step_count>100){
-                    drawtext();
+                }else if(all_step_count>=400){
+                    endtext();
                 }
+            
 
             default:
 
