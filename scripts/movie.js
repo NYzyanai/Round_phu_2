@@ -201,15 +201,15 @@ var movie_escape_loop_flag=0;
 function movie_loop(){
     ctx.drawImage
 
-    if(between_mil>=0 && movie_loop_count<100){
-        movie_loop_count=movie_loop_count+0.25+(between_mil/1000　);
+    if(between_mil<0 && movie_loop_count<100){
+        movie_loop_count=movie_loop_count+1-(between_mil/1000);
     }
 
     console.log(sum_movie_loop_count);
     //いま＋０.３にしてる奴を秒基準にして、端末ごとの歳を無くす
     if(movie_loop_count>=12){
         if(movie_escape_loop_flag==0){
-            movie_loop_count=0.25;
+            movie_loop_count=1;
 
         }
             //描画に遅れる時間分足す
