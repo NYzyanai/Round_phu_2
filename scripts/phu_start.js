@@ -373,11 +373,6 @@ function judge_draw(){
     }
 
         
-    if(text_flag==1){
-        upper_gamen=30;
-    }else if(text_flag==0){
-        upper_gamen=0;
-    }
 
     //1~3枚目
 
@@ -748,33 +743,63 @@ function phu_imgs_draw(){
                
                 if(all_step_count>300){
                     text_flag=0;
-
+                    text_move_flag=0;
                 }else if(all_step_count>100){
-                    text_flag=1;
-                    text_time=text_time+0.2
+                    text_move_flag=1;
+                    if(text_flag=1){
+                        text_time=text_time+0.2
 
-                    ctx.fillStyle='black';
-                    ctx.fillRect(0, 150*cell_h,320*cell_w,30*cell_h);
-                    
-                    
-                    ctx.font = fontsize;
-                    ctx.fillStyle='white';
-                    if(text_time==0){
-                        retu_count=0;
-                    }else{
-                        retu_count=Math.floor(text_time);
-                    }
-
-                    if(gyou_count+1>=text_array.length){ //TEXT_ARRAYの長さ以上の配列は存在しない
-
-                            //console.log("うんち")
-                    }else{
-                        if(text_detail_array[gyou_count][retu_count]==null){
-                            gyou_count=gyou_count+1;
-                            text_time=0;
+                        ctx.fillStyle='black';
+                        ctx.fillRect(0, 150*cell_h,320*cell_w,30*cell_h);
+                        
+                        
+                        ctx.font = fontsize;
+                        ctx.fillStyle='white';
+                        if(text_time==0){
+                            retu_count=0;
+                        }else{
+                            retu_count=Math.floor(text_time);
                         }
-                            ctx.fillText(text_detail_array[gyou_count][retu_count], 15*cell_w, 165*cell_h);
+
+                        if(gyou_count+1>=text_array.length){ //TEXT_ARRAYの長さ以上の配列は存在しない
+
+                                //console.log("うんち")
+                        }else{
+                            if(text_detail_array[gyou_count][retu_count]==null){
+                                gyou_count=gyou_count+1;
+                                text_time=0;
+                            }
+                                ctx.fillText(text_detail_array[gyou_count][retu_count], 15*cell_w, 165*cell_h);
+                        }
                     }
+
+
+
+                    var text_move_flag
+                    text_move_flag=0
+
+                    //1の時・・・上がらせる
+                    //2の時・・・下がらせる
+
+
+
+                    if(text_move_flag=1){
+                        if(upper_gamen<=30){
+                            upper_gamen=upper_gamen+1
+                        }else{
+                            text_move_flag=0;
+                            text_flag=1;
+                            //もう表示していいよーってこと
+                        }
+                    }else if(text_move_flag=2){
+                            text_flag=0
+                        if(upper_gamen>0){
+                            upper_gamen=upper_gamen-1
+                        }else{
+                            text_move_flag=0;
+                        }
+                    }
+
 
         
                 }
@@ -787,6 +812,38 @@ function phu_imgs_draw(){
                 //add=add+0.08;
         }
         
+
     }
 
 }
+
+//いきなりグググって上がるんじゃなくてゆっくり上がらせたい
+
+/*
+
+var text_move_flag
+text_move_flag=0
+
+//1の時・・・上がらせる
+//2の時・・・下がらせる
+
+
+
+if(text_move_flag=1){
+    if(upper_gamen<=30){
+        upper_gamen=upper_gamen+1
+    }else{
+        text_move_flag=0;
+        text_flag=1;
+        //もう表示していいよーってこと
+    }
+}else if(text_move_flag=2){
+        text_flag=0
+    if(upper_gamen>0){
+        upper_gamen=upper_gamen-1
+    }else{
+        text_move_flag=0;
+    }
+}
+
+*/
