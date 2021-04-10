@@ -784,7 +784,7 @@ function phu_imgs_draw(){
 
 
                     if(text_move_flag=1){
-                        if(upper_gamen<=30){
+                        if(upper_gamen<30){
                             upper_gamen=upper_gamen+1
                         }else{
                             text_move_flag=0;
