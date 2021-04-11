@@ -17,13 +17,13 @@ word_bufには「text_array」などの文字をいったんぶち込んで、
 var text_array=[];
 
 text_array=[
-    "ここがPhuのお家？",
-    "大きいね！",
-    ".......",
-    "...Phu?",
-    "どうしたの？",
-    "だから... 行かないで。",
-    "...待ってるからね。"
+    "0ここがPhuのお家？",
+    "1大きいね！",
+    "2.......",
+    "3...Phu?",
+    "4どうしたの？",
+    "5だから... 行かないで。",
+    "6...待ってるからね。"
 ]
 
 var text_detail_array=new Array(text_array.length);
@@ -71,7 +71,9 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
 
     if(gyou_buf==""){
         gyou_buf=start_gyou_count
-    }
+    }else if(gyou_buf==end_gyou_count && retu_count==max_retu && wait_text_count>50){
+        console.log("owari")
+    }else{
 
         //背景Draw
         ctx.fillStyle='black';
@@ -109,6 +111,8 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
             ctx.fillText((chara_name) + text_detail_array[gyou_buf][retu_count], 15*cell_w, 165*cell_h);
             wait_text_count=wait_text_count+1;
         }
+    }
+
 
 /*
 
