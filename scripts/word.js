@@ -18,13 +18,12 @@ var text_array=[];
 
 text_array=[
     "ここがPhuのお家？",
-    "Yue:大きいね！",
-    "Yue:.......",
-    "Yue:...Phu?",
-    "Yue:どうしたの？",
-    "Guet:だから... 行かないで。",
-    "Guet:わかった？",
-    "Guet:...待ってるからね。"
+    "大きいね！",
+    ".......",
+    "...Phu?",
+    "どうしたの？",
+    "だから... 行かないで。",
+    "...待ってるからね。"
 ]
 
 var text_detail_array=new Array(text_array.length);
@@ -66,8 +65,53 @@ var start_gyou_count;
 var end_gyou_count;
 start_gyou_count=0;
 var next_text_flag
+var gyou_buf="" //いまどこの列を呼んでいるかの変数
 
-function drawtext(gyou_count,chara_name){
+function drawtext(start_gyou_count,end_gyou_count,chara_name){
+
+    if(gyou_buf==""){
+        gyou_buf=start_gyou_count
+    }
+
+        //背景Draw
+        ctx.fillStyle='black';
+        ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);
+        
+        //文字指定
+        ctx.font = fontsize;
+        ctx.fillStyle='white';
+
+
+        //該当行の最大値を格納
+        max_retu=text_detail_array[gyou_buf].length-1
+
+        //秒数管理
+        //7回表示したらつぎのもじ
+        if(wait_text_count>=7){
+            if(retu_count<max_retu){
+                retu_count=retu_count+1;
+                wait_text_count=0
+            }else if(retu_count==max_retu && wait_text_count>50){
+                gyou_buf=gyou_buf+1;
+                retu_count=0;
+                wait_text_count=0
+            }
+            
+        }
+
+
+
+        if(retu_count<max_retu){
+            console.log("行数"+ gyou_count, "列数" + retu_count);
+            ctx.fillText((chara_name) + text_detail_array[gyou_buf][retu_count], 15*cell_w, 165*cell_h);
+            wait_text_count=wait_text_count+1;
+        }else{
+            ctx.fillText((chara_name) + text_detail_array[gyou_buf][retu_count], 15*cell_w, 165*cell_h);
+            wait_text_count=wait_text_count+1;
+        }
+
+/*
+
     text_move_flag=1;
     if(text_flag=1){
         text_time=text_time+0.2
@@ -83,15 +127,6 @@ function drawtext(gyou_count,chara_name){
 
         max_retu=text_detail_array[gyou_count].length
 
-        if(wait_text_count==7){
-            if(retu_count<max_retu-1){
-                retu_count=retu_count+1;
-                next_text_flag=0;
-            }else if(retu_count==max_retu-1){
-                next_text_flag=1;
-            }
-            wait_text_count=0
-        }
 
         if(retu_count<max_retu){
             console.log("行数"+ gyou_count, "列数" + retu_count);
@@ -106,7 +141,7 @@ function drawtext(gyou_count,chara_name){
                     text_time=0;
                 }else{
                     ctx.fillText((chara_name) + text_detail_array[gyou_count][retu_count], 15*cell_w, 165*cell_h);
-                }*/
+                }
 
 
     //1の時・・・上がらせる
@@ -129,7 +164,7 @@ function drawtext(gyou_count,chara_name){
         }
     }
 }
-
+*/
 
 
 }

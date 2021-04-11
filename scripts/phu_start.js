@@ -730,7 +730,7 @@ function phu_imgs_draw(){
 
                 if(gyou_count!==10){
                     console.log("この業を表示する"　+ start_gyou_count);
-                    drawtext(start_gyou_count,"Yue:")
+                    drawtext(0,5,"Yue:")
 
                 }
 
