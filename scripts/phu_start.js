@@ -312,6 +312,7 @@ var objetc6_3_c_w
 
 
 var all_step_count
+var buf_step=0
 
 
 all_step_count=0;
@@ -389,7 +390,9 @@ function judge_draw(){
         // 雲1
         object1_1=phu_imgs_objects_array[16];
         object1_1_c_h=0;
-        cloud_time=cloud_time+0.2+all_step_count/7;
+
+        buf_step=walk_time_count % 60
+        cloud_time=cloud_time+0.1+buf_step/140;
         if(cloud_time>320){
             cloud_time=cloud_time-320
         }
@@ -400,7 +403,7 @@ function judge_draw(){
         //雲2
         object1_2=phu_imgs_objects_array[16];
         object1_2_c_h=0;
-        object1_2_c_w=cloud_time
+        object1_2_c_w=cloud_time+0.1+buf_step/140;
         object1_2_h=normal_obj_h;
         object1_2_w=sky_obj_width;
 
