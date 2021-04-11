@@ -726,16 +726,9 @@ function phu_imgs_draw(){
                 
             //文字レイヤー
                 console.log(all_step_count);
-                if(all_step_count>=200&&all_step_count<400){
-
-                if(gyou_count!==10){
-                    console.log("この業を表示する"　+ start_gyou_count);
-                    drawtext(2,5,"Yue:")
-
-                }
-
-                }else if(all_step_count>=400){
-                    endtext();
+                if(all_step_count>=200&&all_step_count<1000){
+                        //console.log("この業を表示する"　+ start_gyou_count);
+                        drawtext(2,5,"Yue:")
                 }
             
 

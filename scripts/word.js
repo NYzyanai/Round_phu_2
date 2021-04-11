@@ -71,8 +71,10 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
 
     if(gyou_buf==""){
         gyou_buf=start_gyou_count
+        text_move_flag=1;
     }else if(gyou_buf==end_gyou_count && retu_count==max_retu && wait_text_count>50){
         console.log("owari")
+        text_move_flag=2;
     }else{
 
         //背景Draw
@@ -113,6 +115,25 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
         }
     }
 
+
+    if(text_move_flag==1){
+        if(upper_gamen<30){
+            upper_gamen=upper_gamen+1
+        }else{
+            text_move_flag=0;
+            text_flag=1;
+            //もう表示していいよーってこと
+        }
+    }else if(text_move_flag==2){
+            text_flag=0
+        if(upper_gamen>0){
+            ctx.fillStyle='black';
+            ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);    
+            upper_gamen=upper_gamen-1
+        }else{
+            text_move_flag=0;
+        }
+    }
 
 /*
 
