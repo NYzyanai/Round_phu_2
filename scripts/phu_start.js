@@ -615,19 +615,19 @@ function phu_imgs_draw(){
             case 1:
                 //いちばん奥　空など
                 if(object1!=null){
-                    ctx.drawImage(object1,object1_c_w*cell_w,object1_c_h*cell_h,object1_w*cell_w,object1_h*cell_h);
+                    ctx.drawImage(object1,object1_c_w*cell_w,(object1_c_h-upper_gamen)*cell_h,object1_w*cell_w,object1_h*cell_h);
                 }
                 
                 if(object1_1!=null){
-                    ctx.drawImage(object1_1,object1_1_c_w*cell_w,object1_1_c_h,object1_1_w*cell_w,object1_1_h*cell_h);
+                    ctx.drawImage(object1_1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
                 }
 
                 if(object1_2!=null){
-                    ctx.drawImage(object1_2,object1_2_c_w*cell_w,object1_2_c_h,object1_2_w*cell_w,object1_2_h*cell_h);
+                    ctx.drawImage(object1_2,object1_2_c_w*cell_w,(object1_2_c_h-upper_gamen)*cell_h,object1_2_w*cell_w,object1_2_h*cell_h);
                 }
 
                 if(object1_3!=null){
-                    ctx.drawImage(object1_3,object1_3_c_w*cell_w,object1_3_c_h,object1_3_w*cell_w,object1_3_h*cell_h);
+                    ctx.drawImage(object1_3,object1_3_c_w*cell_w,(object1_3_c_h-upper_gamen)*cell_h,object1_3_w*cell_w,object1_3_h*cell_h);
                 }
 
 
@@ -636,11 +636,11 @@ function phu_imgs_draw(){
                 //山などの背景
 
                 if(object2!=null){
-                    ctx.drawImage(object2,object2_c_w*cell_w,object2_c_h*cell_h,object2_w*cell_w,object2_h*cell_h);
+                    ctx.drawImage(object2,object2_c_w*cell_w,(object2_c_h-upper_gamen)*cell_h,object2_w*cell_w,object2_h*cell_h);
                 }
 
                 if(object2_1!=null){
-                    ctx.drawImage(object2_1,object2_1_c_w*cell_w,object2_1_c_h*cell_h,object2_1_w*cell_w,object2_1_h*cell_h);
+                    ctx.drawImage(object2_1,object2_1_c_w*cell_w,(object2_1_c_h-upper_gamen)*cell_h,object2_1_w*cell_w,object2_1_h*cell_h);
                 }
                 
                 if(object2_2!=null){
@@ -663,11 +663,11 @@ function phu_imgs_draw(){
                 }
 
                 if(object3_2!=null){
-                    ctx.drawImage(object3_2,object3_2_c_w*cell_w,(object3_2_c_h-upper_gamen),object3_2_w*cell_w,object3_3_h*cell_h);
+                    ctx.drawImage(object3_2,object3_2_c_w*cell_w,(object3_2_c_h-upper_gamen)*cell_h,object3_2_w*cell_w,object3_3_h*cell_h);
                 }
 
                 if(object3_3!=null){
-                    ctx.drawImage(object3_3,object3_3_c_w*cell_w,(object3_3_c_h-upper_gamen),object3_3_w*cell_w,object3_3_h*cell_h);
+                    ctx.drawImage(object3_3,object3_3_c_w*cell_w,(object3_3_c_h-upper_gamen)*cell_h,object3_3_w*cell_w,object3_3_h*cell_h);
                 }
                 
                 break;
