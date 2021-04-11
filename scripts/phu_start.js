@@ -75,7 +75,8 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/house_of_phu2.png',
     'src/stage1_obj/forest_1.png',
 
-    'src/stage1_obj/long_sky_morning2.png'
+    'src/stage1_obj/long_sky_morning2.png',
+    'src/stage1_obg/long_cloud.png'
 ]
 
 var phu_imgs_objects_array=[];
@@ -373,7 +374,7 @@ function judge_draw(){
     }
 
         
-
+    var cloud_time=0
     //1~3枚目
 
     if(all_step_count<2500){
@@ -385,15 +386,24 @@ function judge_draw(){
         object1_h=normal_obj_h;
         object1_w=sky_obj_width;
 
-        /*
-        雲
-        object1_1=phu_imgs_objects_array[0];
+        // 雲1
+        object1_1=phu_imgs_objects_array[16];
         object1_1_c_h=0;
-        object1_1_c_w=(0+all_step_count/7);
+        cloud_time=cloud_time+1
+        if(cloud_time>360){
+            cloud_time=cloud_time-320
+        }
+        object1_1_c_w=0
         object1_1_h=normal_obj_h;
-        object1_1_w=normal_obj_w;
+        object1_1_w=sky_obj_width;
 
-        */
+        //雲2
+        object1_2=phu_imgs_objects_array[16];
+        object1_2_c_h=0;
+        object1_2_c_w=0;
+        object1_2_h=normal_obj_h;
+        object1_2_w=sky_obj_width;
+
         //山
         object2=phu_imgs_objects_array[1];
         object2_c_h=0;
