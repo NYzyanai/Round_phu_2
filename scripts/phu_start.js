@@ -76,7 +76,7 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/forest_1.png',
 
     'src/stage1_obj/long_sky_morning2.png',
-    'src/stage1_obg/long_cloud.png'
+    'src/stage1_obj/long_cloud.png'
 ]
 
 var phu_imgs_objects_array=[];
@@ -288,7 +288,7 @@ var character5_1_h
 var character5_1_w
 var character5_1_c_h
 var character5_1_c_w
-
+var cloud_time=0
 
 var object6_h
 var object6_w
@@ -374,7 +374,7 @@ function judge_draw(){
     }
 
         
-    var cloud_time=0
+
     //1~3枚目
 
     if(all_step_count<2500){
@@ -389,18 +389,18 @@ function judge_draw(){
         // 雲1
         object1_1=phu_imgs_objects_array[16];
         object1_1_c_h=0;
-        cloud_time=cloud_time+1
-        if(cloud_time>360){
+        cloud_time=cloud_time+0.2
+        if(cloud_time>320){
             cloud_time=cloud_time-320
         }
-        object1_1_c_w=0
+        object1_1_c_w=cloud_time-320+all_step_count/7;
         object1_1_h=normal_obj_h;
         object1_1_w=sky_obj_width;
 
         //雲2
         object1_2=phu_imgs_objects_array[16];
         object1_2_c_h=0;
-        object1_2_c_w=0;
+        object1_2_c_w=cloud_time+all_step_count/7;
         object1_2_h=normal_obj_h;
         object1_2_w=sky_obj_width;
 
@@ -528,6 +528,27 @@ function judge_draw(){
         object1_h=normal_obj_h;
         object1_w=sky_obj_width;
 
+
+        // 雲1
+        object1_1=phu_imgs_objects_array[16];
+        object1_1_c_h=0;
+        cloud_time=cloud_time+1
+        if(cloud_time>360){
+            cloud_time=cloud_time-320
+        }
+        object1_1_c_w=0
+        object1_1_h=normal_obj_h;
+        object1_1_w=sky_obj_width;
+
+        //雲2
+        object1_2=phu_imgs_objects_array[16];
+        object1_2_c_h=0;
+        object1_2_c_w=0;
+        object1_2_h=normal_obj_h;
+        object1_2_w=sky_obj_width;
+
+
+
         object2_3=phu_imgs_objects_array[1];
         object2_3_c_h=0;
         object2_3_c_w=(-next+all_step_count/6);
@@ -629,7 +650,7 @@ function phu_imgs_draw(){
                 }
                 
                 if(object1_1!=null){
-                    ctx.drawImage(object1_1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
+                    ctx.drawImage(object1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
                 }
 
                 if(object1_2!=null){
