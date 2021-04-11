@@ -727,8 +727,8 @@ function phu_imgs_draw(){
             //文字レイヤー
                 console.log(all_step_count);
                 if(all_step_count>=200&&all_step_count<1000){
-                        //console.log("この業を表示する"　+ start_gyou_count);
-                        drawtext(1,5,"Yue:")
+                    //console.log("この業を表示する"　+ start_gyou_count);
+                    drawtext(1,5,"Yue:")
                 }
             
 
