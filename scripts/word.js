@@ -76,7 +76,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
     }else if(gyou_buf==end_gyou_count && retu_count==max_retu && wait_text_count>60){
         console.log("owari")
         text_move_flag=2;
-    }else{
+    }else if(upper_gamen>=30){
 
         //背景Draw
         ctx.fillStyle='black';
@@ -119,6 +119,8 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
 
     if(text_move_flag==1){
         if(upper_gamen<30){
+            ctx.fillStyle='black';
+            ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);    
             upper_gamen=upper_gamen+1
         }else{
             text_move_flag=0;
