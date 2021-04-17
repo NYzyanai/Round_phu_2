@@ -58,7 +58,7 @@ var phu_imgs_namepath=[];
 
 phu_imgs_objects_namepath=[
     'src/fullscreen/sky1.png',
-    'src/stage1_obj/mount_1.png',
+    'src/stage1_obj/mount_2.png',
     'src/stage1_obj/tree_1.png',
     'src/stage1_obj/tree_2.png',
     'src/stage1_obj/tree_3.png',
