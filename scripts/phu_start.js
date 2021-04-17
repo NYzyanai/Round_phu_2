@@ -336,6 +336,9 @@ next=normal_obj_w
 var sky_obj_width
 sky_obj_width=1600;
 
+var mountain 
+
+
 
 
 //canvas=document.getElementById('canvas');
@@ -409,26 +412,25 @@ function judge_draw(){
         object2_2_h=normal_obj_h;
         object2_2_w=320;
 
-  
+        //山1
         object2_3=phu_imgs_objects_array[1];
         object2_3_c_h=0;
-        object2_3_c_w=(0+all_step_count/6);
+        mountain=0+all_step_count/6
+        if(mountain/320>1){
+            mountain=mountain%320;
+        }
+        object2_3_c_w=mountain
         object2_3_h=180;
         object2_3_w=320;
 
-        /*Next山
-        object2_1=phu_imgs_objects_array[1];
-        object2_1_c_h=0;
-        object2_1_c_w=(-next+all_step_count/6);
-        object2_1_h=180;
-        object2_1_w=320;  
+        //山2
+        object2=phu_imgs_objects_array[1];
+        object2_c_h=0;
+        
+        object2_c_w=mountain-320;
+        object2_h=180;
+        object2_w=320;  
 
-        //NextNext山
-        object2_2=phu_imgs_objects_array[1];
-        object2_2_c_h=0;
-        object2_2_c_w=(-next*2+all_step_count/6);
-        object2_2_h=180;
-        object2_2_w=320;  */
 
 
         //ファースト森
