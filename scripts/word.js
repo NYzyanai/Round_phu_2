@@ -89,7 +89,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
                 retu_count=retu_count+1;
                 wait_text_count=0
                 //最後の文字だけは60まつ
-            }else if(retu_count==max_retu && wait_text_count>60){
+            }else if(retu_count==max_retu && wait_text_count>65){
                 gyou_buf=gyou_buf+1;
                 retu_count=0;
                 wait_text_count=0

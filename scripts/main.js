@@ -8,6 +8,13 @@ var normal_time
 normal_time=30;
 window.onload =function(){
     setup_touchevent();
+    if(between_mil>0){
+        normal_time+between_mil;
+        console.log(normal_time);
+    }else if(between_mil==0){
+        normal_time=30;
+        console.log(normal_time);
+    }
     setInterval(loop,normal_time);
     sizing();
     splash_stage_flag=1;
@@ -146,4 +153,20 @@ function loop(){
     
     between_mil=((10000*start_sec-10000*end_sec)+(10*start_mil-10*end_mil));
     //console.log("差の秒数"+between_mil);
+    if(between_mil>5 && normal_time!==30){
+    clearInterval();
+    settime();
+    }  
+    
+}
+
+function settime(){
+    if(between_mil>0){
+        normal_time+between_mil;
+        console.log(normal_time);
+    }else if(between_mil==0){
+        normal_time=30;
+        console.log(normal_time);
+    }
+    setInterval(loop,normal_time);
 }
