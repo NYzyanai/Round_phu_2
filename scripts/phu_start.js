@@ -76,7 +76,7 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/forest_1.png',
 
     'src/stage1_obj/long_sky_morning2.png',
-    'src/stage1_obj/long_cloud.png'
+    'src/stage1_obj/mini_cloud.png'
 ]
 
 var phu_imgs_objects_array=[];
@@ -386,6 +386,7 @@ function judge_draw(){
         object1_c_w=((normal_obj_w-sky_obj_width)+all_step_count/7);
         object1_h=normal_obj_h;
         object1_w=sky_obj_width;
+        
 
         // 雲1
         object1_1=phu_imgs_objects_array[16];
@@ -398,14 +399,14 @@ function judge_draw(){
         }
         object1_1_c_w=cloud_time-320
         object1_1_h=normal_obj_h;
-        object1_1_w=sky_obj_width;
+        object1_1_w=320;
 
         //雲2
         object1_2=phu_imgs_objects_array[16];
         object1_2_c_h=0;
         object1_2_c_w=cloud_time+0.1+buf_step/140;
         object1_2_h=normal_obj_h;
-        object1_2_w=sky_obj_width;
+        object1_2_w=320;
 
         //山
         object2=phu_imgs_objects_array[1];
@@ -521,7 +522,7 @@ function judge_draw(){
         object6_2_w=320;   
     
  
-    }else　if(all_step_count<5000){
+    }else　if(all_step_count>=2500 && all_step_count<5000){
         
 
         //空
@@ -653,7 +654,8 @@ function phu_imgs_draw(){
                 }
                 
                 if(object1_1!=null){
-                    ctx.drawImage(object1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
+                    console.log("aああああ")
+                    ctx.drawImage(object1_1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
                 }
 
                 if(object1_2!=null){
