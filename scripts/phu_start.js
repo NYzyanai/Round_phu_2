@@ -76,7 +76,7 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/forest_1.png',
 
     'src/stage1_obj/long_sky_morning2.png',
-    'src/stage1_obj/mini_cloud.png'
+    'src/stage1_obj/mini_cloud_5.png'
 ]
 
 var phu_imgs_objects_array=[];
@@ -381,6 +381,7 @@ function judge_draw(){
     if(all_step_count<2500){
 
         //空
+    
         object1=phu_imgs_objects_array[15];
         object1_c_h=0;
         object1_c_w=((normal_obj_w-sky_obj_width)+all_step_count/7);
@@ -389,33 +390,33 @@ function judge_draw(){
         
 
         // 雲1
-        object1_1=phu_imgs_objects_array[16];
-        object1_1_c_h=0;
+        object2_1=phu_imgs_objects_array[16];
+        object2_1_c_h=0;
 
         buf_step=walk_time_count % 60
         cloud_time=cloud_time+0.1+buf_step/140;
         if(cloud_time>320){
             cloud_time=cloud_time-320
         }
-        object1_1_c_w=cloud_time-320
-        object1_1_h=normal_obj_h;
-        object1_1_w=320;
+        object2_1_c_w=cloud_time-320
+        object2_1_h=normal_obj_h;
+        object2_1_w=320;
 
         //雲2
-        object1_2=phu_imgs_objects_array[16];
-        object1_2_c_h=0;
-        object1_2_c_w=cloud_time+0.1+buf_step/140;
-        object1_2_h=normal_obj_h;
-        object1_2_w=320;
+        object2_2=phu_imgs_objects_array[16];
+        object2_2_c_h=0;
+        object2_2_c_w=cloud_time+0.1+buf_step/140;
+        object2_2_h=normal_obj_h;
+        object2_2_w=320;
 
-        //山
-        object2=phu_imgs_objects_array[1];
-        object2_c_h=0;
-        object2_c_w=(0+all_step_count/6);
-        object2_h=180;
-        object2_w=320;
+  
+        object2_3=phu_imgs_objects_array[1];
+        object2_3_c_h=0;
+        object2_3_c_w=(0+all_step_count/6);
+        object2_3_h=180;
+        object2_3_w=320;
 
-        //Next山
+        /*Next山
         object2_1=phu_imgs_objects_array[1];
         object2_1_c_h=0;
         object2_1_c_w=(-next+all_step_count/6);
@@ -427,7 +428,7 @@ function judge_draw(){
         object2_2_c_h=0;
         object2_2_c_w=(-next*2+all_step_count/6);
         object2_2_h=180;
-        object2_2_w=320;  
+        object2_2_w=320;  */
 
 
         //ファースト森
@@ -536,20 +537,22 @@ function judge_draw(){
         // 雲1
         object1_1=phu_imgs_objects_array[16];
         object1_1_c_h=0;
-        cloud_time=cloud_time+1
-        if(cloud_time>360){
+
+        buf_step=walk_time_count % 60
+        cloud_time=cloud_time+0.1+buf_step/140;
+        if(cloud_time>320){
             cloud_time=cloud_time-320
         }
-        object1_1_c_w=0
+        object1_1_c_w=cloud_time-320
         object1_1_h=normal_obj_h;
-        object1_1_w=sky_obj_width;
+        object1_1_w=320;
 
         //雲2
         object1_2=phu_imgs_objects_array[16];
         object1_2_c_h=0;
-        object1_2_c_w=0;
+        object1_2_c_w=cloud_time+0.1+buf_step/140;
         object1_2_h=normal_obj_h;
-        object1_2_w=sky_obj_width;
+        object1_2_w=320;
 
 
 
@@ -655,6 +658,7 @@ function phu_imgs_draw(){
                 
                 if(object1_1!=null){
                     console.log("aああああ")
+                    console.log("雲のいち"　+ object1_1_c_w)
                     ctx.drawImage(object1_1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
                 }
 
@@ -670,6 +674,22 @@ function phu_imgs_draw(){
                 break;
             case 2:
                 //山などの背景
+          
+                if(object1_1!=null){
+                    console.log("aああああ")
+                    console.log("雲のいち"　+ object1_1_c_w)
+                    ctx.drawImage(object1_1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
+                }
+
+                if(object1_2!=null){
+                    ctx.drawImage(object1_2,object1_2_c_w*cell_w,(object1_2_c_h-upper_gamen)*cell_h,object1_2_w*cell_w,object1_2_h*cell_h);
+                }
+
+                if(object1_3!=null){
+                    ctx.drawImage(object1_3,object1_3_c_w*cell_w,(object1_3_c_h-upper_gamen)*cell_h,object1_3_w*cell_w,object1_3_h*cell_h);
+                }
+
+
 
                 if(object2!=null){
                     ctx.drawImage(object2,object2_c_w*cell_w,(object2_c_h-upper_gamen)*cell_h,object2_w*cell_w,object2_h*cell_h);
