@@ -97,7 +97,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
         }
 
         if(retu_count<max_retu){
-            console.log("行数"+ gyou_count, "列数" + retu_count);
+            //console.log("行数"+ gyou_count, "列数" + retu_count);
             ctx.fillText((chara_name) + text_detail_array[gyou_buf][retu_count], 15*cell_w, 165*cell_h);
             wait_text_count=wait_text_count+1;
         }else{

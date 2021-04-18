@@ -379,59 +379,57 @@ function judge_draw(){
 
         
 
-    //1~3枚目
+    //常に描画される者はSTEP判定の外に置く
 
-    if(all_step_count<2500){
+    //空
+    object1=phu_imgs_objects_array[15];
+    object1_c_h=0;
+    object1_c_w=((normal_obj_w-sky_obj_width)+all_step_count/7);
+    object1_h=normal_obj_h;
+    object1_w=sky_obj_width;
 
-        //空
+    // 雲1
+    object2_1=phu_imgs_objects_array[16];
+    object2_1_c_h=0;
+
+    buf_step=walk_time_count % 60
+    cloud_time=cloud_time+0.1+buf_step/140;
+    if(cloud_time>320){
+        cloud_time=cloud_time-320
+    }
+    object2_1_c_w=cloud_time-320
+    object2_1_h=normal_obj_h;
+    object2_1_w=320;
+
+    //雲2
+    object2_2=phu_imgs_objects_array[16];
+    object2_2_c_h=0;
+    object2_2_c_w=cloud_time+0.1+buf_step/140;
+    object2_2_h=normal_obj_h;
+    object2_2_w=320;
+
+    //山1
+    object2_3=phu_imgs_objects_array[1];
+    object2_3_c_h=0;
+    mountain=0+all_step_count/6
+    if(mountain/320>1){
+        mountain=mountain%320;
+    }
+    object2_3_c_w=mountain
+    object2_3_h=180;
+    object2_3_w=320;
+
+    //山2
+    object2=phu_imgs_objects_array[1];
+    object2_c_h=0;
     
-        object1=phu_imgs_objects_array[15];
-        object1_c_h=0;
-        object1_c_w=((normal_obj_w-sky_obj_width)+all_step_count/7);
-        object1_h=normal_obj_h;
-        object1_w=sky_obj_width;
-        
+    object2_c_w=mountain-320;
+    object2_h=180;
+    object2_w=320;  
 
-        // 雲1
-        object2_1=phu_imgs_objects_array[16];
-        object2_1_c_h=0;
-
-        buf_step=walk_time_count % 60
-        cloud_time=cloud_time+0.1+buf_step/140;
-        if(cloud_time>320){
-            cloud_time=cloud_time-320
-        }
-        object2_1_c_w=cloud_time-320
-        object2_1_h=normal_obj_h;
-        object2_1_w=320;
-
-        //雲2
-        object2_2=phu_imgs_objects_array[16];
-        object2_2_c_h=0;
-        object2_2_c_w=cloud_time+0.1+buf_step/140;
-        object2_2_h=normal_obj_h;
-        object2_2_w=320;
-
-        //山1
-        object2_3=phu_imgs_objects_array[1];
-        object2_3_c_h=0;
-        mountain=0+all_step_count/6
-        if(mountain/320>1){
-            mountain=mountain%320;
-        }
-        object2_3_c_w=mountain
-        object2_3_h=180;
-        object2_3_w=320;
-
-        //山2
-        object2=phu_imgs_objects_array[1];
-        object2_c_h=0;
-        
-        object2_c_w=mountain-320;
-        object2_h=180;
-        object2_w=320;  
-
-
+    
+    //STEPで描画するものをわける。
+    if(all_step_count<2500){
 
         //ファースト森
         object3=phu_imgs_objects_array[14];
@@ -474,9 +472,6 @@ function judge_draw(){
         object4_1_c_w=(-250+all_step_count/4);
         object4_1_h=180;
         object4_1_w=320;  
-    
-
- 
 
         object4_2=phu_imgs_objects_array[10];
         object4_2_c_h=0;
@@ -484,6 +479,8 @@ function judge_draw(){
         object4_2_h=normal_obj_h
         object4_2_w=normal_obj_w
 
+        //Phuの歩行関数
+        
         if(walk_time_count>0){
             character5=phu_imgs_phu_array[walk_time_img_count];
             character5_1=phu_imgs_yue_array[walk_time_img_count];
@@ -527,61 +524,8 @@ function judge_draw(){
  
     }else　if(all_step_count>=2500 && all_step_count<5000){
         
+        console.log("NEXT");
 
-        //空
-        object1=phu_imgs_objects_array[15];
-        object1_c_h=0;
-        object1_c_w=((normal_obj_w-sky_obj_width)+all_step_count/7);
-        object1_h=normal_obj_h;
-        object1_w=sky_obj_width;
-
-
-        // 雲1
-        object1_1=phu_imgs_objects_array[16];
-        object1_1_c_h=0;
-
-        buf_step=walk_time_count % 60
-        cloud_time=cloud_time+0.1+buf_step/140;
-        if(cloud_time>320){
-            cloud_time=cloud_time-320
-        }
-        object1_1_c_w=cloud_time-320
-        object1_1_h=normal_obj_h;
-        object1_1_w=320;
-
-        //雲2
-        object1_2=phu_imgs_objects_array[16];
-        object1_2_c_h=0;
-        object1_2_c_w=cloud_time+0.1+buf_step/140;
-        object1_2_h=normal_obj_h;
-        object1_2_w=320;
-
-
-
-        object2_3=phu_imgs_objects_array[1];
-        object2_3_c_h=0;
-        object2_3_c_w=(-next+all_step_count/6);
-        object2_3_h=180;
-        object2_3_w=320;  
-
-        object2=phu_imgs_objects_array[1];
-        object2_c_h=0;
-        object2_c_w=(-next*2+all_step_count/6);
-        object2_h=180;
-        object2_w=320;
-
-        object2_1=phu_imgs_objects_array[1];
-        object2_1_c_h=0;
-        object2_1_c_w=(-next*3+(all_step_count/6));
-        object2_1_h=180;
-        object2_1_w=320;  
-
-        //NextNext山
-        object2_2=phu_imgs_objects_array[1];
-        object2_2_c_h=0;
-        object2_2_c_w=(-next*4+(all_step_count)/6);
-        object2_2_h=180;
-        object2_2_w=320;  
 
         object4_1=phu_imgs_objects_array[11];
         object4_1_c_h=0;
