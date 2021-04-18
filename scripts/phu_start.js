@@ -94,6 +94,8 @@ phu_imgs_phu_namepath=[
     'src/character/w_p_4.png',
 
     'src/character/w_p_5.png',
+
+
     'src/character/l_p_1.png',
     'src/character/l_p_2.png',
     'src/character/l_p_3.png',
@@ -344,8 +346,8 @@ var mountain
 //canvas=document.getElementById('canvas');
 //ctx=canvas.getContext('2d');
 //ctx.imageSmoothingEnabled=false;
-var walk_time_img_count
-walk_time_img_count=0;
+var walk_time_img_count=0;
+var draw_phu_count=0
 
 function judge_draw(){
     
@@ -357,24 +359,27 @@ function judge_draw(){
     //歩行用演算
     if(walk_start_flag==1){
         
-        walk_time_count=walk_time_count+21;
-        // ４分の１とかは綺麗に２進数にできるけど他は無理　うんち
+        //30ミリ秒に一回よばれる
+        //できれば600(30*20)ミリ秒で一枚
 
-        walk_time_img_count=Math.floor(walk_time_count/100);
-        //console.log(walk_time_img_count + "今ここ")
-        //console.log("タイムは" + walk_time_count);
-        if(walk_time_img_count>1 && walk_time_img_count<6){
-            if(debug_mode_flag==0){
-            all_step_count=all_step_count+2;
-            }else{
-                all_step_count=all_step_count+30;
-            }
-        }
-        if(walk_time_count>600){
-            walk_start_flag=0;
-            walk_time_count=0;
+        draw_phu_count=draw_phu_count+1;
+
+        //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
+
+        all_step_count=all_step_count+25/29
+
+        
+        if(draw_phu_count==5 && walk_time_img_count<5){
+            walk_time_img_count=walk_time_img_count+1;
+            draw_phu_count=0;
+        }else if(draw_phu_count==5 && walk_time_img_count==5){
+            draw_phu_count=0;
             walk_time_img_count=0;
+            walk_start_flag=0;
+            all_step_count=all_step_count-(all_step_count%1);
         }
+
+
     }
 
         
@@ -388,11 +393,20 @@ function judge_draw(){
     object1_h=normal_obj_h;
     object1_w=sky_obj_width;
 
+
+    //山2
+    object2=phu_imgs_objects_array[1];
+    object2_c_h=0;
+    
+    object2_c_w=mountain-320;
+    object2_h=180;
+    object2_w=320;  
+
     // 雲1
     object2_1=phu_imgs_objects_array[16];
     object2_1_c_h=0;
 
-    buf_step=walk_time_count % 60
+    
     cloud_time=cloud_time+0.1+buf_step/140;
     if(cloud_time>320){
         cloud_time=cloud_time-320
@@ -419,17 +433,11 @@ function judge_draw(){
     object2_3_h=180;
     object2_3_w=320;
 
-    //山2
-    object2=phu_imgs_objects_array[1];
-    object2_c_h=0;
-    
-    object2_c_w=mountain-320;
-    object2_h=180;
-    object2_w=320;  
+
 
     
     //STEPで描画するものをわける。
-    if(all_step_count<2500){
+    if(all_step_count<320){
 
         //ファースト森
         object3=phu_imgs_objects_array[14];
@@ -479,11 +487,25 @@ function judge_draw(){
         object4_2_h=normal_obj_h
         object4_2_w=normal_obj_w
 
+        object4_3=null;
+
         //Phuの歩行関数
-        
+        character5=phu_imgs_phu_array[walk_time_img_count];
+        //character5_1=phu_imgs_yue_array[walk_time_img_count];
+    
+        character5_c_w=225+((walk_time_img_count)*14/5);
+        //14マスを5枚で移動する
+        character5_c_h=105;
+
+
+        character5_h=phu_height;
+        character5_w=phu_width;
+
+
+        /*
         if(walk_time_count>0){
             character5=phu_imgs_phu_array[walk_time_img_count];
-            character5_1=phu_imgs_yue_array[walk_time_img_count];
+            //character5_1=phu_imgs_yue_array[walk_time_img_count];
         
             character5_c_w=200+((walk_time_img_count)*14/5);
             //14マスを5枚で移動する
@@ -492,8 +514,9 @@ function judge_draw(){
             character5_c_w=200;
             character5_c_h=105;
             character5=phu_imgs_phu_array[0];
-            character5_1=phu_imgs_yue_array[0];
+            //character5_1=phu_imgs_yue_array[0];
         }
+        */
 
         character5_h=phu_height;
         character5_w=phu_width;
@@ -520,12 +543,26 @@ function judge_draw(){
         object6_2_c_w=(-800+all_step_count/3);
         object6_2_h=180;
         object6_2_w=320;   
+
+        object6_3=null;
     
  
-    }else　if(all_step_count>=2500 && all_step_count<5000){
+    }else　if(all_step_count>=320&& all_step_count<5000){
         
         console.log("NEXT");
+        //object1~2まではSTEP判定外
 
+        object3=null;
+
+        object3_1=phu_imgs_objects_array[4];
+        object3_1_c_h=0;
+        object3_1_c_w=(-2500+all_step_count/4);
+        object3_1_h=180;
+        object3_1_w=320;  
+
+        object3_2=null;
+        object3_3=null;
+        object4=null;
 
         object4_1=phu_imgs_objects_array[11];
         object4_1_c_h=0;
@@ -533,21 +570,19 @@ function judge_draw(){
         object4_1_h=180;
         object4_1_w=320;   
 
-
-
-        if(walk_time_count>0){
-            character5=phu_imgs_phu_array[walk_time_img_count];
-            character5_1=phu_imgs_yue_array[walk_time_img_count];
+        object4_2=null;
+        object4_3=null;
         
-            character5_c_w=225+((walk_time_img_count)*14/5);
-            //14マスを5枚で移動する
-            character5_c_h=105;
-        }else{
-            character5_c_w=225;
-            character5_c_h=105;
-            character5=phu_imgs_phu_array[0];
-            character5_1=phu_imgs_yue_array[0];
-        }
+
+
+
+        character5=phu_imgs_phu_array[walk_time_img_count];
+        //character5_1=phu_imgs_yue_array[walk_time_img_count];
+    
+        character5_c_w=225+((walk_time_img_count)*14/5);
+        //14マスを5枚で移動する
+        character5_c_h=105;
+
 
         character5_h=phu_height;
         character5_w=phu_width;
@@ -557,12 +592,21 @@ function judge_draw(){
         character5_1_h=75;
         character5_1_w=25;
 
+        character5_1=null;
+
+        object6=null;
+        object6_1=null;
+        object6_2=null;
+        object6_3=null;
+        
+
     }else{
 
 
 
         //phuが驚いて倒れ込む
     
+        /*
         character5_1=null;
         
         character5=phu_imgs_phu_array[10];
@@ -576,6 +620,7 @@ function judge_draw(){
             //配列11番目は存在しない
             //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
         }
+        */
     }
 
     //console.log("今"　+ all_step_count);
