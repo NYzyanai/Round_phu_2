@@ -469,20 +469,31 @@ function judge_draw(){
             object3=null;
         }
         
-        //木
-        object3_1=phu_imgs_objects_array[4];
-        object3_1_c_h=0;
-        object3_1_c_w=(-600+all_step_count/4);
-        object3_1_h=180;
-        object3_1_w=320;  
 
-        //木　なんぼあってもこまらん
-        object3_2=phu_imgs_objects_array[6];
-        object3_2_c_h=0;
-        object3_2_c_w=(-300+all_step_count/4);
-        //奥に登場させたいときはマイナス座標
-        object3_2_h=180;
-        object3_2_w=320;  
+        
+        //木
+        if(-600+(all_step_count/3)>-320 && -600+(all_step_count/3)<320){
+            object3_1=phu_imgs_objects_array[4];
+            object3_1_c_h=0;
+            object3_1_c_w=-600+(all_step_count/3);
+            object3_1_h=180;
+            object3_1_w=320;  
+        }else{
+            object3_1=null;
+        }
+
+        if(-300+(all_step_count/3)>-320 && -300+(all_step_count/3)<320){
+            //木　なんぼあってもこまらん
+            object3_2=phu_imgs_objects_array[6];
+            object3_2_c_h=0;
+            object3_2_c_w=-300+(all_step_count/3);
+            //奥に登場させたいときはマイナス座標
+            object3_2_h=180;
+            object3_2_w=320;  
+        }else{
+            object3_2=null;
+        }
+
 
         object3_3=phu_imgs_objects_array[11];
         object3_3_c_h=0;
