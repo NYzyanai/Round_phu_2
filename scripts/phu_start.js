@@ -341,7 +341,8 @@ sky_obj_width=1600;
 var mountain 
 
 
-
+//何回Phuの歩行関数がよばれたか
+var call_walk_count=0;
 
 //canvas=document.getElementById('canvas');
 //ctx=canvas.getContext('2d');
@@ -366,23 +367,27 @@ function judge_draw(){
 
         //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
 
-        all_step_count=all_step_count+25/29
+        all_step_count=all_step_count+25/24
 
         
-        if(draw_phu_count==5 && walk_time_img_count<5){
+        if(draw_phu_count==4 && walk_time_img_count<5){
             walk_time_img_count=walk_time_img_count+1;
+            
             draw_phu_count=0;
-        }else if(draw_phu_count==5 && walk_time_img_count==5){
+        }else if(draw_phu_count==4 && walk_time_img_count==5){
             draw_phu_count=0;
             walk_time_img_count=0;
             walk_start_flag=0;
-            all_step_count=all_step_count-(all_step_count%1);
+            call_walk_count=call_walk_count+1;
+            all_step_count=call_walk_count*25;
         }
+        
+        
+        
 
 
     }
 
-        
 
     //常に描画される者はSTEP判定の外に置く
 
@@ -435,16 +440,34 @@ function judge_draw(){
 
 
 
-    
-    //STEPで描画するものをわける。
-    if(all_step_count<320){
+    //objetc6は13回で通過
+    //object5は19回で通過
+    //object4は26回で通過
+    //objetc3は39回で通過
 
+    //STEPで描画するものをわける。
+    if(all_step_count<4000){
+
+
+
+        
+        if(all_step_count/3<320){
         //ファースト森
-        object3=phu_imgs_objects_array[14];
-        object3_c_h=0;
-        object3_c_w=(0+all_step_count/5);
-        object3_h=180;
-        object3_w=320;     
+            object3=phu_imgs_objects_array[14];
+            object3_c_h=0;
+            object3_c_w=all_step_count/3;
+            object3_h=180;
+            object3_w=320;     
+        }else if(-640+(all_step_count/3)>-320&& -640+(all_step_count/3)<320){
+            object3_c_h=0;
+            object3=phu_imgs_objects_array[14];
+            object3_c_w=-640+(all_step_count/3);
+            //↑が-320以上・320以下のときにのみ代入する
+            object3_h=180;
+            object3_w=320;  
+        }else{
+            object3=null;
+        }
         
         //木
         object3_1=phu_imgs_objects_array[4];
@@ -477,13 +500,13 @@ function judge_draw(){
         //木　なんぼあってもこまらん
         object4_1=phu_imgs_objects_array[7];
         object4_1_c_h=0;
-        object4_1_c_w=(-250+all_step_count/4);
+        object4_1_c_w=(-250+all_step_count/3);
         object4_1_h=180;
         object4_1_w=320;  
 
         object4_2=phu_imgs_objects_array[10];
         object4_2_c_h=0;
-        object4_2_c_w=-15+all_step_count/3
+        object4_2_c_w=-15+all_step_count/2
         object4_2_h=normal_obj_h
         object4_2_w=normal_obj_w
 
@@ -528,26 +551,21 @@ function judge_draw(){
 
         object6=phu_imgs_objects_array[12];
         object6_c_h=0;
-        object6_c_w=(0+all_step_count/2);
+        object6_c_w=(0+all_step_count);
         object6_h=180;
         object6_w=320;     
     
         object6_1=phu_imgs_objects_array[9];
         object6_1_c_h=0;
-        object6_1_c_w=(-20+all_step_count/2);
+        object6_1_c_w=(-20+all_step_count);
         object6_1_h=normal_obj_h
         object6_1_w=normal_obj_w
 
-        object6_2=phu_imgs_objects_array[3];
-        object6_2_c_h=0;
-        object6_2_c_w=(-800+all_step_count/3);
-        object6_2_h=180;
-        object6_2_w=320;   
-
+        object6_2=null;
         object6_3=null;
     
  
-    }else　if(all_step_count>=320&& all_step_count<5000){
+    }else　if(all_step_count>=4000&& all_step_count<5000){
         
         console.log("NEXT");
         //object1~2まではSTEP判定外
@@ -596,7 +614,13 @@ function judge_draw(){
 
         object6=null;
         object6_1=null;
-        object6_2=null;
+
+        object6_2=phu_imgs_objects_array[3];
+        object6_2_c_h=0;
+        object6_2_c_w=(-800+all_step_count/3);
+        object6_2_h=180;
+        object6_2_w=320;   
+
         object6_3=null;
         
 
