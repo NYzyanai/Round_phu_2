@@ -362,6 +362,8 @@ var draw_phu_count=0;
 
 var ghost_count=17;
 var ghost_round=0
+var ghost_count_2=17;
+var ghost_round_2=0;
 
 function judge_draw(){
     
@@ -631,7 +633,7 @@ function judge_draw(){
 
         if(-100+step6>-320 && -100+step6<600){
             
-            if(ghost_count+0.4>=22){
+            if(ghost_count+0.05>=22){
                 ghost_count=17;
             }else{
                 ghost_count=ghost_count+0.05;
@@ -687,7 +689,60 @@ function judge_draw(){
             object6_2=null;
         }
 
-        if(true){
+        if(-100+step6>-320 && -100+step6<600){
+            
+                if(ghost_count_2+0.1>=22){
+                    ghost_count_2=17;
+                }else{
+                    ghost_count_2=ghost_count_2+0.1;
+                }
+               
+                ghost_round_2=Math.floor(ghost_count_2);
+                //console.log(ghost_count);
+                //console.log(ghost_round);
+    
+                object6_3=phu_imgs_objects_array[ghost_round_2];
+                
+                object6_3_c_w=(-100+step6);
+                
+    
+                //console.log("座標今ここ"　+ (-100+step6))
+                object6_3_w=10-(ghost_round_2*ghost_round_2)+ghost_round_2*3;
+                
+                if(ghost_round_2==17){
+                    object6_3_h=150;
+                    object6_3_w=200;
+                    object6_3_c_h=80;
+                    
+                    
+                }else if(ghost_round_2==18){
+                    object6_3_h=180;
+                    object6_3_c_h=50;
+                    object6_3_w=300;
+                   
+                }else if(ghost_round_2==19){
+                    object6_3_h=320;
+                    object6_3_w=500;
+                    object6_3_c_h=30;
+                    
+                }else if(ghost_round_2==20){
+                    object6_3_h=400;
+                    object6_3_w=600;
+                    object6_3_c_h=-60;
+                }else if(ghost_round_2==21){
+                    object6_3_h=500;
+                    object6_3_w=800;
+                    object6_3_c_h=-150;
+                }else if(ghost_round_2==22){
+                    object6_3_h=790;
+                    object6_3_w=1200;
+                    object6_3_c_h=-200;
+                }
+    
+                console.log(object6_2_h);
+                object6_3_c_w=(-150+step6)-object6_3_w/4
+    
+        }else{
             object6_3=null;
         }
     
@@ -856,7 +911,10 @@ function phu_imgs_draw(){
                 }
 
                 if(object6_3!=null){
+                    ctx.globalAlpha=1-((ghost_round_2/100)*(ghost_round_2/100)*(ghost_round_2/100)*80);
+                   
                     ctx.drawImage(object6_3,object6_3_c_w*cell_w,(object6_3_c_h-upper_gamen)*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
+                    ctx.globalAlpha=1;
                 }
                 
 
@@ -866,9 +924,9 @@ function phu_imgs_draw(){
                 
             //文字レイヤー
                 //console.log(all_step_count);
-                if(all_step_count>=200&&all_step_count<1000){
+                if(all_step_count>=320&&all_step_count<2000){
                     //console.log("この業を表示する"　+ start_gyou_count);
-                    drawtext(1,5,"Yue:")
+                    drawtext(10,13,"???:")
                 }
             
 
