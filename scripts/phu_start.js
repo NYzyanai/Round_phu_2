@@ -76,7 +76,17 @@ phu_imgs_objects_namepath=[
     'src/stage1_obj/forest_1.png',
 
     'src/stage1_obj/long_sky_morning2.png',
-    'src/stage1_obj/mini_cloud_5.png'
+    'src/stage1_obj/mini_cloud_5.png',
+    'src/stage1_obj/human_2.png',
+    'src/stage1_obj/human_3.png',
+
+    'src/stage1_obj/human_4.png',
+    'src/stage1_obj/human_5.png',
+    'src/stage1_obj/human_6.png',
+    'src/stage1_obj/human_7.png',
+    'src/stage1_obj/fish_1.png',
+
+    'src/stage1_obj/fish_2.png'
 ]
 
 var phu_imgs_objects_array=[];
@@ -348,7 +358,9 @@ var call_walk_count=0;
 //ctx=canvas.getContext('2d');
 //ctx.imageSmoothingEnabled=false;
 var walk_time_img_count=0;
-var draw_phu_count=0
+var draw_phu_count=0;
+
+var ghost_count=17;
 
 function judge_draw(){
     
@@ -356,6 +368,8 @@ function judge_draw(){
     ctx=canvas.getContext('2d');
     ctx.imageSmoothingEnabled=false;
     ctx.textSmoothingEnabled=false;
+
+
 
     //歩行用演算
     if(walk_start_flag==1){
@@ -389,23 +403,24 @@ function judge_draw(){
     }
 
 
+    var step1=all_step_count*0.08
+    var step2=all_step_count*0.1
+    var step3=all_step_count*0.3
+    var step4=all_step_count*0.5
+    var step6=all_step_count*0.7
+
+
     //常に描画される者はSTEP判定の外に置く
 
     //空
     object1=phu_imgs_objects_array[15];
     object1_c_h=0;
-    object1_c_w=((normal_obj_w-sky_obj_width)+all_step_count/7);
+    object1_c_w=(normal_obj_w-sky_obj_width)+step1;
     object1_h=normal_obj_h;
     object1_w=sky_obj_width;
 
 
-    //山2
-    object2=phu_imgs_objects_array[1];
-    object2_c_h=0;
-    
-    object2_c_w=mountain-320;
-    object2_h=180;
-    object2_w=320;  
+
 
     // 雲1
     object2_1=phu_imgs_objects_array[16];
@@ -423,20 +438,28 @@ function judge_draw(){
     //雲2
     object2_2=phu_imgs_objects_array[16];
     object2_2_c_h=0;
-    object2_2_c_w=cloud_time+0.1+buf_step/140;
+    object2_2_c_w=cloud_time
     object2_2_h=normal_obj_h;
     object2_2_w=320;
 
     //山1
     object2_3=phu_imgs_objects_array[1];
     object2_3_c_h=0;
-    mountain=0+all_step_count/6
+    mountain=step2;
     if(mountain/320>1){
         mountain=mountain%320;
     }
     object2_3_c_w=mountain
     object2_3_h=180;
     object2_3_w=320;
+
+    //山2
+    object2=phu_imgs_objects_array[1];
+    object2_c_h=0;
+    
+    object2_c_w=mountain-320;
+    object2_h=180;
+    object2_w=320;  
 
 
 
@@ -446,47 +469,43 @@ function judge_draw(){
     //objetc3は39回で通過
 
     //STEPで描画するものをわける。
-    if(all_step_count<4000){
+    if(true){
 
-
-
-        
-        if(all_step_count/3<320){
+        //////////////////////
+        if(step3<320){
         //ファースト森
             object3=phu_imgs_objects_array[14];
             object3_c_h=0;
-            object3_c_w=all_step_count/3;
+            object3_c_w=step3
             object3_h=180;
             object3_w=320;     
-        }else if(-640+(all_step_count/3)>-320&& -640+(all_step_count/3)<320){
+        }else if(-640+step3>-320&& -640+step3<320){
             object3_c_h=0;
             object3=phu_imgs_objects_array[14];
-            object3_c_w=-640+(all_step_count/3);
+            object3_c_w=-640+step3;
             //↑が-320以上・320以下のときにのみ代入する
             object3_h=180;
             object3_w=320;  
         }else{
             object3=null;
         }
-        
 
-        
         //木
-        if(-600+(all_step_count/3)>-320 && -600+(all_step_count/3)<320){
+        if(-600+step3>-320 && -600+step3<320){
             object3_1=phu_imgs_objects_array[4];
             object3_1_c_h=0;
-            object3_1_c_w=-600+(all_step_count/3);
+            object3_1_c_w=-600+step3;
             object3_1_h=180;
             object3_1_w=320;  
         }else{
             object3_1=null;
         }
 
-        if(-300+(all_step_count/3)>-320 && -300+(all_step_count/3)<320){
+        if(-300+step3>-320 && -300+step3<320){
             //木　なんぼあってもこまらん
             object3_2=phu_imgs_objects_array[6];
             object3_2_c_h=0;
-            object3_2_c_w=-300+(all_step_count/3);
+            object3_2_c_w=-300+step3;
             //奥に登場させたいときはマイナス座標
             object3_2_h=180;
             object3_2_w=320;  
@@ -495,33 +514,60 @@ function judge_draw(){
         }
 
 
-        object3_3=phu_imgs_objects_array[11];
-        object3_3_c_h=0;
-        object3_3_c_w=(-400+all_step_count/4);
-        //奥に登場させたいときはマイナス座標
-        object3_3_h=normal_obj_h;
-        object3_3_w=normal_obj_w;
 
-        object4=phu_imgs_objects_array[13];
-        object4_c_h=0;
-        object4_c_w=(0+all_step_count/3);
-        object4_h=180;
-        object4_w=320;    
+        if(-400+step3>-320 && -400+step3<320){
+            object3_3=phu_imgs_objects_array[11];
+            object3_3_c_h=0;
+            object3_3_c_w=-400+step3
+            //奥に登場させたいときはマイナス座標
+            object3_3_h=normal_obj_h;
+            object3_3_w=normal_obj_w;
+        }else if(-1200+step3>-320 && -1200+step3<320){
+            object3_3=phu_imgs_objects_array[4];
+            object3_3_c_h=0;
+            object3_3_c_w=-1200+step3;
+            //奥に登場させたいときはマイナス座標
+            object3_3_h=normal_obj_h;
+            object3_3_w=normal_obj_w;
+        }
+
+
+        //////////////////////
+
+
+
+        if(0+step4>-320 && 0+step4<320){
+            object4=phu_imgs_objects_array[13];
+            object4_c_h=0;
+            object4_c_w=step4;
+            object4_h=180;
+            object4_w=320;    
+        }else{
+            object4=null;
+        }
 
         //木　なんぼあってもこまらん
-        object4_1=phu_imgs_objects_array[7];
-        object4_1_c_h=0;
-        object4_1_c_w=(-250+all_step_count/3);
-        object4_1_h=180;
-        object4_1_w=320;  
+        if(-250+step4>-320 && -250+step4<320){
+            object4_1=phu_imgs_objects_array[7];
+            object4_1_c_h=0;
+            object4_1_c_w=-250+step4;
+            object4_1_h=180;
+            object4_1_w=320;  
+        }else{
+            object4_1=null;
+        }
 
-        object4_2=phu_imgs_objects_array[10];
-        object4_2_c_h=0;
-        object4_2_c_w=-15+all_step_count/2
-        object4_2_h=normal_obj_h
-        object4_2_w=normal_obj_w
+        if(-15+step4>-320 && -15+step4<320){
+            object4_2=phu_imgs_objects_array[10];
+            object4_2_c_h=0;
+            object4_2_c_w=-15+step4
+            object4_2_h=normal_obj_h
+            object4_2_w=normal_obj_w
+        }
 
-        object4_3=null;
+        if(true){
+            object4_3=null;
+        }   
 
         //Phuの歩行関数
         character5=phu_imgs_phu_array[walk_time_img_count];
@@ -560,81 +606,52 @@ function judge_draw(){
         character5_1_h=75;
         character5_1_w=25;
 
-        object6=phu_imgs_objects_array[12];
-        object6_c_h=0;
-        object6_c_w=(0+all_step_count);
-        object6_h=180;
-        object6_w=320;     
+
+        //////////////////////////////
+
+
+
+        if(step6>-320 && step6<320){
+
+            object6=phu_imgs_objects_array[12];
+            object6_c_h=0;
+            object6_c_w=step6
+            object6_h=180;
+            object6_w=320;     
+        }
+
+        if(-20+step6>-320 && -20+step6<320){
+            object6_1=phu_imgs_objects_array[9];
+            object6_1_c_h=0;
+            object6_1_c_w=-20+step6;
+            object6_1_h=normal_obj_h
+            object6_1_w=normal_obj_w
+        }
+
+        if(-150+step6>-320 && -150+step6<320){
+            
+            if(ghost_count+0.1>=22){
+                ghost_count=17;
+            }else{
+                ghost_count=ghost_count+0.2;
+            }
+           
+            var ghost_round=(ghost_count/1)-(ghost_count%1);
+            console.log(ghost_count);
+            console.log(ghost_round);
+
+            object6_2=phu_imgs_objects_array[ghost_round];
+            object6_2_c_w=30+(step6/9*8);
+
+            object6_2_c_h=-150+step6;
+            object6_2_h=10-(step6/9*8);
+            object6_2_w=10-(step6/16*8);
+        }
+
+        if(true){
+            object6_3=null;
+        }
     
-        object6_1=phu_imgs_objects_array[9];
-        object6_1_c_h=0;
-        object6_1_c_w=(-20+all_step_count);
-        object6_1_h=normal_obj_h
-        object6_1_w=normal_obj_w
-
-        object6_2=null;
-        object6_3=null;
-    
- 
-    }else　if(all_step_count>=4000&& all_step_count<5000){
-        
-        console.log("NEXT");
-        //object1~2まではSTEP判定外
-
-        object3=null;
-
-        object3_1=phu_imgs_objects_array[4];
-        object3_1_c_h=0;
-        object3_1_c_w=(-2500+all_step_count/4);
-        object3_1_h=180;
-        object3_1_w=320;  
-
-        object3_2=null;
-        object3_3=null;
-        object4=null;
-
-        object4_1=phu_imgs_objects_array[11];
-        object4_1_c_h=0;
-        object4_1_c_w=(-600+all_step_count/3);
-        object4_1_h=180;
-        object4_1_w=320;   
-
-        object4_2=null;
-        object4_3=null;
-        
-
-
-
-        character5=phu_imgs_phu_array[walk_time_img_count];
-        //character5_1=phu_imgs_yue_array[walk_time_img_count];
-    
-        character5_c_w=225+((walk_time_img_count)*14/5);
-        //14マスを5枚で移動する
-        character5_c_h=105;
-
-
-        character5_h=phu_height;
-        character5_w=phu_width;
-
-        character5_1_c_w=290;
-        character5_1_c_h=110;
-        character5_1_h=75;
-        character5_1_w=25;
-
-        character5_1=null;
-
-        object6=null;
-        object6_1=null;
-
-        object6_2=phu_imgs_objects_array[3];
-        object6_2_c_h=0;
-        object6_2_c_w=(-800+all_step_count/3);
-        object6_2_h=180;
-        object6_2_w=320;   
-
-        object6_3=null;
-        
-
     }else{
 
 
@@ -794,7 +811,9 @@ function phu_imgs_draw(){
                 }
 
                 if(object6_2!=null){
+                    ctx.globalAlpha=0.6;
                     ctx.drawImage(object6_2,object6_2_c_w*cell_w,(object6_2_c_h-upper_gamen)*cell_h,object6_2_w*cell_w,object6_2_h*cell_h);
+                    ctx.globalAlpha=1;
                 }
 
                 if(object6_3!=null){
@@ -807,7 +826,7 @@ function phu_imgs_draw(){
             case 7:
                 
             //文字レイヤー
-                console.log(all_step_count);
+                //console.log(all_step_count);
                 if(all_step_count>=200&&all_step_count<1000){
                     //console.log("この業を表示する"　+ start_gyou_count);
                     drawtext(1,5,"Yue:")
