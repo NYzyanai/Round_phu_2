@@ -153,7 +153,7 @@ function loop(){
     
     between_mil=((10000*start_sec-10000*end_sec)+(10*start_mil-10*end_mil));
     //console.log("差の秒数"+between_mil);
-    if(between_mil>5 && normal_time!==30){
+    if(between_mil>2 && normal_time!==30){
     clearInterval();
     settime();
     }  
