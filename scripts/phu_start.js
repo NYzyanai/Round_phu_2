@@ -136,6 +136,48 @@ phu_imgs_load_count=0;
 var phu_imgs_loaded_flag
 phu_imgs_loaded_flag=0;
 
+var phu_imgs_ghost_namepath=[];
+var phu_imgs_ghost_talk_namepath=[];
+phu_imgs_ghost_namepath=[
+    'src/ghost/g1.png',
+    'src/ghost/g2.png',
+    'src/ghost/g3.png',
+    'src/ghost/g4.png',
+    'src/ghost/g5.png',
+    'src/ghost/g6.png',
+    'src/ghost/g7.png',
+    'src/ghost/g8.png',
+    'src/ghost/g9.png',
+    'src/ghost/g10.png',
+    'src/ghost/g11.png',
+    'src/ghost/g12.png',
+    'src/ghost/g13.png',
+    'src/ghost/g14.png',
+    'src/ghost/g15.png',
+    'src/ghost/g16.png',
+    'src/ghost/g17.png',
+    'src/ghost/g18.png',
+    'src/ghost/g19.png',
+    'src/ghost/g20.png',    
+    'src/ghost/g21.png',
+    'src/ghost/g22.png',
+    'src/ghost/g23.png',
+    'src/ghost/g24.png',
+    'src/ghost/g25.png',
+    'src/ghost/g26.png',
+    'src/ghost/g27.png',
+    'src/ghost/g28.png',
+    'src/ghost/g29.png',
+    'src/ghost/g30.png',
+    'src/ghost/g31.png',
+    'src/ghost/g32.png',
+    'src/ghost/g33.png',
+    'src/ghost/g34.png',
+    'src/ghost/g35.png',
+    'src/ghost/g36.png',
+    'src/ghost/g37.png'
+]
+
 
 phu_imgs_load();
 
