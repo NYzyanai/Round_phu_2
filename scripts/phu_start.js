@@ -460,7 +460,7 @@ var draw_phu_count=0;
 
 var ghost_count=17;
 var ghost_round=0
-var ghost_count_2=17;
+var ghost_count_2=0;
 var ghost_round_2=0;
 
 function judge_draw(){
@@ -731,56 +731,26 @@ function judge_draw(){
 
         if(-100+step6>-320 && -100+step6<600){
             
-            if(ghost_count+0.05>=22){
-                ghost_count=17;
+            if(ghost_count+0.05>=36){
+                ghost_count=0;
             }else{
-                ghost_count=ghost_count+0.05;
+                ghost_count=ghost_count+0.2;
             }
            
             ghost_round=Math.floor(ghost_count);
             //console.log(ghost_count);
             //console.log(ghost_round);
 
-            object6_2=phu_imgs_objects_array[39-ghost_round];
-            
-            object6_2_c_w=(-100+step6);
-            
-
+            object6_2=phu_imgs_ghost_array[ghost_round];
+    
             //console.log("座標今ここ"　+ (-100+step6))
             object6_2_w=10-(ghost_round*ghost_round)+ghost_round*3;
             
-            if(ghost_round==17){
-                object6_2_h=150;
-                object6_2_w=200;
-                object6_2_c_h=80;
-                
-                
-            }else if(ghost_round==18){
-                object6_2_h=180;
-                object6_2_c_h=50;
-                object6_2_w=300;
-               
-            }else if(ghost_round==19){
-                object6_2_h=320;
-                object6_2_w=500;
-                object6_2_c_h=30;
-                
-            }else if(ghost_round==20){
-                object6_2_h=400;
-                object6_2_w=600;
-                object6_2_c_h=-60;
-            }else if(ghost_round==21){
-                object6_2_h=690;
-                object6_2_w=800;
-                object6_2_c_h=-150;
-            }else if(ghost_round==22){
-                object6_2_h=790;
-                object6_2_w=1200;
-                object6_2_c_h=-200;
-            }
-
-            console.log(object6_2_h);
-            object6_2_c_w=(-100+step6)-object6_2_w/4
+            
+            object6_2_h=180;
+            object6_2_w=320;
+            object6_2_c_h=20;
+            object6_2_c_w=(-40+step6)-object6_2_w/4
 
 
         }else{
@@ -789,16 +759,17 @@ function judge_draw(){
 
         if(-100+step6>-320 && -100+step6<600){
             
-                if(ghost_count_2+0.1>=22){
-                    ghost_count_2=17;
-                }else{
-                    ghost_count_2=ghost_count_2+0.1;
-                }
-               
-                ghost_round_2=Math.floor(ghost_count_2);
+            
+                object6_3=phu_imgs_ghost_talk_array[ghost_round];
+                object6_3_h=100;
+                object6_3_w=160;
+                object6_3_c_h=90;
+                object6_3_c_w=(-100+step6)-object6_2_w/4
+
                 //console.log(ghost_count);
                 //console.log(ghost_round);
     
+                /*
                 object6_3=phu_imgs_objects_array[ghost_round_2];
                 
                 object6_3_c_w=(-100+step6);
@@ -838,7 +809,7 @@ function judge_draw(){
                 }
     
                 console.log(object6_2_h);
-                object6_3_c_w=(-150+step6)-object6_3_w/4
+                object6_3_c_w=(-150+step6)-object6_3_w/4 */
     
         }else{
             object6_3=null;
@@ -1003,7 +974,19 @@ function phu_imgs_draw(){
                 }
 
                 if(object6_2!=null){
-                    ctx.globalAlpha=1-((ghost_round/100)*(ghost_round/100)*(ghost_round/100)*80);
+                    count_alpha=count_alpha+1;
+                    if(count_alpha>=10){
+                        remember_alpha=Math.random();
+                        if(remember_alpha>0.6){
+                            remember_alpha=0.6
+                        }else if(remember_alpha<0.4){
+                            remember_alpha=0.4
+                        }
+                        ctx.globalAlpha=remember_alpha;
+                        count_alpha=0;
+                    }else{
+                        ctx.globalAlpha=remember_alpha;
+                    }
                     ctx.drawImage(object6_2,object6_2_c_w*cell_w,(object6_2_c_h-upper_gamen)*cell_h,object6_2_w*cell_w,object6_2_h*cell_h);
                     ctx.globalAlpha=1;
                 }
@@ -1072,3 +1055,8 @@ if(text_move_flag=1){
 }
 
 */
+
+var count_alpha
+count_alpha=0;
+var remember_alpha
+remember_alpha=0.2
