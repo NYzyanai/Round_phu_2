@@ -26,6 +26,7 @@ window.onload =function(){
 var opacity;
 opacity=0;
 
+
 ///splash////
 var splash_stage_flag
 var start_btn_flag
@@ -72,6 +73,7 @@ function loop(){
     startdate =new Date();
     start_sec=startdate.getSeconds();
     start_mil=startdate.getMilliseconds();
+    console.log(normal_time);
 
     //console.log("スタート" + start_sec + ":" + start_mil);
     
@@ -162,7 +164,7 @@ function loop(){
 
 function settime(){
     if(between_mil>0){
-        normal_time+between_mil;
+        normal_time=normal_time-between_mil;
         console.log(normal_time);
     }else if(between_mil==0){
         normal_time=30;
