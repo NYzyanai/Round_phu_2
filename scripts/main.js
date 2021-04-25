@@ -153,22 +153,31 @@ function loop(){
 
     //console.log("終わり秒数" + end_sec　+ ":"　+ end_mil);
     
-    between_mil=((10000*start_sec-10000*end_sec)+(10*start_mil-10*end_mil));
-    //console.log("差の秒数"+between_mil);
-    if(between_mil>2 && normal_time!==30){
-    clearInterval();
-    settime();
-    }  
+    between_mil=((1000*end_sec-1000*start_sec)+(end_mil-start_mil));
+    console.log("差の秒数"+between_mil);
+    if(between_mil>1 && normal_time==30){
+        console.log("よばれた")
+        clearInterval();
+        settime();
+    }
+    
+    /*if(between_mil==0 && normal_time!==30){
+        clearInterval();
+        settime();
+    }*/
+
     
 }
 
 function settime(){
-    if(between_mil>0){
-        normal_time=normal_time-between_mil;
-        console.log(normal_time);
-    }else if(between_mil==0){
+    if(between_mil==0 && normal_time!==30){
         normal_time=30;
-        console.log(normal_time);
-    }
+    }else{
+
+    normal_time=normal_time-between_mil;
     setInterval(loop,normal_time);
+    console.log(normal_time);
+    }
+
+    //setInterval(loop,normal_time);
 }
