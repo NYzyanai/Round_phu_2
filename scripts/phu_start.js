@@ -178,6 +178,42 @@ phu_imgs_ghost_namepath=[
     'src/ghost/g37.png'
 ]
 
+var phu_imgs_ghost_array=[];
+var phu_imgs_ghost_talk_array=[];
+
+phu_imgs_ghost_talk_namepath=[
+    'src/ghost/gt1.png',
+    'src/ghost/gt2.png',
+    'src/ghost/gt3.png',
+    'src/ghost/gt4.png',
+    'src/ghost/gt5.png',
+    'src/ghost/gt6.png',
+    'src/ghost/gt7.png',
+    'src/ghost/gt8.png',
+    'src/ghost/gt9.png',
+    'src/ghost/gt10.png',
+    'src/ghost/gt11.png',
+    'src/ghost/gt12.png',
+    'src/ghost/gt13.png',
+    'src/ghost/gt14.png',
+    'src/ghost/gt15.png',
+    'src/ghost/gt16.png',
+    'src/ghost/gt17.png',
+    'src/ghost/gt18.png',
+    'src/ghost/gt19.png',
+    'src/ghost/gt20.png',
+    'src/ghost/gt21.png',
+    'src/ghost/gt22.png',
+    'src/ghost/gt23.png',
+    'src/ghost/gt24.png',
+    'src/ghost/gt25.png',
+    'src/ghost/gt26.png',
+    'src/ghost/gt27.png',
+    'src/ghost/gt28.png',
+    'src/ghost/gt29.png',
+    'src/ghost/gt30.png',
+    'src/ghost/gt31.png',
+]
 
 phu_imgs_load();
 
@@ -209,7 +245,27 @@ function phu_imgs_load(){
         }
     }
 
-    if(phu_imgs_load_count>=phu_imgs_objects_namepath.length+phu_imgs_phu_namepath.length+phu_imgs_yue_namepath.length){
+
+    for(var num_g=0;num_g<phu_imgs_ghost_namepath.length;num_g++){
+        phu_imgs_ghost_array[num_g]=new Image();
+        phu_imgs_ghost_array[num_g].src=phu_imgs_ghost_namepath[num_g];
+        
+        phu_imgs_ghost_array[num_g].onload=function(){
+            phu_imgs_load_count++
+        }
+    }
+
+
+    for(var num_gt=0;num_gt<phu_imgs_ghost_talk_namepath.length;num_gt++){
+        phu_imgs_ghost_talk_array[num_gt]=new Image();
+        phu_imgs_ghost_talk_array[num_gt].src=phu_imgs_ghost_talk_namepath[num_gt];
+        
+        phu_imgs_ghost_talk_array[num_gt].onload=function(){
+            phu_imgs_load_count++
+        }
+    }
+
+    if(phu_imgs_load_count>=phu_imgs_objects_namepath.length+phu_imgs_phu_namepath.length+phu_imgs_yue_namepath.length+phu_imgs_ghost_namepath.length+phu_imgs_ghost_talk_namepath.length){
         phu_imgs_loaded_flag=1;
     }
 
