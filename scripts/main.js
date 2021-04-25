@@ -9,7 +9,7 @@ normal_time=30;
 window.onload =function(){
     setup_touchevent();
     if(between_mil>0){
-        normal_time+between_mil;
+        normal_time=normal_time-between_mil;
         console.log(normal_time);
     }else if(between_mil==0){
         normal_time=30;
