@@ -716,27 +716,27 @@ function judge_draw(){
                     
                     
                 }else if(ghost_round_2==18){
-                    object6_3_h=180;
+                    object6_3_h=Math.random()*1000;
                     object6_3_c_h=50;
                     object6_3_w=300;
                    
                 }else if(ghost_round_2==19){
-                    object6_3_h=320;
+                    object6_3_h=Math.random()*1000;
                     object6_3_w=500;
                     object6_3_c_h=30;
                     
                 }else if(ghost_round_2==20){
-                    object6_3_h=400;
+                    object6_3_h=Math.random()*1000;
                     object6_3_w=600;
                     object6_3_c_h=-60;
                 }else if(ghost_round_2==21){
-                    object6_3_h=500;
+                    object6_3_h=Math.random()*1000;
                     object6_3_w=800;
                     object6_3_c_h=-150;
                 }else if(ghost_round_2==22){
-                    object6_3_h=790;
-                    object6_3_w=1200;
-                    object6_3_c_h=-200;
+                    object6_3_h=Math.random()*1000;
+                    object6_3_w=Math.random()*1000;
+                    object6_3_c_h=Math.random()*1000;
                 }
     
                 console.log(object6_2_h);
