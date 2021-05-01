@@ -129,7 +129,7 @@ function loop(){
             if(phu_stage_1_started_flag==1){
                 if(phu_imgs_loaded_flag=0){
                     phu_imgs_load();
-                    console.log("まだ");
+                    //console.log("まだ");
                 }else{
                     if(touchX>0 && touchY>0){
                         walk_start_flag=1;
@@ -153,7 +153,7 @@ function loop(){
     //console.log("終わり秒数" + end_sec　+ ":"　+ end_mil);
  
     bufbetween_mil=enddate-startdate;
-    console.log("差の秒数"+bufbetween_mil);
+    //console.log("差の秒数"+bufbetween_mil);
 
 
     /*

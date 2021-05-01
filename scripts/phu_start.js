@@ -463,6 +463,9 @@ var ghost_round=0
 var ghost_count_2=0;
 var ghost_round_2=0;
 
+var delete_alpha=0;
+
+
 
 function judge_draw(){
     
@@ -759,7 +762,7 @@ function judge_draw(){
             }else{
                 object6_2_h=object6_2_h+0.9;
                 object6_2_w=object6_2_w+1.6;
-                object6_2_c_h=object6_2_c_h-0.9;
+                object6_2_c_h=object6_2_c_h-0.6;
             }
 
             object6_2_c_w=-40+step6
@@ -993,6 +996,15 @@ function phu_imgs_draw(){
                 }
 
                 if(object6_2!=null){
+                
+
+                    //できるだけ近くにきた段階で、透明度を０にする
+
+
+                    if(object6_2_w>400){
+                        delete_alpha=delete_alpha-0.003;
+                    }
+                    
                     count_alpha=count_alpha+1;
                     if(count_alpha>=10){
                         remember_alpha=Math.random();
@@ -1001,18 +1013,31 @@ function phu_imgs_draw(){
                         }else if(remember_alpha<0.4){
                             remember_alpha=0.4
                         }
-                        ctx.globalAlpha=remember_alpha;
+
+                        if(remember_alpha+delete_alpha<0){
+                            ctx.globalAlpha=0;
+                        }else{
+                            ctx.globalAlpha=remember_alpha+delete_alpha;
+                        }
                         count_alpha=0;
                     }else{
-                        ctx.globalAlpha=remember_alpha;
+                        if(remember_alpha+delete_alpha<0){
+                            ctx.globalAlpha=0;
+                        }else{
+                            ctx.globalAlpha=remember_alpha+delete_alpha;
+                        }
+
                     }
+
+                    console.log(ctx.globalAlpha);
+                    
                     ctx.drawImage(object6_2,object6_2_c_w*cell_w,(object6_2_c_h-upper_gamen)*cell_h,object6_2_w*cell_w,object6_2_h*cell_h);
                     ctx.globalAlpha=1;
                 }
 
                 if(object6_3!=null){
                     ctx.globalAlpha=0.3;
-                   
+
                     ctx.drawImage(object6_3,object6_3_c_w*cell_w,(object6_3_c_h-upper_gamen)*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
                     ctx.globalAlpha=1;
                 }
