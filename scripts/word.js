@@ -92,7 +92,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
         max_retu=text_detail_array[gyou_buf].length-1
 
         //秒数管理、7回表示したらつぎのもじ
-        if(wait_text_count>=5){
+        if(wait_text_count>=4){
             if(retu_count<max_retu){
                 retu_count=retu_count+1;
                 wait_text_count=0

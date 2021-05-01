@@ -38,6 +38,9 @@ var phu_stage_flag_before=0;
 
 var bufbetween_mil
 
+var delete_count
+delete_count=0;
+
 var splash_screen_called
 splash_screen_called=0;
 ////movie////

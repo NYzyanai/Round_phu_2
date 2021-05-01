@@ -458,13 +458,19 @@ var call_walk_count=0;
 var walk_time_img_count=0;
 var draw_phu_count=0;
 
-var ghost_count=17;
+var ghost_count=0;
 var ghost_round=0
 var ghost_count_2=0;
 var ghost_round_2=0;
 
-var delete_alpha=0;
+var ghost_count_3=0;
+var ghost_round_3=0;
 
+var delete_alpha=0;
+var delete_count_3=0;
+var delete_alpha_3=0;
+var count_alpha_3=0;
+var remember_alpha_3;
 
 
 function judge_draw(){
@@ -725,54 +731,96 @@ function judge_draw(){
             object6_w=320;     
         }
 
-        if(-20+step6>-320 && -20+step6<320){
-            object6_1=phu_imgs_objects_array[9];
-            object6_1_c_h=0;
-            object6_1_c_w=-20+step6;
-            object6_1_h=normal_obj_h
-            object6_1_w=normal_obj_w
-        }
-
 
         //幽霊1は動いてもいいと思うの
 
         
 
-        if(-100+step6>-320 && -100+step6<600){
-            
+        if(-240+step6>-320 && -240+step6<600){
+            if(delete_count>20){
+                object6_2_h=null;
+                delete_count=0;
+                delete_alpha=0;
+            }
+
             if(ghost_count+0.2>=36){
                 ghost_count=0;
             }else{
                 ghost_count=ghost_count+0.2;
             }
-           
+            
             ghost_round=Math.floor(ghost_count);
             //console.log(ghost_count);
             //console.log(ghost_round);
 
             object6_2=phu_imgs_ghost_array[ghost_round];
-    
+
             //console.log("座標今ここ"　+ (-100+step6))
             //object6_2_w=10-(ghost_round*ghost_round)+ghost_round*3;
             
             if(object6_2_h==null){
-                object6_2_h=180;
-                object6_2_w=320;
-                object6_2_c_h=20;
+                object6_2_h=90;
+                object6_2_w=170;
+                object6_2_c_h=100;
             }else{
-                object6_2_h=object6_2_h+0.9;
-                object6_2_w=object6_2_w+1.6;
-                object6_2_c_h=object6_2_c_h-0.6;
+                object6_2_h=object6_2_h+0.45;
+                object6_2_w=object6_2_w+0.8;
+                object6_2_c_h=object6_2_c_h-0.3;
             }
 
-            object6_2_c_w=-40+step6
+            object6_2_c_w=-240+step6-(object6_2_w-320)/10
 
 
         }else{
             object6_2=null;
         }
 
-        if(-100+step6>-320 && -100+step6<600){
+
+        //幽霊その３
+
+
+        if(-160+step6>-320 && -160+step6<600){
+            if(delete_count_3>20){
+                object6_1_h=null;
+                delete_count_3=0;
+                delete_alpha_3=0;
+            }
+
+        
+            if(ghost_count_3+0.3>=36){
+                ghost_count_3=0;
+            }else{
+                ghost_count_3=ghost_count_3+0.3;
+            }
+            ghost_round_3=Math.floor(ghost_count_3);
+
+
+            object6_1=phu_imgs_ghost_array[ghost_round_3];
+
+            //console.log("座標今ここ"　+ (-100+step6))
+            //object6_2_w=10-(ghost_round*ghost_round)+ghost_round*3;
+            
+            if(object6_1_h==null){
+                object6_1_h=80;
+                object6_1_w=140;
+                object6_1_c_h=140;
+            }else{
+                object6_1_h=object6_1_h+0.3;
+                object6_1_w=object6_1_w+0.6;
+                object6_1_c_h=object6_1_c_h-0.2;
+            }
+
+            object6_1_c_w=-140+step6-(object6_1_w-320)/10
+
+
+        }else{
+            object6_1=null;
+        }
+
+
+
+
+        if(-300+step6>-320 && -300+step6<600){
             
             if(ghost_count_2+0.2>=30){
                 ghost_count_2=0;
@@ -786,7 +834,7 @@ function judge_draw(){
                 object6_3_h=100;
                 object6_3_w=160;
                 object6_3_c_h=90;
-                object6_3_c_w=-100+step6
+                object6_3_c_w=-300+step6
 
                 //console.log(ghost_count);
                 //console.log(ghost_round);
@@ -992,8 +1040,45 @@ function phu_imgs_draw(){
                 }
 
                 if(object6_1!=null){
+                  
+                    //できるだけ近くにきた段階で、透明度を０にする
+
+
+                    if(object6_1_w>180){
+                        delete_alpha_3=delete_alpha_3-0.01;
+                    }
+                    
+                    count_alpha_3=count_alpha_3+1;
+                    if(count_alpha_3>=10){
+                        remember_alpha_3=Math.random();
+                        if(remember_alpha_3>0.6){
+                            remember_alpha_3=0.6
+                        }else if(remember_alpha_3<0.4){
+                            remember_alpha_3=0.4
+                        }
+
+                        if(remember_alpha_3+delete_alpha_3<0){
+                            ctx.globalAlpha=0;
+                        }else{
+                            ctx.globalAlpha=remember_alpha_3+delete_alpha_3;
+                        }
+                        count_alpha_3=0;
+                    }else{
+                        if(remember_alpha_3+delete_alpha_3<0){
+                            ctx.globalAlpha=0;
+                        }else{
+                            ctx.globalAlpha=remember_alpha_3+delete_alpha_3;
+                        }
+
+                    }
+                    if(ctx.globalAlpha==0){
+                        delete_count_3=delete_count_3+1;
+                    }
+                    console.log(ctx.globalAlpha);
+                    
                     ctx.drawImage(object6_1,object6_1_c_w*cell_w,(object6_1_c_h-upper_gamen)*cell_h,object6_1_w*cell_w,object6_1_h*cell_h);
-                }
+                    ctx.globalAlpha=1;
+                }                
 
                 if(object6_2!=null){
                 
@@ -1002,7 +1087,7 @@ function phu_imgs_draw(){
 
 
                     if(object6_2_w>400){
-                        delete_alpha=delete_alpha-0.003;
+                        delete_alpha=delete_alpha-0.01;
                     }
                     
                     count_alpha=count_alpha+1;
@@ -1010,8 +1095,8 @@ function phu_imgs_draw(){
                         remember_alpha=Math.random();
                         if(remember_alpha>0.6){
                             remember_alpha=0.6
-                        }else if(remember_alpha<0.4){
-                            remember_alpha=0.4
+                        }else if(remember_alpha<0.2){
+                            remember_alpha=0.2
                         }
 
                         if(remember_alpha+delete_alpha<0){
@@ -1028,7 +1113,9 @@ function phu_imgs_draw(){
                         }
 
                     }
-
+                    if(ctx.globalAlpha==0){
+                        delete_count=delete_count+1;
+                    }
                     console.log(ctx.globalAlpha);
                     
                     ctx.drawImage(object6_2,object6_2_c_w*cell_w,(object6_2_c_h-upper_gamen)*cell_h,object6_2_w*cell_w,object6_2_h*cell_h);
@@ -1036,7 +1123,7 @@ function phu_imgs_draw(){
                 }
 
                 if(object6_3!=null){
-                    ctx.globalAlpha=0.4;
+                    ctx.globalAlpha=0.8;
 
                     ctx.drawImage(object6_3,object6_3_c_w*cell_w,(object6_3_c_h-upper_gamen)*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
                     ctx.globalAlpha=1;
@@ -1049,7 +1136,7 @@ function phu_imgs_draw(){
                 
             //文字レイヤー
                 //console.log(all_step_count);
-                if(all_step_count>=320&&all_step_count<2000){
+                if(all_step_count>=600&&all_step_count<2000){
                     //console.log("この業を表示する"　+ start_gyou_count);
                     drawtext(10,13,"???:")
                 }
