@@ -730,6 +730,11 @@ function judge_draw(){
             object6_1_w=normal_obj_w
         }
 
+
+        //幽霊1は動いてもいいと思うの
+
+        
+
         if(-100+step6>-320 && -100+step6<600){
             
             if(ghost_count+0.2>=36){
@@ -745,13 +750,19 @@ function judge_draw(){
             object6_2=phu_imgs_ghost_array[ghost_round];
     
             //console.log("座標今ここ"　+ (-100+step6))
-            object6_2_w=10-(ghost_round*ghost_round)+ghost_round*3;
+            //object6_2_w=10-(ghost_round*ghost_round)+ghost_round*3;
             
-            
-            object6_2_h=180;
-            object6_2_w=320;
-            object6_2_c_h=20;
-            object6_2_c_w=(-40+step6)-object6_2_w/4
+            if(object6_2_h==null){
+                object6_2_h=180;
+                object6_2_w=320;
+                object6_2_c_h=20;
+            }else{
+                object6_2_h=object6_2_h+0.9;
+                object6_2_w=object6_2_w+1.6;
+                object6_2_c_h=object6_2_c_h-0.9;
+            }
+
+            object6_2_c_w=-40+step6
 
 
         }else{
@@ -772,7 +783,7 @@ function judge_draw(){
                 object6_3_h=100;
                 object6_3_w=160;
                 object6_3_c_h=90;
-                object6_3_c_w=(-100+step6)-object6_2_w/4
+                object6_3_c_w=-100+step6
 
                 //console.log(ghost_count);
                 //console.log(ghost_round);
