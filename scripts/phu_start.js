@@ -463,6 +463,7 @@ var ghost_round=0
 var ghost_count_2=0;
 var ghost_round_2=0;
 
+
 function judge_draw(){
     
     canvas=document.getElementById('canvas');
@@ -731,7 +732,7 @@ function judge_draw(){
 
         if(-100+step6>-320 && -100+step6<600){
             
-            if(ghost_count+0.05>=36){
+            if(ghost_count+0.2>=36){
                 ghost_count=0;
             }else{
                 ghost_count=ghost_count+0.2;
@@ -759,8 +760,15 @@ function judge_draw(){
 
         if(-100+step6>-320 && -100+step6<600){
             
-            
-                object6_3=phu_imgs_ghost_talk_array[ghost_round];
+            if(ghost_count_2+0.2>=30){
+                ghost_count_2=0;
+            }else{
+                ghost_count_2=ghost_count_2+0.2;
+            }
+           
+            ghost_round_2=Math.floor(ghost_count_2);
+
+                object6_3=phu_imgs_ghost_talk_array[ghost_round_2];
                 object6_3_h=100;
                 object6_3_w=160;
                 object6_3_c_h=90;
@@ -992,7 +1000,7 @@ function phu_imgs_draw(){
                 }
 
                 if(object6_3!=null){
-                    ctx.globalAlpha=1-((ghost_round_2/100)*(ghost_round_2/100)*(ghost_round_2/100)*80);
+                    ctx.globalAlpha=0.3;
                    
                     ctx.drawImage(object6_3,object6_3_c_w*cell_w,(object6_3_c_h-upper_gamen)*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
                     ctx.globalAlpha=1;
