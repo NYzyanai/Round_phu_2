@@ -1036,7 +1036,7 @@ function phu_imgs_draw(){
                 }
 
                 if(object6_3!=null){
-                    ctx.globalAlpha=0.3;
+                    ctx.globalAlpha=0.4;
 
                     ctx.drawImage(object6_3,object6_3_c_w*cell_w,(object6_3_c_h-upper_gamen)*cell_h,object6_3_w*cell_w,object6_3_h*cell_h);
                     ctx.globalAlpha=1;
