@@ -5,17 +5,17 @@ var debug_count
 debug_count=10;
 
 var normal_time
-normal_time=30;
+
 window.onload =function(){
     setup_touchevent();
-    if(between_mil>0){
+    /*if(between_mil>0){
         normal_time=normal_time-between_mil;
         console.log(normal_time);
     }else if(between_mil==0){
         normal_time=30;
         console.log(normal_time);
-    }
-    setInterval(loop,normal_time);
+    }*/
+    setInterval(loop,30);
     sizing();
     splash_stage_flag=1;
     /*if(!canvas || !canvas.getContext) return false;
@@ -35,6 +35,8 @@ var readme_flag
 readme_flag=0;
 var phu_stage_flag_before=0;
 
+
+var bufbetween_mil
 
 var splash_screen_called
 splash_screen_called=0;
@@ -65,15 +67,14 @@ function loop(){
 
     if(touchX>300&&touchY<30){
         setup_touchevent();
-        setInterval(loop,2);
+        setInterval(loop,100);
+        //clearInterval(loop);
         debug_mode_flag=1;
         
     }
 
     startdate =new Date();
-    start_sec=startdate.getSeconds();
-    start_mil=startdate.getMilliseconds();
-    console.log(normal_time);
+
 
     //console.log("スタート" + start_sec + ":" + start_mil);
     
@@ -148,18 +149,28 @@ function loop(){
     }
 
     enddate=new Date();
-    end_sec=enddate.getSeconds();
-    end_mil=enddate.getMilliseconds();
 
     //console.log("終わり秒数" + end_sec　+ ":"　+ end_mil);
-    
-    between_mil=((1000*end_sec-1000*start_sec)+(end_mil-start_mil));
-    console.log("差の秒数"+between_mil);
-    if(between_mil>1 && normal_time==30){
-        console.log("よばれた")
-        clearInterval();
+ 
+    bufbetween_mil=enddate-startdate;
+    console.log("差の秒数"+bufbetween_mil);
+
+
+    /*
+    if(bufbetween_mil>2){
+        console.log("よばれた");
+        setup_touchevent();
+        
+        //normal_time=normal_time+(between_mil);
+        setInterval(loop,20000);
+        clearInterval(loop);
+        
         settime();
-    }
+        
+    }else{
+        console.log("逆に問題ない")
+    }*/
+    
     
     /*if(between_mil==0 && normal_time!==30){
         clearInterval();
@@ -169,15 +180,16 @@ function loop(){
     
 }
 
+/*
 function settime(){
     if(between_mil==0 && normal_time!==30){
         normal_time=30;
     }else{
 
-    normal_time=normal_time-between_mil;
+    normal_time=normal_time+(between_mil);
     setInterval(loop,normal_time);
     console.log(normal_time);
     }
 
     //setInterval(loop,normal_time);
-}
+}*/
