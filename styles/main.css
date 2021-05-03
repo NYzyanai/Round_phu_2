@@ -30,6 +30,7 @@ head{
 #wrapper{
     width:100vw;
     height:100vh;
+    
     user-select: none; /* CSS3 */
     -moz-user-select: none; /* Firefox */
     -webkit-user-select: none; /* Safari、Chromeなど */
@@ -47,6 +48,16 @@ head{
     -webkit-font-smoothing : none;
 }
 
+#filter{   
+    position:absolute;
+    user-select: none; /* CSS3 */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Safari、Chromeなど */
+    -ms-user-select: none; /* IE10かららしい */
+
+    font-smooth: never;
+    -webkit-font-smoothing : none;
+}
 
 #game{
     position:absolute;
@@ -62,6 +73,16 @@ head{
 
 /*この・・/は上のディレクトリをさす*/
 
+#filter{
+    position: absolute;
+    mix-blend-mode: overlay; /* オーバーレイを指定 */
+    color: white;
+    font-size: 150px;
+    font-weight: bold;
+    top: 200px;
+    left: 30px;
+    z-index:-10 ; 
+}
 
 #game .screen{
     position:absolute;

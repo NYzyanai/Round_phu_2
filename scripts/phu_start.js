@@ -592,7 +592,7 @@ function judge_draw(){
             object3_w=320;     
         }else if(-640+step3>-320&& -640+step3<320){
             object3_c_h=0;
-            object3=phu_imgs_objects_array[14];
+            object3=phu_imgs_objects_array[12];
             object3_c_w=-640+step3;
             //↑が-320以上・320以下のときにのみ代入する
             object3_h=180;
