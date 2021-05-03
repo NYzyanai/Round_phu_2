@@ -57,6 +57,7 @@ head{
 
     font-smooth: never;
     -webkit-font-smoothing : none;
+    mix-blend-mode: overlay;
 }
 
 #game{

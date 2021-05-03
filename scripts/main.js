@@ -17,6 +17,7 @@ window.onload =function(){
     }*/
     setInterval(loop,30);
     sizing();
+    sizing_filter();
     splash_stage_flag=1;
     /*if(!canvas || !canvas.getContext) return false;
     ctx = canvas.getContext('2d');
@@ -68,7 +69,11 @@ debug_mode_flag=0;
 function loop(){
     //1秒間に30回よばれる
 
+  
+
+
     if(touchX>300&&touchY<30){
+        
         setup_touchevent();
         setInterval(loop,100);
         //clearInterval(loop);
@@ -84,6 +89,8 @@ function loop(){
 
         ////////入力に応じたフラグを建てる//
         if (splash_stage_flag==1){
+            
+
             if(splash_screen_called==0){
                 splashscreen_imageDraw();
             }

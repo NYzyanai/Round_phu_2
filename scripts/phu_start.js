@@ -480,6 +480,11 @@ function judge_draw(){
     ctx.imageSmoothingEnabled=false;
     ctx.textSmoothingEnabled=false;
 
+    filter=document.getElementById('filter');
+    ctxfilter=canvas.getContext('2d');
+    ctxfilter.imageSmoothingEnabled=false;
+    ctxfilter.textSmoothingEnabled=false;
+
 
 
     //歩行用演算
@@ -929,7 +934,8 @@ function phu_imgs_draw(){
             case 1:
                 //いちばん奥　空など
                 if(object1!=null){
-                    ctx.drawImage(object1,object1_c_w*cell_w,(object1_c_h-upper_gamen)*cell_h,object1_w*cell_w,object1_h*cell_h);
+                    
+                                        ctx.drawImage(object1,object1_c_w*cell_w,(object1_c_h-upper_gamen)*cell_h,object1_w*cell_w,object1_h*cell_h);
                 }
                 
                 if(object1_1!=null){
@@ -1132,9 +1138,43 @@ function phu_imgs_draw(){
 
 
                 break;
+
             case 7:
                 
             //文字レイヤー
+
+            /*
+            ctxfilter.globalCompositeOperation = "malutiply";
+  
+            ctxfilter.strokeStyle = 'rgb(00,00,255)'; //枠線の色は青
+            ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
+            ctxfilter.fillRect(10,10,100,200);
+
+            ctxfilter.globalCompositeOperation ="overlay";
+
+            ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
+            ctxfilter.fillRect(100,10,100,400);
+            */
+
+            if(all_step_count<300){
+            ctxfilter.globalCompositeOperation ="color-burn";
+
+            ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
+            ctxfilter.fillRect(0,0,320*cell_w,180*cell_h);
+            }else if(all_step_count<350){
+                ctxfilter.globalCompositeOperation ="soft-light";
+
+                ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
+                ctxfilter.fillRect(0,0,320*cell_w,180*cell_h);               
+            }else{
+                ctxfilter.globalCompositeOperation ="lighten";
+
+                ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
+                ctxfilter.fillRect(0,0,320*cell_w,180*cell_h);     
+            }
+
+            ctx.globalCompositeOperation = "source-over"
+
                 //console.log(all_step_count);
                 if(all_step_count>=600&&all_step_count<2000){
                     //console.log("この業を表示する"　+ start_gyou_count);
