@@ -84,7 +84,7 @@ start_gyou_count=0;
 var next_text_flag
 var gyou_buf="" //いまどこの列を呼んでいるかの変数
 
-function drawtext(start_gyou_count,end_gyou_count,chara_name){
+function drawtext(start_gyou_count,end_gyou_count,chara_name,text_number){
 
     if(gyou_buf==""){
         gyou_buf=start_gyou_count
@@ -146,6 +146,14 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
             upper_gamen=upper_gamen-0.5
         }else{
             text_move_flag=0;
+            wait_text_count=0;
+            gyou_buf=0;
+            retu_count=0;
+            if(text_number==1){
+                mama_end_text_flag=1;
+            }else if(text_number==2){
+                ghost_end_text_flag=1;
+            }
         }
     }
 }
@@ -159,6 +167,17 @@ function endtext(){
         ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,upper_gamen*cell_h);
     }else{
         text_move_flag=0;
+        wait_text_count=0;
+        gyou_buf=0;
+        retu_count=0;
+        if(text_number==1){
+            mama_end_text_flag=1;
+        }else if(text_number==2){
+            ghost_end_text_flag=1;
+        }
     }
 }
 
+var mama_end_text_flag=0;
+var ghost_end_text_flag=0;
+var text_number

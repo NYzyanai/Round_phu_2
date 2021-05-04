@@ -1183,17 +1183,21 @@ function phu_imgs_draw(){
 
                 
                     if(all_step_count>100){
-                        drawtext(1,10,"お母さん : ");
-                        if(text_move_flag!==0){
+                        if(mama_end_text_flag==0){
+                            drawtext(1,10,"お母さん : ",1);
                             stop_walk_flag=1;
-                    
+                            if(gyou_buf>1){
+                                stop_walk_flag=0;
+                            }
                         }else{
                             stop_walk_flag=0;
                         }
                     }
 
                     if(all_step_count>1000){
-                        drawtext(11,23,"**** : ");
+                        if(ghost_end_text_flag==0){
+                        drawtext(11,23,"**** : ",2);
+                        }
                     }
 
             
