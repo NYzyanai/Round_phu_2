@@ -1194,7 +1194,7 @@ function phu_imgs_draw(){
                         }
                     }
 
-                    if(all_step_count>1000){
+                    if(all_step_count>1700){
                         if(ghost_end_text_flag==0){
                         drawtext(11,23,"**** : ",2);
                         }
