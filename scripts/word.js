@@ -17,19 +17,32 @@ var text_array=[];
 
 text_array=[
     "************",
-    "ここがPhuのお家？",
-    "大きいね！",
+    "どこ行くの？",
+    " ",
+    "こんな時間に...",
     ".......",
+
     "...Phu?",
-    "どうしたの？",
-    "だから... 行かないで。",
-    "...待ってるからね。",
-    
+    " ",
+    "手伝わなくて　大丈夫？",
+    " ",
+    "大丈夫なら　いいけど。",
     ".......",
-    ".......行くところはあるの？",
-    ".....、",
+
+    ".......怒られないの？",
+    "　",
     ".....いいなぁ",
     " ",
+    "どこにでも　行けるんだね",
+
+    "行くところ、決まってるの？",
+    " ",
+    "決まってないの？",
+    "ねえ",
+    "無視しないでよ",
+
+    " ",
+    "おねがい",
     "連れていってよ"
 
 ]
@@ -119,7 +132,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
         if(upper_gamen<30){
             ctx.fillStyle='black';
             ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);    
-            upper_gamen=upper_gamen+1
+            upper_gamen=upper_gamen+0.6
         }else{
             text_move_flag=0;
             text_flag=1;
@@ -130,7 +143,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name){
         if(upper_gamen>0){
             ctx.fillStyle='black';
             ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);    
-            upper_gamen=upper_gamen-1
+            upper_gamen=upper_gamen-0.5
         }else{
             text_move_flag=0;
         }

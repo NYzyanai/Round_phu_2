@@ -6,7 +6,10 @@ phu_stage_flag_before=0;
 var phu_walk_flag
 phu_walk_flag=0;
 
+var filter_opacity;
+filter_opacity=1;
 
+var filter_detail;
 
 
 var phu_imgs_character_namepath=[];
@@ -276,6 +279,8 @@ var layer
 var add
 add=0
 
+var stop_walk_flag=0;
+
 var object1
 var object2
 var object3
@@ -447,6 +452,8 @@ var sky_obj_width
 sky_obj_width=1600;
 
 var mountain 
+
+var start_text_flag=0;
 
 
 //何回Phuの歩行関数がよばれたか
@@ -741,7 +748,7 @@ function judge_draw(){
 
         
 
-        if(-240+step6>-320 && -240+step6<600){
+        if(-1200+step6>-320 && -1200+step6<600){
             if(delete_count>20){
                 object6_2_h=null;
                 delete_count=0;
@@ -773,7 +780,7 @@ function judge_draw(){
                 object6_2_c_h=object6_2_c_h-0.3;
             }
 
-            object6_2_c_w=-240+step6-(object6_2_w-320)/10
+            object6_2_c_w=-1200+step6-(object6_2_w-1200)/10
 
 
         }else{
@@ -784,7 +791,7 @@ function judge_draw(){
         //幽霊その３
 
 
-        if(-160+step6>-320 && -160+step6<600){
+        if(-1500+step6>-320 && -1500+step6<640){
             if(delete_count_3>20){
                 object6_1_h=null;
                 delete_count_3=0;
@@ -815,7 +822,7 @@ function judge_draw(){
                 object6_1_c_h=object6_1_c_h-0.2;
             }
 
-            object6_1_c_w=-140+step6-(object6_1_w-320)/10
+            object6_1_c_w=-1500+step6-(object6_1_w-320)/10
 
 
         }else{
@@ -825,7 +832,7 @@ function judge_draw(){
 
 
 
-        if(-300+step6>-320 && -300+step6<600){
+        if(-1350+step6>-320 && -1350+step6<640){
             
             if(ghost_count_2+0.2>=30){
                 ghost_count_2=0;
@@ -839,7 +846,7 @@ function judge_draw(){
                 object6_3_h=100;
                 object6_3_w=160;
                 object6_3_c_h=90;
-                object6_3_c_w=-300+step6
+                object6_3_c_w=-1350+step6
 
                 //console.log(ghost_count);
                 //console.log(ghost_round);
@@ -1156,30 +1163,39 @@ function phu_imgs_draw(){
             ctxfilter.fillRect(100,10,100,400);
             */
 
-            if(all_step_count<300){
-            ctxfilter.globalCompositeOperation ="color-burn";
-
-            ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
-            ctxfilter.fillRect(0,0,320*cell_w,180*cell_h);
-            }else if(all_step_count<350){
-                ctxfilter.globalCompositeOperation ="soft-light";
-
-                ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
-                ctxfilter.fillRect(0,0,320*cell_w,180*cell_h);               
-            }else{
-                ctxfilter.globalCompositeOperation ="lighten";
-
-                ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
-                ctxfilter.fillRect(0,0,320*cell_w,180*cell_h);     
-            }
-
-            ctx.globalCompositeOperation = "source-over"
-
-                //console.log(all_step_count);
-                if(all_step_count>=600&&all_step_count<2000){
-                    //console.log("この業を表示する"　+ start_gyou_count);
-                    drawtext(10,13,"???:")
+            
+                
+                filter_opacity=1/(all_step_count/500);
+                if(filter_opacity>0.7){
+                    filter_opacity=0.7;
                 }
+
+
+                ctxfilter.globalCompositeOperation ="color-burn";
+                filter_detail='rgba(67,86,232,'+ filter_opacity + ')';
+
+                ctxfilter.fillStyle = filter_detail;
+                ctx.fillRect(0,0,320*cell_w,180*cell_h);
+                ctx.globalCompositeOperation = "source-over";
+            
+                //console.log(all_step_count);
+
+
+                
+                    if(all_step_count>100){
+                        drawtext(1,10,"お母さん : ");
+                        if(text_move_flag!==0){
+                            stop_walk_flag=1;
+                    
+                        }else{
+                            stop_walk_flag=0;
+                        }
+                    }
+
+                    if(all_step_count>1000){
+                        drawtext(11,23,"**** : ");
+                    }
+
             
 
             default:
