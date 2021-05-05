@@ -25,6 +25,7 @@ window.onload =function(){
     splashscreen_imageDraw();*/
 }
 
+var speedup=0;
 var opacity;
 opacity=0;
 
@@ -75,12 +76,20 @@ function loop(){
 
     if(touchX>300&&touchY<30){
         
+        /*
         setup_touchevent();
-        setInterval(loop,100);
+        setInterval(loop,100);*/
+
         //clearInterval(loop);
         debug_mode_flag=1;
-        
+        speedup=3;
     }
+
+    if(touchX<20&&touchY<30&touchX!==0){
+        speedup=0;
+    }
+
+
 
     startdate =new Date();
 

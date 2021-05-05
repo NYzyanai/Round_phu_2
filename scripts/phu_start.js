@@ -500,11 +500,11 @@ function judge_draw(){
         //30ミリ秒に一回よばれる
         //できれば600(30*20)ミリ秒で一枚
 
-        draw_phu_count=draw_phu_count+1;
+        draw_phu_count=draw_phu_count+1+speedup;
 
         //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
 
-        all_step_count=all_step_count+25/24
+        all_step_count=all_step_count+25/24+speedup;
 
         
         if(draw_phu_count==4 && walk_time_img_count<5){
@@ -951,11 +951,16 @@ function judge_draw(){
         if(object6_3_c_w>character5_c_w){
             console.log("unchoiiiiiiii")
             if(ghost_end_text_flag==0){
-                drawtext(11,23,"＊＊＊＊ : ",2);
+                drawtext(11,22,"＊＊＊＊ : ",2);
+
+                character5_c_w=225+((walk_time_img_count)*14/5)-30;
+                
                 stop_walk_flag=1;
-                    if(gyou_buf>1){
-                        stop_walk_flag=0;
-                    }
+                if(gyou_buf>1){
+                    stop_walk_flag=0;
+                }
+            }else{
+                stop_walk_flag=0;
             }
         }
     }
