@@ -632,6 +632,16 @@ function judge_draw(){
             //奥に登場させたいときはマイナス座標
             object3_2_h=180;
             object3_2_w=320;  
+
+            ////別のものを代入するときには、上のもの（これなら-300)に-640下数を上回らないといけないよ）;
+        }else if(-950+step3>-320 && -950+step3<320){
+                //木　なんぼあってもこまらん
+                object3_2=phu_imgs_objects_array[7];
+                object3_2_c_h=0;
+                object3_2_c_w=-950+step3;
+                //奥に登場させたいときはマイナス座標
+                object3_2_h=180;
+                object3_2_w=320;  
         }else{
             object3_2=null;
         }
@@ -665,6 +675,18 @@ function judge_draw(){
             object4_c_w=step4;
             object4_h=180;
             object4_w=320;    
+        }else if(-700+step4>-320 && -700+step4<320){
+            object4=phu_imgs_objects_array[4];
+            object4_c_h=0;
+            object4_c_w=-700+step4;
+            object4_h=180;
+            object4_w=320;  
+        }else if(-1400+step4>-320 && -1400+step4<320){
+            object4=phu_imgs_objects_array[6];
+            object4_c_h=0;
+            object4_c_w=-1400+step4;
+            object4_h=180;
+            object4_w=320;  
         }else{
             object4=null;
         }
@@ -840,6 +862,7 @@ function judge_draw(){
                 ghost_count_2=ghost_count_2+0.2;
             }
            
+            ///しゃべる幽霊はこいつ
             ghost_round_2=Math.floor(ghost_count_2);
 
                 object6_3=phu_imgs_ghost_talk_array[ghost_round_2];
@@ -921,6 +944,16 @@ function judge_draw(){
     }
 
     //console.log("今"　+ all_step_count);
+
+
+    ////ここでPhuとGhostのエンカウントイベ始まる！
+    if(object6_3!==null){
+        if(object6_3_c_w<character5_c_w){
+            console.log("unchoiiiiiiii")
+        }
+    }
+
+
 }
 
 var lay
@@ -1194,9 +1227,9 @@ function phu_imgs_draw(){
                         }
                     }
 
-                    if(all_step_count>1700){
+                    if(-1300+all_step_count*0.7>-320){
                         if(ghost_end_text_flag==0){
-                        drawtext(11,23,"**** : ",2);
+                        drawtext(11,23,"＊＊＊＊ : ",2);
                         }
                     }
 

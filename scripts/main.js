@@ -8,6 +8,7 @@ var normal_time
 
 window.onload =function(){
     setup_touchevent();
+    setup_touchevent_key();
     /*if(between_mil>0){
         normal_time=normal_time-between_mil;
         console.log(normal_time);

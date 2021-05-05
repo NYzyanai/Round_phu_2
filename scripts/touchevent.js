@@ -29,6 +29,21 @@ function setup_touchevent(){
         touchX=e.offsetX*rate_screen_w;
         touchY=e.offsetY*rate_screen_h;
     },false);
+
+    
+    console.log("no click");
+}
+
+
+
+function setup_touchevent_key(){
+    var canvas= document.getElementById("canvas");    
+    
+    canvas.addEventListener('keydown',function(e){
+        console.log("aaaaaaaaa")
+        console.log("キーコード"　+ e.keyCode);
+    },false);
+
     
     console.log("no click");
 }
