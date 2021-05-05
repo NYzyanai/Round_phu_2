@@ -948,8 +948,15 @@ function judge_draw(){
 
     ////ここでPhuとGhostのエンカウントイベ始まる！
     if(object6_3!==null){
-        if(object6_3_c_w<character5_c_w){
+        if(object6_3_c_w>character5_c_w){
             console.log("unchoiiiiiiii")
+            if(ghost_end_text_flag==0){
+                drawtext(11,23,"＊＊＊＊ : ",2);
+                stop_walk_flag=1;
+                    if(gyou_buf>1){
+                        stop_walk_flag=0;
+                    }
+            }
         }
     }
 
@@ -979,8 +986,8 @@ function phu_imgs_draw(){
                 }
                 
                 if(object1_1!=null){
-                    console.log("aああああ")
-                    console.log("雲のいち"　+ object1_1_c_w)
+                    //console.log("aああああ")
+                    //console.log("雲のいち"　+ object1_1_c_w)
                     ctx.drawImage(object1_1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
                 }
 
@@ -998,8 +1005,8 @@ function phu_imgs_draw(){
                 //山などの背景
           
                 if(object1_1!=null){
-                    console.log("aああああ")
-                    console.log("雲のいち"　+ object1_1_c_w)
+                    //console.log("aああああ")
+                    //console.log("雲のいち"　+ object1_1_c_w)
                     ctx.drawImage(object1_1,object1_1_c_w*cell_w,(object1_1_c_h-upper_gamen)*cell_h,object1_1_w*cell_w,object1_1_h*cell_h);
                 }
 
@@ -1120,7 +1127,7 @@ function phu_imgs_draw(){
                     if(ctx.globalAlpha==0){
                         delete_count_3=delete_count_3+1;
                     }
-                    console.log(ctx.globalAlpha);
+                    //console.log(ctx.globalAlpha);
                     
                     ctx.drawImage(object6_1,object6_1_c_w*cell_w,(object6_1_c_h-upper_gamen)*cell_h,object6_1_w*cell_w,object6_1_h*cell_h);
                     ctx.globalAlpha=1;
@@ -1162,7 +1169,7 @@ function phu_imgs_draw(){
                     if(ctx.globalAlpha==0){
                         delete_count=delete_count+1;
                     }
-                    console.log(ctx.globalAlpha);
+                    //console.log(ctx.globalAlpha);
                     
                     ctx.drawImage(object6_2,object6_2_c_w*cell_w,(object6_2_c_h-upper_gamen)*cell_h,object6_2_w*cell_w,object6_2_h*cell_h);
                     ctx.globalAlpha=1;
@@ -1227,11 +1234,6 @@ function phu_imgs_draw(){
                         }
                     }
 
-                    if(-1300+all_step_count*0.7>-320){
-                        if(ghost_end_text_flag==0){
-                        drawtext(11,23,"＊＊＊＊ : ",2);
-                        }
-                    }
 
             
 
