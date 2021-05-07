@@ -16,7 +16,7 @@ window.onload =function(){
         normal_time=30;
         console.log(normal_time);
     }*/
-    setInterval(loop,30);
+    setInterval(loop,50);
     sizing();
     sizing_filter();
     splash_stage_flag=1;
