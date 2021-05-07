@@ -16,7 +16,7 @@ window.onload =function(){
         normal_time=30;
         console.log(normal_time);
     }*/
-    setInterval(loop,50);
+    setInterval(loop,30);
     sizing();
     sizing_filter();
     splash_stage_flag=1;
@@ -177,9 +177,11 @@ function loop(){
     bufbetween_mil=enddate-startdate;
     //console.log("差の秒数"+bufbetween_mil);
 
-
-    /*
+/*
+    
     if(bufbetween_mil>2){
+        speedup=between_mil/10;
+        antei=antei+1
         console.log("よばれた");
         setup_touchevent();
         
@@ -189,8 +191,10 @@ function loop(){
         
         settime();
         
-    }else{
+    }else if(antei>10){
         console.log("逆に問題ない")
+        speedup=0;
+        antei=0;
     }*/
     
     
@@ -215,3 +219,6 @@ function settime(){
 
     //setInterval(loop,normal_time);
 }*/
+
+var antei 
+antei=0;
