@@ -1107,7 +1107,7 @@ function phu_imgs_draw(){
                 }*/
 
                 if(character5_1!=null){
-                    ctx.drawImage(character5_1,(character5_1_c_w-20)*cell_w,(character5_1_c_h-upper_gamen)*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
+                    ctx.drawImage(character5_1,(character5_1_c_w-20)*cell_w,(character5_1_c_h-upper_gamen-3)*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
                 }
                 break;
             case 6:
