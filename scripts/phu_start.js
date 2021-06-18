@@ -725,7 +725,7 @@ function judge_draw(){
 
         //Phuの歩行関数
         character5=phu_imgs_phu_array[walk_time_img_count];
-        //character5_1=phu_imgs_yue_array[walk_time_img_count];
+        character5_1=phu_imgs_yue_array[walk_time_img_count];
         
         character5_c_w=225+((walk_time_img_count)*14/5);
         if(through_flag==1){
@@ -743,7 +743,7 @@ function judge_draw(){
         character5_w=phu_width;
 
 
-        /*
+        
         if(walk_time_count>0){
             character5=phu_imgs_phu_array[walk_time_img_count];
             //character5_1=phu_imgs_yue_array[walk_time_img_count];
@@ -757,7 +757,7 @@ function judge_draw(){
             character5=phu_imgs_phu_array[0];
             //character5_1=phu_imgs_yue_array[0];
         }
-        */
+        
 
         character5_h=phu_height;
         character5_w=phu_width;
@@ -766,6 +766,7 @@ function judge_draw(){
         character5_1_c_h=110;
         character5_1_h=75;
         character5_1_w=25;
+       
 
 
         //////////////////////////////
@@ -1101,12 +1102,12 @@ function phu_imgs_draw(){
                 break;
             case 5:
                 //キャラクター
-                if(character5!=null){
+                /*if(character5!=null){
                 ctx.drawImage(character5,character5_c_w*cell_w,(character5_c_h-upper_gamen)*cell_h,character5_w*cell_w,character5_h*cell_h);
-                }
+                }*/
 
                 if(character5_1!=null){
-                    ctx.drawImage(character5_1,character5_1_c_w*cell_w,(character5_1_c_h-upper_gamen)*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
+                    ctx.drawImage(character5_1,(character5_1_c_w-20)*cell_w,(character5_1_c_h-upper_gamen)*cell_h,character5_1_w*cell_w,character5_1_h*cell_h);
                 }
                 break;
             case 6:
