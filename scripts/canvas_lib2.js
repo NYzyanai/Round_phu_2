@@ -78,12 +78,10 @@ function fade_in() {
 
     } while (opacity < 1.1);
 
-    //塗り終わったらなんか返したほうがいいかも
+    //塗り終わったら「塗り終わったで」返す
 }
 
-//////////描画関連の関数///////
-
-//////////////////////////////
+//待ってこれ使って無くない？
 function fade_out() {
     opacity = opacity + 0.03;
     //console.log(opacity);
@@ -96,6 +94,7 @@ var after_fade_out_flag;
 after_fade_out_flag = 0;
 
 
+//after_fade_outはどこで呼ばれる？
 function after_fade_out() {
     if (after_fade_out_flag == 0) {
         if (opacity > 1) {

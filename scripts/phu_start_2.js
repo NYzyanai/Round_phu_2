@@ -19,4 +19,6 @@ phu_stage_1_started_flag=0;
 
 //fadeoutしたらステージの描画関数を呼び出す
 
-stage_1_start();
+if(after_fade_out){
+    stage_1_start();
+}

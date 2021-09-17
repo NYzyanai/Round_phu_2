@@ -1,3 +1,4 @@
+/*
 round_phu.game=(function(){
     var dom = round_phu.dom
         $ = dom.$;
@@ -21,3 +22,5 @@ round_phu.game=(function(){
         showScreen :showScreen
     };
 })();
+
+*/

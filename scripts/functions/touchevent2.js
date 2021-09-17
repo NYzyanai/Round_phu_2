@@ -19,3 +19,18 @@ function setup_touchevent() {
     //console.log("no click");
 
 }
+
+
+/*
+keydown実装未
+function setup_touchevent_key() {
+    var canvas = document.getElementById("canvas");
+
+    canvas.addEventListener('keydown', function (e) {
+        console.log("aaaaaaaaa")
+        console.log("キーコード" + e.keyCode);
+    }, false);
+
+
+    console.log("no click");
+}*/

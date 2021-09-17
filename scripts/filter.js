@@ -3,7 +3,8 @@ width=320;
 
 var filter;
 
-
+//呼ばれてる？
+/*
 function sizing_filter(){
     screen_width=document.getElementById("wrapper").clientWidth;
     screen_height=document.getElementById("wrapper").clientHeight;
@@ -52,3 +53,4 @@ function sizing_filter(){
 }
 
 
+*/
