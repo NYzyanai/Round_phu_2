@@ -56,7 +56,7 @@ function sizing() {
 
     //1マスあたりの高さ
     pixel_h = 180 / canvas.height;
-    console.log(pixel_h);
+
     pixel_w = 320 / canvas.width;
 
 }

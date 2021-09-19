@@ -99,6 +99,7 @@ function loop() {
             console.log(audio.volume); // 1
             audio.volume = 0.15;
             audio.play();
+            
         }
 
         //フラグに応じた処理
