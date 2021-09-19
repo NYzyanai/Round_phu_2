@@ -45,8 +45,8 @@ function sizing_filter(){
     console.log(rate_screen_h);
     console.log(rate_screen_w);
 
-    cell_h=filter.height/180;
-    cell_w=filter.width/320;
+    pixel_h=filter.height/180;
+    pixel_w=filter.width/320;
 
     
 

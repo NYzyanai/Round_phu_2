@@ -148,7 +148,7 @@ if(movie_imgCount+1<movie_imgs_path.length){
 
     round_movie_loop_count=round_movie_loop_count+1
     var hyouzi=round_movie_loop_count-round_movie_loop_count%4;
-    ctx.drawImage(movie_imgs[hyouzi],0,0,320*cell_w,180*cell_h);  
+    ctx.drawImage(movie_imgs[hyouzi],0,0,320*pixel_w,180*pixel_h);  
 
 
 }
@@ -172,7 +172,7 @@ function start_btn(){
         
             round_movie_loop_count=round_movie_loop_count+1
             var hyouzi=round_movie_loop_count-round_movie_loop_count%4;
-            ctx.drawImage(movie_imgs[hyouzi],0,0,320*cell_w,180*cell_h);  
+            ctx.drawImage(movie_imgs[hyouzi],0,0,320*pixel_w,180*pixel_h);  
         
         
         }

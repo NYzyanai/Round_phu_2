@@ -70,6 +70,11 @@ function loop() {
     if (touchX > 300 && touchY < 30) {
         debug_mode_flag = 1;
         speedup = 3;
+        console.log ("押されたよ！");
+        const audio = document.querySelector('audio');
+        console.log(audio.volume); // 1
+        audio.volume = 0.15;
+        audio.play();
     }
 
     if (touchX < 20 && touchY < 30 & touchX !== 0) {

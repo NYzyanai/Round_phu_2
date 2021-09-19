@@ -18,7 +18,7 @@ window.onload =function(){
     }*/
     setInterval(loop,30);
     sizing();
-    sizing_filter();
+    //sizing_filter();
     splash_stage_flag=1;
     /*if(!canvas || !canvas.getContext) return false;
     ctx = canvas.getContext('2d');
@@ -83,6 +83,8 @@ function loop(){
         //clearInterval(loop);
         debug_mode_flag=1;
         speedup=3;
+        console.log ("押されたよ！");
+        audio.play();
     }
 
     if(touchX<20&&touchY<30&touchX!==0){
