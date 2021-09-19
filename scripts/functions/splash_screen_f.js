@@ -50,16 +50,16 @@ function start_btn() {
 }
 
 function readme_btn() {
-    if (after_fade_out() == true) {
+    //if (after_fade_out() == true) {
         after_fade_out_flag = 0;
         readme_imageDraw();
         readme_stage_flag = 1;
         splash_stage_flag = 0;
-    } else {
+    //} else {
         if (readme_finished_flag == 0) {
             fade_out();
         }
-    }
+    //}
 }
 
 var readme_finished_flag
@@ -82,3 +82,31 @@ function readme_imageDraw() {
         readme_finished_flag = 1
     }
 }
+
+
+function splash_screen(touchX,touchY){
+
+        if (touchX <= 160 && touchY >= 40) {
+            start_btn_flag = 1;
+        }
+        if ((270 <= touchX && touchX <= 340)
+            && (touchY <= 177 && touchY >= 159)) {
+            readme_btn();
+        }
+
+        if ((110 <= touchX && touchX <= 260)
+            && (touchY <= 177 && touchY >= 159)) {
+            //ここでSoundの設定を変える
+            play_music();
+        }
+
+        //フラグに応じた処理
+        if (start_btn_flag == 1) {
+            start_btn();
+        }
+
+        if (readme_flag == 1) {
+
+        }
+    }
+
