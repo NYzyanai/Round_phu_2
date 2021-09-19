@@ -7,7 +7,10 @@ var sound_info
 
 var splash_imgs_path = [
     'src/fullscreen/round_phu.png',
-    'src/button/sound_info.png'
+    'src/button/sound_logo.png',
+    'src/button/info_logo.png',
+    'src/button/sound_on.png',
+    'src/button/sound_off.png'
 ]
 
 var splash_imgs = [];

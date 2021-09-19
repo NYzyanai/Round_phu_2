@@ -20,7 +20,15 @@ function splash_draw_image(num) {
             console.log("imgカウントは２");
 
             for (var i = 0; i < splash_imgs.length; i++) {
+                if(i==0){
                 ctx.drawImage(splash_imgs[i], 0, 0, canvas.width, canvas.height);
+                }else if(i==1){
+                    //Soundlogoの表示場所
+                    ctx.drawImage(splash_imgs[i], 170/pixel_w, 160/pixel_h, 60/pixel_w, 20/pixel_h);
+                }else if(i==2){
+                    //infologoの表示場所
+                    ctx.drawImage(splash_imgs[i], 260/pixel_w, 160/pixel_h, 40/pixel_w, 20/pixel_h);
+                }
             }
         }
     }
@@ -64,7 +72,7 @@ function readme_imageDraw() {
     /*ctx contextって何？呪文？お決まりの呪文*/
 
     readme_img = new Image();
-    readme_img.src = "src/fullscreen/readme20210207.png";
+    readme_img.src = "src/fullscreen/readme20210919.png";
 
     //splashimageが詠み込まれたら描画する
     readme_img.onload = function () {
