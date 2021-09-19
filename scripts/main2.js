@@ -71,10 +71,7 @@ function loop() {
         debug_mode_flag = 1;
         speedup = 3;
         console.log ("押されたよ！");
-        const audio = document.querySelector('audio');
-        console.log(audio.volume); // 1
-        audio.volume = 0.15;
-        audio.play();
+        
     }
 
     if (touchX < 20 && touchY < 30 & touchX !== 0) {
@@ -95,6 +92,15 @@ function loop() {
             readme_flag = 1;
             readme_finished_flag = 0;
         }
+
+        if ((110 <= touchX && touchX <= 260) && (touchY <= 177 && touchY >= 159)) {
+            //ここでSoundの設定を変える
+            const audio = document.querySelector('audio');
+            console.log(audio.volume); // 1
+            audio.volume = 0.15;
+            audio.play();
+        }
+
         //フラグに応じた処理
         if (start_btn_flag == 1) {
             start_btn();
