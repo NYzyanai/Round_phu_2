@@ -75,19 +75,9 @@ function loop() {
    
     }
 
-<<<<<<< Updated upstream
-        if ((110 <= touchX && touchX <= 260) && (touchY <= 177 && touchY >= 159)) {
-            //ここでSoundの設定を変える
-            const audio = document.querySelector('audio');
-            console.log(audio.volume); // 1
-            audio.volume = 0.15;
-            audio.play();
-        }
-=======
     if (start_btn_flag == 1) {
         start_btn();
     }
->>>>>>> Stashed changes
 
     if (readme_flag == 1) {
 
