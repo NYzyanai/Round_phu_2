@@ -98,13 +98,10 @@ src_ghost_np = [
     'src/ghost/g37.png'
 ]
 
-
-
 var src_fish_np = [
     'src/stage1_obj/fish_1.png',
     'src/stage1_obj/fish_2.png'
 ]
-
 
 var src_yue_np = [];
 
@@ -122,7 +119,6 @@ var phu_width
 phu_height = 77;
 phu_width = 85;
 
-
 var src_phu_np = [];
 
 src_phu_np = [
@@ -131,10 +127,7 @@ src_phu_np = [
     'src/character/w_p_2.png',
     'src/character/w_p_3.png',
     'src/character/w_p_4.png',
-
     'src/character/w_p_5.png',
-
-
 ]
 
 var src_phu_lay_np = [];
@@ -143,7 +136,6 @@ src_phu_lay_np = [
     'src/character/l_p_2.png',
     'src/character/l_p_3.png',
     'src/character/l_p_4.png',
-
     'src/character/l_p_5.png'
 ]
 
@@ -184,57 +176,77 @@ src_ghost_talking_np = [
 ]
 
 
+
+var src_sky_ar=[];
+for (var num = 0; num < src_sky_np.length; num++) {
+    src_sky_ar[num] = new Image();
+    src_sky_ar[num].src = src_sky_np[num];
+
+    src_sky_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+    console.log("yeah");
+}
+
+
+
 function phu_imgs_load() {
-    for (var num_o = 0; num_o < phu_imgs_objects_namepath.length; num_o++) {
-        phu_imgs_objects_array[num_o] = new Image();
-        phu_imgs_objects_array[num_o].src = phu_imgs_objects_namepath[num_o];
 
-        phu_imgs_objects_array[num_o].onload = function () {
-            phu_imgs_load_count++
-        }
-    }
-
-    for (var num_p = 0; num_p < phu_imgs_phu_namepath.length; num_p++) {
-        phu_imgs_phu_array[num_p] = new Image();
-        phu_imgs_phu_array[num_p].src = phu_imgs_phu_namepath[num_p];
-
-        phu_imgs_phu_array[num_p].onload = function () {
-            phu_imgs_load_count++
-        }
-    }
-
-    for (var num_y = 0; num_y < phu_imgs_yue_namepath.length; num_y++) {
-        phu_imgs_yue_array[num_y] = new Image();
-        phu_imgs_yue_array[num_y].src = phu_imgs_yue_namepath[num_y];
-
-        phu_imgs_yue_array[num_y].onload = function () {
-            phu_imgs_load_count++
-        }
-    }
-
-
-    for (var num_g = 0; num_g < phu_imgs_ghost_namepath.length; num_g++) {
-        phu_imgs_ghost_array[num_g] = new Image();
-        phu_imgs_ghost_array[num_g].src = phu_imgs_ghost_namepath[num_g];
-
-        phu_imgs_ghost_array[num_g].onload = function () {
-            phu_imgs_load_count++
-        }
-    }
-
-
-    for (var num_gt = 0; num_gt < phu_imgs_ghost_talk_namepath.length; num_gt++) {
-        phu_imgs_ghost_talk_array[num_gt] = new Image();
-        phu_imgs_ghost_talk_array[num_gt].src = phu_imgs_ghost_talk_namepath[num_gt];
-
-        phu_imgs_ghost_talk_array[num_gt].onload = function () {
-            phu_imgs_load_count++
-        }
-    }
-
-    if (phu_imgs_load_count >= phu_imgs_objects_namepath.length + phu_imgs_phu_namepath.length + phu_imgs_yue_namepath.length + phu_imgs_ghost_namepath.length + phu_imgs_ghost_talk_namepath.length) {
+    if (phu_imgs_load_count >=
+        src_sky_np.length +
+        src_mount_np.length +
+        src_tree_np.length +
+        src_grass_np.length +
+        src_house_np.length +
+        src_forest_np.length +
+        src_sky_np.length +
+        src_cloud_np.length +
+        src_human_np.length +
+        src_ghost_np.length +
+        src_fish_np.length +
+        src_yue_np.length +
+        src_phu_np.length +
+        src_phu_lay_np.length +
+        src_ghost_talking_np.length
+    ) {
         phu_imgs_loaded_flag = 1;
     }
 
     console.log(phu_imgs_loaded_flag);
 }
+
+
+
+
+
+
+/*
+var namepath_array = [];
+
+namepath_array = [
+    'a',
+    'b',
+    'c'
+];
+
+load_img(namepath_array);
+
+function load_img(namepath_array) {
+    concat_do(namepath_array, makename(namepath_array));
+}
+
+function makename(namepath_array){
+    return namepath_array.concat("_imgarray");
+    //出力されるのは「Array ["a", "b", "c", "_imgarray"]」になる
+    //ほんとは「namepath_array_imgarray」っていう出力が欲しい
+    //配列名を取得する方法ってある？
+    //配列名を取得する方法、を調べる方法が分からない
+}
+
+function concat_do(namepath_array, namepath_array_imgarray) {
+
+    for (var num = 0; num < namepath_array.length; num++) {
+        namepath_array_imgarray[num] = new Image();
+    }
+}
+*/

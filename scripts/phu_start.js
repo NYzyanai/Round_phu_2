@@ -17,27 +17,13 @@ function phu_stage_1(touchX, touchY) {
     }else if(touchX > 0 && touchY > 0){
         walk_start_flag = 1;
     }else{
-        phu_stage_1_started_flag = 1;
+        //phu_stage_1_started_flag = 1;
         judge_draw();
-    phu_imgs_draw();
-
+        phu_imgs_draw();
     }
     
 
 
-    /*
- 
-     if (after_fade_out() == true) {
-         after_fade_out_flag = 0;
- 
-         
-         movie_stage_flag = 0;
-     } else {
-         if (phu_stage_1_started_flag == 0) {
-             fade_out();
-         }
-     }*/
-     
 }
 
 
@@ -535,9 +521,6 @@ function judge_draw() {
         }
 
 
-
-
-
     }
 
 
@@ -972,7 +955,7 @@ function judge_draw() {
     ////ここでPhuとGhostのエンカウントイベ始まる！
     if (object6_3 !== null) {
         if (object6_3_c_w > character5_c_w) {
-            console.log("unchoiiiiiiii")
+            //console.log("unchoiiiiiiii")
             if (ghost_end_text_flag == 0) {
                 drawtext(11, 22, "＊＊＊＊ : ", 2);
 
