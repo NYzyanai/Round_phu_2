@@ -87,11 +87,7 @@ function loop() {
         start_btn();
     }
 
-    if (readme_flag == 1) {
-
-    }
-
-    if (readme_stage_flag == 1) {
+    /*if (readme_stage_flag == 1) {
         if (0 < touchX && 0 < touchY) {
             splash_stage_flag = 1;
             readme_stage_flag = 0;
@@ -99,9 +95,9 @@ function loop() {
             splash_screen_called = 0;
         }
 
-    }
+    }*/
 
-    if (movie_stage_flag == 1) {
+    if (movie_stage_flag == 1 ) {
         movie_stage_flag = 0;
         phu_stage_flag_before = 1;
         /*描画の函数をよび出す！！！
@@ -113,23 +109,10 @@ function loop() {
         splash_stage_flag = 0;
     }
 
-    if (phu_stage_flag_before == 1) {
-        phu_stage_1();
-        if (phu_stage_1_started_flag == 1) {
-            if (phu_imgs_loaded_flag = 0) {
-                phu_imgs_load();
-                //console.log("まだ");
-            } else {
-                if (stop_walk_flag == 0) {
-                    if (touchX > 0 && touchY > 0) {
-                        walk_start_flag = 1;
-                    }
-                }
-                judge_draw();
-                phu_imgs_draw();
+    if (phu_stage_flag_before == 1 || now_stage=="phu_stage_1"){
+        
+        phu_stage_1(touchX,touchY);
 
-            }
-        }
     }
     ////touchデータの初期化/////
     touchX = 0;
