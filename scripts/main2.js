@@ -5,6 +5,7 @@ var debug_count
 debug_count = 10;
 
 var normal_time
+var now_stage
 
 window.onload = function () {
     //画面サイズを取得
@@ -14,7 +15,7 @@ window.onload = function () {
     //30mm/sごとに画面を更新（loop関数を呼び出す）
     setInterval(loop, 30);
 
-    splash_stage_flag = 1;
+    now_stage = "splash_screen";
 }
 
 var speedup = 0;
@@ -54,26 +55,33 @@ var startdate
 var enddate
 var debug_mode_flag
 debug_mode_flag = 0;
-var now_stage
+
+
 
 //////////メイン処理////////
 function loop() {
 
-    debag(touchX,touchY);
-    
+    debag(touchX, touchY);
+
     //console.log(now_stage);
 
-    if (splash_stage_flag == 1) {
-        //splashモードの時、下記関数を呼ぶ
-        now_stage="splash_screen";
+    switch (now_stage) {
+        case 'splash_screen':
 
-        splash_screen(touchX,touchY);
-        
-        if (splash_screen_called == 0) {
             splashscreen_imageDraw();
-        }
-   
+            splash_screen(touchX, touchY);
+            break;
+        case 'readme_btn':
+            readme_btn(touchX, touchY);
+            break;
+        case 'fade_out':
+            break;
+        default:
+
     }
+
+
+
 
     if (start_btn_flag == 1) {
         start_btn();
@@ -119,11 +127,11 @@ function loop() {
                 }
                 judge_draw();
                 phu_imgs_draw();
-             
+
             }
         }
     }
-////touchデータの初期化/////
+    ////touchデータの初期化/////
     touchX = 0;
     touchY = 0;
 }
