@@ -95,7 +95,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name,text_number){
 
         //背景Draw
         ctx.fillStyle='black';
-        ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);
+        ctx.fillRect(0, (180-upper_gamen)/pixel_h,320/pixel_w,30/pixel_h);
         
         //文字指定
         ctx.font = fontsize;
@@ -119,10 +119,10 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name,text_number){
 
         if(retu_count<max_retu){
             //console.log("行数"+ gyou_count, "列数" + retu_count);
-            ctx.fillText((chara_name) + text_detail_array[gyou_buf][retu_count], 15*cell_w, 165*cell_h);
+            ctx.fillText((chara_name) + text_detail_array[gyou_buf][retu_count], 15/pixel_w, 165/pixel_h);
             wait_text_count=wait_text_count+1;
         }else{
-            ctx.fillText((chara_name) + text_detail_array[gyou_buf][retu_count], 15*cell_w, 165*cell_h);
+            ctx.fillText((chara_name) + text_detail_array[gyou_buf][retu_count], 15/pixel_w, 165/pixel_h);
             wait_text_count=wait_text_count+1;
         }
     }
@@ -131,7 +131,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name,text_number){
     if(text_move_flag==1){
         if(upper_gamen<30){
             ctx.fillStyle='black';
-            ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);    
+            ctx.fillRect(0, (180-upper_gamen)/pixel_h,320/pixel_w,30/pixel_h);    
             upper_gamen=upper_gamen+0.6+speedup;
         }else{
             text_move_flag=0;
@@ -143,7 +143,7 @@ function drawtext(start_gyou_count,end_gyou_count,chara_name,text_number){
         if(upper_gamen>0){
             ctx.fillStyle='black';
             upper_gamen=upper_gamen-0.5-speedup;
-            ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,30*cell_h);    
+            ctx.fillRect(0, (180-upper_gamen)/pixel_h,320/pixel_w,30/pixel_h);    
             
         }else{
             text_move_flag=0;
@@ -165,7 +165,7 @@ function endtext(){
     if(upper_gamen>0){
         upper_gamen=upper_gamen-1
         ctx.fillStyle='black';
-        ctx.fillRect(0, (180-upper_gamen)*cell_h,320*cell_w,upper_gamen*cell_h);
+        ctx.fillRect(0, (180-upper_gamen)/pixel_h,320/pixel_w,upper_gamen/pixel_h);
     }else{
         text_move_flag=0;
         wait_text_count=0;

@@ -1,4 +1,8 @@
 
+/*
+一回無効化
+
+
 round_phu.dom=(function(){
     var $Users$nyzyanai$Documents$GitHub$Sizzle;
 
@@ -21,7 +25,7 @@ round_phu.dom=(function(){
 
 
 /*domモジュールってなに？DOM内の要素を探すのを非常に楽にする。DOMをさがすのに役立つヘルパー的関数を提供する。*/
-/*そもそもsizzleってなんなん？jqueryのなかの要素らしい*/
+/*そもそもsizzleってなんなん？jqueryのなかの要素らしい
 
 
 
@@ -32,3 +36,5 @@ round_phu.dom=(function(){
         removeClass : removeClass
     };
 })();
+
+*/
