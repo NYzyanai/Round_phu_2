@@ -8,11 +8,13 @@ function setup_touchevent() {
     canvas.addEventListener('click', function (e) {
 
         //e.offsetXはガチの「座標」なので、このゲーム内におけるpixel単位に戻す。
-        touchX = e.offsetX / pixel_w;
-        touchY = e.offsetY / pixel_h;
+        //1マスあたりの高さがpixel_w
 
-        console.log("クリックした座標X：" + e.offsetX / pixel_w);
-        console.log("クリックした座標Y：" + e.offsetY / pixel_h);
+        touchX = e.offsetX * pixel_w;
+        touchY = e.offsetY * pixel_h;
+
+        console.log("クリックした座標X：" + touchX);
+        console.log("クリックした座標Y：" + touchY);
 
     }, false);
 
@@ -20,6 +22,27 @@ function setup_touchevent() {
 
 }
 
+
+function setup_touchevent() {
+    //画面をタッチされた時の座標を出力する
+    var canvas = document.getElementById("canvas");
+
+    canvas.addEventListener('click', function (e) {
+
+        //e.offsetXはガチの「座標」なので、このゲーム内におけるpixel単位に戻す。
+        //1マスあたりの高さがpixel_w
+        
+        touchX = e.offsetX * pixel_w;
+        touchY = e.offsetY * pixel_h;
+
+        console.log("クリックした座標X：" + touchX);
+        console.log("クリックした座標Y：" + touchY);
+
+    }, false);
+
+    //console.log("no click");
+
+}
 
 /*
 keydown実装未

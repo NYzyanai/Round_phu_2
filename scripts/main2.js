@@ -61,7 +61,7 @@ debug_mode_flag = 0;
 
 //////////メイン処理////////
 function loop() {
-
+    console.log("pixel_h"+ pixel_h);
 
     startdate = new Date();
 
@@ -142,6 +142,7 @@ function loop() {
                 }
                 judge_draw();
                 phu_imgs_draw();
+                console.log(pixel_h)
             }
         }
     }
