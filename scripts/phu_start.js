@@ -8,6 +8,8 @@ var phu_stage_1_started_flag
 phu_stage_1_started_flag = 0;
 
 
+
+
 function phu_stage_1(touchX, touchY) {
 
     //もし読み込み終わっていなければ読み込む
@@ -28,24 +30,14 @@ function phu_stage_1(touchX, touchY) {
 
 
 /*レイヤーをわけて描画してみる1
-
 一番前
-
 キャラクター
-
 オブジェクト1　一番近くにあるもの
-
 オブジェクト2　建物　手前
-
 オブジェクト3　建物　奥
-
 オブジェクト4 木々
-
 オブジェクト5　山々等の背景
-
 オブジェクト6 空
-
-
 まず全部ロード
 */
 
@@ -77,8 +69,6 @@ phu_imgs_objects_namepath = [
 
     'src/stage1_obj/human_4.png',
     'src/stage1_obj/human_5.png',
-    'src/stage1_obj/human_6.png',
-    'src/stage1_obj/human_7.png',
     'src/stage1_obj/fish_1.png',
 
     'src/stage1_obj/fish_2.png'
@@ -470,7 +460,8 @@ var delete_count_3 = 0;
 var delete_alpha_3 = 0;
 var count_alpha_3 = 0;
 var remember_alpha_3;
-
+var a=0
+;
 
 function judge_draw() {
 
@@ -484,7 +475,50 @@ function judge_draw() {
     ctxfilter.imageSmoothingEnabled = false;
     ctxfilter.textSmoothingEnabled = false;
 
+    var first_forest_r =0;
+    var first_forest_l=first_forest_r+320;
+    var step3 = all_step_count * 0.3
+    var step3_max=step3+320;
+    var between=step3-first_forest_l
 
+    /*if(between<320 || between>0){
+       
+        object3 = src_fish_ar[0];
+        //object3 =phu_imgs_objects_array[22];
+        //console.log(object3);
+        object3_c_h = 0;
+        object3_c_w = step3-first_forest_r;
+        object3_h = 180;
+        object3_w = 320;
+    }else {
+        object3 = null;
+    }*/
+    
+    let answer=aaaaaa(first_forest_l,0,step3,src_fish_ar[0], 180,320);
+    
+    console.log(answer);
+    if(answer!=null){
+        object3 = answer[0];
+        //object3 =phu_imgs_objects_array[22];
+        //console.log(object3);
+        object3_c_h =  answer[1];
+        object3_c_w =  answer[4];
+        object3_h = answer[2];
+        object3_w =  answer[3];
+    }else{
+        object3=null;
+    }
+
+    a++
+    if(a%60==0){
+    console.log("【first_forest_r】" + first_forest_r);
+    console.log("【step3】"  +  step3);
+    console.log(step3>first_forest_r );
+    console.log("【step3_max】"  + step3_max);
+    console.log("【first_forest_l】"  + first_forest_l)
+    console.log( step3_max>first_forest_l);
+
+    }
 
     //歩行用演算
     if (walk_start_flag == 1) {
@@ -593,6 +627,7 @@ function judge_draw() {
     if (true) {
 
         //////////////////////
+        /*
         if (step3 < 320) {
             //ファースト森
             object3 = phu_imgs_objects_array[14];
@@ -607,9 +642,9 @@ function judge_draw() {
             //↑が-320以上・320以下のときにのみ代入する
             object3_h = 180;
             object3_w = 320;
-        } else {
-            object3 = null;
-        }
+        } else {*/
+            //object3 = null;
+        /*}*/
 
         //木
         if (-600 + step3 > -320 && -600 + step3 < 320) {
@@ -1034,6 +1069,7 @@ function phu_imgs_draw() {
 
 
                 if (object2 != null) {
+                    //console.log("じっさいのびょうがまで　来ている");
                     ctx.drawImage(object2, object2_c_w / pixel_w, (object2_c_h - upper_gamen) / pixel_h, object2_w / pixel_w, object2_h / pixel_h);
                 }
 
@@ -1053,6 +1089,7 @@ function phu_imgs_draw() {
                 //木々
 
                 if (object3 != null) {
+                    //console.log("じっさいのびょうがまで　来ている");
                     ctx.drawImage(object3, object3_c_w / pixel_w, (object3_c_h - upper_gamen) / pixel_h, object3_w / pixel_w, object3_h / pixel_h);
                 }
 
@@ -1256,9 +1293,11 @@ function phu_imgs_draw() {
                 //ctx.drawImage(src_sky_ar[0], 10 / pixel_w,10/ pixel_h, 1000 / pixel_w, 1000 / pixel_h);
                 //ctx.globalAlpha = 1;
 
-
-                ctx.drawImage(src_tree_ar[1], 10 / pixel_w,10/ pixel_h, 1000 / pixel_w, 1000 / pixel_h);
+if(object3!=null){
+    //console.log("きてる？");
+                ctx.drawImage(object3, 10 / pixel_w,10/ pixel_h, 1000 / pixel_w, 1000 / pixel_h);
                 ctx.globalAlpha = 1;
+}
 
             //一番前
             //ctx.drawImage(phu_imgs_phu_array[1],20+add,20+add,100,100+add);
