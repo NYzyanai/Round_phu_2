@@ -563,12 +563,17 @@ function judge_draw() {
 }
 
 
-function aaaaaa(first_forest_r,object3_c_h,step3,object,object3_h,object3_w){
+function judge(object,point,step,c_h,height,width){
    
-    var between=first_forest_r-step3+320
-console.log(between);
-    if(between>320 || between<0){
-        return [object,object3_c_h,object3_h,object3_w,step3-first_forest_r+320];
+    var between=point-step+320
+    //console.log(between);
+
+    if(between>=320){
+        return [object,
+            height,
+            width,
+            c_h,
+            step-point+320];
     }else{
         return null;
     }

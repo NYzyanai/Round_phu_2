@@ -494,29 +494,49 @@ function judge_draw() {
         object3 = null;
     }*/
     
-    let answer=aaaaaa(first_forest_l,0,step3,src_fish_ar[0], 180,320);
     
-    console.log(answer);
-    if(answer!=null){
+    //pointっていうのは、いわゆる画像の一番左。デフォルトが320
+
+   
+    let answer=judge(src_fish_ar[0],100,step3,0,180,320);
+
+    //while文でなんとかできないかなあ
+    if(judge(src_fish_ar[0],100,step3,0,180,320)!=null){
+
+        let answer=judge(src_fish_ar[0],100,step3,0,180,320);
+
         object3 = answer[0];
-        //object3 =phu_imgs_objects_array[22];
-        //console.log(object3);
-        object3_c_h =  answer[1];
+        object3_h = answer[1];
+        object3_w =  answer[2];
+        object3_c_h =  answer[3];
         object3_c_w =  answer[4];
-        object3_h = answer[2];
-        object3_w =  answer[3];
-    }else{
+
+    }else if(judge(src_fish_ar[1],740,step3,0,180,320)!=null){
+//前回のポイントとは、必ず+640以上離れていないといけない
+    answer=judge(src_fish_ar[1],740,step3,0,180,320);
+
+    object3 = answer[0];
+    object3_h = answer[1];
+    object3_w =  answer[2];
+    object3_c_h =  answer[3];
+    object3_c_w =  answer[4];
+
+}else{
         object3=null;
     }
 
+    console.log(500-step3+320);
+
     a++
+
     if(a%60==0){
-    console.log("【first_forest_r】" + first_forest_r);
+        console.log(answer);
+    /*console.log("【first_forest_r】" + first_forest_r);
     console.log("【step3】"  +  step3);
     console.log(step3>first_forest_r );
     console.log("【step3_max】"  + step3_max);
     console.log("【first_forest_l】"  + first_forest_l)
-    console.log( step3_max>first_forest_l);
+    console.log( step3_max>first_forest_l);*/
 
     }
 
@@ -1295,7 +1315,7 @@ function phu_imgs_draw() {
 
 if(object3!=null){
     //console.log("きてる？");
-                ctx.drawImage(object3, 10 / pixel_w,10/ pixel_h, 1000 / pixel_w, 1000 / pixel_h);
+                ctx.drawImage(object3, object1_3_c_w, 0,320/ pixel_w, 180/ pixel_h);
                 ctx.globalAlpha = 1;
 }
 
