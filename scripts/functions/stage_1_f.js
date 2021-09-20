@@ -30,7 +30,8 @@ var src_grass_np = [
 ]
 
 var src_house_np = [
-    'src/stage1_obj/house_of_phu2.png'
+    'src/stage1_obj/house_of_phu2.png',
+    'src/stage1_obj/far_house_1.png'
 ]
 
 
@@ -47,13 +48,13 @@ var src_cloud_np = [
 ]
 
 var src_human_np = [
+    'src/stage1_obj/human_0.png',
     'src/stage1_obj/human_1.png',
     'src/stage1_obj/human_2.png',
     'src/stage1_obj/human_3.png',
     'src/stage1_obj/human_4.png',
-    'src/stage1_obj/human_5.png',
-    'src/stage1_obj/human_6.png',
-    'src/stage1_obj/human_7.png'
+    'src/stage1_obj/human_5.png'
+
 
 ]
 
@@ -217,36 +218,177 @@ function phu_imgs_load() {
 
 
 
+var src_sky_ar=[];
+for (var num = 0; num < src_sky_np.length; num++) {
+    src_sky_ar[num] = new Image();
+    src_sky_ar[num].src = src_sky_np[num];
 
-
-
-/*
-var namepath_array = [];
-
-namepath_array = [
-    'a',
-    'b',
-    'c'
-];
-
-load_img(namepath_array);
-
-function load_img(namepath_array) {
-    concat_do(namepath_array, makename(namepath_array));
-}
-
-function makename(namepath_array){
-    return namepath_array.concat("_imgarray");
-    //出力されるのは「Array ["a", "b", "c", "_imgarray"]」になる
-    //ほんとは「namepath_array_imgarray」っていう出力が欲しい
-    //配列名を取得する方法ってある？
-    //配列名を取得する方法、を調べる方法が分からない
-}
-
-function concat_do(namepath_array, namepath_array_imgarray) {
-
-    for (var num = 0; num < namepath_array.length; num++) {
-        namepath_array_imgarray[num] = new Image();
+    src_sky_ar[num].onload = function () {
+        phu_imgs_load_count++
     }
 }
-*/
+
+
+var src_mount_ar=[];
+for (var num = 0; num < src_mount_np.length; num++) {
+    src_mount_ar[num] = new Image();
+    src_mount_ar[num].src = src_mount_np[num];
+
+    src_mount_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+var src_tree_ar=[];
+for (var num = 0; num < src_tree_np.length; num++) {
+    src_tree_ar[num] = new Image();
+    src_tree_ar[num].src = src_tree_np[num];
+
+    src_tree_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+var src_grass_ar=[];
+for (var num = 0; num < src_grass_np.length; num++) {
+    src_grass_ar[num] = new Image();
+    src_grass_ar[num].src = src_grass_np[num];
+
+    src_grass_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+var src_house_ar=[];
+for (var num = 0; num < src_house_np.length; num++) {
+    src_house_ar[num] = new Image();
+    src_house_ar[num].src = src_house_np[num];
+
+    src_house_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+var src_forest_ar=[];
+for (var num = 0; num < src_forest_np.length; num++) {
+    src_forest_ar[num] = new Image();
+    src_forest_ar[num].src = src_forest_np[num];
+
+    src_forest_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+var src_sky_ar=[];
+for (var num = 0; num < src_sky_np.length; num++) {
+    src_sky_ar[num] = new Image();
+    src_sky_ar[num].src = src_sky_np[num];
+
+    src_sky_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+var src_cloud_ar=[];
+for (var num = 0; num < src_cloud_np.length; num++) {
+    src_cloud_ar[num] = new Image();
+    src_cloud_ar[num].src = src_cloud_np[num];
+
+    src_cloud_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+
+var src_human_ar=[];
+for (var num = 0; num < src_human_np.length; num++) {
+    src_human_ar[num] = new Image();
+    src_human_ar[num].src = src_human_np[num];
+
+    src_human_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+var src_ghost_ar=[];
+for (var num = 0; num < src_ghost_np.length; num++) {
+    src_ghost_ar[num] = new Image();
+    src_ghost_ar[num].src = src_ghost_np[num];
+
+    src_ghost_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+
+var src_fish_ar=[];
+for (var num = 0; num < src_fish_np.length; num++) {
+    src_fish_ar[num] = new Image();
+    src_fish_ar
+[num].src = src_fish_np[num];
+src_fish_ar
+[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+
+
+var src_yue_ar=[];
+for (var num = 0; num < src_yue_np.length; num++) {
+    src_yue_ar[num] = new Image();
+    src_yue_ar
+[num].src = src_yue_np[num];
+src_yue_ar
+[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+
+
+var src_phu_ar=[];
+for (var num = 0; num < src_phu_np.length; num++) {
+    src_phu_ar[num] = new Image();
+    src_phu_ar
+[num].src = src_phu_np[num];
+src_phu_ar
+[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+
+var src_phu_lay_ar=[];
+for (var num = 0; num < src_phu_lay_np.length; num++) {
+    src_phu_lay_ar[num] = new Image();
+    src_phu_lay_ar
+[num].src = src_phu_lay_np[num];
+src_phu_lay_ar
+[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+
+var src_ghost_talking_ar=[];
+for (var num = 0; num < src_ghost_talking_np.length; num++) {
+    src_ghost_talking_ar[num] = new Image();
+    src_ghost_talking_ar
+[num].src = src_ghost_talking_np[num];
+src_ghost_talking_ar
+[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}

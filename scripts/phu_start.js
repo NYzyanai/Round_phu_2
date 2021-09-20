@@ -1253,6 +1253,13 @@ function phu_imgs_draw() {
             default:
 
 
+                //ctx.drawImage(src_sky_ar[0], 10 / pixel_w,10/ pixel_h, 1000 / pixel_w, 1000 / pixel_h);
+                //ctx.globalAlpha = 1;
+
+
+                ctx.drawImage(src_tree_ar[1], 10 / pixel_w,10/ pixel_h, 1000 / pixel_w, 1000 / pixel_h);
+                ctx.globalAlpha = 1;
+
             //一番前
             //ctx.drawImage(phu_imgs_phu_array[1],20+add,20+add,100,100+add);
             //add=add+0.08;
