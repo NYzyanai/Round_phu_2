@@ -512,17 +512,22 @@ function judge_draw() {
         object3_c_w =  answer[4];
 
     }else if(judge(src_fish_ar[1],740,step3,0,180,320)!=null){
-//前回のポイントとは、必ず+640以上離れていないといけない
-    answer=judge(src_fish_ar[1],740,step3,0,180,320);
+    //前回のポイントとは、必ず+640以上離れていないといけない
+        answer=judge(src_fish_ar[1],740,step3,0,180,320);
 
-    object3 = answer[0];
-    object3_h = answer[1];
-    object3_w =  answer[2];
-    object3_c_h =  answer[3];
-    object3_c_w =  answer[4];
+        object3 = answer[0];
+        object3_h = answer[1];
+        object3_w =  answer[2];
+        object3_c_h =  answer[3];
+        object3_c_w =  answer[4];
 
-}else{
-        object3=null;
+    }else{
+        answer=[];
+        object3 = answer[0];
+        object3_h = answer[1];
+        object3_w =  answer[2];
+        object3_c_h =  answer[3];
+        object3_c_w =  answer[4];
     }
 
     console.log(500-step3+320);
