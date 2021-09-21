@@ -15,7 +15,6 @@ var src_tree_np = [
     'src/stage1_obj/tree_0.png',
     'src/stage1_obj/tree_1.png',
     'src/stage1_obj/tree_2.png',
-
     'src/stage1_obj/tree_3.png',
     'src/stage1_obj/tree_4.png',
     'src/stage1_obj/tree_5.png',
@@ -103,6 +102,11 @@ var src_fish_np = [
     'src/stage1_obj/fish_1.png',
     'src/stage1_obj/fish_2.png'
 ]
+
+var src_big_grass_np = [
+    'src/stage1_obj/big_grass1.png'
+]
+
 
 var src_yue_np = [];
 
@@ -208,6 +212,7 @@ function phu_imgs_load() {
         src_yue_np.length +
         src_phu_np.length +
         src_phu_lay_np.length +
+        src_big_grass_np.length +
         src_ghost_talking_np.length
     ) {
         phu_imgs_loaded_flag = 1;
@@ -226,7 +231,19 @@ for (var num = 0; num < src_sky_np.length; num++) {
     src_sky_ar[num].onload = function () {
         phu_imgs_load_count++
     }
+
 }
+
+var src_big_grass_ar=[];
+for (var num = 0; num < src_big_grass_np.length; num++) {
+    src_big_grass_ar[num] = new Image();
+    src_big_grass_ar[num].src = src_big_grass_np[num];
+
+    src_big_grass_ar[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
 
 
 var src_mount_ar=[];
