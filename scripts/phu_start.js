@@ -281,7 +281,7 @@ var object2_3
 
 var object3_1
 var object3_2
-var object3_3
+var object4
 
 var object4_1
 var object4_2
@@ -351,9 +351,9 @@ var object3_2_w
 var object3_2_h
 
 var objetc3_3_c_w
-var object3_3_c_h
-var object3_3_w
-var object3_3_h
+var object4_c_h
+var object4_w
+var object4_h
 
 
 var object4_c_w
@@ -482,7 +482,7 @@ function judge_draw() {
     var step4 = all_step_count * 0.5
     var step6 = all_step_count * 0.7
 
-    var answer=[];
+    var answer = [];
 
     //pointっていうのは、いわゆる画像の一番左。デフォルトが320
     if (judge(src_forest_ar[0], 320, step3, 0, 180, 320) != null) {
@@ -494,7 +494,7 @@ function judge_draw() {
         object3_c_h = answer[3];
         object3_c_w = answer[4];
 
-    } else if (judge(src_fish_ar[1],940, step3, 0, 180, 320) != null) {
+    } else if (judge(src_fish_ar[1], 940, step3, 0, 180, 320) != null) {
         //前回のポイントとは、必ず+640以上離れていないといけない
         answer = judge(src_fish_ar[1], 940, step3, 0, 180, 320);
 
@@ -610,134 +610,197 @@ function judge_draw() {
     //STEPで描画するものをわける。
 
     //木
-if(judge(src_tree_ar[0],500,step3,180,320)!=null){
-    answer = judge(src_tree_ar[0],500,step3,180,320)
+    if (judge(src_tree_ar[1], 200, step3, 0, 180, 320) != null) {
 
-    object3_1 = answer[0];
-    object3_1_c_h =  answer[1];
-    object3_1_c_w = answer[2];
-    object3_1_h = answer[3];
-    object3_1_w =answer[4];
-}else　if(judge(src_tree_ar[1], 1140, step3, 0, 180, 320) != null) {
+        answer = judge(src_tree_ar[1], 200, step3, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object3_1 = answer[0];
+        object3_1_h = answer[1];
+        object3_1_w = answer[2];
+        object3_1_c_h = answer[3];
+        object3_1_c_w = answer[4];
+    } else if (judge(src_tree_ar[5], 980, step3, 0, 180, 320) != null) {
 
-    answer = judge(src_tree_ar[1], 1140, step3, 0, 180, 320);
-    //前回のポイントとは、必ず+640以上離れていないといけない
-    object3_1 = answer[0];
-    object3_1_c_h =  answer[1];
-    object3_1_c_w = answer[2];
-    object3_1_h = answer[3];
-    object3_1_w =answer[4];
-}else　if(judge(src_tree_ar[2], 1780, step3, 0, 180, 320) != null) {
-
-    answer = judge(src_tree_ar[2], 1780, step3, 0, 180, 320);
-    //前回のポイントとは、必ず+640以上離れていないといけない
-    object3_1 = answer[0];
-    object3_1_c_h =  answer[1];
-    object3_1_c_w = answer[2];
-    object3_1_h = answer[3];
-    object3_1_w =answer[4];
-}else{
-    answer = [];
-    object3 = answer[0];
-    object3_h = answer[1];
-    object3_w = answer[2];
-    object3_c_h = answer[3];
-    object3_c_w = answer[4];
-
-}
-
-
-
-
-    if (-300 + step3 > -320 && -300 + step3 < 320) {
-        //木　なんぼあってもこまらん
-        object3_2 = phu_imgs_objects_array[6];
-        object3_2_c_h = 0;
-        object3_2_c_w = -300 + step3;
-        //奥に登場させたいときはマイナス座標
-        object3_2_h = 180;
-        object3_2_w = 320;
-
-        ////別のものを代入するときには、上のもの（これなら-300)に-640下数を上回らないといけないよ）;
-    } else if (-950 + step3 > -320 && -950 + step3 < 320) {
-        //木　なんぼあってもこまらん
-        object3_2 = phu_imgs_objects_array[7];
-        object3_2_c_h = 0;
-        object3_2_c_w = -950 + step3;
-        //奥に登場させたいときはマイナス座標
-        object3_2_h = 180;
-        object3_2_w = 320;
+        answer = judge(src_tree_ar[5], 980, step3, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object3_1 = answer[0];
+        object3_1_h = answer[1];
+        object3_1_w = answer[2];
+        object3_1_c_h = answer[3];
+        object3_1_c_w = answer[4];
     } else {
-        object3_2 = null;
+        answer = [];
+        object3_1 = answer[0];
+        object3_1_h = answer[1];
+        object3_1_w = answer[2];
+        object3_1_c_h = answer[3];
+        object3_1_c_w = answer[4];
+
     }
 
 
 
-    if (-400 + step3 > -320 && -400 + step3 < 320) {
-        object3_3 = phu_imgs_objects_array[11];
-        object3_3_c_h = 0;
-        object3_3_c_w = -400 + step3
-        //奥に登場させたいときはマイナス座標
-        object3_3_h = normal_obj_h;
-        object3_3_w = normal_obj_w;
-    } else if (-1200 + step3 > -320 && -1200 + step3 < 320) {
-        object3_3 = phu_imgs_objects_array[4];
-        object3_3_c_h = 0;
-        object3_3_c_w = -1200 + step3;
-        //奥に登場させたいときはマイナス座標
-        object3_3_h = normal_obj_h;
-        object3_3_w = normal_obj_w;
-    }
 
+    if (judge(src_tree_ar[3], 550, step3,0, 100, 320)  != null) {
+        answer = judge(src_tree_ar[3], 550, step3, 0, 100, 320)  ;
 
-    //////////////////////
+        object3_2 = answer[0];
+        object3_2_h = answer[1];
+        object3_2_w = answer[2];
+        object3_2_c_h = answer[3];
+        object3_2_c_w = answer[4];
 
+    } else if (judge(src_tree_ar[4], 1200, step3, 0, 180, 320) != null) {
 
+        answer = judge(src_tree_ar[4], 1200, step3, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object3_2 = answer[0];
+        object3_2_h = answer[1];
+        object3_2_w = answer[2];
+        object3_2_c_h = answer[3];
+        object3_2_c_w = answer[4];
 
-    if (0 + step4 > -320 && 0 + step4 < 320) {
-        object4 = phu_imgs_objects_array[13];
-        object4_c_h = 0;
-        object4_c_w = step4;
-        object4_h = 180;
-        object4_w = 320;
-    } else if (-700 + step4 > -320 && -700 + step4 < 320) {
-        object4 = phu_imgs_objects_array[4];
-        object4_c_h = 0;
-        object4_c_w = -700 + step4;
-        object4_h = 180;
-        object4_w = 320;
-    } else if (-1400 + step4 > -320 && -1400 + step4 < 320) {
-        object4 = phu_imgs_objects_array[6];
-        object4_c_h = 0;
-        object4_c_w = -1400 + step4;
-        object4_h = 180;
-        object4_w = 320;
+    } else if (judge(src_tree_ar[5], 1880, step3, 0, 180, 320) != null) {
+
+        answer = judge(src_tree_ar[5], 1880, step3, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object3_2 = answer[0];
+        object3_2_h = answer[1];
+        object3_2_w = answer[2];
+        object3_2_c_h = answer[3];
+        object3_2_c_w = answer[4];
+
     } else {
-        object4 = null;
+        answer = [];
+        object3_2 = answer[0];
+        object3_2_h = answer[1];
+        object3_2_w = answer[2];
+        object3_2_c_h = answer[3];
+        object3_2_c_w = answer[4];
+
     }
 
-    //木　なんぼあってもこまらん
-    if (-250 + step4 > -320 && -250 + step4 < 320) {
-        object4_1 = phu_imgs_objects_array[7];
-        object4_1_c_h = 0;
-        object4_1_c_w = -250 + step4;
-        object4_1_h = 180;
-        object4_1_w = 320;
+
+    if (judge(src_tree_ar[5], 900, step3, 0, 180, 320) != null) {
+        answer = judge(src_tree_ar[5], 900, step3, 0, 180, 320);
+        object3_3 = answer[0];
+        object3_3_h = answer[1];
+        object3_3_w = answer[2];
+        object3_3_c_h = answer[3];
+        object3_3_c_w = answer[4];
+
+    } else if (judge(src_tree_ar[6], 1600, step3, 0, 180, 320) != null) {
+
+        answer = judge(src_tree_ar[6], 1600, step3, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object3_3 = answer[0];
+        object3_3_h = answer[1];
+        object3_3_w = answer[2];
+        object3_3_c_h = answer[3];
+        object3_3_c_w = answer[4];
+
+    } else if (judge(src_tree_ar[0], 2300, step3, 0, 180, 320) != null) {
+
+        answer = judge(src_tree_ar[0], 2300, step3, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object3_3 = answer[0];
+        object3_3_h = answer[1];
+        object3_3_w = answer[2];
+        object3_3_c_h = answer[3];
+        object3_3_c_w = answer[4];
+
     } else {
-        object4_1 = null;
+
+        answer = [];
+        object3_3 = answer[0];
+        object3_3_h = answer[1];
+        object3_3_w = answer[2];
+        object3_3_c_h = answer[3];
+        object3_3_c_w = answer[4];
+
     }
 
-    if (-15 + step4 > -320 && -15 + step4 < 320) {
-        object4_2 = phu_imgs_objects_array[10];
-        object4_2_c_h = 0;
-        object4_2_c_w = -15 + step4
-        object4_2_h = normal_obj_h
-        object4_2_w = normal_obj_w
+
+
+    /////////4///////////
+    if (judge(src_grass_ar[0], 540, step4, 0, 180, 320) != null) {
+        answer = judge(src_grass_ar[0], 540, step4, 0, 180, 320);
+        object4 = answer[0];
+        object4_h = answer[1];
+        object4_w = answer[2];
+        object4_c_h = answer[3];
+        object4_c_w = answer[4];
+
+    } else if (judge(src_grass_ar[1], 1300, step4, 0, 180, 320) != null) {
+
+        answer = judge(src_grass_ar[1], 1300, step4, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object4 = answer[0];
+        object4_h = answer[1];
+        object4_w = answer[2];
+        object4_c_h = answer[3];
+        object4_c_w = answer[4];
+
+    } else if (judge(src_grass_ar[2], 1950, step4, 0, 180, 320) != null) {
+
+        answer = judge(src_grass_ar[2], 1950, step4, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object4 = answer[0];
+        object4_h = answer[1];
+        object4_w = answer[2];
+        object4_c_h = answer[3];
+        object4_c_w = answer[4];
+
+    } else {
+
+        answer = [];
+        object4 = answer[0];
+        object4_h = answer[1];
+        object4_w = answer[2];
+        object4_c_h = answer[3];
+        object4_c_w = answer[4];
+
     }
 
-    if (true) {
-        object4_3 = null;
+    if (judge(src_grass_ar[1], 800, step4, 0, 180, 320) != null) {
+        answer = judge(src_grass_ar[1], 800, step4, 0, 180, 320);
+        object4_1 = answer[0];
+        object4_1_h = answer[1];
+        object4_1_w = answer[2];
+        object4_1_c_h = answer[3];
+        object4_1_c_w = answer[4];
+
+    } else if (judge(src_grass_ar[2], 1450, step4, 0, 180, 320) != null) {
+
+        answer = judge(src_grass_ar[2], 1450, step4, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object4_1 = answer[0];
+        object4_1_h = answer[1];
+        object4_1_w = answer[2];
+        object4_1_c_h = answer[3];
+        object4_1_c_w = answer[4];
+
+    } else if (judge(src_grass_ar[0], 2050, step4, 0, 180, 320) != null) {
+
+        answer = judge(src_grass_ar[0], 2050, step4, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object4_1 = answer[0];
+        object4_1_h = answer[1];
+        object4_1_w = answer[2];
+        object4_1_c_h = answer[3];
+        object4_1_c_w = answer[4];
+
+    } else {
+
+        answer = [];
+        object4_1 = answer[0];
+        object4_1_h = answer[1];
+        object4_1_w = answer[2];
+        object4_1_c_h = answer[3];
+        object4_1_c_w = answer[4];
+
     }
+
 
     //Phuの歩行関数
     character5 = phu_imgs_phu_array[walk_time_img_count];
@@ -1090,11 +1153,11 @@ function phu_imgs_draw() {
                 }
 
                 if (object3_2 != null) {
-                    ctx.drawImage(object3_2, object3_2_c_w / pixel_w, (object3_2_c_h - upper_gamen) / pixel_h, object3_2_w / pixel_w, object3_3_h / pixel_h);
+                    ctx.drawImage(object3_2, object3_2_c_w / pixel_w, (object3_2_c_h - upper_gamen) / pixel_h, object3_2_w / pixel_w, object4_h / pixel_h);
                 }
 
-                if (object3_3 != null) {
-                    ctx.drawImage(object3_3, object3_3_c_w / pixel_w, (object3_3_c_h - upper_gamen) / pixel_h, object3_3_w / pixel_w, object3_3_h / pixel_h);
+                if (object4 != null) {
+                    ctx.drawImage(object4, object4_c_w / pixel_w, (object4_c_h - upper_gamen) / pixel_h, object4_w / pixel_w, object4_h / pixel_h);
                 }
 
                 break;
