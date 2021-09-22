@@ -2,6 +2,7 @@
 //オーバーレイ関連
 var filter_opacity;
 filter_opacity = 1;
+
 var filter_detail;
 
 var phu_stage_1_started_flag
@@ -302,7 +303,9 @@ function judge_draw() {
     }
 
 
+
     console_log();
+
 
     //歩行用演算
     if (walk_start_flag == 1) {
@@ -342,6 +345,11 @@ function judge_draw() {
     }
 
 
+    var step1 = all_step_count * 0.08
+    var step2 = all_step_count * 0.1
+    var step3 = all_step_count * 0.3
+    var step4 = all_step_count * 0.5
+    var step6 = all_step_count * 0.7
 
 
     //常に描画される者はSTEP判定の外に置く
@@ -356,6 +364,7 @@ function judge_draw() {
 
 
     // 雲1
+
     object2_1 = src_cloud_ar[0];
     object2_1_c_h = 0;
 
@@ -387,8 +396,10 @@ function judge_draw() {
     object2_3_w = 320;
 
     //山2
+
     object2 = src_mount_ar[0];
     object2_c_h = 0;
+
 
     object2_c_w = mountain - 320;
     object2_h = 180;
@@ -425,7 +436,6 @@ function judge_draw() {
         object3_1_c_w = answer[4];
 
     }
-
 
 
 
@@ -477,6 +487,7 @@ function judge_draw() {
         object3_3_c_h = answer[3];
         object3_3_c_w = answer[4];
 
+
     } else if (judge(src_tree_ar[6], 1600, step3, 0, 180, 320) != null) {
 
         answer = judge(src_tree_ar[6], 1600, step3, 0, 180, 320);
@@ -487,6 +498,7 @@ function judge_draw() {
         object3_3_c_h = answer[3];
         object3_3_c_w = answer[4];
 
+
     } else if (judge(src_tree_ar[0], 2300, step3, 0, 180, 320) != null) {
 
         answer = judge(src_tree_ar[0], 2300, step3, 0, 180, 320);
@@ -496,6 +508,7 @@ function judge_draw() {
         object3_3_w = answer[2];
         object3_3_c_h = answer[3];
         object3_3_c_w = answer[4];
+
 
     } else {
 
@@ -519,6 +532,7 @@ function judge_draw() {
         object4_c_h = answer[3];
         object4_c_w = answer[4];
 
+
     } else if (judge(src_grass_ar[1], 1300, step4, 0, 180, 320) != null) {
 
         answer = judge(src_grass_ar[1], 1300, step4, 0, 180, 320);
@@ -530,6 +544,7 @@ function judge_draw() {
         object4_c_w = answer[4];
 
     } else if (judge(src_grass_ar[2], 1950, step4, 0, 180, 320) != null) {
+
 
         answer = judge(src_grass_ar[2], 1950, step4, 0, 180, 320);
         //前回のポイントとは、必ず+640以上離れていないといけない
@@ -587,6 +602,7 @@ function judge_draw() {
         object4_1_c_h = answer[3];
         object4_1_c_w = answer[4];
 
+
     }
 
 
@@ -594,20 +610,112 @@ function judge_draw() {
     //character5 =src_phu_ar[walk_time_img_count];
     //character5_1 = phu_imgs_yue_array[walk_time_img_count];
 
+
     character5_c_w = 225 + ((walk_time_img_count) * 14 / 5);
     if (through_flag == 1) {
         if (walk_time_img_count > 0 && through_count < 100) {
             through_count = through_count + 1;
         }
         character5_c_w = 225 - through_count + ((walk_time_img_count) * 14 / 5);
+
+        if (-1350 + step6 > -320 && -1350 + step6 < 640) {
+
+            if (ghost_count_2 + 0.2 >= 30) {
+                ghost_count_2 = 0;
+            } else {
+                ghost_count_2 = ghost_count_2 + 0.2;
+            }
+
+            ///しゃべる幽霊はこいつ
+            ghost_round_2 = Math.floor(ghost_count_2);
+
+            object6_3 = phu_imgs_ghost_talk_array[ghost_round_2];
+            object6_3_h = 100;
+            object6_3_w = 160;
+            object6_3_c_h = 90;
+            object6_3_c_w = -1350 + step6
+
+            //console.log(ghost_count);
+            //console.log(ghost_round);
+
+            /*
+            object6_3=phu_imgs_objects_array[ghost_round_2];
+            
+            object6_3_c_w=(-100+step6);
+            
+ 
+            //console.log("座標今ここ"　+ (-100+step6))
+            object6_3_w=10-(ghost_round_2*ghost_round_2)+ghost_round_2*3;
+            
+            if(ghost_round_2==17){
+                object6_3_h=150;
+                object6_3_w=200;
+                object6_3_c_h=80;
+                
+                
+            }else if(ghost_round_2==18){
+                object6_3_h=Math.random()*1000;
+                object6_3_c_h=50;
+                object6_3_w=300;
+               
+            }else if(ghost_round_2==19){
+                object6_3_h=Math.random()*1000;
+                object6_3_w=500;
+                object6_3_c_h=30;
+                
+            }else if(ghost_round_2==20){
+                object6_3_h=Math.random()*1000;
+                object6_3_w=600;
+                object6_3_c_h=-60;
+            }else if(ghost_round_2==21){
+                object6_3_h=Math.random()*1000;
+                object6_3_w=800;
+                object6_3_c_h=-150;
+            }else if(ghost_round_2==22){
+                object6_3_h=Math.random()*1000;
+                object6_3_w=Math.random()*1000;
+                object6_3_c_h=Math.random()*1000;
+            }
+ 
+            console.log(object6_2_h);
+            object6_3_c_w=(-150+step6)-object6_3_w/4 */
+
+        } else {
+            object6_3 = null;
+        }
+
+    } else {
+
+
+
+        //phuが驚いて倒れ込む
+
+        /*
+        character5_1=null;
+        
+        character5=phu_imgs_phu_array[10];
+
+        lay=lay+23;
+        //定数
+        if((Math.floor(lay/100))<=10){
+            console.log(Math.floor(lay/100));
+  
+            character5=phu_imgs_phu_array[Math.floor(lay/100)];
+            //配列11番目は存在しない
+            //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
+        }
+        */
+
     }
 
     //14マスを5枚で移動する
     character5_c_h = 105;
 
 
+
     character5_h = phu_height;
     character5_w = phu_width;
+
 
 
 
@@ -624,6 +732,16 @@ function judge_draw() {
         character5 = src_phu_ar[walk_time_img_count];
         //character5_1=phu_imgs_yue_array[0];
     }
+
+var lay
+lay = 600;
+
+var through_flag = 0;
+var through_count = 0;
+var gyou_count = 0;
+var text_time = 0;
+
+var retu_count = 0;
 
 
     character5_h = phu_height;
