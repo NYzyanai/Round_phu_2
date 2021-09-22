@@ -11,6 +11,7 @@ phu_stage_1_started_flag = 0;
 var all_step_count
 all_step_count = 0;
 
+var through_flag = 0;
 
 function phu_stage_1(touchX, touchY) {
 
@@ -43,176 +44,9 @@ function phu_stage_1(touchX, touchY) {
 まず全部ロード
 */
 
-var phu_imgs_namepath = [];
 
-
-var layer
-var add
-add = 0
-
-var stop_walk_flag = 0;
-
-var object1
-var object2
-var object3
-var object4
-var character5
-var object6
-
-
-var object1_1
-var object1_2
-var object1_3
-
-var object2_1
-var object2_2
-var object2_3
-
-var object3_1
-var object3_2
-var object4
-
-var object4_1
-var object4_2
-var object4_3
-
-var character5_1
-
-var object6_1
-var object6_2
-var object6_3
-
-var object1_c_w
-//座標のwidth
-var object1_c_h
-var object1_w
-var object1_h
-
-var object1_1_c_w
-var object1_1_c_h
-var object1_1_w
-var object1_1_h
-
-var object1_2_c_w
-var object1_2_c_h
-var object1_2_w
-var object1_2_h
-
-var object1_3_c_w
-var object1_3_c_h
-var object1_3_w
-var object1_3_h
-
-var object2_c_w
-var objett2_c_h
-var object2_w
-var object2_h
-
-var object2_1_c_w
-var objett2_1_c_h
-var object2_1_w
-var object2_1_h
-
-var object2_2_c_w
-var objett2_2_c_h
-var object2_2_w
-var object2_2_h
-
-var object2_3_c_w
-var objett2_3_c_h
-var object2_3_w
-var object2_3_h
-
-
-var objetc3_c_w
-var object3_c_h
-var object3_w
-var object3_h
-
-var objetc3_1_c_w
-var object3_1_c_h
-var object3_1_w
-var object3_1_h
-
-var objetc3_2_c_w
-var object3_2_c_h
-var object3_2_w
-var object3_2_h
-
-var objetc3_3_c_w
-var object4_c_h
-var object4_w
-var object4_h
-
-
-var object4_c_w
-var object4_c_h
-var object4_h
-var object4_w
-
-var object4_1_c_w
-var object4_1_c_h
-var object4_1_h
-var object4_1_w
-
-var object4_2_c_w
-var object4_2_c_h
-var object4_2_h
-var object4_2_w
-
-var object4_3_c_w
-var object4_3_c_h
-var object4_3_h
-var object4_3_w
-
-var character5_h
-var character5_w
-var character5_c_h
-var character5_c_w
-
-var character5_1_h
-var character5_1_w
-var character5_1_c_h
-var character5_1_c_w
-var cloud_time = 0
-
-var object6_h
-var object6_w
-var object6_c_h
-var objetc6_c_w
-
-var object6_1_h
-var object6_1_w
-var object6_1_c_h
-var objetc6_1_c_w
-
-var object6_2_h
-var object6_2_w
-var object6_2_c_h
-var objetc6_2_c_w
-
-var object6_3_h
-var object6_3_w
-var object6_3_c_h
-var objetc6_3_c_w
-
-
-
-var buf_step = 0
-
-
-
-
-var walk_start_flag
-walk_start_flag = 0;
 var walk_time_count
 walk_time_count = 0;
-
-//普通のオブジェクトのサイズは180*320固定
-var normal_obj_h
-var normal_obj_w
-normal_obj_h = 180;
-normal_obj_w = 320;
 
 var next
 //nextはループ用
@@ -254,6 +88,7 @@ var a = 0
 
 function judge_draw() {
 
+    //いつもの呪文
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
     ctx.imageSmoothingEnabled = false;
@@ -301,11 +136,9 @@ function judge_draw() {
         object3_c_h = answer[3];
         object3_c_w = answer[4];
     }
+    phu_walk();
 
-
-
-    console_log();
-
+/*
 
     //歩行用演算
     if (walk_start_flag == 1) {
@@ -342,15 +175,7 @@ function judge_draw() {
         }
 
 
-    }
-
-
-    var step1 = all_step_count * 0.08
-    var step2 = all_step_count * 0.1
-    var step3 = all_step_count * 0.3
-    var step4 = all_step_count * 0.5
-    var step6 = all_step_count * 0.7
-
+    }*/
 
     //常に描画される者はSTEP判定の外に置く
     //空
@@ -383,6 +208,30 @@ function judge_draw() {
     object2_2_c_w = cloud_time
     object2_2_h = normal_obj_h;
     object2_2_w = 320;
+
+/*
+    if (judge(src_cloud_ar[0], 320, cloud_time-step2, 0, 180, 320) != null) {
+        answer = judge(src_forest_ar[0], 320, cloud_time-step2, 0, 180, 320);
+
+        object3 = answer[0];
+        object3_h = answer[1];
+        object3_w = answer[2];
+        object3_c_h = answer[3];
+        object3_c_w = answer[4];
+
+    } else if (judge(src_fish_ar[1], 940, step3, 0, 180, 320) != null) {
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        answer = judge(src_fish_ar[1], 940, step3, 0, 180, 320);
+
+        object3 = answer[0];
+        object3_h = answer[1];
+        object3_w = answer[2];
+        object3_c_h = answer[3];
+        object3_c_w = answer[4];
+
+
+    }
+    */
 
     //山1
     object2_3 = src_mount_ar[0];
@@ -638,47 +487,47 @@ function judge_draw() {
             //console.log(ghost_count);
             //console.log(ghost_round);
 
-            /*
-            object6_3=phu_imgs_objects_array[ghost_round_2];
-            
-            object6_3_c_w=(-100+step6);
-            
- 
+
+            object6_3 = phu_imgs_objects_array[ghost_round_2];
+
+            object6_3_c_w = (-100 + step6);
+
+
             //console.log("座標今ここ"　+ (-100+step6))
-            object6_3_w=10-(ghost_round_2*ghost_round_2)+ghost_round_2*3;
-            
-            if(ghost_round_2==17){
-                object6_3_h=150;
-                object6_3_w=200;
-                object6_3_c_h=80;
-                
-                
-            }else if(ghost_round_2==18){
-                object6_3_h=Math.random()*1000;
-                object6_3_c_h=50;
-                object6_3_w=300;
-               
-            }else if(ghost_round_2==19){
-                object6_3_h=Math.random()*1000;
-                object6_3_w=500;
-                object6_3_c_h=30;
-                
-            }else if(ghost_round_2==20){
-                object6_3_h=Math.random()*1000;
-                object6_3_w=600;
-                object6_3_c_h=-60;
-            }else if(ghost_round_2==21){
-                object6_3_h=Math.random()*1000;
-                object6_3_w=800;
-                object6_3_c_h=-150;
-            }else if(ghost_round_2==22){
-                object6_3_h=Math.random()*1000;
-                object6_3_w=Math.random()*1000;
-                object6_3_c_h=Math.random()*1000;
+            object6_3_w = 10 - (ghost_round_2 * ghost_round_2) + ghost_round_2 * 3;
+
+            if (ghost_round_2 == 17) {
+                object6_3_h = 150;
+                object6_3_w = 200;
+                object6_3_c_h = 80;
+
+
+            } else if (ghost_round_2 == 18) {
+                object6_3_h = Math.random() * 1000;
+                object6_3_c_h = 50;
+                object6_3_w = 300;
+
+            } else if (ghost_round_2 == 19) {
+                object6_3_h = Math.random() * 1000;
+                object6_3_w = 500;
+                object6_3_c_h = 30;
+
+            } else if (ghost_round_2 == 20) {
+                object6_3_h = Math.random() * 1000;
+                object6_3_w = 600;
+                object6_3_c_h = -60;
+            } else if (ghost_round_2 == 21) {
+                object6_3_h = Math.random() * 1000;
+                object6_3_w = 800;
+                object6_3_c_h = -150;
+            } else if (ghost_round_2 == 22) {
+                object6_3_h = Math.random() * 1000;
+                object6_3_w = Math.random() * 1000;
+                object6_3_c_h = Math.random() * 1000;
             }
- 
+
             console.log(object6_2_h);
-            object6_3_c_w=(-150+step6)-object6_3_w/4 */
+            object6_3_c_w = (-150 + step6) - object6_3_w / 4
 
         } else {
             object6_3 = null;
@@ -733,15 +582,15 @@ function judge_draw() {
         //character5_1=phu_imgs_yue_array[0];
     }
 
-var lay
-lay = 600;
+    var lay
+    lay = 600;
 
-var through_flag = 0;
-var through_count = 0;
-var gyou_count = 0;
-var text_time = 0;
 
-var retu_count = 0;
+    var through_count = 0;
+    var gyou_count = 0;
+    var text_time = 0;
+
+    var retu_count = 0;
 
 
     character5_h = phu_height;
@@ -756,8 +605,8 @@ var retu_count = 0;
 
     //////////////////////////////
 
-    //origin_object6(step6);
-mother(step6);
+    origin_object6(step6);
+    //mother(step6);
 
 
 }
@@ -765,7 +614,7 @@ mother(step6);
 var lay
 lay = 600;
 
-var through_flag = 0;
+
 var through_count = 0;
 var gyou_count = 0;
 var text_time = 0;
