@@ -5,6 +5,7 @@ var debug_count
 debug_count = 10;
 
 var normal_time
+var now_stage
 
 window.onload = function () {
     //画面サイズを取得
@@ -14,9 +15,7 @@ window.onload = function () {
     //30mm/sごとに画面を更新（loop関数を呼び出す）
     setInterval(loop, 30);
 
-
-    splash_stage_flag = 1;
-
+    now_stage = "splash_screen";
 }
 
 var speedup = 0;
@@ -47,8 +46,6 @@ var readme_stage_flag
 ///stage1_phu////
 var between_mil
 
-
-
 //newimageをするのは一階でOK
 //draw擦るのは毎秒
 
@@ -59,39 +56,30 @@ var enddate
 var debug_mode_flag
 debug_mode_flag = 0;
 
+
+
 //////////メイン処理////////
 function loop() {
-    console.log("pixel_h"+ pixel_h);
 
-    startdate = new Date();
+    debag(touchX, touchY);
 
-    //デバッグモード実装
+    //console.log(now_stage);
 
-    if (touchX > 300 && touchY < 30) {
-        debug_mode_flag = 1;
-        speedup = 3;
-        console.log ("押されたよ！");
-        
-    }
+    switch (now_stage) {
+        case 'splash_screen':
 
-    if (touchX < 20 && touchY < 30 & touchX !== 0) {
-        speedup = 0;
-    }
-
-    ////////入力に応じたフラグを建てる//
-    if (splash_stage_flag == 1) {
-
-
-        if (splash_screen_called == 0) {
             splashscreen_imageDraw();
-        }
-        if (touchX <= 160 && touchY >= 40) {
-            start_btn_flag = 1;
-        }
-        if ((270 <= touchX && touchX <= 340) && (touchY <= 177 && touchY >= 159)) {
-            readme_flag = 1;
-            readme_finished_flag = 0;
-        }
+            splash_screen(touchX, touchY);
+            break;
+        case 'readme_btn':
+            readme_btn(touchX, touchY);
+            break;
+        case 'fade_out':
+            break;
+        default:
+
+    }
+
 
         if ((110 <= touchX && touchX <= 260) && (touchY <= 177 && touchY >= 159)) {
             //ここでSoundの設定を変える
@@ -102,103 +90,39 @@ function loop() {
             
         }
 
-        //フラグに応じた処理
-        if (start_btn_flag == 1) {
-            start_btn();
-        }
 
-        if (readme_flag == 1) {
-            readme_btn();
-        }
+    if (start_btn_flag == 1) {
+        start_btn();
     }
 
-    if (readme_stage_flag == 1) {
-        //console.log("readme_stage_flagたってるよ")
+    /*if (readme_stage_flag == 1) {
         if (0 < touchX && 0 < touchY) {
             splash_stage_flag = 1;
             readme_stage_flag = 0;
             readme_flag = 0;
             splash_screen_called = 0;
-            //console.log("判定はtrueだったよ")
-        } else {
-            //console.log("判定がfalseだったよ")
         }
-    }
 
-    if (movie_stage_flag == 1) {
-        //描画の函数をよび出す！！！
+    }*/
+
+    if (movie_stage_flag == 1 ) {
+        movie_stage_flag = 0;
+        phu_stage_flag_before = 1;
+        /*描画の函数をよび出す！！！
         movie_imageDraw();
         if (touchX > 0 && touchY > 0) {
             movie_stage_flag = 0;
             phu_stage_flag_before = 1;
-        }
+        }*/
         splash_stage_flag = 0;
     }
 
-    if (phu_stage_flag_before == 1) {
-        phu_stage_1();
-        if (phu_stage_1_started_flag == 1) {
-            if (phu_imgs_loaded_flag = 0) {
-                phu_imgs_load();
-                //console.log("まだ");
-            } else {
-                if (stop_walk_flag == 0) {
-                    if (touchX > 0 && touchY > 0) {
-                        walk_start_flag = 1;
-                    }
-                }
-                judge_draw();
-                phu_imgs_draw();
-                console.log(pixel_h)
-            }
-        }
-    }
-
-    /////touchデータの初期化/////
-    if (touchend = 1) {
-        touchX = 0;
-        touchY = 0;
-        touchend = 0; 1
-        //console.log("タッチおわり！！！！！");
-    }
-
-    enddate = new Date();
-
-    //console.log("終わり秒数" + end_sec　+ ":"　+ end_mil);
-
-    bufbetween_mil = enddate - startdate;
-    //console.log("差の秒数"+bufbetween_mil);
-
-    /*
+    if (phu_stage_flag_before == 1 || now_stage=="phu_stage_1"){
         
-        if(bufbetween_mil>2){
-            speedup=between_mil/10;
-            antei=antei+1
-            console.log("よばれた");
-            setup_touchevent();
-            
-            //normal_time=normal_time+(between_mil);
-            setInterval(loop,20000);
-            clearInterval(loop);
-            
-            settime();
-            
-        }else if(antei>10){
-            console.log("逆に問題ない")
-            speedup=0;
-            antei=0;
-        }*/
+        phu_stage_1(touchX,touchY);
 
-
-    /*if(between_mil==0 && normal_time!==30){
-        clearInterval();
-        settime();
-    }*/
-
-
+    }
+    ////touchデータの初期化/////
+    touchX = 0;
+    touchY = 0;
 }
-
-
-
-var antei
-antei = 0;

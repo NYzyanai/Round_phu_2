@@ -31,7 +31,3 @@ function splashscreen_imageDraw() {
     }
     splash_screen_called = 1;
 }
-
-////////
-
-

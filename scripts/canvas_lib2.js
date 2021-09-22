@@ -57,6 +57,8 @@ function sizing() {
     //1マスあたりの高さ
     pixel_h = 180 / canvas.height;
 
+    //console.log(pixel_h);
+
     pixel_w = 320 / canvas.width;
 
 }
@@ -84,6 +86,11 @@ function fade_in() {
 
 //待ってこれ使って無くない？
 function fade_out() {
+    if(opacity>=1){
+        return opacity;
+    }else{
+        
+    }
     opacity = opacity + 0.03;
     //console.log(opacity);
     ctx.globalAlpha = opacity;
