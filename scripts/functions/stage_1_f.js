@@ -1,7 +1,173 @@
 //judge drawとは、Phuがどこまで歩いてきたときに何を表示するか？を計算する関数。
 var phu_imgs_load_count=0;
-function judge_draw() {
 
+var phu_imgs_load_count=0;
+//普通のオブジェクトのサイズは180*320固定
+var normal_obj_h
+var normal_obj_w
+normal_obj_h = 180;
+normal_obj_w = 320;
+
+//空だけちがう　1600ピクセル
+var sky_obj_width
+sky_obj_width = 1600;
+
+var walk_start_flag
+walk_start_flag = 0;
+
+var cloud_time = 0
+
+var object1
+var object2
+var object3
+var object4
+var character5
+var object6
+
+
+var object1_1
+var object1_2
+var object1_3
+
+var object2_1
+var object2_2
+var object2_3
+
+var object3_1
+var object3_2
+var object4
+
+var object4_1
+var object4_2
+var object4_3
+
+var character5_1
+
+var object6_1
+var object6_2
+var object6_3
+
+var object1_c_w
+//座標のwidth
+var object1_c_h
+var object1_w
+var object1_h
+
+var object1_1_c_w
+var object1_1_c_h
+var object1_1_w
+var object1_1_h
+
+var object1_2_c_w
+var object1_2_c_h
+var object1_2_w
+var object1_2_h
+
+var object1_3_c_w
+var object1_3_c_h
+var object1_3_w
+var object1_3_h
+
+var object2_c_w
+var objett2_c_h
+var object2_w
+var object2_h
+
+var object2_1_c_w
+var objett2_1_c_h
+var object2_1_w
+var object2_1_h
+
+var object2_2_c_w
+var objett2_2_c_h
+var object2_2_w
+var object2_2_h
+
+var object2_3_c_w
+var objett2_3_c_h
+var object2_3_w
+var object2_3_h
+
+
+var objetc3_c_w
+var object3_c_h
+var object3_w
+var object3_h
+
+var objetc3_1_c_w
+var object3_1_c_h
+var object3_1_w
+var object3_1_h
+
+var objetc3_2_c_w
+var object3_2_c_h
+var object3_2_w
+var object3_2_h
+
+var objetc3_3_c_w
+var object4_c_h
+var object4_w
+var object4_h
+
+
+var object4_c_w
+var object4_c_h
+var object4_h
+var object4_w
+
+var object4_1_c_w
+var object4_1_c_h
+var object4_1_h
+var object4_1_w
+
+var object4_2_c_w
+var object4_2_c_h
+var object4_2_h
+var object4_2_w
+
+var object4_3_c_w
+var object4_3_c_h
+var object4_3_h
+var object4_3_w
+
+var character5_h
+var character5_w
+var character5_c_h
+var character5_c_w
+
+var character5_1_h
+var character5_1_w
+var character5_1_c_h
+var character5_1_c_w
+
+
+var object6_h
+var object6_w
+var object6_c_h
+var objetc6_c_w
+
+var object6_1_h
+var object6_1_w
+var object6_1_c_h
+var objetc6_1_c_w
+
+var object6_2_h
+var object6_2_w
+var object6_2_c_h
+var objetc6_2_c_w
+
+var object6_3_h
+var object6_3_w
+var object6_3_c_h
+var objetc6_3_c_w
+
+
+
+var buf_step = 0
+
+function judge_drawa() {
+
+    /*
     //お決まり
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
@@ -67,6 +233,7 @@ function judge_draw() {
     //では、森の出現ポイントが「0」の場合には？
 
     //森
+    /*
     var first_forest_r =0
     var first_forest_l=first_forest_r+320;
 
@@ -79,7 +246,7 @@ function judge_draw() {
     }else {
         object3 = null;
     }
-
+*/
 
     /*
     if (step3 < 320) {
@@ -99,7 +266,7 @@ function judge_draw() {
     } else {
         object3 = null;
     }
-*/
+
 
     //歩行用演算
 
@@ -152,7 +319,7 @@ function judge_draw() {
     object2_1_w = 320;
 
     //山1
-    object2_3 = phu_imgs_objects_array[1];
+    object2_3 = src_mount_ar[1];
     object2_3_c_h = 0;
     mountain = step2;
     if (mountain / 320 > 1) {
@@ -163,7 +330,7 @@ function judge_draw() {
     object2_3_w = 320;
 
     //山2
-    object2 = phu_imgs_objects_array[1];
+    object2 = src_mount_ar[1];
     object2_c_h = 0;
 
     object2_c_w = mountain - 320;
@@ -183,14 +350,14 @@ function judge_draw() {
         //////////////////////
         if (step3 < 320) {
             //ファースト森
-            object3 = phu_imgs_objects_array[14];
+            object3 = src_forest_ar[0];
             object3_c_h = 0;
             object3_c_w = step3
             object3_h = 180;
             object3_w = 320;
         } else if (-640 + step3 > -320 && -640 + step3 < 320) {
             object3_c_h = 0;
-            object3 = phu_imgs_objects_array[12];
+            object3 = src_forest_ar[0];
             object3_c_w = -640 + step3;
             //↑が-320以上・320以下のときにのみ代入する
             object3_h = 180;
@@ -468,7 +635,7 @@ function judge_draw() {
             //console.log(ghost_count);
             //console.log(ghost_round);
 
-            /*
+            
             object6_3=phu_imgs_objects_array[ghost_round_2];
             
             object6_3_c_w=(-100+step6);
@@ -508,7 +675,7 @@ function judge_draw() {
             }
  
             console.log(object6_2_h);
-            object6_3_c_w=(-150+step6)-object6_3_w/4 */
+            object6_3_c_w=(-150+step6)-object6_3_w/4 
 
         } else {
             object6_3 = null;
@@ -534,7 +701,7 @@ function judge_draw() {
             //配列11番目は存在しない
             //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
         }
-        */
+        
     }
 
     //console.log("今"　+ all_step_count);
@@ -559,7 +726,7 @@ function judge_draw() {
         }
     }
 
-
+*/
 }
 
 
@@ -695,6 +862,7 @@ function phu_imgs_draw() {
                 break;
             case 6:
                 //手前のもの
+                /*
                 if (object6 != null) {
                     ctx.drawImage(object6, object6_c_w / pixel_w, (object6_c_h - upper_gamen) / pixel_h, object6_w / pixel_w, object6_h / pixel_h);
                 }
@@ -745,7 +913,6 @@ function phu_imgs_draw() {
 
                     //できるだけ近くにきた段階で、透明度を０にする
 
-
                     if (object6_2_w > 400) {
                         delete_alpha = delete_alpha - 0.01;
                     }
@@ -788,6 +955,24 @@ function phu_imgs_draw() {
                     ctx.drawImage(object6_3, object6_3_c_w / pixel_w, (object6_3_c_h - upper_gamen) / pixel_h, object6_3_w / pixel_w, object6_3_h / pixel_h);
                     ctx.globalAlpha = 1;
                 }
+*/
+                //奥の建物
+                if (object6 != null) {
+                    ctx.drawImage(object6, object6_c_w / pixel_w, (object6_c_h - upper_gamen) / pixel_h, object6_w / pixel_w, object6_h / pixel_h);
+                }
+
+                if (object6_1 != null) {
+                    ctx.drawImage(object6_1, object6_1_c_w / pixel_w, (object6_1_c_h - upper_gamen) / pixel_h, object6_1_w / pixel_w, object6_1_h / pixel_h);
+                }
+
+                if (object6_2 != null) {
+                    ctx.drawImage(object6_2, object6_2_c_w / pixel_w, (object6_2_c_h - upper_gamen) / pixel_h, object6_2_w / pixel_w, object6_2_h / pixel_h);
+                }
+
+                if (object6_3 != null) {
+                    ctx.drawImage(object6_3, object6_3_c_w / pixel_w, (object6_3_c_h - upper_gamen) / pixel_h, object6_3_w / pixel_w, object6_3_h / pixel_h);
+                }
+
 
 
 
@@ -811,7 +996,6 @@ function phu_imgs_draw() {
                 */
 
 
-
                 filter_opacity = 1 / (all_step_count / 500);
                 if (filter_opacity > 0.7) {
                     filter_opacity = 0.7;
@@ -824,6 +1008,7 @@ function phu_imgs_draw() {
                 ctxfilter.fillStyle = filter_detail;
                 ctx.fillRect(0, 0, 320 / pixel_h, 180 / pixel_w);
                 ctx.globalCompositeOperation = "source-over";
+               
 
                 //console.log(all_step_count);
 
@@ -864,4 +1049,211 @@ function phu_imgs_draw() {
 
     }
 
+}
+
+
+
+//object6対比
+function origin_object6(step6) {
+
+    if (step6 > -320 && step6 < 320) {
+
+        object6 = ghost_count[0];
+        object6_c_h = 0;
+        object6_c_w = step6
+        object6_h = 180;
+        object6_w = 320;
+    }
+
+
+    //幽霊1は動いてもいいと思うの
+
+
+
+    if (-1200 + step6 > -320 && -1200 + step6 < 600) {
+        if (delete_count > 20) {
+            object6_2_h = null;
+            delete_count = 0;
+            delete_alpha = 0;
+        }
+
+        if (ghost_count + 0.2 >= 36) {
+            ghost_count = 0;
+        } else {
+            ghost_count = ghost_count + 0.2;
+        }
+
+        ghost_round = Math.floor(ghost_count);
+
+        object6_2 = src_ghost_ar[ghost_round];
+
+
+
+        if (object6_2_h == null) {
+            object6_2_h = 90;
+            object6_2_w = 170;
+            object6_2_c_h = 100;
+        } else {
+            object6_2_h = object6_2_h + 0.45;
+            object6_2_w = object6_2_w + 0.8;
+            object6_2_c_h = object6_2_c_h - 0.3;
+        }
+
+        object6_2_c_w = -1200 + step6 - (object6_2_w - 1200) / 10
+
+
+    } else {
+        object6_2 = null;
+    }
+
+
+    //幽霊その３
+
+
+
+    if (-1500 + step6 > -320 && -1500 + step6 < 640) {
+        if (delete_count_3 > 20) {
+            object6_1_h = null;
+            delete_count_3 = 0;
+            delete_alpha_3 = 0;
+        }
+
+
+        if (ghost_count_3 + 0.3 >= 36) {
+            ghost_count_3 = 0;
+        } else {
+            ghost_count_3 = ghost_count_3 + 0.3;
+        }
+        ghost_round_3 = Math.floor(ghost_count_3);
+
+
+        object6_1 = src_ghost_np[ghost_round_3];
+
+        //console.log("座標今ここ"　+ (-100+step6))
+        //object6_2_w=10-(ghost_round*ghost_round)+ghost_round*3;
+
+        if (object6_1_h == null) {
+            object6_1_h = 80;
+            object6_1_w = 140;
+            object6_1_c_h = 140;
+        } else {
+            object6_1_h = object6_1_h + 0.3;
+            object6_1_w = object6_1_w + 0.6;
+            object6_1_c_h = object6_1_c_h - 0.2;
+        }
+
+        object6_1_c_w = -1500 + step6 - (object6_1_w - 320) / 10
+
+
+    } else {
+        object6_1 = null;
+    }
+
+
+
+
+    if (-1350 + step6 > -320 && -1350 + step6 < 640) {
+
+        if (ghost_count_2 + 0.2 >= 30) {
+            ghost_count_2 = 0;
+        } else {
+            ghost_count_2 = ghost_count_2 + 0.2;
+        }
+
+        ///しゃべる幽霊はこいつ
+        ghost_round_2 = Math.floor(ghost_count_2);
+
+        object6_3 = src_ghost_talking_ar[ghost_round_2];
+        object6_3_h = 100;
+        object6_3_w = 160;
+        object6_3_c_h = 90;
+        object6_3_c_w = -1350 + step6
+
+
+    } else {
+        object6_3 = null;
+    }
+
+    if (object6_3 !== null) {
+        if (object6_3_c_w > character5_c_w) {
+            //console.log("unchoiiiiiiii")
+            if (ghost_end_text_flag == 0) {
+                drawtext(11, 22, "＊＊＊＊ : ", 2);
+
+                through_flag = 1;
+
+                stop_walk_flag = 1;
+                if (gyou_buf > 2) {
+                    stop_walk_flag = 0;
+                }
+            } else {
+                stop_walk_flag = 0;
+            }
+        }
+    }
+
+}
+
+//try
+
+function mother(step6){
+
+  
+    if (judge(src_ceiling_ar[0], 320, step6, 0, 180, 320) != null) {
+        answer = judge(src_ceiling_ar[0], 320, step6, 0, 180, 320);
+        object6 = answer[0];
+        object6_h = answer[1];
+        object6_w = answer[2];
+        object6_c_h = answer[3];
+        object6_c_w = answer[4];
+
+   } else {
+
+        answer = [];
+        object6 = answer[0];
+        object6_h = answer[1];
+        object6_w = answer[2];
+        object6_c_h = answer[3];
+        object6_c_w = answer[4];
+
+    }
+
+    if (judge(src_woman_ar[0], 320, step6, 0, 180, 320) != null) {
+        answer = judge(src_woman_ar[0], 320, step6, 0, 180, 320);
+        object6_1 = answer[0];
+        object6_1_h = answer[1];
+        object6_1_w = answer[2];
+        object6_1_c_h = answer[3];
+        object6_1_c_w = answer[4];
+
+   } else {
+
+        answer = [];
+        object6_1 = answer[0];
+        object6_1_h = answer[1];
+        object6_1_w = answer[2];
+        object6_1_c_h = answer[3];
+        object6_1_c_w = answer[4];
+
+    }
+
+    
+    if (judge(src_man_ar[0], 320, step6, 0, 180, 320) != null) {
+        answer = judge(src_man_ar[0], 320, step6, 0, 180, 320);
+        object6_2 = answer[0];
+        object6_2_h = answer[1];
+        object6_2_w = answer[2];
+        object6_2_c_h = answer[3];
+        object6_2_c_w = answer[4];
+
+   } else {
+
+        answer = [];
+        object6_2 = answer[0];
+        object6_2_h = answer[1];
+        object6_2_w = answer[2];
+        object6_2_c_h = answer[3];
+        object6_2_c_w = answer[4];
+
+    }
 }
