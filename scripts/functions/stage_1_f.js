@@ -692,44 +692,57 @@ function mother(step6) {
 }
 
 
+
+var walk_time_count = 0;
+
 //歩行関数
-function phu_walk() {
+function phu_walk(walk_start_flag) {
+
+    walk_start_flag = 1;
 
 
-    if (walk_start_flag == 1) {
+    //まず、フラグが立っているか？
 
-        //30ミリ秒に一回よばれる
-        //できれば600(30*20)ミリ秒で一枚
+    //30ミリ秒に一回よばれる
+    //できれば600(30*20)ミリ秒で一枚
 
-        //draw_phu_countの意味は？
-        draw_phu_count = draw_phu_count + 1 + speedup;
+    //draw_phu_countの意味は？
+    draw_phu_count = draw_phu_count + 1 + speedup;
 
-        //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
+    //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
 
-        // through_flag = 0も使っているのはここだけ
-        if (through_flag == 1 && through_count < 100) {
+    // through_flag = 0も使っているのはここだけ
 
-        } else {
-            all_step_count = all_step_count + 25 / 24 + speedup;
-        }
 
-        if (draw_phu_count == 4 && walk_time_img_count < 5) {
-            walk_time_img_count = walk_time_img_count + 1;
 
-            draw_phu_count = 0;
-        } else if (draw_phu_count == 4 && walk_time_img_count == 5) {
-            draw_phu_count = 0;
-            walk_time_img_count = 0;
-            walk_start_flag = 0;
+    all_step_count = all_step_count + 25 / 24 + speedup;
 
-            if (through_flag == 1 && through_count < 100) {
 
-            } else {
-                all_step_count = call_walk_count * 25;
-                call_walk_count = call_walk_count + 1;
-            }
-        }
+    if (draw_phu_count == 4 && walk_time_img_count < 5) {
+        walk_time_img_count = walk_time_img_count + 1;
 
+        draw_phu_count = 0;
+    } else if (draw_phu_count == 4 && walk_time_img_count == 5) {
+
+        draw_phu_count = 0;
+        walk_time_img_count = 0;
+        walk_start_flag = 0;
+        all_step_count = call_walk_count * 25;
+        call_walk_count = call_walk_count + 1;
 
     }
+
+    //character5_c_w = 225 + ((walk_time_img_count) * 14 / 5);
+
+    if (walk_time_img_count > 0 && through_count < 100) {
+        through_count = through_count + 1;
+    }
+    haracter5_c_w = 200;
+    character5_c_h = 105;
+    character5 = src_phu_ar[walk_time_img_count];
+    character5_c_w = 225 +walk_time_img_count*2.5;
+
+
+
+    return walk_start_flag;
 }

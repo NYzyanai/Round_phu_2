@@ -5,11 +5,15 @@ filter_opacity = 1;
 
 var filter_detail;
 
+var walk_time_img_count = 0;
+
 var phu_stage_1_started_flag
 phu_stage_1_started_flag = 0;
 
 var all_step_count
 all_step_count = 0;
+
+var walking_flag = 0;
 
 var through_flag = 0;
 
@@ -19,11 +23,17 @@ function phu_stage_1(touchX, touchY) {
     if (phu_imgs_loaded_flag = 0) {
         phu_imgs_load();
         return;
-    } else if (touchX > 0 && touchY > 0) {
+    
         //ここか、
-        walk_start_flag = 1;
+        //touchX,touchYが何かしらの数字になっているとき
+        //もしくは、歩行フラグが立っているときに呼ばれる。
+
+       
     } else {
         //phu_stage_1_started_flag = 1;
+        if ((walk_start_flag == 1) || (touchX > 0 && touchY)) {
+            walk_start_flag = phu_walk(walk_start_flag);
+        }
         judge_draw();
         phu_imgs_draw();
     }
@@ -48,7 +58,8 @@ function phu_stage_1(touchX, touchY) {
 
 //歩行関数
 
-function phu_walk() {
+/*
+function phu_walk_origin() {
 
 
     if (walk_start_flag == 1) {
@@ -87,7 +98,7 @@ function phu_walk() {
 
 
     }
-}
+}*/
 
 var walk_time_count
 walk_time_count = 0;
@@ -180,7 +191,7 @@ function judge_draw() {
         object3_c_h = answer[3];
         object3_c_w = answer[4];
     }
-    phu_walk();
+
 
     /*
     
@@ -230,10 +241,7 @@ function judge_draw() {
     object1_w = sky_obj_width;
 
 
-
-
     // 雲1
-
     object2_1 = src_cloud_ar[0];
     object2_1_c_h = 0;
 
@@ -414,8 +422,6 @@ function judge_draw() {
 
     }
 
-
-
     /////////4///////////
     if (judge(src_grass_ar[0], 540, step4, 0, 180, 320) != null) {
         answer = judge(src_grass_ar[0], 540, step4, 0, 180, 320);
@@ -499,104 +505,99 @@ function judge_draw() {
     }
 
 
+
     //Phuの歩行関数
 
-    character5_c_w = 225 + ((walk_time_img_count) * 14 / 5);
-    if (through_flag == 1) {
-        if (walk_time_img_count > 0 && through_count < 100) {
-            through_count = through_count + 1;
-        }
-        character5_c_w = 225 - through_count + ((walk_time_img_count) * 14 / 5);
 
-        if (-1350 + step6 > -320 && -1350 + step6 < 640) {
+    if (-1350 + step6 > -320 && -1350 + step6 < 640) {
 
-            if (ghost_count_2 + 0.2 >= 30) {
-                ghost_count_2 = 0;
-            } else {
-                ghost_count_2 = ghost_count_2 + 0.2;
-            }
-
-            ///しゃべる幽霊はこいつ
-            ghost_round_2 = Math.floor(ghost_count_2);
-
-            object6_3 = phu_imgs_ghost_talk_array[ghost_round_2];
-            object6_3_h = 100;
-            object6_3_w = 160;
-            object6_3_c_h = 90;
-            object6_3_c_w = -1350 + step6
-
-            //console.log(ghost_count);
-            //console.log(ghost_round);
-
-
-            object6_3 = phu_imgs_objects_array[ghost_round_2];
-
-            object6_3_c_w = (-100 + step6);
-
-
-            //console.log("座標今ここ"　+ (-100+step6))
-            object6_3_w = 10 - (ghost_round_2 * ghost_round_2) + ghost_round_2 * 3;
-
-            if (ghost_round_2 == 17) {
-                object6_3_h = 150;
-                object6_3_w = 200;
-                object6_3_c_h = 80;
-
-
-            } else if (ghost_round_2 == 18) {
-                object6_3_h = Math.random() * 1000;
-                object6_3_c_h = 50;
-                object6_3_w = 300;
-
-            } else if (ghost_round_2 == 19) {
-                object6_3_h = Math.random() * 1000;
-                object6_3_w = 500;
-                object6_3_c_h = 30;
-
-            } else if (ghost_round_2 == 20) {
-                object6_3_h = Math.random() * 1000;
-                object6_3_w = 600;
-                object6_3_c_h = -60;
-            } else if (ghost_round_2 == 21) {
-                object6_3_h = Math.random() * 1000;
-                object6_3_w = 800;
-                object6_3_c_h = -150;
-            } else if (ghost_round_2 == 22) {
-                object6_3_h = Math.random() * 1000;
-                object6_3_w = Math.random() * 1000;
-                object6_3_c_h = Math.random() * 1000;
-            }
-
-            console.log(object6_2_h);
-            object6_3_c_w = (-150 + step6) - object6_3_w / 4
-
+        if (ghost_count_2 + 0.2 >= 30) {
+            ghost_count_2 = 0;
         } else {
-            object6_3 = null;
+            ghost_count_2 = ghost_count_2 + 0.2;
         }
+
+        ///しゃべる幽霊はこいつ
+        ghost_round_2 = Math.floor(ghost_count_2);
+
+        object6_3 = phu_imgs_ghost_talk_array[ghost_round_2];
+        object6_3_h = 100;
+        object6_3_w = 160;
+        object6_3_c_h = 90;
+        object6_3_c_w = -1350 + step6
+
+        //console.log(ghost_count);
+        //console.log(ghost_round);
+
+
+        object6_3 = phu_imgs_objects_array[ghost_round_2];
+
+        object6_3_c_w = (-100 + step6);
+
+
+        //console.log("座標今ここ"　+ (-100+step6))
+        object6_3_w = 10 - (ghost_round_2 * ghost_round_2) + ghost_round_2 * 3;
+
+        if (ghost_round_2 == 17) {
+            object6_3_h = 150;
+            object6_3_w = 200;
+            object6_3_c_h = 80;
+
+
+        } else if (ghost_round_2 == 18) {
+            object6_3_h = Math.random() * 1000;
+            object6_3_c_h = 50;
+            object6_3_w = 300;
+
+        } else if (ghost_round_2 == 19) {
+            object6_3_h = Math.random() * 1000;
+            object6_3_w = 500;
+            object6_3_c_h = 30;
+
+        } else if (ghost_round_2 == 20) {
+            object6_3_h = Math.random() * 1000;
+            object6_3_w = 600;
+            object6_3_c_h = -60;
+        } else if (ghost_round_2 == 21) {
+            object6_3_h = Math.random() * 1000;
+            object6_3_w = 800;
+            object6_3_c_h = -150;
+        } else if (ghost_round_2 == 22) {
+            object6_3_h = Math.random() * 1000;
+            object6_3_w = Math.random() * 1000;
+            object6_3_c_h = Math.random() * 1000;
+        }
+
+        console.log(object6_2_h);
+        object6_3_c_w = (-150 + step6) - object6_3_w / 4
 
     } else {
-
-
-
-        //phuが驚いて倒れ込む
-
-        /*
-        character5_1=null;
-        
-        character5=phu_imgs_phu_array[10];
-
-        lay=lay+23;
-        //定数
-        if((Math.floor(lay/100))<=10){
-            console.log(Math.floor(lay/100));
-  
-            character5=phu_imgs_phu_array[Math.floor(lay/100)];
-            //配列11番目は存在しない
-            //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
-        }
-        */
-
+        object6_3 = null;
     }
+
+
+
+
+
+    //phuが驚いて倒れ込む
+
+    /*
+    character5_1=null;
+    
+    character5=phu_imgs_phu_array[10];
+
+    lay=lay+23;
+    //定数
+    if((Math.floor(lay/100))<=10){
+        console.log(Math.floor(lay/100));
+ 
+        character5=phu_imgs_phu_array[Math.floor(lay/100)];
+        //配列11番目は存在しない
+        //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
+    }
+    */
+
+
 
     //14マスを5枚で移動する
     character5_c_h = 105;
@@ -608,7 +609,7 @@ function judge_draw() {
 
 
 
-
+/*
     if (walk_time_count > 0) {
         character5 = src_phu_ar[walk_time_img_count];
         //character5_1=phu_imgs_yue_array[walk_time_img_count];
@@ -621,7 +622,7 @@ function judge_draw() {
         character5_c_h = 105;
         character5 = src_phu_ar[walk_time_img_count];
         //character5_1=phu_imgs_yue_array[0];
-    }
+    }*/
 
     var lay
     lay = 600;
