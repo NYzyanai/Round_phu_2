@@ -116,8 +116,7 @@ var mountain
 var start_text_flag = 0;
 
 
-//何回Phuの歩行関数がよばれたか
-var call_walk_count = 0;
+
 
 //canvas=document.getElementById('canvas');
 //ctx=canvas.getContext('2d');

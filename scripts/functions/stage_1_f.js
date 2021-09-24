@@ -694,6 +694,8 @@ function mother(step6) {
 
 
 var walk_time_count = 0;
+//何回Phuの歩行関数がよばれたか
+var call_walk_count = 0;
 
 //歩行関数
 function phu_walk(walk_start_flag) {
@@ -714,14 +716,16 @@ function phu_walk(walk_start_flag) {
     // through_flag = 0も使っているのはここだけ
 
 
-
-    all_step_count = all_step_count + 25 / 24 + speedup;
+    all_step_count = all_step_count + 1+speedup;
+    //all_step_count = all_step_count + 25 / 24 + speedup;
 
 
     if (draw_phu_count >= 4 && walk_time_img_count < 5) {
        
         walk_time_img_count = walk_time_img_count + 1;
         draw_phu_count = 0;
+
+        
         
         //もしも、呼ばれているのが最後のsrc_phu_ar.lengthであり、
         //呼ばれる回数がn回目だとしたら
@@ -733,7 +737,8 @@ function phu_walk(walk_start_flag) {
         walk_start_flag = 0;
 
         //call_walk_countってなんだ？
-        all_step_count = call_walk_count * 25;
+        //all_step_count = all_step_count + 1+speedup;
+        /*all_step_count = call_walk_count * 25;*/
         call_walk_count = call_walk_count + 1;
 
     }
