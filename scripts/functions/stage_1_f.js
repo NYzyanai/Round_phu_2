@@ -1,7 +1,7 @@
 //judge drawとは、Phuがどこまで歩いてきたときに何を表示するか？を計算する関数。
-var phu_imgs_load_count=0;
+var phu_imgs_load_count = 0;
 
-var phu_imgs_load_count=0;
+var phu_imgs_load_count = 0;
 //普通のオブジェクトのサイズは180*320固定
 var normal_obj_h
 var normal_obj_w
@@ -163,18 +163,18 @@ var objetc6_3_c_w
 var buf_step = 0
 
 
-function judge(object,point,step,c_h,height,width){
-   
-    var between=point-step+320
+function judge(object, point, step, c_h, height, width) {
+
+    var between = point - step + 320
     //console.log(between);
 
-    if(between>=320){
+    if (between >= 320) {
         return [object,
             height,
             width,
             c_h,
-            step-point+320];
-    }else{
+            step - point + 320];
+    } else {
         return null;
     }
 }
@@ -441,7 +441,7 @@ function phu_imgs_draw() {
                 ctxfilter.fillStyle = filter_detail;
                 ctx.fillRect(0, 0, 320 / pixel_h, 180 / pixel_w);
                 ctx.globalCompositeOperation = "source-over";
-               
+
 
                 //console.log(all_step_count);
 
@@ -629,9 +629,9 @@ function origin_object6(step6) {
 
 //try
 
-function mother(step6){
+function mother(step6) {
 
-  
+
     if (judge(src_ceiling_ar[0], 320, step6, 0, 180, 320) != null) {
         answer = judge(src_ceiling_ar[0], 320, step6, 0, 180, 320);
         object6 = answer[0];
@@ -640,7 +640,7 @@ function mother(step6){
         object6_c_h = answer[3];
         object6_c_w = answer[4];
 
-   } else {
+    } else {
 
         answer = [];
         object6 = answer[0];
@@ -659,7 +659,7 @@ function mother(step6){
         object6_1_c_h = answer[3];
         object6_1_c_w = answer[4];
 
-   } else {
+    } else {
 
         answer = [];
         object6_1 = answer[0];
@@ -670,7 +670,7 @@ function mother(step6){
 
     }
 
-    
+
     if (judge(src_man_ar[0], 320, step6, 0, 180, 320) != null) {
         answer = judge(src_man_ar[0], 320, step6, 0, 180, 320);
         object6_2 = answer[0];
@@ -679,7 +679,7 @@ function mother(step6){
         object6_2_c_h = answer[3];
         object6_2_c_w = answer[4];
 
-   } else {
+    } else {
 
         answer = [];
         object6_2 = answer[0];
@@ -693,43 +693,43 @@ function mother(step6){
 
 
 //歩行関数
-function phu_walk(){
+function phu_walk() {
 
 
-if (walk_start_flag == 1) {
+    if (walk_start_flag == 1) {
 
-    //30ミリ秒に一回よばれる
-    //できれば600(30*20)ミリ秒で一枚
+        //30ミリ秒に一回よばれる
+        //できれば600(30*20)ミリ秒で一枚
 
-    //draw_phu_countの意味は？
-    draw_phu_count = draw_phu_count + 1 + speedup;
+        //draw_phu_countの意味は？
+        draw_phu_count = draw_phu_count + 1 + speedup;
 
-    //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
+        //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
 
-  // through_flag = 0も使っているのはここだけ
-    if (through_flag == 1 && through_count < 100) {
-
-    } else {
-        all_step_count = all_step_count + 25 / 24 + speedup;
-    }
-
-    if (draw_phu_count == 4 && walk_time_img_count < 5) {
-        walk_time_img_count = walk_time_img_count + 1;
-
-        draw_phu_count = 0;
-    } else if (draw_phu_count == 4 && walk_time_img_count == 5) {
-        draw_phu_count = 0;
-        walk_time_img_count = 0;
-        walk_start_flag = 0;
-
+        // through_flag = 0も使っているのはここだけ
         if (through_flag == 1 && through_count < 100) {
 
         } else {
-            all_step_count = call_walk_count * 25;
-            call_walk_count = call_walk_count + 1;
+            all_step_count = all_step_count + 25 / 24 + speedup;
         }
+
+        if (draw_phu_count == 4 && walk_time_img_count < 5) {
+            walk_time_img_count = walk_time_img_count + 1;
+
+            draw_phu_count = 0;
+        } else if (draw_phu_count == 4 && walk_time_img_count == 5) {
+            draw_phu_count = 0;
+            walk_time_img_count = 0;
+            walk_start_flag = 0;
+
+            if (through_flag == 1 && through_count < 100) {
+
+            } else {
+                all_step_count = call_walk_count * 25;
+                call_walk_count = call_walk_count + 1;
+            }
+        }
+
+
     }
-
-
-}
 }
