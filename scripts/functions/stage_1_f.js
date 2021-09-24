@@ -718,15 +718,21 @@ function phu_walk(walk_start_flag) {
     all_step_count = all_step_count + 25 / 24 + speedup;
 
 
-    if (draw_phu_count == 4 && walk_time_img_count < 5) {
+    if (draw_phu_count >= 4 && walk_time_img_count < 5) {
+       
         walk_time_img_count = walk_time_img_count + 1;
-
         draw_phu_count = 0;
-    } else if (draw_phu_count == 4 && walk_time_img_count == 5) {
+        
+        //もしも、呼ばれているのが最後のsrc_phu_ar.lengthであり、
+        //呼ばれる回数がn回目だとしたら
+    } else if (draw_phu_count >= 4 && walk_time_img_count == 5) {
 
         draw_phu_count = 0;
         walk_time_img_count = 0;
+        //ここに来たら歩行停止になる。
         walk_start_flag = 0;
+
+        //call_walk_countってなんだ？
         all_step_count = call_walk_count * 25;
         call_walk_count = call_walk_count + 1;
 
@@ -742,6 +748,7 @@ function phu_walk(walk_start_flag) {
     character5 = src_phu_ar[walk_time_img_count];
     character5_c_w = 225 +walk_time_img_count*2.5;
 
+    console.log(src_phu_ar.length);
 
 
     return walk_start_flag;
