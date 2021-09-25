@@ -23,12 +23,10 @@ function phu_stage_1(touchX, touchY) {
     if (phu_imgs_loaded_flag = 0) {
         phu_imgs_load();
         return;
-    
         //ここか、
         //touchX,touchYが何かしらの数字になっているとき
         //もしくは、歩行フラグが立っているときに呼ばれる。
 
-       
     } else {
         //phu_stage_1_started_flag = 1;
         if ((walk_start_flag == 1) || (touchX > 0 && touchY)) {
@@ -56,49 +54,6 @@ function phu_stage_1(touchX, touchY) {
 */
 
 
-//歩行関数
-
-/*
-function phu_walk_origin() {
-
-
-    if (walk_start_flag == 1) {
-
-        //30ミリ秒に一回よばれる
-        //できれば600(30*20)ミリ秒で一枚
-
-        //draw_phu_countの意味は？
-        draw_phu_count = draw_phu_count + 1 + speedup;
-
-        //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
-
-        // through_flag = 0も使っているのはここだけ
-        if (through_flag == 1 && through_count < 100) {
-
-        } else {
-            all_step_count = all_step_count + 25 / 24 + speedup;
-        }
-
-        if (draw_phu_count == 4 && walk_time_img_count < 5) {
-            walk_time_img_count = walk_time_img_count + 1;
-
-            draw_phu_count = 0;
-        } else if (draw_phu_count == 4 && walk_time_img_count == 5) {
-            draw_phu_count = 0;
-            walk_time_img_count = 0;
-            walk_start_flag = 0;
-
-            if (through_flag == 1 && through_count < 100) {
-
-            } else {
-                all_step_count = call_walk_count * 25;
-                call_walk_count = call_walk_count + 1;
-            }
-        }
-
-
-    }
-}*/
 
 var walk_time_count
 walk_time_count = 0;
@@ -116,12 +71,6 @@ var mountain
 var start_text_flag = 0;
 
 
-
-
-//canvas=document.getElementById('canvas');
-//ctx=canvas.getContext('2d');
-//ctx.imageSmoothingEnabled=false;
-
 var draw_phu_count = 0;
 
 var ghost_count = 0;
@@ -137,8 +86,7 @@ var delete_count_3 = 0;
 var delete_alpha_3 = 0;
 var count_alpha_3 = 0;
 var remember_alpha_3;
-var a = 0
-    ;
+var a = 0;
 
 function judge_draw() {
 
@@ -191,46 +139,6 @@ function judge_draw() {
         object3_c_w = answer[4];
     }
 
-
-    /*
-    
-        //歩行用演算
-        if (walk_start_flag == 1) {
-    
-            //30ミリ秒に一回よばれる
-            //できれば600(30*20)ミリ秒で一枚
-    
-            draw_phu_count = draw_phu_count + 1 + speedup;
-    
-            //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
-    
-    
-            if (through_flag == 1 && through_count < 100) {
-    
-            } else {
-                all_step_count = all_step_count + 25 / 24 + speedup;
-            }
-    
-            if (draw_phu_count == 4 && walk_time_img_count < 5) {
-                walk_time_img_count = walk_time_img_count + 1;
-    
-                draw_phu_count = 0;
-            } else if (draw_phu_count == 4 && walk_time_img_count == 5) {
-                draw_phu_count = 0;
-                walk_time_img_count = 0;
-                walk_start_flag = 0;
-    
-                if (through_flag == 1 && through_count < 100) {
-    
-                } else {
-                    all_step_count = call_walk_count * 25;
-                    call_walk_count = call_walk_count + 1;
-                }
-            }
-    
-    
-        }*/
-
     //常に描画される者はSTEP判定の外に置く
     //空
     object1 = src_sky_ar[0];
@@ -259,30 +167,6 @@ function judge_draw() {
     object2_2_c_w = cloud_time
     object2_2_h = normal_obj_h;
     object2_2_w = 320;
-
-    /*
-        if (judge(src_cloud_ar[0], 320, cloud_time-step2, 0, 180, 320) != null) {
-            answer = judge(src_forest_ar[0], 320, cloud_time-step2, 0, 180, 320);
-    
-            object3 = answer[0];
-            object3_h = answer[1];
-            object3_w = answer[2];
-            object3_c_h = answer[3];
-            object3_c_w = answer[4];
-    
-        } else if (judge(src_fish_ar[1], 940, step3, 0, 180, 320) != null) {
-            //前回のポイントとは、必ず+640以上離れていないといけない
-            answer = judge(src_fish_ar[1], 940, step3, 0, 180, 320);
-    
-            object3 = answer[0];
-            object3_h = answer[1];
-            object3_w = answer[2];
-            object3_c_h = answer[3];
-            object3_c_w = answer[4];
-    
-    
-        }
-        */
 
     //山1
     object2_3 = src_mount_ar[0];
@@ -504,10 +388,6 @@ function judge_draw() {
     }
 
 
-
-    //Phuの歩行関数
-
-
     if (-1350 + step6 > -320 && -1350 + step6 < 640) {
 
         if (ghost_count_2 + 0.2 >= 30) {
@@ -574,75 +454,8 @@ function judge_draw() {
         object6_3 = null;
     }
 
-
-
-
-
-    //phuが驚いて倒れ込む
-
-    /*
-    character5_1=null;
-    
-    character5=phu_imgs_phu_array[10];
-
-    lay=lay+23;
-    //定数
-    if((Math.floor(lay/100))<=10){
-        console.log(Math.floor(lay/100));
- 
-        character5=phu_imgs_phu_array[Math.floor(lay/100)];
-        //配列11番目は存在しない
-        //character5_1=phu_imgs_yue_array[Math.floor(lay/100)];
-    }
-    */
-
-
-
-    //14マスを5枚で移動する
-    character5_c_h = 105;
-
-
-
-    character5_h = phu_height;
-    character5_w = phu_width;
-
-
-
-/*
-    if (walk_time_count > 0) {
-        character5 = src_phu_ar[walk_time_img_count];
-        //character5_1=phu_imgs_yue_array[walk_time_img_count];
-
-        character5_c_w = 200 + ((walk_time_img_count) * 14 / 5);
-        //14マスを5枚で移動する
-        character5_c_h = 105;
-    } else {
-        character5_c_w = 200;
-        character5_c_h = 105;
-        character5 = src_phu_ar[walk_time_img_count];
-        //character5_1=phu_imgs_yue_array[0];
-    }*/
-
     var lay
     lay = 600;
-
-
-    var through_count = 0;
-    var gyou_count = 0;
-    var text_time = 0;
-
-    var retu_count = 0;
-
-
-    character5_h = phu_height;
-    character5_w = phu_width;
-
-    character5_1_c_w = 290;
-    character5_1_c_h = 110;
-    character5_1_h = 75;
-    character5_1_w = 25;
-
-
 
     //////////////////////////////
 
@@ -654,16 +467,10 @@ function judge_draw() {
 
 var lay
 lay = 600;
-
-
 var through_count = 0;
 var gyou_count = 0;
 var text_time = 0;
-
 var retu_count = 0;
-
-
-
 var count_alpha
 count_alpha = 0;
 var remember_alpha

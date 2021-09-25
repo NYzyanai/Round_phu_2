@@ -289,9 +289,9 @@ function phu_imgs_draw() {
                     ctx.drawImage(character5, character5_c_w / pixel_w, (character5_c_h - upper_gamen) / pixel_h, character5_w / pixel_w, character5_h / pixel_h);
                 }
 
-                /*if(character5_1!=null){
+                if(character5_1!=null){
                     ctx.drawImage(character5_1,(character5_1_c_w-20)/pixel_w,(character5_1_c_h-upper_gamen-3)/pixel_h,character5_1_w/pixel_w,character5_1_h/pixel_h);
-                }*/
+                }
                 break;
             case 6:
                 //手前のもの
@@ -701,60 +701,38 @@ var call_walk_count = 0;
 function phu_walk(walk_start_flag) {
 
     walk_start_flag = 1;
-
-
-    //まず、フラグが立っているか？
-
-    //30ミリ秒に一回よばれる
-    //できれば600(30*20)ミリ秒で一枚
-
     //draw_phu_countの意味は？
+
     draw_phu_count = draw_phu_count + 1 + speedup;
-
-    //一回の歩行で25マス、歩行時には30回呼ばれるので、25/29(30-1にしないと１ます　遅くなる)
-
-    // through_flag = 0も使っているのはここだけ
-
-
-    all_step_count = all_step_count + 1+speedup;
-    //all_step_count = all_step_count + 25 / 24 + speedup;
-
+    //これは画像がよばれた回数
+    all_step_count = all_step_count + 1 + speedup;
+    //allは全体の歩行数
 
     if (draw_phu_count >= 4 && walk_time_img_count < 5) {
-       
+
+        //呼び出し回数4回超えていたら、画像を次に
         walk_time_img_count = walk_time_img_count + 1;
         draw_phu_count = 0;
 
-        
-        
+    } else if (draw_phu_count >= 4 && walk_time_img_count == 5) {
         //もしも、呼ばれているのが最後のsrc_phu_ar.lengthであり、
         //呼ばれる回数がn回目だとしたら
-    } else if (draw_phu_count >= 4 && walk_time_img_count == 5) {
-
+        //ここに来たら歩行停止になる。
         draw_phu_count = 0;
         walk_time_img_count = 0;
-        //ここに来たら歩行停止になる。
         walk_start_flag = 0;
-
-        //call_walk_countってなんだ？
-        //all_step_count = all_step_count + 1+speedup;
-        /*all_step_count = call_walk_count * 25;*/
         call_walk_count = call_walk_count + 1;
 
     }
 
-    //character5_c_w = 225 + ((walk_time_img_count) * 14 / 5);
-
     if (walk_time_img_count > 0 && through_count < 100) {
         through_count = through_count + 1;
     }
+
     haracter5_c_w = 200;
     character5_c_h = 105;
     character5 = src_phu_ar[walk_time_img_count];
-    character5_c_w = 225 +walk_time_img_count*2.5;
-
-    console.log(src_phu_ar.length);
-
+    character5_c_w = 225 + walk_time_img_count * 2.5;
 
     return walk_start_flag;
 }
