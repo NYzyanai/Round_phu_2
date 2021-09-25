@@ -293,12 +293,10 @@ function phu_imgs_draw() {
                     console.log(character5_w);
                     console.log(character5_h)
 
-                    ctx.drawImage(character5,
-                         character5_c_w / pixel_w, 
-                         (character5_c_h - upper_gamen) / pixel_h,
-                          character5_w / pixel_w,
-                           character5_h / pixel_h);
-                }
+                    
+                        ctx.drawImage(character5, character5_c_w / pixel_w, (character5_c_h - upper_gamen) / pixel_h, character5_w / pixel_w, character5_h / pixel_h);
+                 }
+    
         
 
                 
@@ -307,6 +305,23 @@ function phu_imgs_draw() {
                 }*/
                 break;
             case 6:
+
+                if (character5 != null) {
+                    console.log("来てる");
+                    console.log(character5);
+                    console.log(character5_c_w);
+                    console.log(character5_c_h);
+                    console.log(character5_w);
+                    console.log(character5_h)
+
+                    ctx.drawImage(character5,
+                         character5_c_w / pixel_w, 
+                         (character5_c_h - upper_gamen) / pixel_h,
+                          character5_w / pixel_w,
+                           character5_h / pixel_h);
+                }
+        
+        
                 //手前のもの
                 /*
                 if (object6 != null) {
@@ -477,6 +492,8 @@ function phu_imgs_draw() {
 
             default:
 
+                
+        
 
                 //ctx.drawImage(src_sky_ar[0], 10 / pixel_w,10/ pixel_h, 1000 / pixel_w, 1000 / pixel_h);
                 //ctx.globalAlpha = 1;
@@ -752,8 +769,8 @@ function phu_walk(walk_start_flag) {
     character5_h = phu_height;
     character5_w = phu_width;
 
-    character5_c_w = 290;
-    character5_c_h = 110;
+
+    character5_c_h = 105;
     character5_1_h = 75;
     character5_1_w = 25;
 
