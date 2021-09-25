@@ -103,6 +103,11 @@ var src_fish_np = [
     'src/stage1_obj/fish_2.png'
 ]
 
+var src_question_np = [
+    'src/button/settings.png'
+]
+
+
 var src_big_grass_np = [
     'src/stage1_obj/big_grass1.png'
 ]
@@ -213,7 +218,8 @@ function phu_imgs_load() {
         src_phu_np.length +
         src_phu_lay_np.length +
         src_big_grass_np.length +
-        src_ghost_talking_np.length
+        src_ghost_talking_np.length +
+        src_question_np.length
     ) {
         phu_imgs_loaded_flag = 1;
     }
@@ -405,6 +411,17 @@ for (var num = 0; num < src_ghost_talking_np.length; num++) {
     src_ghost_talking_ar
 [num].src = src_ghost_talking_np[num];
 src_ghost_talking_ar
+[num].onload = function () {
+        phu_imgs_load_count++
+    }
+}
+
+var src_question_ar=[];
+for (var num = 0; num < src_question_np.length; num++) {
+    src_question_ar[num] = new Image();
+    src_question_ar
+[num].src = src_question_np[num];
+src_question_ar
 [num].onload = function () {
         phu_imgs_load_count++
     }

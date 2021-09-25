@@ -161,7 +161,7 @@ var object6_3_w
 var object6_3_c_h
 var objetc6_3_c_w
 var buf_step = 0
-
+var filter_end=0;
 
 function judge(object, point, step, c_h, height, width) {
 
@@ -263,7 +263,7 @@ function phu_imgs_draw() {
 
                 break;
             case 4:
-  
+
                 //奥の建物
                 if (object4 != null) {
                     ctx.drawImage(object4, object4_c_w / pixel_w, (object4_c_h - upper_gamen) / pixel_h, object4_w / pixel_w, object4_h / pixel_h);
@@ -293,13 +293,13 @@ function phu_imgs_draw() {
                     console.log(character5_w);
                     console.log(character5_h)*/
 
-                    
-                        ctx.drawImage(character5, character5_c_w / pixel_w, (character5_c_h - upper_gamen) / pixel_h, character5_w / pixel_w, character5_h / pixel_h);
-                 }
-    
-        
 
-                
+                    ctx.drawImage(character5, character5_c_w / pixel_w, (character5_c_h - upper_gamen) / pixel_h, character5_w / pixel_w, character5_h / pixel_h);
+                }
+
+
+
+
                 /*if(character5_1!=null){
                     ctx.drawImage(character5_1,(character5_1_c_w-20)/pixel_w,(character5_1_c_h-upper_gamen-3)/pixel_h,character5_1_w/pixel_w,character5_1_h/pixel_h);
                 }*/
@@ -321,8 +321,8 @@ function phu_imgs_draw() {
                            character5_h / pixel_h);
                 }
                 */
-        
-        
+
+
                 //手前のもの
                 /*
                 if (object6 != null) {
@@ -442,10 +442,15 @@ function phu_imgs_draw() {
 
             case 7:
 
-            if(all_step_count-500<0){
-                filter_color_burn(all_step_count);
-                console.log("filter");
-            }
+
+
+
+                //ctx.drawImage(src_question_ar[0], 0 / pixel_w, (0 - upper_gamen) / pixel_h, 320 / pixel_w, 180 / pixel_h);
+
+
+                //if (filter_end=="filter_end") {
+                    filter_end=filter_color_burn(all_step_count);
+                //}
 
                 /*filter_opacity = 1 / (all_step_count / 500);
                 if (filter_opacity > 0.7) {
@@ -463,7 +468,7 @@ function phu_imgs_draw() {
 
 
 
-              
+
                 break;
 
             case 8:
@@ -474,7 +479,7 @@ function phu_imgs_draw() {
                         if (gyou_buf > 1) {
                             stop_walk_flag = 0;
                         }
-                    } 
+                    }
                 }
                 break;
 
@@ -732,9 +737,9 @@ function phu_walk(walk_start_flag) {
     character5_h = 105;
     character5 = src_phu_ar[walk_time_img_count];
     character5_c_w = 225 + walk_time_img_count * 2.5;
-    character5_c_h=180;
+    character5_c_h = 180;
 
-    
+
     character5_h = phu_height;
     character5_w = phu_width;
 
@@ -746,21 +751,26 @@ function phu_walk(walk_start_flag) {
     return walk_start_flag;
 }
 
-function filter_color_burn(all_step_count){
+function filter_color_burn(all_step_count) {
 
-filter_opacity = 1 / (all_step_count / 500);
-if (filter_opacity > 0.7) {
-    filter_opacity = 0.7;
-}
+    filter_opacity = 1 / (all_step_count / 500);
 
-
-ctxfilter.globalCompositeOperation = "color-burn";
-filter_detail = 'rgba(67,86,232,' + filter_opacity + ')';
-
-ctxfilter.fillStyle = filter_detail;
-ctx.fillRect(-10, -10, 350 / pixel_h, 200 / pixel_w);
-ctx.globalCompositeOperation = "source-over";
+    if(filter_opacity<=0.001){
+        return "filter_end";
+    }
+    if (filter_opacity > 0.7) {
+        filter_opacity = 0.7;
+    }
 
 
-//console.log(all_step_count);
+    ctxfilter.globalCompositeOperation = "color-burn";
+    filter_detail = 'rgba(67,86,232,' + filter_opacity + ')';
+
+    ctxfilter.fillStyle = filter_detail;
+    ctx.fillRect(-10, -10, 350 / pixel_h, 200 / pixel_w);
+    ctx.globalCompositeOperation = "source-over";
+
+    return "filter_continue";
+
+    //console.log(all_step_count);
 }

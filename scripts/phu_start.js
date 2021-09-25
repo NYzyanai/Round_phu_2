@@ -474,4 +474,4 @@ var retu_count = 0;
 var count_alpha
 count_alpha = 0;
 var remember_alpha
-remember_alpha = 0.2
+remember_alpha = 0.2;
