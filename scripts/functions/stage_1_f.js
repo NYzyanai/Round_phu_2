@@ -188,6 +188,7 @@ function phu_imgs_draw() {
         switch (layer) {
             case 1:
                 //いちばん奥　空など
+
                 if (object1 != null) {
 
                     ctx.drawImage(object1, object1_c_w / pixel_w, (object1_c_h - upper_gamen) / pixel_h, object1_w / pixel_w, object1_h / pixel_h);
@@ -223,8 +224,6 @@ function phu_imgs_draw() {
                     ctx.drawImage(object1_3, object1_3_c_w / pixel_w, (object1_3_c_h - upper_gamen) / pixel_h, object1_3_w / pixel_w, object1_3_h / pixel_h);
                 }
 
-
-
                 if (object2 != null) {
                     //console.log("じっさいのびょうがまで　来ている");
                     ctx.drawImage(object2, object2_c_w / pixel_w, (object2_c_h - upper_gamen) / pixel_h, object2_w / pixel_w, object2_h / pixel_h);
@@ -243,7 +242,7 @@ function phu_imgs_draw() {
                 }
                 break;
             case 3:
-                //木々
+                //木々                
 
                 if (object3 != null) {
                     //console.log("じっさいのびょうがまで　来ている");
@@ -264,6 +263,7 @@ function phu_imgs_draw() {
 
                 break;
             case 4:
+  
                 //奥の建物
                 if (object4 != null) {
                     ctx.drawImage(object4, object4_c_w / pixel_w, (object4_c_h - upper_gamen) / pixel_h, object4_w / pixel_w, object4_h / pixel_h);
@@ -280,18 +280,31 @@ function phu_imgs_draw() {
                 if (object4_3 != null) {
                     ctx.drawImage(object4_3, object4_3_c_w / pixel_w, (object4_3_c_h - upper_gamen) / pixel_h, object4_3_w / pixel_w, object4_3_h / pixel_h);
                 }
-
-
                 break;
+
             case 5:
                 //キャラクター
-                if (character5 != null) {
-                    ctx.drawImage(character5, character5_c_w / pixel_w, (character5_c_h - upper_gamen) / pixel_h, character5_w / pixel_w, character5_h / pixel_h);
-                }
 
-                if(character5_1!=null){
-                    ctx.drawImage(character5_1,(character5_1_c_w-20)/pixel_w,(character5_1_c_h-upper_gamen-3)/pixel_h,character5_1_w/pixel_w,character5_1_h/pixel_h);
+                if (character5 != null) {
+                    console.log("来てる");
+                    console.log(character5);
+                    console.log(character5_c_w);
+                    console.log(character5_c_h);
+                    console.log(character5_w);
+                    console.log(character5_h)
+
+                    ctx.drawImage(character5,
+                         character5_c_w / pixel_w, 
+                         (character5_c_h - upper_gamen) / pixel_h,
+                          character5_w / pixel_w,
+                           character5_h / pixel_h);
                 }
+        
+
+                
+                /*if(character5_1!=null){
+                    ctx.drawImage(character5_1,(character5_1_c_w-20)/pixel_w,(character5_1_c_h-upper_gamen-3)/pixel_h,character5_1_w/pixel_w,character5_1_h/pixel_h);
+                }*/
                 break;
             case 6:
                 //手前のもの
@@ -729,10 +742,20 @@ function phu_walk(walk_start_flag) {
         through_count = through_count + 1;
     }
 
-    haracter5_c_w = 200;
-    character5_c_h = 105;
+    character5_w = 200;
+    character5_h = 105;
     character5 = src_phu_ar[walk_time_img_count];
     character5_c_w = 225 + walk_time_img_count * 2.5;
+    character5_c_h=180;
+
+    
+    character5_h = phu_height;
+    character5_w = phu_width;
+
+    character5_c_w = 290;
+    character5_c_h = 110;
+    character5_1_h = 75;
+    character5_1_w = 25;
 
     return walk_start_flag;
 }

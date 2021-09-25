@@ -20,7 +20,7 @@ function judge(object, point, step, c_h, height, width) {
 
 
 
-function phu_imgs_draw() {
+function phu_imgs_drawあああ() {
 
     for (layer = 0; layer <= 7; layer++) {
         switch (layer) {
