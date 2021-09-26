@@ -39,6 +39,12 @@ document.getElementById("speed_up").onclick = function () {
 
 
 document.getElementById("speed_down").onclick = function () {
-    settings_select();
-    speedup--
+    
+    if(speedup>=2){
+        speedup--
+        settings_select();
+    }else{
+        cannot();
+    }
+
 }

@@ -27,3 +27,15 @@ function settings_select() {
     settings_select.volume = 1;
     settings_select.play();
 }
+
+
+
+function cannot() {
+    var cannot = document.querySelector(".cannot");
+    //console.log(document.querySelector('.text_audio'));
+    //console.log(text_audio);
+    //console.log(text_audio.volume); // 1
+    cannot.currentTime = 0;
+    cannot.volume = 0.8;
+    cannot.play();
+}
