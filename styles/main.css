@@ -9,12 +9,36 @@ body{
     
 }
 
-p{
-    font-family: 'DotGothic16', sans-serif;
-    color:aliceblue
-    
+#settings{
+    display:none;
 }
 
+p{
+    font-family: 'DotGothic16', sans-serif;
+    color:aliceblue;
+    display: flex;
+}
+
+.settings_title{
+        font-weight: bold;
+        border: solid 1px white;
+        border-radius: 2px;
+        padding: 5px;
+        margin: 2px 2px 2px 2px;
+    text-align: center;
+}
+
+
+
+  
+.settings_object{
+    border:solid 1px;
+    border-radius:10px;
+    flex:auto;
+    padding: 5px;
+    margin: 2px 20px 2px 20px;
+    text-align: center;
+}
 
 head{
     user-select: none; /* CSS3 */

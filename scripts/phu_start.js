@@ -36,7 +36,9 @@ function phu_stage_1(touchX, touchY) {
         phu_imgs_draw();
     }
 
-
+    if ( touchX > 0 && touchX<20 && touchY>0) {
+        settings();
+    }
 
 }
 
