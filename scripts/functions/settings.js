@@ -23,12 +23,16 @@ document.getElementById("return_game").onclick = function () {
 
 document.getElementById("auto_move").onclick = function () {
     //automoveに切り替える
+    auto_move=1;
+    sf_settings_select();
 }
 
 
 
 document.getElementById("manual_move").onclick = function () {
     //manual_moveに切り替える
+    auto_move=0;
+    sf_settings_select();
 }
 
 

@@ -161,7 +161,7 @@ var object6_3_w
 var object6_3_c_h
 var objetc6_3_c_w
 var buf_step = 0
-var filter_end=0;
+var filter_end = 0;
 
 function judge(object, point, step, c_h, height, width) {
 
@@ -449,7 +449,7 @@ function phu_imgs_draw() {
 
 
                 //if (filter_end=="filter_end") {
-                    filter_end=filter_color_burn(all_step_count);
+                filter_end = filter_color_burn(all_step_count);
                 //}
 
                 /*filter_opacity = 1 / (all_step_count / 500);
@@ -701,6 +701,7 @@ var walk_time_count = 0;
 //何回Phuの歩行関数がよばれたか
 var call_walk_count = 0;
 
+var auto_move=0;
 //歩行関数
 function phu_walk(walk_start_flag) {
 
@@ -718,15 +719,18 @@ function phu_walk(walk_start_flag) {
         walk_time_img_count = walk_time_img_count + 1;
         draw_phu_count = 0;
 
-    } else if (draw_phu_count >= 4 && walk_time_img_count == 5) {
+    } else if (draw_phu_count >= 6 && walk_time_img_count == 5) {
         //もしも、呼ばれているのが最後のsrc_phu_ar.lengthであり、
         //呼ばれる回数がn回目だとしたら
         //ここに来たら歩行停止になる。
         draw_phu_count = 0;
         walk_time_img_count = 0;
-        walk_start_flag = 0;
+        if (auto_move==1) {
+            
+        }else{
+            walk_start_flag = 0;
+        }
         call_walk_count = call_walk_count + 1;
-
     }
 
     if (walk_time_img_count > 0 && through_count < 100) {
@@ -755,7 +759,7 @@ function filter_color_burn(all_step_count) {
 
     filter_opacity = 1 / (all_step_count / 500);
 
-    if(filter_opacity<=0.001){
+    if (filter_opacity <= 0.001) {
         return "filter_end";
     }
     if (filter_opacity > 0.7) {
