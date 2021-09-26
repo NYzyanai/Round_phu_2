@@ -161,7 +161,7 @@ var object6_3_w
 var object6_3_c_h
 var objetc6_3_c_w
 var buf_step = 0
-
+var filter_end=0;
 
 function judge(object, point, step, c_h, height, width) {
 
@@ -184,10 +184,11 @@ function judge(object, point, step, c_h, height, width) {
 
 function phu_imgs_draw() {
 
-    for (layer = 0; layer <= 7; layer++) {
+    for (layer = 0; layer <= 8; layer++) {
         switch (layer) {
             case 1:
                 //いちばん奥　空など
+
                 if (object1 != null) {
 
                     ctx.drawImage(object1, object1_c_w / pixel_w, (object1_c_h - upper_gamen) / pixel_h, object1_w / pixel_w, object1_h / pixel_h);
@@ -223,8 +224,6 @@ function phu_imgs_draw() {
                     ctx.drawImage(object1_3, object1_3_c_w / pixel_w, (object1_3_c_h - upper_gamen) / pixel_h, object1_3_w / pixel_w, object1_3_h / pixel_h);
                 }
 
-
-
                 if (object2 != null) {
                     //console.log("じっさいのびょうがまで　来ている");
                     ctx.drawImage(object2, object2_c_w / pixel_w, (object2_c_h - upper_gamen) / pixel_h, object2_w / pixel_w, object2_h / pixel_h);
@@ -243,7 +242,7 @@ function phu_imgs_draw() {
                 }
                 break;
             case 3:
-                //木々
+                //木々                
 
                 if (object3 != null) {
                     //console.log("じっさいのびょうがまで　来ている");
@@ -264,6 +263,7 @@ function phu_imgs_draw() {
 
                 break;
             case 4:
+
                 //奥の建物
                 if (object4 != null) {
                     ctx.drawImage(object4, object4_c_w / pixel_w, (object4_c_h - upper_gamen) / pixel_h, object4_w / pixel_w, object4_h / pixel_h);
@@ -280,20 +280,49 @@ function phu_imgs_draw() {
                 if (object4_3 != null) {
                     ctx.drawImage(object4_3, object4_3_c_w / pixel_w, (object4_3_c_h - upper_gamen) / pixel_h, object4_3_w / pixel_w, object4_3_h / pixel_h);
                 }
-
-
                 break;
+
             case 5:
                 //キャラクター
+
                 if (character5 != null) {
+                    /*console.log("来てる");
+                    console.log(character5);
+                    console.log(character5_c_w);
+                    console.log(character5_c_h);
+                    console.log(character5_w);
+                    console.log(character5_h)*/
+
+
                     ctx.drawImage(character5, character5_c_w / pixel_w, (character5_c_h - upper_gamen) / pixel_h, character5_w / pixel_w, character5_h / pixel_h);
                 }
 
-                if(character5_1!=null){
+
+
+
+                /*if(character5_1!=null){
                     ctx.drawImage(character5_1,(character5_1_c_w-20)/pixel_w,(character5_1_c_h-upper_gamen-3)/pixel_h,character5_1_w/pixel_w,character5_1_h/pixel_h);
-                }
+                }*/
                 break;
             case 6:
+
+                /*if (character5 != null) {
+                    /*console.log("来てる");
+                    console.log(character5);
+                    console.log(character5_c_w);
+                    console.log(character5_c_h);
+                    console.log(character5_w);
+                    console.log(character5_h)
+
+                    ctx.drawImage(character5,
+                         character5_c_w / pixel_w, 
+                         (character5_c_h - upper_gamen) / pixel_h,
+                          character5_w / pixel_w,
+                           character5_h / pixel_h);
+                }
+                */
+
+
                 //手前のもの
                 /*
                 if (object6 != null) {
@@ -413,28 +442,20 @@ function phu_imgs_draw() {
 
             case 7:
 
-                //文字レイヤー
-
-                /*
-                ctxfilter.globalCompositeOperation = "malutiply";
-      
-                ctxfilter.strokeStyle = 'rgb(00,00,255)'; //枠線の色は青
-                ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
-                ctxfilter.fillRect(10,10,100,200);
-    
-                ctxfilter.globalCompositeOperation ="overlay";
-    
-                ctxfilter.fillStyle = 'rgba(67,86,232,0.5)'; //塗りつぶしの色は赤
-                ctxfilter.fillRect(100,10,100,400);
-                */
 
 
-                filter_opacity = 1 / (all_step_count / 500);
+
+                //ctx.drawImage(src_question_ar[0], 0 / pixel_w, (0 - upper_gamen) / pixel_h, 320 / pixel_w, 180 / pixel_h);
+
+
+                //if (filter_end=="filter_end") {
+                    filter_end=filter_color_burn(all_step_count);
+                //}
+
+                /*filter_opacity = 1 / (all_step_count / 500);
                 if (filter_opacity > 0.7) {
                     filter_opacity = 0.7;
                 }
-
-
                 ctxfilter.globalCompositeOperation = "color-burn";
                 filter_detail = 'rgba(67,86,232,' + filter_opacity + ')';
 
@@ -443,45 +464,28 @@ function phu_imgs_draw() {
                 ctx.globalCompositeOperation = "source-over";
 
 
-                //console.log(all_step_count);
+                //console.log(all_step_count);*/
 
 
+
+
+                break;
+
+            case 8:
 
                 if (all_step_count > 100) {
                     if (mama_end_text_flag == 0) {
                         drawtext(1, 10, "お母さん : ", 1);
-                        stop_walk_flag = 1;
                         if (gyou_buf > 1) {
                             stop_walk_flag = 0;
                         }
-                    } else {
-                        stop_walk_flag = 0;
                     }
                 }
-
-
-
+                break;
 
             default:
-
-
-                //ctx.drawImage(src_sky_ar[0], 10 / pixel_w,10/ pixel_h, 1000 / pixel_w, 1000 / pixel_h);
-                //ctx.globalAlpha = 1;
-
-                if (object3 != null) {
-                    //console.log("きてる？");
-                    ctx.drawImage(object3, object1_3_c_w, 0, 320 / pixel_w, 180 / pixel_h);
-                    ctx.globalAlpha = 1;
-                }
-
-            //一番前
-            //ctx.drawImage(phu_imgs_phu_array[1],20+add,20+add,100,100+add);
-            //add=add+0.08;
         }
-
-
     }
-
 }
 
 
@@ -729,10 +733,44 @@ function phu_walk(walk_start_flag) {
         through_count = through_count + 1;
     }
 
-    haracter5_c_w = 200;
-    character5_c_h = 105;
+    character5_w = 200;
+    character5_h = 105;
     character5 = src_phu_ar[walk_time_img_count];
     character5_c_w = 225 + walk_time_img_count * 2.5;
+    character5_c_h = 180;
+
+
+    character5_h = phu_height;
+    character5_w = phu_width;
+
+
+    character5_c_h = 105;
+    character5_1_h = 75;
+    character5_1_w = 25;
 
     return walk_start_flag;
+}
+
+function filter_color_burn(all_step_count) {
+
+    filter_opacity = 1 / (all_step_count / 500);
+
+    if(filter_opacity<=0.001){
+        return "filter_end";
+    }
+    if (filter_opacity > 0.7) {
+        filter_opacity = 0.7;
+    }
+
+
+    ctxfilter.globalCompositeOperation = "color-burn";
+    filter_detail = 'rgba(67,86,232,' + filter_opacity + ')';
+
+    ctxfilter.fillStyle = filter_detail;
+    ctx.fillRect(-10, -10, 350 / pixel_h, 200 / pixel_w);
+    ctx.globalCompositeOperation = "source-over";
+
+    return "filter_continue";
+
+    //console.log(all_step_count);
 }
