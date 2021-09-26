@@ -349,6 +349,7 @@ function judge_draw() {
 
     }
 
+
     if (judge(src_grass_ar[1], 800, step4, 0, 180, 320) != null) {
         answer = judge(src_grass_ar[1], 800, step4, 0, 180, 320);
         object4_1 = answer[0];
@@ -367,16 +368,15 @@ function judge_draw() {
         object4_1_c_h = answer[3];
         object4_1_c_w = answer[4];
 
-    } else if (judge(src_big_grass_ar[0], 2050, step4, 0, 180, 320) != null) {
+    } else if (judge(src_big_grass_ar[0], 2370, step4, 0, 180, 320) != null) {
 
-        answer = judge(src_big_grass_ar[0], 2050, step4, 0, 180, 320);
+        answer = judge(src_big_grass_ar[0], 2370, step4, 0, 180, 320);
         //前回のポイントとは、必ず+640以上離れていないといけない
         object4_1 = answer[0];
         object4_1_h = answer[1];
         object4_1_w = answer[2];
         object4_1_c_h = answer[3];
         object4_1_c_w = answer[4];
-
     } else {
 
         answer = [];
@@ -388,6 +388,50 @@ function judge_draw() {
 
 
     }
+
+    if (judge(src_climing_ar[0], 2370, step4, 0, 180, 320) != null) {
+        answer = judge(src_climing_ar[0], 2370, step4, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object4_2 = answer[0];
+        object4_2_h = answer[1];
+        object4_2_w = answer[2];
+        object4_2_c_h = answer[3];
+        object4_2_c_w = answer[4];
+
+    } else {
+
+        answer = [];
+        object4_2 = answer[0];
+        object4_2_h = answer[1];
+        object4_2_w = answer[2];
+        object4_2_c_h = answer[3];
+        object4_2_c_w = answer[4];
+
+
+    }
+
+    if (judge(src_climing_ar[1], 2690, step4, 0, 180, 320) != null) {
+
+        answer = judge(src_climing_ar[1], 2690, step4, 0, 180, 320);
+        //前回のポイントとは、必ず+640以上離れていないといけない
+        object4_3 = answer[0];
+        object4_3_h = answer[1];
+        object4_3_w = answer[2];
+        object4_3_c_h = answer[3];
+        object4_3_c_w = answer[4];
+
+    }else {
+
+        answer = [];
+        object4_3 = answer[0];
+        object4_3_h = answer[1];
+        object4_3_w = answer[2];
+        object4_3_c_h = answer[3];
+        object4_3_c_w = answer[4];
+
+
+    }
+
 
 
     if (-1350 + step6 > -320 && -1350 + step6 < 640) {
@@ -401,7 +445,7 @@ function judge_draw() {
         ///しゃべる幽霊はこいつ
         ghost_round_2 = Math.floor(ghost_count_2);
 
-        object6_3 = phu_imgs_ghost_talk_array[ghost_round_2];
+        object6_3 = src_ghost_talking_ar[ghost_round_2];
         object6_3_h = 100;
         object6_3_w = 160;
         object6_3_c_h = 90;
@@ -411,7 +455,7 @@ function judge_draw() {
         //console.log(ghost_round);
 
 
-        object6_3 = phu_imgs_objects_array[ghost_round_2];
+        object6_3 = src_ghost_talking_np[ghost_round_2];
 
         object6_3_c_w = (-100 + step6);
 

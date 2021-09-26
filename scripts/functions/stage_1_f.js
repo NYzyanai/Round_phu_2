@@ -700,8 +700,8 @@ function mother(step6) {
 var walk_time_count = 0;
 //何回Phuの歩行関数がよばれたか
 var call_walk_count = 0;
-
 var auto_move=0;
+
 //歩行関数
 function phu_walk(walk_start_flag) {
 
@@ -759,7 +759,7 @@ function filter_color_burn(all_step_count) {
 
     filter_opacity = 1 / (all_step_count / 500);
 
-    if (filter_opacity <= 0.001) {
+    if (filter_opacity <= 0.0000001) {
         return "filter_end";
     }
     if (filter_opacity > 0.7) {
