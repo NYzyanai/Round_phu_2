@@ -28,7 +28,9 @@ p{
     text-align: center;
 }
 
-
+#mute{
+    display:none;
+}
 
   
 .settings_object{

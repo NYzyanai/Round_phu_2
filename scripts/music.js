@@ -20,6 +20,10 @@ function sf_play_music() {
     });
 }
 
+function sf_pause_music(){
+    audio.pause();
+}
+
 
 
 

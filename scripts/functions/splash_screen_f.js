@@ -26,7 +26,7 @@ function splash_draw_image(num) {
                     //Soundlogoの表示場所
 
                     //ここ何とかしないといけない…
-                    if (typeof audio === 'undefined') {
+                    /*if (typeof audio === 'undefined') {
                         ctx.drawImage(splash_imgs[3], 150 / pixel_w, 160 / pixel_h, 80 / pixel_w, 20 / pixel_h);
                     }else if(audio.paused){
                         //console.log("wow");
@@ -35,7 +35,7 @@ function splash_draw_image(num) {
                       
                         ctx.drawImage(splash_imgs[4], 150 / pixel_w, 160 / pixel_h, 80 / pixel_w, 20 / pixel_h);
             
-                    }
+                    }*/
                 } else if (i == 2) {
                     //infologoの表示場所
                     ctx.drawImage(splash_imgs[i], 260 / pixel_w, 160 / pixel_h, 40 / pixel_w, 20 / pixel_h);

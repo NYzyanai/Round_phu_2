@@ -61,7 +61,7 @@ debug_mode_flag = 0;
 //////////メイン処理////////
 function loop() {
 
-    debag(touchX, touchY);
+    //debag(touchX, touchY);
 
     //console.log(now_stage);
 
