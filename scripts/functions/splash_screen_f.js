@@ -29,7 +29,7 @@ function splash_draw_image(num) {
                     if (typeof audio === 'undefined') {
                         ctx.drawImage(splash_imgs[3], 150 / pixel_w, 160 / pixel_h, 80 / pixel_w, 20 / pixel_h);
                     }else if(audio.paused){
-                        console.log("wow");
+                        //console.log("wow");
                         ctx.drawImage(splash_imgs[3], 150 / pixel_w, 160 / pixel_h, 80 / pixel_w, 20 / pixel_h);
                     }else if(audio.paused==false){
                       
@@ -111,7 +111,7 @@ function splash_screen(touchX, touchY) {
     if ((110 <= touchX && touchX <= 260)
         && (touchY <= 177 && touchY >= 159)) {
         //ここでSoundの設定を変える
-        play_music();
+        sf_play_music();
     }
 
     //フラグに応じた処理

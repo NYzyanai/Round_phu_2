@@ -5,7 +5,7 @@ function settings() {
     canvas.style.display = "none";
     var wrapper = document.getElementById("wrapper");
     wrapper.style.display = "none";
-    settings_select();
+    sf_settings_select();
 }
 
 
@@ -16,7 +16,7 @@ document.getElementById("return_game").onclick = function () {
     canvas.style.display = "block";
     var wrapper = document.getElementById("wrapper");
     wrapper.style.display = "block";
-    settings_select();
+    sf_settings_select();
 }
 
 
@@ -32,7 +32,7 @@ document.getElementById("manual_move").onclick = function () {
 
 
 document.getElementById("speed_up").onclick = function () {
-    settings_select();
+    sf_settings_select();
     speedup++
 
 }
@@ -42,9 +42,55 @@ document.getElementById("speed_down").onclick = function () {
     
     if(speedup>=2){
         speedup--
-        settings_select();
+        sf_settings_select();
     }else{
-        cannot();
+        sf_cannot();
     }
 
+}
+
+document.getElementById("speed_up").onclick = function () {
+    sf_settings_select();
+    speedup++
+
+}
+
+
+document.getElementById("volume_down").onclick = function () {
+    sf_settings_select();
+    if(total_volume<=0){
+        sf_cannot();
+
+    }else{
+        total_volume=total_volume-0.1;
+        if(total_volume<=0){
+            total_volume=0;
+        }
+        if( bgm_flag==1){
+            sf_play_music();
+        }
+        sf_settings_select();
+
+    }
+}
+
+
+
+document.getElementById("volume_up").onclick = function () {
+    sf_settings_select();
+    if(total_volume>=1){
+        
+        sf_cannot();
+   
+    }else{
+        total_volume=total_volume+0.1;
+        if(total_volume>=1){
+            total_volume=1;
+        }
+        if( bgm_flag==1){
+            sf_play_music();
+        }
+        sf_settings_select();
+
+    }
 }
