@@ -122,9 +122,9 @@ function judge_draw() {
         object3_c_h = answer[3];
         object3_c_w = answer[4];
 
-    } else if (judge(src_fish_ar[1], 940, step3, 0, 180, 320) != null) {
+    } else if (judge(src_grass_ar[3], 940, step3, 0, 180, 320) != null) {
         //前回のポイントとは、必ず+640以上離れていないといけない
-        answer = judge(src_fish_ar[1], 940, step3, 0, 180, 320);
+        answer = judge(src_grass_ar[3], 940, step3, 0, 180, 320);
 
         object3 = answer[0];
         object3_h = answer[1];
@@ -431,6 +431,10 @@ function judge_draw() {
 
     }
 
+    console.log(all_step_count + "【all】");
+
+    //4000マスあたりで、Phuを上昇させる
+    //4700マスで終わる（フェードアウトさせる）;
 
     /*
 

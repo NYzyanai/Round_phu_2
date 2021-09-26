@@ -701,7 +701,7 @@ var walk_time_count = 0;
 //何回Phuの歩行関数がよばれたか
 var call_walk_count = 0;
 var auto_move=0;
-
+var end_phu_count=0;
 //歩行関数
 function phu_walk(walk_start_flag) {
 
@@ -747,8 +747,14 @@ function phu_walk(walk_start_flag) {
     character5_h = phu_height;
     character5_w = phu_width;
 
-
     character5_c_h = 105;
+    if(all_step_count>4250){
+        character5_c_h=character5_c_h-end_phu_count;
+    }else if(all_step_count>4080){
+        end_phu_count=end_phu_count+1.2;
+        character5_c_h=character5_c_h-end_phu_count;
+    }
+
     character5_1_h = 75;
     character5_1_w = 25;
 
