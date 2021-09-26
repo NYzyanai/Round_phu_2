@@ -115,7 +115,8 @@ var src_big_grass_np = [
 
 var src_climing_np = [
     'src/stage1_obj/climing0.png',
-    'src/stage1_obj/climing1.png'
+    'src/stage1_obj/climing1.png',
+    'src/stage1_obj/climing2.png'
 ]
 
 

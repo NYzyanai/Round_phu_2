@@ -327,17 +327,16 @@ function judge_draw() {
         object4_c_h = answer[3];
         object4_c_w = answer[4];
 
-    } else if (judge(src_grass_ar[2], 1950, step4, 0, 180, 320) != null) {
+    }  else if (judge(src_climing_ar[0], 2050, step4, 0, 180, 320) != null) {
 
-
-        answer = judge(src_grass_ar[2], 1950, step4, 0, 180, 320);
-        //前回のポイントとは、必ず+640以上離れていないといけない
-        object4 = answer[0];
-        object4_h = answer[1];
-        object4_w = answer[2];
-        object4_c_h = answer[3];
-        object4_c_w = answer[4];
-
+            answer = judge(src_climing_ar[0], 2050, step4, 0, 180, 320);
+            //前回のポイントとは、必ず+640以上離れていないといけない
+            object4 = answer[0];
+            object4_h = answer[1];
+            object4_w = answer[2];
+            object4_c_h = answer[3];
+            object4_c_w = answer[4];
+        
     } else {
 
         answer = [];
@@ -389,8 +388,8 @@ function judge_draw() {
 
     }
 
-    if (judge(src_climing_ar[0], 2370, step4, 0, 180, 320) != null) {
-        answer = judge(src_climing_ar[0], 2370, step4, 0, 180, 320);
+    if (judge(src_climing_ar[1], 2370, step4, 0, 180, 320) != null) {
+        answer = judge(src_climing_ar[1], 2370, step4, 0, 180, 320);
         //前回のポイントとは、必ず+640以上離れていないといけない
         object4_2 = answer[0];
         object4_2_h = answer[1];
@@ -410,9 +409,9 @@ function judge_draw() {
 
     }
 
-    if (judge(src_climing_ar[1], 2690, step4, 0, 180, 320) != null) {
+    if (judge(src_climing_ar[2], 2690, step4, 0, 180, 320) != null) {
 
-        answer = judge(src_climing_ar[1], 2690, step4, 0, 180, 320);
+        answer = judge(src_climing_ar[2], 2690, step4, 0, 180, 320);
         //前回のポイントとは、必ず+640以上離れていないといけない
         object4_3 = answer[0];
         object4_3_h = answer[1];
@@ -433,6 +432,7 @@ function judge_draw() {
     }
 
 
+    /*
 
     if (-1350 + step6 > -320 && -1350 + step6 < 640) {
 
@@ -497,15 +497,16 @@ function judge_draw() {
         object6_3_c_w = (-150 + step6) - object6_3_w / 4
 
     } else {
+    */
         object6_3 = null;
-    }
+    /*}*/
 
     var lay
     lay = 600;
 
     //////////////////////////////
 
-    origin_object6(step6);
+    //origin_object6(step6);
     //mother(step6);
 
 
