@@ -16,7 +16,7 @@ all_step_count = 0;
 var walking_flag = 0;
 
 var through_flag = 0;
-
+var times=0;
 function phu_stage_1(touchX, touchY) {
 
     //もし読み込み終わっていなければ読み込む
@@ -431,87 +431,25 @@ function judge_draw() {
 
     }
 
-    console.log(all_step_count + "【all】");
+
+
+    //console.log(all_step_count + "【all】");
 
     //4000マスあたりで、Phuを上昇させる
     //4700マスで終わる（フェードアウトさせる）;
 
-    /*
-
-    if (-1350 + step6 > -320 && -1350 + step6 < 640) {
-
-        if (ghost_count_2 + 0.2 >= 30) {
-            ghost_count_2 = 0;
-        } else {
-            ghost_count_2 = ghost_count_2 + 0.2;
-        }
-
-        ///しゃべる幽霊はこいつ
-        ghost_round_2 = Math.floor(ghost_count_2);
-
-        object6_3 = src_ghost_talking_ar[ghost_round_2];
-        object6_3_h = 100;
-        object6_3_w = 160;
-        object6_3_c_h = 90;
-        object6_3_c_w = -1350 + step6
-
-        //console.log(ghost_count);
-        //console.log(ghost_round);
+    //終わりのフィルターをここに作る。
+    if(all_step_count>4000){
+        times++
+        filter_color_burn_end(times);
+    }
 
 
-        object6_3 = src_ghost_talking_np[ghost_round_2];
-
-        object6_3_c_w = (-100 + step6);
-
-
-        //console.log("座標今ここ"　+ (-100+step6))
-        object6_3_w = 10 - (ghost_round_2 * ghost_round_2) + ghost_round_2 * 3;
-
-        if (ghost_round_2 == 17) {
-            object6_3_h = 150;
-            object6_3_w = 200;
-            object6_3_c_h = 80;
-
-
-        } else if (ghost_round_2 == 18) {
-            object6_3_h = Math.random() * 1000;
-            object6_3_c_h = 50;
-            object6_3_w = 300;
-
-        } else if (ghost_round_2 == 19) {
-            object6_3_h = Math.random() * 1000;
-            object6_3_w = 500;
-            object6_3_c_h = 30;
-
-        } else if (ghost_round_2 == 20) {
-            object6_3_h = Math.random() * 1000;
-            object6_3_w = 600;
-            object6_3_c_h = -60;
-        } else if (ghost_round_2 == 21) {
-            object6_3_h = Math.random() * 1000;
-            object6_3_w = 800;
-            object6_3_c_h = -150;
-        } else if (ghost_round_2 == 22) {
-            object6_3_h = Math.random() * 1000;
-            object6_3_w = Math.random() * 1000;
-            object6_3_c_h = Math.random() * 1000;
-        }
-
-        console.log(object6_2_h);
-        object6_3_c_w = (-150 + step6) - object6_3_w / 4
-
-    } else {
-    */
         object6_3 = null;
-    /*}*/
+
 
     var lay
     lay = 600;
-
-    //////////////////////////////
-
-    //origin_object6(step6);
-    //mother(step6);
 
 
 }

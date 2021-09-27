@@ -162,6 +162,7 @@ var object6_3_c_h
 var objetc6_3_c_w
 var buf_step = 0
 var filter_end = 0;
+var fade_out_times=0;
 
 function judge(object, point, step, c_h, height, width) {
 
@@ -450,6 +451,14 @@ function phu_imgs_draw() {
 
                 //if (filter_end=="filter_end") {
                 filter_end = filter_color_burn(all_step_count);
+                if(all_step_count>1000){
+                    times++
+                    if(all_step_count>1400){
+                        fade_out_times++
+                        fade_out_black(fade_out_times);
+                    }
+                    filter_color_burn_end(times);
+                }
                 //}
 
                 /*filter_opacity = 1 / (all_step_count / 500);
@@ -700,8 +709,8 @@ function mother(step6) {
 var walk_time_count = 0;
 //何回Phuの歩行関数がよばれたか
 var call_walk_count = 0;
-var auto_move=0;
-var end_phu_count=0;
+var auto_move = 0;
+var end_phu_count = 0;
 //歩行関数
 function phu_walk(walk_start_flag) {
 
@@ -725,9 +734,9 @@ function phu_walk(walk_start_flag) {
         //ここに来たら歩行停止になる。
         draw_phu_count = 0;
         walk_time_img_count = 0;
-        if (auto_move==1) {
-            
-        }else{
+        if (auto_move == 1) {
+
+        } else {
             walk_start_flag = 0;
         }
         call_walk_count = call_walk_count + 1;
@@ -748,11 +757,14 @@ function phu_walk(walk_start_flag) {
     character5_w = phu_width;
 
     character5_c_h = 105;
-    if(all_step_count>4250){
-        character5_c_h=character5_c_h-end_phu_count;
-    }else if(all_step_count>4080){
-        end_phu_count=end_phu_count+1.2;
-        character5_c_h=character5_c_h-end_phu_count;
+
+    //ここに来たら、上昇していく。
+    if (all_step_count > 4200) {
+        character5_c_h = character5_c_h - end_phu_count;
+        //ここに来たら、上昇していく。
+    } else if (all_step_count > 4200) {
+        end_phu_count = end_phu_count + 1.2;
+        character5_c_h = character5_c_h - end_phu_count;
     }
 
     character5_1_h = 75;
@@ -783,4 +795,48 @@ function filter_color_burn(all_step_count) {
     return "filter_continue";
 
     //console.log(all_step_count);
+}
+
+
+
+function filter_color_burn_end(times) {
+    //ゲーム終わりのフェードアウト
+    filter_opacity = times * 4 / 1000;
+    //console.log(filter_opacity);
+    if (filter_opacity >= 1) {
+        filter_opacity=1;
+        //fade_out_black(times);
+    }
+
+    ctxfilter.globalCompositeOperation = "multiply";
+    filter_detail = 'rgba(194,35,35,' + filter_opacity + ')';
+
+    ctxfilter.fillStyle = filter_detail;
+    ctx.fillRect(-10, -10, 350 / pixel_h, 200 / pixel_w);
+    ctx.globalCompositeOperation = "source-over";
+
+    return "filter_continue";
+
+    //console.log(all_step_count);
+}
+
+//fade_outはmovieの終わりだから、ここには合わない。
+
+function fade_out_black(times){
+      //ゲーム終わりのフェードアウト
+      filter_opacity = times * 4 / 500;
+      console.log(filter_opacity);
+      if (filter_opacity >= 1) {
+          filter_opacity=1;
+      }
+  
+      //ctxfilter.globalCompositeOperation = "multiply";
+      filter_detail = 'rgba(0,0,0,' + filter_opacity + ')';
+  
+      ctxfilter.fillStyle = filter_detail;
+      ctx.fillRect(-10, -10, 350 / pixel_h, 200 / pixel_w);
+      ctx.globalCompositeOperation = "source-over";
+  
+      return "filter_continue";
+
 }
